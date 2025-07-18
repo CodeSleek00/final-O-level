@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Faiz Computer Institute</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --bg: #ffffff;
+      --text: #1f2937;
+      --text-light: #6b7280;
+      --border: #e5e7eb;
+      --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      --transition: all 0.25s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background-color: #f8f9fa;
+      color: var(--text);
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.75rem 2rem;
+      background-color: var(--bg);
+      box-shadow: var(--shadow);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .logo-img {
+      height: 38px;
+      width: auto;
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .logo-text .main {
+      font-weight: 600;
+      font-size: 1.25rem;
+      color: var(--primary);
+    }
+
+    .logo-text .sub {
+      font-size: 0.7rem;
+      color: var(--text-light);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+      list-style: none;
+    }
+
+    .nav-item {
+      position: relative;
+    }
+
+    .nav-link {
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 500;
+      font-size: 0.9rem;
+      padding: 0.75rem 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: var(--transition);
+      border-radius: 4px;
+    }
+
+    .nav-link:hover {
+      color: var(--primary);
+      background: rgba(37, 99, 235, 0.05);
+    }
+
+    .dropdown {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: var(--bg);
+      box-shadow: var(--shadow);
+      border-radius: 6px;
+      display: none;
+      flex-direction: column;
+      min-width: 180px;
+      padding: 0.5rem 0;
+      border: 1px solid var(--border);
+      z-index: 1001;
+      animation: fadeIn 0.2s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-5px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .dropdown.active {
+      display: flex;
+    }
+
+    .dropdown-link {
+      padding: 0.5rem 1.25rem;
+      color: var(--text);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: var(--transition);
+    }
+
+    .dropdown-link:hover {
+      background: #f8fafc;
+      color: var(--primary);
+    }
+
+    .dropdown-link i {
+      width: 18px;
+      text-align: center;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 0.5rem;
+    }
+
+    .hamburger span {
+      width: 22px;
+      height: 2px;
+      background: var(--primary);
+      transition: var(--transition);
+    }
+
+    .hamburger.active span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    /* Mobile Styles */
+    @media (max-width: 768px) {
+      nav {
+        padding: 0.75rem 1.25rem;
+      }
+      
+      .hamburger {
+        display: flex;
+      }
+
+      .nav-links {
+        flex-direction: column;
+        background-color: var(--bg);
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 260px;
+        height: 100vh;
+        padding: 5rem 1.25rem 1.5rem;
+        transition: left 0.3s ease;
+        box-shadow: 4px 0 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .nav-links.active {
+        left: 0;
+      }
+
+      .nav-item {
+        margin: 0.25rem 0;
+      }
+
+      .nav-link {
+        padding: 0.75rem;
+      }
+
+      .dropdown {
+        position: static;
+        box-shadow: none;
+        border: none;
+        display: none;
+        margin: 0.25rem 0 0 1rem;
+        border-left: 2px solid var(--border);
+        animation: none;
+      }
+
+      .dropdown.active {
+        display: flex;
+      }
+
+      .dropdown-link {
+        padding: 0.5rem 1rem;
+      }
+
+      .nav-link::after {
+        content: '\f078';
+        font-family: 'Font Awesome 6 Free';
+        font-weight: 900;
+        font-size: 0.7rem;
+        margin-left: auto;
+        transition: transform 0.3s;
+      }
+
+      .nav-item.active .nav-link::after {
+        transform: rotate(180deg);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <div class="logo-container">
+      <img src="https://via.placeholder.com/38" alt="Logo" class="logo-img">
+      <div class="logo-text">
+        <span class="main">Faiz Computer</span>
+        <span class="sub">Institute of Technology</span>
+      </div>
+    </div>
+    
+    <ul class="nav-links" id="navLinks">
+      <li class="nav-item">
+        <a href="#" class="nav-link"><i class="fas fa-home fa-fw"></i> Home</a>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link"><i class="fas fa-question-circle fa-fw"></i> MCQ</a>
+        <div class="dropdown">
+          <a href="#" class="dropdown-link"><i class="fas fa-book fa-fw"></i> Chapter 1</a>
+          <a href="#" class="dropdown-link"><i class="fas fa-book fa-fw"></i> Chapter 2</a>
+          <a href="#" class="dropdown-link"><i class="fas fa-book fa-fw"></i> Chapter 3</a>
+          <a href="#" class="dropdown-link"><i class="fas fa-book fa-fw"></i> Chapter 4</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link"><i class="fas fa-keyboard fa-fw"></i> Shortcut Keys</a>
+        <div class="dropdown">
+          <a href="#" class="dropdown-link"><i class="fab fa-windows fa-fw"></i> Windows</a>
+          <a href="#" class="dropdown-link"><i class="fab fa-microsoft fa-fw"></i> MS Office</a>
+          <a href="#" class="dropdown-link"><i class="fas fa-code fa-fw"></i> Programming</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link"><i class="fas fa-certificate fa-fw"></i> O Level</a>
+        <div class="dropdown">
+          <a href="#" class="dropdown-link"><i class="fas fa-file-alt fa-fw"></i> M1-R5</a>
+          <a href="#" class="dropdown-link"><i class="fas fa-file-alt fa-fw"></i> M2-R5</a>
+          <a href="#" class="dropdown-link"><i class="fas fa-file-alt fa-fw"></i> M3-R5</a>
+          <a href="#" class="dropdown-link"><i class="fas fa-file-alt fa-fw"></i> M4-R5</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link"><i class="fas fa-laptop-code fa-fw"></i> Practical</a>
+        <div class="dropdown">
+          <a href="#" class="dropdown-link"><i class="fab fa-html5 fa-fw"></i> HTML/CSS</a>
+          <a href="#" class="dropdown-link"><i class="fab fa-js fa-fw"></i> JavaScript</a>
+          <a href="#" class="dropdown-link"><i class="fas fa-database fa-fw"></i> SQL</a>
+          <a href="#" class="dropdown-link"><i class="fab fa-python fa-fw"></i> Python</a>
+        </div>
+      </li>
+    </ul>
+    
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const hamburger = document.getElementById('hamburger');
+      const navLinks = document.getElementById('navLinks');
+      const navItems = document.querySelectorAll('.nav-item');
+      
+      // Mobile menu toggle
+      hamburger.addEventListener('click', function() {
+        this.classList.toggle('active');
+        navLinks.classList.toggle('active');
+      });
+      
+      // Handle both hover and click interactions
+      navItems.forEach(item => {
+        const link = item.querySelector('.nav-link');
+        const dropdown = item.querySelector('.dropdown');
+        
+        if (!dropdown) return;
+        
+        // Hover functionality for desktop
+        item.addEventListener('mouseenter', function() {
+          if (window.innerWidth > 768) {
+            closeAllDropdowns();
+            dropdown.classList.add('active');
+          }
+        });
+        
+        // Click functionality for all devices
+        link.addEventListener('click', function(e) {
+          if (window.innerWidth <= 768) {
+            e.preventDefault();
+            item.classList.toggle('active');
+            dropdown.classList.toggle('active');
+          } else {
+            // On desktop, keep dropdown open after click
+            e.preventDefault();
+            closeAllDropdowns();
+            dropdown.classList.add('active');
+          }
+        });
+      });
+      
+      // Close dropdowns when clicking outside
+      document.addEventListener('click', function(e) {
+        if (!e.target.closest('.nav-item') && !e.target.closest('.hamburger')) {
+          closeAllDropdowns();
+          
+          if (window.innerWidth <= 768 && navLinks.classList.contains('active')) {
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('active');
+          }
+        }
+      });
+      
+      function closeAllDropdowns() {
+        document.querySelectorAll('.dropdown').forEach(dropdown => {
+          dropdown.classList.remove('active');
+        });
+        document.querySelectorAll('.nav-item').forEach(item => {
+          item.classList.remove('active');
+        });
+      }
+      
+      // Handle window resize
+      window.addEventListener('resize', function() {
+        if (window.innerWidth > 768) {
+          hamburger.classList.remove('active');
+          navLinks.classList.remove('active');
+          closeAllDropdowns();
+        }
+      });
+    });
+  </script>
+</body>
+</html>
