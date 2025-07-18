@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>O Level</title>
+  <title>Faiz Computer Institute</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
@@ -99,7 +99,6 @@
       text-decoration: none;
       color: var(--text);
       font-weight: 500;
-    
       padding: 0.75rem 1rem;
       display: flex;
       align-items: center;
@@ -353,7 +352,7 @@
         <div class="dropdown">
           <a href="#" class="dropdown-link"> Windows Shortcuts</a>
           <a href="#" class="dropdown-link"> Office Shortcuts</a>
-          <a href="#" class="dropdown-link">ev Shortcuts</a>
+          <a href="#" class="dropdown-link">Dev Shortcuts</a>
           <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-link"> Productivity Tips</a>
         </div>
@@ -443,6 +442,7 @@
             if (!wasActive) {
               item.classList.add('active');
               dropdown.classList.add('active');
+              arrow.style.transform = 'rotate(180deg)';
             }
           }
         });
@@ -455,15 +455,15 @@
         }
       });
       
-      // Active link highlighting
+      // Active link highlighting - only for non-dropdown links
       const navLinksAll = document.querySelectorAll('.nav-link');
       navLinksAll.forEach(link => {
-        link.addEventListener('click', function() {
-          if (!this.querySelector('.arrow')) { // Only for non-dropdown links
+        if (!link.querySelector('.arrow')) {
+          link.addEventListener('click', function(e) {
             navLinksAll.forEach(l => l.classList.remove('active'));
             this.classList.add('active');
-          }
-        });
+          });
+        }
       });
       
       function closeAllDropdowns() {
