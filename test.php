@@ -1,1 +1,1 @@
-<?php include 'components/navbar.html'; ?>
+<?php include 'navbar.html'; ?>
