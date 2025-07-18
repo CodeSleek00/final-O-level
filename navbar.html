@@ -125,6 +125,20 @@
       text-align: center;
     }
 
+    /* Arrow icon for dropdown */
+    .nav-link .arrow {
+      margin-left: 0.5rem;
+      transition: var(--transition);
+      font-size: 0.7rem;
+      width: 14px;
+      color: var(--text-light);
+    }
+
+    .nav-item:hover .nav-link .arrow,
+    .nav-item.active .nav-link .arrow {
+      color: var(--primary);
+    }
+
     .dropdown {
       position: absolute;
       top: calc(100% + 5px);
@@ -211,7 +225,14 @@
     .hamburger.active span:nth-child(3) {
       transform: translateY(-7px) rotate(-45deg);
     }
-
+    a {
+      text-decoration: none;
+      color: orange;
+    }
+    a:hover {
+      color: black;
+      transition: 0.5s ease-in;
+    }
     /* Mobile Styles */
     @media (max-width: 992px) {
       nav {
@@ -273,16 +294,12 @@
         padding-left: 1.25rem;
       }
 
-      .nav-link::after {
-        content: '\f078';
-        font-family: 'Font Awesome 6 Free';
-        font-weight: 900;
-        font-size: 0.7rem;
-        margin-left: auto;
-        transition: transform 0.3s;
+      /* Mobile arrow animation */
+      .nav-link .arrow {
+        transition: transform 0.3s ease;
       }
 
-      .nav-item.active .nav-link::after {
+      .nav-item.active .nav-link .arrow {
         transform: rotate(180deg);
       }
     }
@@ -310,55 +327,53 @@
   <div class="backdrop" id="backdrop"></div>
   
   <nav>
-    <div class="logo-container">
-      <img src="https://via.placeholder.com/42/4361ee/ffffff?text=FC" alt="Logo" class="logo-img">
       <div class="logo-text">
-        <span class="main">Faiz Computer</span>
-        <span class="sub">Institute of Technology</span>
+        <span class="main">O Level Preparation</span>
+        <span class="sub"><a href="https://www.faizcomputerinstitute.com">By Faiz Computer Institute</span></a>
       </div>
-    </div>
+    
     
     <ul class="nav-links" id="navLinks">
       <li class="nav-item">
-        <a href="#" class="nav-link active"><i class="fas fa-home fa-fw"></i> Home</a>
+        <a href="#" class="nav-link active"> Home</a>
       </li>
       <li class="nav-item">
-        <a href="#" class="nav-link"><i class="fas fa-question-circle fa-fw"></i> MCQ</a>
+        <a href="#" class="nav-link">MCQ <i class="fas fa-chevron-down arrow"></i></a>
         <div class="dropdown">
-          <a href="#" class="dropdown-link"><i class="fas fa-book fa-fw"></i> Chapter 1: Fundamentals</a>
-          <a href="#" class="dropdown-link"><i class="fas fa-book fa-fw"></i> Chapter 2: Web Tech</a>
-          <a href="#" class="dropdown-link"><i class="fas fa-book fa-fw"></i> Chapter 3: Programming</a>
-          <a href="#" class="dropdown-link"><i class="fas fa-book fa-fw"></i> Chapter 4: Networking</a>
+          <a href="#" class="dropdown-link"> Chapter 1: Fundamentals</a>
+          <a href="#" class="dropdown-link"> Chapter 2: Web Tech</a>
+          <a href="#" class="dropdown-link"> Chapter 3: Programming</a>
+          <a href="#" class="dropdown-link"> Chapter 4: Networking</a>
           <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-link"><i class="fas fa-trophy fa-fw"></i> Practice Tests</a>
+          <a href="#" class="dropdown-link">Practice Tests</a>
         </div>
       </li>
       <li class="nav-item">
-        <a href="#" class="nav-link"><i class="fas fa-keyboard fa-fw"></i> Shortcut Keys</a>
+        <a href="#" class="nav-link"> Shortcut Keys <i class="fas fa-chevron-down arrow"></i></a>
         <div class="dropdown">
-          <a href="#" class="dropdown-link"><i class="fab fa-windows fa-fw"></i> Windows Shortcuts</a>
-          <a href="#" class="dropdown-link"><i class="fab fa-microsoft fa-fw"></i> Office Shortcuts</a>
-          <a href="#" class="dropdown-link"><i class="fas fa-code fa-fw"></i> Dev Shortcuts</a>
+          <a href="#" class="dropdown-link"> Windows Shortcuts</a>
+          <a href="#" class="dropdown-link"> Office Shortcuts</a>
+          <a href="#" class="dropdown-link">ev Shortcuts</a>
           <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-link"><i class="fas fa-lightbulb fa-fw"></i> Productivity Tips</a>
+          <a href="#" class="dropdown-link"> Productivity Tips</a>
         </div>
       </li>
       <li class="nav-item">
-        <a href="#" class="nav-link"><i class="fas fa-certificate fa-fw"></i> O Level</a>
+        <a href="#" class="nav-link">O Level <i class="fas fa-chevron-down arrow"></i></a>
         <div class="dropdown">
-          <a href="#" class="dropdown-link"><i class="fas fa-file-alt fa-fw"></i> M1-R5: IT Tools</a>
-          <a href="#" class="dropdown-link"><i class="fas fa-file-alt fa-fw"></i> M2-R5: Web Design</a>
-          <a href="#" class="dropdown-link"><i class="fas fa-file-alt fa-fw"></i> M3-R5: Programming</a>
-          <a href="#" class="dropdown-link"><i class="fas fa-file-alt fa-fw"></i> M4-R5: Networking</a>
+          <a href="#" class="dropdown-link"> M1-R5: IT Tools</a>
+          <a href="#" class="dropdown-link">M2-R5: Web Design</a>
+          <a href="#" class="dropdown-link"> M3-R5: Programming</a>
+          <a href="#" class="dropdown-link"> M4-R5: Networking</a>
         </div>
       </li>
       <li class="nav-item">
-        <a href="#" class="nav-link"><i class="fas fa-laptop-code fa-fw"></i> Practical</a>
+        <a href="#" class="nav-link"> Practical <i class="fas fa-chevron-down arrow"></i></a>
         <div class="dropdown">
-          <a href="#" class="dropdown-link"><i class="fab fa-html5 fa-fw"></i> HTML/CSS Projects</a>
-          <a href="#" class="dropdown-link"><i class="fab fa-js fa-fw"></i> JavaScript Labs</a>
-          <a href="#" class="dropdown-link"><i class="fas fa-database fa-fw"></i> SQL Exercises</a>
-          <a href="#" class="dropdown-link"><i class="fab fa-python fa-fw"></i> Python Programs</a>
+          <a href="#" class="dropdown-link"> HTML/CSS Projects</a>
+          <a href="#" class="dropdown-link"> JavaScript Labs</a>
+          <a href="#" class="dropdown-link"> SQL Exercises</a>
+          <a href="#" class="dropdown-link"> Python Programs</a>
         </div>
       </li>
     </ul>
@@ -391,12 +406,14 @@
         navLinks.classList.remove('active');
         this.classList.remove('active');
         document.body.style.overflow = '';
+        closeAllDropdowns();
       });
       
       // Handle dropdown interactions
       navItems.forEach(item => {
         const link = item.querySelector('.nav-link');
         const dropdown = item.querySelector('.dropdown');
+        const arrow = item.querySelector('.arrow');
         
         if (!dropdown) return;
         
@@ -405,12 +422,14 @@
           if (window.innerWidth > 992) {
             closeAllDropdowns();
             dropdown.classList.add('active');
+            arrow.style.transform = 'rotate(180deg)';
           }
         });
         
         item.addEventListener('mouseleave', function() {
           if (window.innerWidth > 992) {
             dropdown.classList.remove('active');
+            arrow.style.transform = 'rotate(0deg)';
           }
         });
         
@@ -418,8 +437,13 @@
         link.addEventListener('click', function(e) {
           if (window.innerWidth <= 992) {
             e.preventDefault();
-            item.classList.toggle('active');
-            dropdown.classList.toggle('active');
+            const wasActive = item.classList.contains('active');
+            closeAllDropdowns();
+            
+            if (!wasActive) {
+              item.classList.add('active');
+              dropdown.classList.add('active');
+            }
           }
         });
       });
@@ -435,8 +459,10 @@
       const navLinksAll = document.querySelectorAll('.nav-link');
       navLinksAll.forEach(link => {
         link.addEventListener('click', function() {
-          navLinksAll.forEach(l => l.classList.remove('active'));
-          this.classList.add('active');
+          if (!this.querySelector('.arrow')) { // Only for non-dropdown links
+            navLinksAll.forEach(l => l.classList.remove('active'));
+            this.classList.add('active');
+          }
         });
       });
       
@@ -446,6 +472,9 @@
         });
         document.querySelectorAll('.nav-item').forEach(item => {
           item.classList.remove('active');
+        });
+        document.querySelectorAll('.arrow').forEach(arrow => {
+          arrow.style.transform = 'rotate(0deg)';
         });
       }
       
