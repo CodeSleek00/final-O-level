@@ -205,7 +205,7 @@
             .hero {
                 flex-direction: column;
                 text-align: center;
-                gap: 2rem;
+                
             }
             
             .hero-content {
