@@ -40,6 +40,7 @@
       justify-content: space-between;
       align-items: center;
       padding: 0.75rem 2rem;
+
       background-color: var(--bg);
       box-shadow: var(--shadow);
       position: sticky;
@@ -166,6 +167,7 @@
 
     .dropdown-link {
       padding: 0.65rem 1.5rem;
+      width: max-content;
       color: var(--text);
       text-decoration: none;
       display: flex;
@@ -179,12 +181,13 @@
       background: var(--primary-light);
       color: var(--primary);
       padding-left: 1.75rem;
+      width: 100%;
     }
 
     .dropdown-link i {
       color: var(--primary);
       font-size: 0.8rem;
-      width: 18px;
+      width: 100%;
     }
 
     .dropdown-divider {
@@ -248,7 +251,7 @@
         position: fixed;
         top: 0;
         left: -100%;
-        width: 280px;
+        width: 70%;
         height: 100vh;
         padding: 5rem 1.5rem 2rem;
         transition: left 0.3s ease;
@@ -335,45 +338,47 @@
     <ul class="nav-links" id="navLinks">
       <li class="nav-item">
         <a href="#" class="nav-link active"> Home</a>
+
       </li>
       <li class="nav-item">
         <a href="#" class="nav-link">MCQ <i class="fas fa-chevron-down arrow"></i></a>
         <div class="dropdown">
-          <a href="#" class="dropdown-link"> Chapter 1: Fundamentals</a>
-          <a href="#" class="dropdown-link"> Chapter 2: Web Tech</a>
-          <a href="#" class="dropdown-link"> Chapter 3: Programming</a>
-          <a href="#" class="dropdown-link"> Chapter 4: Networking</a>
+          <a href="#" class="dropdown-link">O Level</a>
+          <a href="#" class="dropdown-link">CCC</a>
           <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-link">Practice Tests</a>
+          <a href="#" class="dropdown-link">Mock Tests</a>
         </div>
       </li>
       <li class="nav-item">
         <a href="#" class="nav-link"> Shortcut Keys <i class="fas fa-chevron-down arrow"></i></a>
         <div class="dropdown">
-          <a href="#" class="dropdown-link"> Windows Shortcuts</a>
-          <a href="#" class="dropdown-link"> Office Shortcuts</a>
-          <a href="#" class="dropdown-link">Dev Shortcuts</a>
+          <a href="#" class="dropdown-link"> LibreOffice Writer</a>
+          <a href="#" class="dropdown-link"> LibreOffice Calc</a>
+          <a href="#" class="dropdown-link">LibreOffice Impress</a>
           <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-link"> Productivity Tips</a>
+          <a href="#" class="dropdown-link"> All Shortcut Keys</a>
         </div>
       </li>
       <li class="nav-item">
         <a href="#" class="nav-link">O Level <i class="fas fa-chevron-down arrow"></i></a>
         <div class="dropdown">
           <a href="#" class="dropdown-link"> M1-R5: IT Tools</a>
-          <a href="#" class="dropdown-link">M2-R5: Web Design</a>
-          <a href="#" class="dropdown-link"> M3-R5: Programming</a>
-          <a href="#" class="dropdown-link"> M4-R5: Networking</a>
+          <a href="#" class="dropdown-link">M2-R5 : Web Design & Publishing</a>
+          <a href="#" class="dropdown-link"> M3-R5 : Python Programming</a>
+          <a href="#" class="dropdown-link"> M4-R5 : IOT (Internet Of Things)</a>
         </div>
       </li>
       <li class="nav-item">
-        <a href="#" class="nav-link"> Practical <i class="fas fa-chevron-down arrow"></i></a>
+        <a href="#" class="nav-link"> Practical Portal <i class="fas fa-chevron-down arrow"></i></a>
         <div class="dropdown">
-          <a href="#" class="dropdown-link"> HTML/CSS Projects</a>
-          <a href="#" class="dropdown-link"> JavaScript Labs</a>
-          <a href="#" class="dropdown-link"> SQL Exercises</a>
-          <a href="#" class="dropdown-link"> Python Programs</a>
+          <a href="#" class="dropdown-link"> M1-R5 : IT Tools </a>
+          <a href="#" class="dropdown-link"> M2-R5 : Web Design & Publishing</a>
+          <a href="#" class="dropdown-link"> M3-R5 : Python Programming</a>
+          <a href="#" class="dropdown-link"> M4-R5 : IOT (Internet Of Things)</a>
         </div>
+      </li>
+       <li class="nav-item">
+        <a href="#" class="nav-link"> Syllabus</a>
       </li>
     </ul>
     
