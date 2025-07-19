@@ -9,7 +9,7 @@
     <link rel="icon" href="o level.ico">
 
     <!-- Apple Touch Icon should ideally be PNG (not .ico) -->
-    <link rel="apple-touch-icon" href="o level.png">
+    <link rel="apple-touch-icon" href="olevel.png">
 
     <title>O level Practice</title>
 </head>
