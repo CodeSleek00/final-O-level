@@ -10,57 +10,88 @@
             --hover-color: #2980b9; /* Darker blue for hover */
         }
 
+/* Hero Section */
+.hero-section {
+    background-color: #f8f9fa;
+    padding: 60px 0;
+    font-family: 'Arial', sans-serif;
+}
 
-        .hero-section {
-            box-shadow: 10px 10px 25px rgb(210, 209, 209);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding-left: 50px;
-            margin: 10px;
-            background-color: #ffffff;
-            border-radius: 20px;
-        }
+.hero-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    padding: 0 20px;
+}
 
-        .hero-content {
-            max-width: 50%;
-        }
+/* Hero Content */
+.hero-content {
+    flex: 1;
+}
 
-        .hero-content h1 {
-        
-            font-weight: bold;
-            margin-bottom: 0px;
-            padding: 0%;
-        }
+.hero-content h1 {
+    color: #2c3e50;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    line-height: 1.3;
+}
 
-        .hero-content p {
-            font-size: 1.2em;
-            line-height: 1.5;
-        }
+.hero-content p {
+    color: #7f8c8d;
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
 
-        .hero-image img {
-            margin: 0%;
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-        }
+/* Hero Button */
+.hero-btn {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: bold;
+}
 
-        .btn {
-            background-color: #539ae6e3;
-            padding: 10px;
-            border: none;
-            border-radius: 10px;
-            font-family: 'Poppins', sans-serif;
-        }
-        .btn a {
-          text-decoration: none;
-          text-emphasis: none;
-        }
+.hero-btn a {
+    text-decoration: none;
+    color: white;
+}
 
-        .btn:hover {
-            background-color: #036fe2;
+.hero-btn:hover {
+    background-color: #2980b9;
+}
 
-            box-shadow: 2px 2px 7px rgb(156, 149, 149);
-            transition: 0.3s ease-in-out;
-        }
+/* Hero Image */
+.hero-image {
+    flex: 1;
+    text-align: center;
+}
 
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-content p {
+        font-size: 1rem;
+    }
+}
