@@ -10,14 +10,6 @@
             --hover-color: #2980b9; /* Darker blue for hover */
         }
 
-        body {
-
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: var(--primary-color);
-            color: var(--text-color);
-        }
 
         .hero-section {
             box-shadow: 10px 10px 25px rgb(210, 209, 209);
