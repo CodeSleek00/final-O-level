@@ -9,6 +9,15 @@
     <title>O level Practice</title>
 </head>
 <body>
-    <h1>faiz</h1>
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>Prepare For Your Exams </h1>
+            <p>Comprehensive practice for O Level, CCC, CCC+, and more. Perfect your knowledge and ace your certifications with interactive exercises and mock tests.</p>
+            <button class="btn"><a  href="Nielet.html" style="text-decoration: none;color: black;">Get Started</a></button>
+        </div>
+        <div class="hero-image">
+            <img src="1.jpg" alt="Classroom with students preparing for O Level exams">
+        </div>
+    </section>
 </body>
 </html>
