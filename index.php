@@ -1,4 +1,3 @@
-<?php include 'navbar.html'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +7,8 @@
     <title>O level Practice</title>
 </head>
 <body>
+    <?php include 'navbar.html'; ?>
+    
     <div class="container">
         <section class="hero">
             <div class="hero-content">
@@ -32,7 +33,6 @@
             </div>
             
             <div class="hero-image">
-                <!-- Replace with your actual image path -->
                 <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Student studying with laptop">
             </div>
         </section>
