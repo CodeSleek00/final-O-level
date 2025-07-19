@@ -4,9 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="images/ico" href="olevel.ico">
-    <link rel="apple-touch-icon" href="olevel.ico">
-    <title>O level Practice </title>
+
+    <!-- Favicon for browsers -->
+    <link rel="icon" type="image/x-icon" href="olevel.ico">
+
+    <!-- Apple Touch Icon should ideally be PNG (not .ico) -->
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+    <title>O level Practice</title>
 </head>
 <body>
     <h1>faiz</h1>
