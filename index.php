@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Favicon for browsers -->
-    <link rel="icon" href="olevel.ico">
+    <link rel="icon" href="o level.ico">
 
     <!-- Apple Touch Icon should ideally be PNG (not .ico) -->
-    <link rel="apple-touch-icon" href="olevel.png">
+    <link rel="apple-touch-icon" href="o level.png">
 
     <title>O level Practice</title>
 </head>
