@@ -20,7 +20,6 @@
             margin: 10px;
             background-color: #ffffff;
             border-radius: 20px;
-            height: 700px;
         }
 
         .hero-content {
@@ -28,7 +27,7 @@
         }
 
         .hero-content h1 {
-            font-size: 3em;
+        
             font-weight: bold;
             margin-bottom: 0px;
             padding: 0%;
