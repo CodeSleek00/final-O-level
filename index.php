@@ -3,37 +3,39 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/ico" href="images/o level.ico">
-    <link rel="apple-touch-icon" href="images/olevel.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>O level Practice</title>
 </head>
 <body>
-  <section class="exam-hero">
-    <div class="exam-hero-container">
-        <div class="exam-hero-content">
-            <h1 class="exam-hero-title">Excel in Your Certification Exams</h1>
-            <p class="exam-hero-description">Master O Level, CCC, CCC+, and other certifications through structured learning paths, adaptive practice tests, and performance analytics.</p>
-            <div class="exam-hero-cta">
-                <a href="Nielet.html" class="exam-hero-button">Start Learning Now</a>
-                <span class="exam-hero-trust">Trusted by 10,000+ students</span>
-            </div>
-        </div>
-        <div class="exam-hero-visual">
-            <img src="1.jpg" alt="Students acing their exams" class="exam-hero-image">
-            <div class="exam-hero-highlights">
-                <div class="highlight-item">
-                    <span class="highlight-number">95%</span>
-                    <span class="highlight-text">Pass Rate</span>
+    <div class="container">
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Prepare For O Level & CCC</h1>
+                <p>Comprehensive practice for O Level, CCC, CCC+, and more. Perfect your knowledge and ace your certifications with interactive exercises and mock tests.</p>
+                <a href="#signup" class="cta-button">Start Learning Today</a>
+                
+                <div class="stats">
+                    <div class="stat-item">
+                        <span class="stat-number">10,000+</span>
+                        <span class="stat-label">Practice Questions</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">95%</span>
+                        <span class="stat-label">Success Rate</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">24/7</span>
+                        <span class="stat-label">Access</span>
+                    </div>
                 </div>
-                <div class="highlight-item">
-                    <span class="highlight-number">500+</span>
-                    <span class="highlight-text">Practice Questions</span>
-                </div>
             </div>
-        </div>
+            
+            <div class="hero-image">
+                <!-- Replace with your actual image path -->
+                <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Student studying with laptop">
+            </div>
+        </section>
     </div>
-</section>
 </body>
 </html>
