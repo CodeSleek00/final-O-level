@@ -10,17 +10,28 @@
     <title>O level Practice</title>
 </head>
 <body>
-   <section class="hero-section">
-    <div class="hero-container">
-        <div class="hero-content">
-            <h1>Prepare For Your Exams</h1>
-            <p>Comprehensive practice for O Level, CCC, CCC+, and more. Perfect your knowledge and ace your certifications with interactive exercises and mock tests.</p>
-            <button class="hero-btn">
-                <a href="Nielet.html">Get Started</a>
-            </button>
+  <section class="exam-hero">
+    <div class="exam-hero-container">
+        <div class="exam-hero-content">
+            <h1 class="exam-hero-title">Excel in Your Certification Exams</h1>
+            <p class="exam-hero-description">Master O Level, CCC, CCC+, and other certifications through structured learning paths, adaptive practice tests, and performance analytics.</p>
+            <div class="exam-hero-cta">
+                <a href="Nielet.html" class="exam-hero-button">Start Learning Now</a>
+                <span class="exam-hero-trust">Trusted by 10,000+ students</span>
+            </div>
         </div>
-        <div class="hero-image">
-            <img src="1.jpg" alt="Classroom with students preparing for O Level exams">
+        <div class="exam-hero-visual">
+            <img src="1.jpg" alt="Students acing their exams" class="exam-hero-image">
+            <div class="exam-hero-highlights">
+                <div class="highlight-item">
+                    <span class="highlight-number">95%</span>
+                    <span class="highlight-text">Pass Rate</span>
+                </div>
+                <div class="highlight-item">
+                    <span class="highlight-number">500+</span>
+                    <span class="highlight-text">Practice Questions</span>
+                </div>
+            </div>
         </div>
     </div>
 </section>
