@@ -1,230 +1,101 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EduPractice - Learn by Doing</title>
-        <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
+<style>
+    .join-us-section {
+        background: linear-gradient(135deg, #0400ff 0%, #2a27d9 100%);
+        padding: 4vh 2vh;
+        text-align: center;
+        color: white;
+        font-family: 'Segoe UI', Roboto, sans-serif;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .join-us-section::before {
+        content: '';
+        position: absolute;
+        top: -50px;
+        right: -50px;
+        width: 200px;
+        height: 200px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+    }
+    
+    .join-us-section::after {
+        content: '';
+        position: absolute;
+        bottom: -80px;
+        left: -80px;
+        width: 300px;
+        height: 300px;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 50%;
+    }
+    
+    .join-us-content {
+       
+        position: relative;
+        z-index: 1;
+    }
+    
+    .join-us-section h1 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+        font-weight: 700;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .join-us-section p {
+        font-size: 1.2rem;
+        line-height: 1.6;
+        margin: 0 auto 30px;
+        opacity: 0.9;
+    }
+    
+    .join-btn {
+        display: block;
+        background-color: #ffb700;
+        color: #222;
+        padding: 15px 35px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(255, 183, 0, 0.3);
+        border: 2px solid transparent;
+    }
+    
+    .join-btn:hover {
+        background-color: #ffcc00;
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(255, 183, 0, 0.4);
+    }
+    
+    .join-btn:active {
+        transform: translateY(1px);
+    }
+    
+    @media (max-width: 768px) {
+        .join-us-section h1 {
+            font-size: 2rem;
         }
         
-        body {
-            background-color: #f8fafc;
-            color: #2d3748;
-            padding: 20px;
-        }
-        
-        .container {
-           
-            margin: 0 auto;
-            padding: 3rem 2rem;
-            border: 1px solid #e2e8f0;
-            border-radius: 16px;
-            background-color: #ffffff;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-        }
-
-        .hero {
-            display: flex;
-            align-items: center;
-            gap: 4rem;
-        }
-        
-        .hero-content {
-            flex: 1;
-            padding-right: 1rem;
-        }
-        
-        .hero-image {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .hero-image img {
-            width: 100%;
-            max-width: 500px;
-            height: auto;
-            border-radius: 12px;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-            object-fit: cover;
-        }
-        
-        .hero h1 {
-            font-size: 2.8rem;
-            font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
-            color: #1a365d;
-        }
-        
-        .hero p {
-            font-size: 1.1rem;
-            color: #4a5568;
-            margin-bottom: 2.5rem;
-            max-width: 500px;
-            line-height: 1.7;
-        }
-        
-        .cta-button {
-            display: inline-block;
-            background-color: #3182ce;
-            color: white;
-            padding: 1rem 2.5rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
+        .join-us-section p {
             font-size: 1rem;
-            box-shadow: 0 4px 6px rgba(49, 130, 206, 0.2);
-            margin-bottom: 1rem;
+            margin: 0  20px;
         }
         
-        .cta-button:hover {
-            background-color: #2c5282;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 8px rgba(49, 130, 206, 0.3);
+        .join-btn {
+            padding: 12px 25px;
+            font-size: 1rem;
         }
-        
-        .stats {
-            display: flex;
-            gap: 3rem;
-            margin-top: 2rem;
-            flex-wrap: wrap;
-        }
-        
-        .stat-item {
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .stat-number {
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: #3182ce;
-            line-height: 1;
-        }
-        
-        .stat-label {
-            font-size: 0.95rem;
-            color: #718096;
-            margin-top: 0.5rem;
-        }
-        
-        @media (max-width: 1024px) {
-            .hero {
-                gap: 2rem;
-            }
-            
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .container {
-                padding: 2rem 1.5rem;
-                border-radius: 12px;
-            }
-            
-            .hero {
-                flex-direction: column;
-                text-align: center;
-                gap: 2rem;
-            }
-            
-            .hero-content {
-                padding-right: 0;
-            }
-            
-            .hero p {
-                margin-left: auto;
-                margin-right: auto;
-            }
-            
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-            
-            .stats {
-                justify-content: center;
-                gap: 2rem;
-            }
-            
-            .hero-image img {
-                max-width: 100%;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .container {
-                padding: 1.5rem 1rem;
-                border: none;
-                box-shadow: none;
-                background-color: transparent;
-            }
-            
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .hero p {
-                font-size: 1rem;
-            }
-            
-            .stats {
-                display: none;
-            }
-            
-            .hero-image img {
-                display: none;
-            }
-            
-            .cta-button {
-                width: 100%;
-                text-align: center;
-            }
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <section class="hero">
-            <div class="hero-content">
-                <h1>Prepare For O Level & CCC</h1>
-                <p>Comprehensive practice for O Level, CCC, CCC+, and more. Perfect your knowledge and ace your certifications with interactive exercises and mock tests.</p>
-                <a href="#signup" class="cta-button">Start Learning Today</a>
-                
-                <div class="stats">
-                    <div class="stat-item">
-                        <span class="stat-number">10,000+</span>
-                        <span class="stat-label">Practice Questions</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">95%</span>
-                        <span class="stat-label">Success Rate</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">24/7</span>
-                        <span class="stat-label">Access</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="hero-image">
-                <!-- Replace with your actual image path -->
-                <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Student studying with laptop">
-            </div>
-        </section>
+    }
+</style>
+
+<section class="join-us-section">
+    <div class="join-us-content">
+        <h1>Join Faiz Computer Institute Today!</h1>
+        <p>Unlock a world of opportunities with expert-led courses, interactive learning, and a supportive community. At Faiz Computer Institute, we empower students to reach their full potential and achieve their career goals. Start your learning journey now!</p>
+        <a href="https://faizcomputerinstitute.com" target="_blank" class="join-btn">Join Now</a>
     </div>
-</body>
-</html>
+</section>
