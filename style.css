@@ -227,7 +227,7 @@
             }
             
             .hero-image img {
-                max-width: 100%;
+               display: none;
             }
             /*Ends here hero section and join faiz cimouter starts here */
               .join-us-section h1 {
