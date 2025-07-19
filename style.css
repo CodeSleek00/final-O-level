@@ -198,7 +198,7 @@
         
         @media (max-width: 768px) {
             .container {
-                padding: 2rem 1rem;
+                padding: auto;
                 border-radius: 12px;
             }
             
