@@ -10,7 +10,7 @@
       /* Hero Section Design Start From here*/
         .container {
             margin: 20px;
-            padding: 2rem;
+            padding: 3rem 2rem;
             border: 1px solid #e2e8f0;
             border-radius: 16px;
             background-color: #ffffff;
@@ -238,7 +238,7 @@
         
         .join-us-section p {
             font-size: 1rem;
-            margin: 0  20px;
+            margin: 20px 20px;
         }
         
         .join-btn {
