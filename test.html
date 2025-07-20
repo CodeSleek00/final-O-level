@@ -21,12 +21,12 @@
       padding: 60px 20px;
     }
 
-    section {
+    .services-main {
       max-width: 1200px;
       margin: 0 auto;
     }
 
-    h2 {
+    .services-main h2 {
       text-align: center;
       font-size: 2.5rem;
       font-weight: 700;
@@ -38,7 +38,7 @@
       transform: translateX(-50%);
     }
 
-    h2::after {
+    .services-main h2::after {
       content: '';
       position: absolute;
       bottom: -10px;
@@ -58,13 +58,6 @@
       line-height: 1.6;
     }
 
-    mark {
-      background-color: #dbeafe;
-      color: #1e40af;
-      font-weight: 600;
-      padding: 2px 6px;
-      border-radius: 4px;
-    }
 
     .grid {
       display: grid;
@@ -156,7 +149,7 @@
    
 
     @media (max-width: 768px) {
-      h2 {
+     .services-main h2  h2 {
         font-size: 2rem;
       }
       
@@ -175,7 +168,7 @@
         padding: 40px 15px;
       }
       
-      h2 {
+     .services-main h2  h2 {
         font-size: 1.8rem;
       }
       
@@ -196,12 +189,10 @@
   </style>
 </head>
 <body>
-  <section>
-    <h2>Our Expert Services</h2>
+  <section class="services-main">
+    <h2 >Our Expert Services</h2>
     <p class="intro">
-      We deliver premium solutions crafted for your specific requirements, guaranteeing exceptional outcomes. Benefit from dependable assistance,
-      <mark>streamlined</mark>
-      workflows, and customized care to accomplish your objectives effortlessly.
+      We deliver premium solutions crafted for your specific requirements, guaranteeing exceptional outcomes. Benefit from dependable assistance, streamlined workflows, and customized care to accomplish your objectives effortlessly.
     </p>
 
     <div class="grid">

@@ -235,6 +235,171 @@
     .boxes a:hover {
       background-color: #2980b9;
     }
+    .services-main {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .services-main h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #1e40af;
+      margin-bottom: 15px;
+      position: relative;
+      display: inline-block;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .services-main h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, #3b82f6, #1e40af);
+      border-radius: 2px;
+    }
+
+    p.intro {
+      text-align: center;
+      font-size: 1.1rem;
+      color: #4b5563;
+      max-width: 700px;
+      margin: 0 auto 50px;
+      line-height: 1.6;
+    }
+
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .card {
+      background-color: #fff;
+      text-align: center;
+      padding: 40px 25px 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid #e5e7eb;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(90deg, #3b82f6, #1e40af);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .card img {
+      height: 60px;
+      width: 60px;
+      margin-bottom: 20px;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover img {
+      transform: scale(1.1);
+    }
+
+    .card h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 15px;
+      position: relative;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: #4b5563;
+      line-height: 1.6;
+      margin: 0 auto 20px;
+      max-width: 280px;
+    }
+
+    .card .btn {
+      display: inline-block;
+      padding: 8px 20px;
+      background-color: #eff6ff;
+      color: #1e40af;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      border: 1px solid #dbeafe;
+    }
+
+    .card:hover .btn {
+      background-color: #1e40af;
+      color: white;
+    }
+
+   
+
+   
+
+    @media (max-width: 768px) {
+     .services-main h2  h2 {
+        font-size: 2rem;
+      }
+      
+      p.intro {
+        font-size: 1rem;
+      }
+      
+      .grid {
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 20px;
+      }
+    }
+
+    @media (max-width: 500px) {
+      body {
+        padding: 40px 15px;
+      }
+      
+     .services-main h2  h2 {
+        font-size: 1.8rem;
+      }
+      
+      .card {
+        padding: 30px 20px;
+      }
+      
+      .card .icon-container {
+        width: 70px;
+        height: 70px;
+      }
+      
+      .card img {
+        height: 50px;
+        width: 50px;
+      }
+    }
     
         /*Join Faiz Computer institute Section ends Here */
         @media (max-width: 1024px) {
