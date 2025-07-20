@@ -239,6 +239,7 @@
         .join-us-section p {
             font-size: 1rem;
             margin: 20px 20px;
+            text-align: justify;
         }
         
         .join-btn {
