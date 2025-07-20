@@ -1,101 +1,295 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Practice Portal</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Our Expert Services</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-      font-family: "Poppins", sans-serif;
     }
 
     body {
-      background-color: #eef2f7;
-     
+      font-family: 'Inter', sans-serif;
+      background-color: #f8fafc;
+      color: #1f2937;
+      padding: 60px 20px;
     }
 
-    .practice {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 40px;
-      padding: 20px 40px;
+    section {
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
-    .boxes {
-      background-color: #ffffff;
-      width: 300px;
-      padding: 25px 20px;
-      border-radius: 15px;
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    h2 {
       text-align: center;
-    }
-
-    .boxes:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
-    }
-
-    .boxes h2 {
-      font-size: 1.4rem;
-      color: #2c3e50;
-      margin-bottom: 12px;
-    }
-
-    .boxes p {
-      font-size: 0.95rem;
-      color: #555;
-      margin-bottom: 20px;
-      line-height: 1.4;
-    }
-
-    .boxes a {
-      text-decoration: none;
-      color: #fff;
-      background-color:#e78702;
-      padding: 10px 20px;
-      border-radius: 8px;
-      transition: background-color 0.3s ease;
-      font-weight: 500;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #1e40af;
+      margin-bottom: 15px;
+      position: relative;
       display: inline-block;
+      left: 50%;
+      transform: translateX(-50%);
     }
 
-    .boxes a:hover {
-      background-color: #2980b9;
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, #3b82f6, #1e40af);
+      border-radius: 2px;
+    }
+
+    p.intro {
+      text-align: center;
+      font-size: 1.1rem;
+      color: #4b5563;
+      max-width: 700px;
+      margin: 0 auto 50px;
+      line-height: 1.6;
+    }
+
+    mark {
+      background-color: #dbeafe;
+      color: #1e40af;
+      font-weight: 600;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .card {
+      background-color: #fff;
+      text-align: center;
+      padding: 40px 25px 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid #e5e7eb;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(90deg, #3b82f6, #1e40af);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .card img {
+      height: 60px;
+      width: 60px;
+      margin-bottom: 20px;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover img {
+      transform: scale(1.1);
+    }
+
+    .card h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 15px;
+      position: relative;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: #4b5563;
+      line-height: 1.6;
+      margin: 0 auto 20px;
+      max-width: 280px;
+    }
+
+    .card .btn {
+      display: inline-block;
+      padding: 8px 20px;
+      background-color: #eff6ff;
+      color: #1e40af;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      border: 1px solid #dbeafe;
+    }
+
+    .card:hover .btn {
+      background-color: #1e40af;
+      color: white;
+    }
+
+   
+
+   
+
+    @media (max-width: 768px) {
+      h2 {
+        font-size: 2rem;
+      }
+      
+      p.intro {
+        font-size: 1rem;
+      }
+      
+      .grid {
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 20px;
+      }
+    }
+
+    @media (max-width: 500px) {
+      body {
+        padding: 40px 15px;
+      }
+      
+      h2 {
+        font-size: 1.8rem;
+      }
+      
+      .card {
+        padding: 30px 20px;
+      }
+      
+      .card .icon-container {
+        width: 70px;
+        height: 70px;
+      }
+      
+      .card img {
+        height: 50px;
+        width: 50px;
+      }
     }
   </style>
 </head>
 <body>
+  <section>
+    <h2>Our Expert Services</h2>
+    <p class="intro">
+      We deliver premium solutions crafted for your specific requirements, guaranteeing exceptional outcomes. Benefit from dependable assistance,
+      <mark>streamlined</mark>
+      workflows, and customized care to accomplish your objectives effortlessly.
+    </p>
 
-  <div class="practice">
-    <div class="boxes">
-      <h2>O Level Practice</h2>
-      <p>Comprehensive questions designed to help you ace your O Level exams.</p>
-      <a href="#">Start</a>
+    <div class="grid">
+      <div class="card">
+        <div class="icon-container">
+         <img width="100" height="100" src="https://img.icons8.com/clouds/100/workstation.png" alt="workstation"/>
+        </div>
+        <h3>SHORTCUT KEYS</h3>
+        <p>Master keyboard shortcuts to work faster and more efficiently across all applications, reducing reliance on mouse navigation.</p>
+        <a href="#" class="btn">Learn More</a>
+      </div>
+
+      <div class="card">
+        <div class="icon-container">
+          <img width="100" height="100" src="https://img.icons8.com/clouds/100/ok.png" alt="ok"/>
+        </div>
+        <h3>MS-OFFICE</h3>
+        <p>Comprehensive training in Word, Excel, PowerPoint and more to maximize your productivity with Microsoft's powerful suite.</p>
+        <a href="#" class="btn">Learn More</a>
+      </div>
+
+      <div class="card">
+        <div class="icon-container">
+         <img width="100" height="100" src="https://img.icons8.com/clouds/100/test-passed.png" alt="test-passed"/>
+        </div>
+        <h3>PROGRAMMING</h3>
+        <p>From Python to JavaScript, master coding languages through hands-on projects and real-world applications.</p>
+        <a href="#" class="btn">Learn More</a>
+      </div>
+
+      <div class="card">
+        <div class="icon-container">
+         <img width="150" height="150" src="https://img.icons8.com/clouds/150/imac-idea.png" alt="imac-idea"/>
+        </div>
+        <h3>EXAMS & PRACTICALS</h3>
+        <p>Interactive assessments with instant feedback to evaluate your knowledge and track your learning progress.</p>
+        <a href="#" class="btn">Learn More</a>
+      </div>
+
+      <div class="card">
+        <div class="icon-container">
+          <img width="100" height="100" src="https://img.icons8.com/clouds/100/repository.png" alt="repository"/>
+        </div>
+        <h3>TALLY SOLUTIONS</h3>
+        <p>Complete financial management training including accounting, inventory, payroll and GST using Tally software.</p>
+        <a href="#" class="btn">Learn More</a>
+      </div>
+
+      <div class="card">
+        <div class="icon-container">
+         <img width="100" height="100" src="https://img.icons8.com/clouds/100/macbook-idea.png" alt="macbook-idea"/>
+        </div>
+        <h3>STUDY MATERIALS</h3>
+        <p>Curated resources and concise notes designed for effective learning and quick revision of key concepts.</p>
+        <a href="#" class="btn">Learn More</a>
+      </div>
     </div>
+  </section>
 
-    <div class="boxes">
-      <h2>CCC Practice</h2>
-      <p>Comprehensive questions designed to help you ace your CCC exams.</p>
-      <a href="#">Start</a>
-    </div>
+  <script>
+    // Add simple animation when cards come into view
+    const cards = document.querySelectorAll('.card');
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
 
-    <div class="boxes">
-      <h2>Chapter-wise MCQs</h2>
-      <p>Practice MCQs for each chapter to strengthen your concepts.</p>
-      <a href="#">Start</a>
-    </div>
+    cards.forEach((card, index) => {
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(20px)';
+      card.style.transition = `all 0.5s ease ${index * 0.1}s`;
+      observer.observe(card);
+    });
 
-    <div class="boxes">
-      <h2>Practical Portal</h2>
-      <p>Master practical skills with our step-by-step guides.</p>
-      <a href="#">Start</a>
-    </div>
-  </div>
-
+    // Add click effect to cards
+    cards.forEach(card => {
+      card.addEventListener('click', function() {
+        this.style.transform = 'scale(0.98)';
+        setTimeout(() => {
+          this.style.transform = 'translateY(-8px)';
+        }, 150);
+      });
+    });
+  </script>
 </body>
 </html>

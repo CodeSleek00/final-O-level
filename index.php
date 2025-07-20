@@ -70,6 +70,99 @@
       <a href="#">Start</a>
     </div>
   </div>
+  <section>
+    <h2>Our Expert Services</h2>
+    <p class="intro">
+      We deliver premium solutions crafted for your specific requirements, guaranteeing exceptional outcomes. Benefit from dependable assistance,
+      <mark>streamlined</mark>
+      workflows, and customized care to accomplish your objectives effortlessly.
+    </p>
 
+    <div class="grid">
+      <div class="card">
+        <div class="icon-container">
+         <img width="100" height="100" src="https://img.icons8.com/clouds/100/workstation.png" alt="workstation"/>
+        </div>
+        <h3>SHORTCUT KEYS</h3>
+        <p>Master keyboard shortcuts to work faster and more efficiently across all applications, reducing reliance on mouse navigation.</p>
+        <a href="#" class="btn">Learn More</a>
+      </div>
+
+      <div class="card">
+        <div class="icon-container">
+          <img width="100" height="100" src="https://img.icons8.com/clouds/100/ok.png" alt="ok"/>
+        </div>
+        <h3>MS-OFFICE</h3>
+        <p>Comprehensive training in Word, Excel, PowerPoint and more to maximize your productivity with Microsoft's powerful suite.</p>
+        <a href="#" class="btn">Learn More</a>
+      </div>
+
+      <div class="card">
+        <div class="icon-container">
+         <img width="100" height="100" src="https://img.icons8.com/clouds/100/test-passed.png" alt="test-passed"/>
+        </div>
+        <h3>PROGRAMMING</h3>
+        <p>From Python to JavaScript, master coding languages through hands-on projects and real-world applications.</p>
+        <a href="#" class="btn">Learn More</a>
+      </div>
+
+      <div class="card">
+        <div class="icon-container">
+         <img width="150" height="150" src="https://img.icons8.com/clouds/150/imac-idea.png" alt="imac-idea"/>
+        </div>
+        <h3>EXAMS & PRACTICALS</h3>
+        <p>Interactive assessments with instant feedback to evaluate your knowledge and track your learning progress.</p>
+        <a href="#" class="btn">Learn More</a>
+      </div>
+
+      <div class="card">
+        <div class="icon-container">
+          <img width="100" height="100" src="https://img.icons8.com/clouds/100/repository.png" alt="repository"/>
+        </div>
+        <h3>TALLY SOLUTIONS</h3>
+        <p>Complete financial management training including accounting, inventory, payroll and GST using Tally software.</p>
+        <a href="#" class="btn">Learn More</a>
+      </div>
+
+      <div class="card">
+        <div class="icon-container">
+         <img width="100" height="100" src="https://img.icons8.com/clouds/100/macbook-idea.png" alt="macbook-idea"/>
+        </div>
+        <h3>STUDY MATERIALS</h3>
+        <p>Curated resources and concise notes designed for effective learning and quick revision of key concepts.</p>
+        <a href="#" class="btn">Learn More</a>
+      </div>
+    </div>
+  </section>
+ <script>
+    // Add simple animation when cards come into view
+    const cards = document.querySelectorAll('.card');
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+
+    cards.forEach((card, index) => {
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(20px)';
+      card.style.transition = `all 0.5s ease ${index * 0.1}s`;
+      observer.observe(card);
+    });
+
+    // Add click effect to cards
+    cards.forEach(card => {
+      card.addEventListener('click', function() {
+        this.style.transform = 'scale(0.98)';
+        setTimeout(() => {
+          this.style.transform = 'translateY(-8px)';
+        }, 150);
+      });
+    });
+  </script>
 </body>
 </html>
