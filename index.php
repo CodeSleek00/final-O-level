@@ -45,5 +45,31 @@
         <a href="https://faizcomputerinstitute.com" target="_blank" class="join-btn">Join Now</a>
     </div>
 </section>
+ <div class="practice">
+    <div class="boxes">
+      <h2>O Level Practice</h2>
+      <p>Comprehensive questions designed to help you ace your O Level exams.</p>
+      <a href="#">Start</a>
+    </div>
+
+    <div class="boxes">
+      <h2>CCC Practice</h2>
+      <p>Comprehensive questions designed to help you ace your CCC exams.</p>
+      <a href="#">Start</a>
+    </div>
+
+    <div class="boxes">
+      <h2>Chapter-wise MCQs</h2>
+      <p>Practice MCQs for each chapter to strengthen your concepts.</p>
+      <a href="#">Start</a>
+    </div>
+
+    <div class="boxes">
+      <h2>Practical Portal</h2>
+      <p>Master practical skills with our step-by-step guides.</p>
+      <a href="#">Start</a>
+    </div>
+  </div>
+
 </body>
 </html>
