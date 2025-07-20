@@ -256,6 +256,8 @@
                 box-shadow: none;
                 background-color: transparent;
                 margin: 10px;
+                margin-bottom: 0%;
+                padding-bottom: 0%;
             }
             
             .hero h1 {
