@@ -378,9 +378,7 @@
     }
 
     @media (max-width: 500px) {
-      body {
-        padding: 40px 15px;
-      }
+     
       
      .services-main h2  h2 {
         font-size: 1.8rem;
