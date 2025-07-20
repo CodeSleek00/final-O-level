@@ -41,7 +41,7 @@
     <section class="join-us-section">
     <div class="join-us-content">
         <h1>Join Faiz Computer Institute Today!</h1>
-        <p>Unlock a world of opportunities with expert-led courses, interactive learning, and a supportive community. At Faiz Computer Institute, we empower students to reach their full potential and achieve their career goals. Start your learning journey now!</p>
+        <p>Unlock a world of opportunities with expert courses, interactive learning, and a supportive community. At Faiz Computer Institute, we empower students to reach their full potential and achieve their career goals. Start your learning journey now!</p>
         <a href="https://faizcomputerinstitute.com" target="_blank" class="join-btn">Join Now</a>
     </div>
 </section>
