@@ -218,7 +218,6 @@
         </div>
       </div>
     </div>
-    </div>
   </section>
 
  <footer class="bg-gray-900 text-gray-300 mt-10">
