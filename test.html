@@ -1,618 +1,389 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Our Expert Services</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <style>@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
-
-body {
-    width: 100%;
-    overflow-x: hidden;
-}
-
-/* Hero Section Design Start From here*/
-.container {
-    margin: 20px;
-    padding: 3rem 2rem;
-    border: 1px solid #e2e8f0;
-    border-radius: 16px;
-    background-color: #ffffff;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-}
-
-.hero {
-    display: flex;
-    align-items: center;
-}
-
-.hero-content {
-    flex: 1;
-    padding-right: 1rem;
-}
-
-.hero-image {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.hero-image img {
-    width: 100%;
-    max-width: 500px;
-    height: auto;
-    border-radius: 12px;
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-    object-fit: cover;
-}
-
-.hero h1 {
-    font-size: 2.8rem;
-    font-weight: 700;
-    line-height: 1.2;
-    margin-bottom: 1.5rem;
-    color: #1a365d;
-}
-
-.hero p {
-    font-size: 1.1rem;
-    color: #4a5568;
-    margin-bottom: 2.5rem;
-    max-width: 500px;
-    line-height: 1.7;
-}
-
-.cta-button {
-    display: inline-block;
-    background-color: #3182ce;
-    color: white;
-    padding: 1rem 2.5rem;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    border: none;
-    cursor: pointer;
-    font-size: 1rem;
-    box-shadow: 0 4px 6px rgba(49, 130, 206, 0.2);
-    margin-bottom: 1rem;
-}
-
-.cta-button:hover {
-    background-color: #2c5282;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 8px rgba(49, 130, 206, 0.3);
-}
-
-.stats {
-    display: flex;
-    gap: 3rem;
-    margin-top: 2rem;
-    flex-wrap: wrap;
-}
-
-.stat-item {
-    display: flex;
-    flex-direction: column;
-}
-
-.stat-number {
-    font-size: 2.2rem;
-    font-weight: 700;
-    color: #3182ce;
-    line-height: 1;
-}
-
-.stat-label {
-    font-size: 0.95rem;
-    color: #718096;
-    margin-top: 0.5rem;
-}
-/*Hero Section Design ends Here */
-
-/*Join Faiz Computer institute Section Start */
-.join-us-section {
-    background: linear-gradient(135deg, #0400ff 0%, #2a27d9 100%);
-    padding: 6vh 2vh;
-    text-align: center;
-    color: white;
-    font-family: 'Segoe UI', Roboto, sans-serif;
-    position: relative;
-    overflow: hidden;
-}
-
-.join-us-section::before {
-    content: '';
-    position: absolute;
-    top: -50px;
-    right: -50px;
-    width: 200px;
-    height: 200px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
-}
-
-.join-us-section::after {
-    content: '';
-    position: absolute;
-    bottom: -80px;
-    left: -80px;
-    width: 300px;
-    height: 300px;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 50%;
-}
-
-.join-us-content {
-    position: relative;
-    z-index: 1;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-.join-us-section h1 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    font-weight: 700;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-.join-us-section p {
-    font-size: 1.2rem;
-    line-height: 1.6;
-    margin: 0 auto 30px;
-    opacity: 0.9;
-    max-width: 800px;
-}
-
-.join-btn {
-    display: inline-block;
-    background-color: #ffb700;
-    color: #222;
-    padding: 15px 35px;
-    border-radius: 10px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 1.1rem;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(255, 183, 0, 0.3);
-    border: 2px solid transparent;
-}
-
-.join-btn:hover {
-    background-color: #ffcc00;
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(255, 183, 0, 0.4);
-}
-
-.join-btn:active {
-    transform: translateY(1px);
-}
-
-.practice {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 40px;
-    padding: 20px 40px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.boxes {
-    background-color: #ffffff;
-    width: 100%;
-    max-width: 300px;
-    padding: 25px 20px;
-    border-radius: 15px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-align: center;
-}
-
-.boxes:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
-}
-
-.boxes h2 {
-    font-size: 1.4rem;
-    color: #2c3e50;
-    margin-bottom: 12px;
-}
-
-.boxes p {
-    font-size: 0.95rem;
-    color: #555;
-    margin-bottom: 20px;
-    line-height: 1.4;
-}
-
-.boxes a {
-    text-decoration: none;
-    color: #fff;
-    background-color:#e78702;
-    padding: 10px 20px;
-    border-radius: 8px;
-    transition: background-color 0.3s ease;
-    font-weight: 500;
-    display: inline-block;
-}
-
-.boxes a:hover {
-    background-color: #2980b9;
-}
-
-.services-main {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-.services-main h2 {
-    text-align: center;
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: #1e40af;
-    margin-bottom: 15px;
-    position: relative;
-    display: inline-block;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.services-main h2::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background: linear-gradient(90deg, #3b82f6, #1e40af);
-    border-radius: 2px;
-}
-
-p.intro {
-    text-align: center;
-    font-size: 1.1rem;
-    color: #4b5563;
-    max-width: 700px;
-    margin: 0 auto 50px;
-    line-height: 1.6;
-}
-
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    padding: 0 20px;
-}
-
-.card {
-    background-color: #fff;
-    text-align: center;
-    padding: 40px 25px 30px;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-    border: 1px solid #e5e7eb;
-}
-
-.card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 5px;
-    background: linear-gradient(90deg, #3b82f6, #1e40af);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.3s ease;
-}
-
-.card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-}
-
-.card:hover::before {
-    transform: scaleX(1);
-}
-
-.card img {
-    height: 60px;
-    width: 60px;
-    margin-bottom: 20px;
-    transition: transform 0.3s ease;
-}
-
-.card:hover img {
-    transform: scale(1.1);
-}
-
-.card h3 {
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: #111827;
-    margin-bottom: 15px;
-    position: relative;
-}
-
-.card p {
-    font-size: 0.95rem;
-    color: #4b5563;
-    line-height: 1.6;
-    margin: 0 auto 20px;
-    max-width: 280px;
-}
-
-.card .btn {
-    display: inline-block;
-    padding: 8px 20px;
-    background-color: #eff6ff;
-    color: #1e40af;
-    border-radius: 6px;
-    font-weight: 600;
-    font-size: 0.9rem;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    border: 1px solid #dbeafe;
-}
-
-.card:hover .btn {
-    background-color: #1e40af;
-    color: white;
-}
-
-@media (max-width: 1024px) {
-    .hero {
-        gap: 2rem;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Test Reviews | MCQ & Practical Series</title>
+  <style>
+    :root {
+      --primary: #4361ee;
+      --secondary: #3f37c9;
+      --accent: #4895ef;
+      --dark: #212529;
+      --light: #f5f7ff;
+      --shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+      --border-radius: 12px;
     }
-    
-    .hero h1 {
-        font-size: 2.5rem;
-    }
-    
-    .stats {
-        gap: 2rem;
-    }
-}
 
-@media (max-width: 768px) {
-    .container {
-        padding: 2rem;
-        margin: 15px;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
     }
-    
-    .hero {
+
+    body {
+      background: var(--light);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    .review-section-container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 0 20px;
+    }
+
+    section.review-section {
+      padding: 60px 0;
+    }
+
+    .review-section-title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .review-section-title h2 {
+      font-size: 2.5rem;
+      color: var(--secondary);
+      position: relative;
+      display: inline-block;
+      margin-bottom: 15px;
+    }
+
+    .review-section-title h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      border-radius: 2px;
+    }
+
+    .review-section-title p {
+      color: #6c757d;
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+    }
+
+    .review-section-stats {
+      background: #fff;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+      padding: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      margin-bottom: 40px;
+    }
+
+    .review-section-stat {
+      text-align: center;
+      padding: 15px;
+    }
+
+    .review-section-stat-number {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: var(--primary);
+    }
+
+    .review-section-stat-label {
+      color: #6c757d;
+      font-size: 1rem;
+    }
+
+    .review-section-reviews {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .review-section-card {
+      background: #fff;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+      padding: 30px;
+      transition: 0.3s;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .review-section-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .review-section-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .review-section-avatar {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 15px;
+      border: 3px solid var(--accent);
+    }
+
+    .review-section-info h4 {
+      font-size: 1.2rem;
+      color: var(--dark);
+    }
+
+    .review-section-info p {
+      color: #6c757d;
+      font-size: 0.9rem;
+    }
+
+    .review-section-stars {
+      margin-bottom: 15px;
+    }
+
+    .review-section-stars .star {
+      color: #ffc107;
+      font-size: 1.2rem;
+      margin-right: 3px;
+    }
+
+    .review-section-content {
+      color: #495057;
+      margin-bottom: 20px;
+    }
+
+    .review-section-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.9rem;
+      color: #6c757d;
+    }
+
+    .review-section-type {
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .review-section-type.mcq {
+      background: #d1fae5;
+      color: #065f46;
+    }
+
+    .review-section-type.practical {
+      background: #dbeafe;
+      color: #1e40af;
+    }
+
+    .review-section-highlight {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      border-radius: var(--border-radius);
+      color: white;
+      padding: 40px;
+      margin-top: 60px;
+    }
+
+    .review-section-highlight-content {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      font-style: italic;
+      margin-bottom: 20px;
+    }
+
+    .review-section-highlight-author {
+      display: flex;
+      align-items: center;
+    }
+
+    .review-section-highlight-author img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      margin-right: 15px;
+      border: 2px solid white;
+    }
+
+    .review-section-author-info h5 {
+      font-size: 1.1rem;
+    }
+
+    .review-section-author-info p {
+      opacity: 0.8;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      section.review-section {
+        padding: 40px 0;
+      }
+
+      .review-section-title h2 {
+        font-size: 2rem;
+      }
+
+      .review-section-highlight {
+        padding: 30px;
+      }
+
+      .review-section-highlight-content {
+        font-size: 1.1rem;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .review-section-header {
         flex-direction: column;
-        text-align: center;
-    }
-    
-    .hero-content {
-        padding-right: 0;
-        margin-bottom: 2rem;
-    }
-    
-    .hero p {
-        margin-left: auto;
-        margin-right: auto;
-    }
-    
-    .hero h1 {
-        font-size: 2.2rem;
-    }
-    
-    .stats {
-        justify-content: center;
-    }
-    
-    .hero-image img {
-        max-width: 100%;
-    }
-    
-    /* Join section adjustments */
-    .join-us-section h1 {
-        font-size: 2rem;
-    }
-    
-    .join-us-section p {
-        font-size: 1rem;
-        text-align: center;
-    }
-    
-    .join-btn {
-        font-size: 1rem;
-    }
-    
-    .services-main h2 {
-        font-size: 2rem;
-    }
-    
-    p.intro {
-        font-size: 1rem;
-    }
-    
-    .grid {
-        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-        gap: 20px;
-    }
-}
+        align-items: flex-start;
+      }
 
-@media (max-width: 480px) {
-    .container {
-        padding: 1.5rem 1rem;
-        margin: 10px;
-        border: none;
-        box-shadow: none;
-        background-color: transparent;
-    }
-    
-    .hero h1 {
-        font-size: 2rem;
-    }
-    
-    .hero p {
-        font-size: 1rem;
-        margin-bottom: 1.5rem;
-    }
-    
-    .stats {
-        display: flex;
-        justify-content: space-around;
-        gap: 1rem;
-    }
-    
-    .stat-number {
-        font-size: 1.8rem;
-    }
-    
-    .stat-label {
-        font-size: 0.85rem;
-    }
-    
-    .cta-button {
+      .review-section-avatar {
+        margin-bottom: 10px;
+      }
+
+      .review-section-stats {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .review-section-stat {
         width: 100%;
-        text-align: center;
+        margin-bottom: 20px;
+      }
     }
-    
-    .services-main h2 {
-        font-size: 1.8rem;
-    }
-    
-    .card {
-        padding: 30px 20px;
-    }
-    
-    .join-us-section h1 {
-        font-size: 1.8rem;
-    }
-    
-    .join-us-section p {
-        text-align: center;
-        margin: 0 auto 20px;
-    }
-    
-    .join-btn {
-        padding: 12px 25px;
-    }
-    
-    .practice {
-        padding: 20px 15px;
-        gap: 20px;
-    }
-    
-    .boxes {
-        max-width: 100%;
-    }
-}</style>
+  </style>
 </head>
 <body>
-  <section class="services-main">
-    <h2 >Our Expert Services</h2>
-    <p class="intro">
-      We deliver premium solutions crafted for your specific requirements, guaranteeing exceptional outcomes. Benefit from dependable assistance, streamlined workflows, and customized care to accomplish your objectives effortlessly.
-    </p>
-
-    <div class="grid">
-      <div class="card">
-        <div class="icon-container">
-         <img width="100" height="100" src="https://img.icons8.com/clouds/100/workstation.png" alt="workstation"/>
-        </div>
-        <h3>SHORTCUT KEYS</h3>
-        <p>Master keyboard shortcuts to work faster and more efficiently across all applications, reducing reliance on mouse navigation.</p>
-        <a href="#" class="btn">Learn More</a>
+  <section class="review-section">
+    <div class="review-section-container">
+      <div class="review-section-title">
+        <h2>What Our Students Say</h2>
+        <p>Read honest reviews from students who have taken our MCQ tests and practical series</p>
       </div>
 
-      <div class="card">
-        <div class="icon-container">
-          <img width="100" height="100" src="https://img.icons8.com/clouds/100/ok.png" alt="ok"/>
+     <div class="review-section-stats">
+  <div class="review-section-stat">
+    <div class="review-section-stat-number" data-count="4.8">0</div>
+    <div class="review-section-stat-label">Average Rating</div>
+  </div>
+  <div class="review-section-stat">
+    <div class="review-section-stat-number" data-count="1250">0</div>
+    <div class="review-section-stat-label">MCQ Tests Taken</div>
+  </div>
+  <div class="review-section-stat">
+    <div class="review-section-stat-number" data-count="580">0</div>
+    <div class="review-section-stat-label">Practical Exercises</div>
+  </div>
+  <div class="review-section-stat">
+    <div class="review-section-stat-number" data-count="98">0</div>
+    <div class="review-section-stat-label">Would Recommend (%)</div>
+  </div>
+</div>
+
+
+      <div class="review-section-reviews">
+        <!-- Card 1 -->
+        <div class="review-section-card">
+          <div class="review-section-header">
+            <img src="https://randomuser.me/api/portraits/women/43.jpg" class="review-section-avatar" alt="Sarah Johnson" />
+            <div class="review-section-info">
+              <h4>Sarah Johnson</h4>
+              <p>Computer Science Student</p>
+            </div>
+          </div>
+          <div class="review-section-stars">
+            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+          </div>
+          <div class="review-section-content">
+            The MCQ tests were incredibly helpful for my exam preparation. The detailed explanations helped me understand concepts I was struggling with.
+          </div>
+          <div class="review-section-meta">
+            <span class="review-section-type mcq">MCQ Series</span>
+            <span>2 weeks ago</span>
+          </div>
         </div>
-        <h3>MS-OFFICE</h3>
-        <p>Comprehensive training in Word, Excel, PowerPoint and more to maximize your productivity with Microsoft's powerful suite.</p>
-        <a href="#" class="btn">Learn More</a>
+
+        <!-- Card 2 -->
+        <div class="review-section-card">
+          <div class="review-section-header">
+            <img src="https://randomuser.me/api/portraits/men/32.jpg" class="review-section-avatar" alt="Michael Chen" />
+            <div class="review-section-info">
+              <h4>Michael Chen</h4>
+              <p>Engineering Student</p>
+            </div>
+          </div>
+          <div class="review-section-stars">
+            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+          </div>
+          <div class="review-section-content">
+            The practical series was exactly what I needed! The hands-on exercises helped me apply theoretical knowledge.
+          </div>
+          <div class="review-section-meta">
+            <span class="review-section-type practical">Practical Series</span>
+            <span>1 month ago</span>
+          </div>
+        </div>
       </div>
 
-      <div class="card">
-        <div class="icon-container">
-         <img width="100" height="100" src="https://img.icons8.com/clouds/100/test-passed.png" alt="test-passed"/>
+      <div class="review-section-highlight">
+        <div class="review-section-highlight-content">
+          "This platform transformed how I prepare for exams. The combination of MCQ tests and practical exercises gave me both conceptual clarity and hands-on skills."
         </div>
-        <h3>PROGRAMMING</h3>
-        <p>From Python to JavaScript, master coding languages through hands-on projects and real-world applications.</p>
-        <a href="#" class="btn">Learn More</a>
-      </div>
-
-      <div class="card">
-        <div class="icon-container">
-         <img width="150" height="150" src="https://img.icons8.com/clouds/150/imac-idea.png" alt="imac-idea"/>
+        <div class="review-section-highlight-author">
+          <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="David Wilson">
+          <div class="review-section-author-info">
+            <h5>David Wilson</h5>
+            <p>Certified Professional</p>
+          </div>
         </div>
-        <h3>EXAMS & PRACTICALS</h3>
-        <p>Interactive assessments with instant feedback to evaluate your knowledge and track your learning progress.</p>
-        <a href="#" class="btn">Learn More</a>
-      </div>
-
-      <div class="card">
-        <div class="icon-container">
-          <img width="100" height="100" src="https://img.icons8.com/clouds/100/repository.png" alt="repository"/>
-        </div>
-        <h3>TALLY SOLUTIONS</h3>
-        <p>Complete financial management training including accounting, inventory, payroll and GST using Tally software.</p>
-        <a href="#" class="btn">Learn More</a>
-      </div>
-
-      <div class="card">
-        <div class="icon-container">
-         <img width="100" height="100" src="https://img.icons8.com/clouds/100/macbook-idea.png" alt="macbook-idea"/>
-        </div>
-        <h3>STUDY MATERIALS</h3>
-        <p>Curated resources and concise notes designed for effective learning and quick revision of key concepts.</p>
-        <a href="#" class="btn">Learn More</a>
       </div>
     </div>
   </section>
-
   <script>
-    // Add simple animation when cards come into view
-    const cards = document.querySelectorAll('.card');
-    
-    const observer = new IntersectionObserver((entries) => {
+  document.addEventListener("DOMContentLoaded", () => {
+    const counters = document.querySelectorAll(".review-section-stat-number");
+    let counted = false;
+
+    const animateCount = (counter) => {
+      const target = +counter.getAttribute("data-count");
+      let count = 0;
+      const speed = target > 100 ? 10 : 50;
+      const step = target / 100;
+
+      const update = () => {
+        if (count < target) {
+          count += step;
+          counter.textContent = target >= 100 ? Math.floor(count) : count.toFixed(1);
+          setTimeout(update, speed);
+        } else {
+          counter.textContent = target >= 100 ? target + "+" : target;
+        }
+      };
+
+      update();
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = 'translateY(0)';
+        if (entry.isIntersecting && !counted) {
+          counters.forEach(counter => animateCount(counter));
+          counted = true;
+          observer.disconnect(); // Stop observing after counting once
         }
       });
-    }, { threshold: 0.1 });
-
-    cards.forEach((card, index) => {
-      card.style.opacity = '0';
-      card.style.transform = 'translateY(20px)';
-      card.style.transition = `all 0.5s ease ${index * 0.1}s`;
-      observer.observe(card);
+    }, {
+      threshold: 0.5
     });
 
-    // Add click effect to cards
-    cards.forEach(card => {
-      card.addEventListener('click', function() {
-        this.style.transform = 'scale(0.98)';
-        setTimeout(() => {
-          this.style.transform = 'translateY(-8px)';
-        }, 150);
-      });
-    });
-  </script>
+    const statSection = document.querySelector(".review-section-stats");
+    if (statSection) observer.observe(statSection);
+  });
+</script>
+
 </body>
 </html>
