@@ -3,387 +3,67 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Test Reviews | MCQ & Practical Series</title>
+  <title>Dark Footer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --primary: #4361ee;
-      --secondary: #3f37c9;
-      --accent: #4895ef;
-      --dark: #212529;
-      --light: #f5f7ff;
-      --shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
-      --border-radius: 12px;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-    }
-
     body {
-      background: var(--light);
-      color: var(--dark);
-      line-height: 1.6;
-    }
-
-    .review-section-container {
-      max-width: 1200px;
-      margin: auto;
-      padding: 0 20px;
-    }
-
-    section.review-section {
-      padding: 60px 0;
-    }
-
-    .review-section-title {
-      text-align: center;
-      margin-bottom: 50px;
-    }
-
-    .review-section-title h2 {
-      font-size: 2.5rem;
-      color: var(--secondary);
-      position: relative;
-      display: inline-block;
-      margin-bottom: 15px;
-    }
-
-    .review-section-title h2::after {
-      content: '';
-      position: absolute;
-      bottom: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 80px;
-      height: 4px;
-      background: linear-gradient(90deg, var(--primary), var(--accent));
-      border-radius: 2px;
-    }
-
-    .review-section-title p {
-      color: #6c757d;
-      max-width: 700px;
-      margin: 0 auto;
-      font-size: 1.1rem;
-    }
-
-    .review-section-stats {
-      background: #fff;
-      border-radius: var(--border-radius);
-      box-shadow: var(--shadow);
-      padding: 30px;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-around;
-      margin-bottom: 40px;
-    }
-
-    .review-section-stat {
-      text-align: center;
-      padding: 15px;
-    }
-
-    .review-section-stat-number {
-      font-size: 2.5rem;
-      font-weight: bold;
-      color: var(--primary);
-    }
-
-    .review-section-stat-label {
-      color: #6c757d;
-      font-size: 1rem;
-    }
-
-    .review-section-reviews {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-    }
-
-    .review-section-card {
-      background: #fff;
-      border-radius: var(--border-radius);
-      box-shadow: var(--shadow);
-      padding: 30px;
-      transition: 0.3s;
-      border: 1px solid rgba(0, 0, 0, 0.05);
-    }
-
-    .review-section-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-    }
-
-    .review-section-header {
-      display: flex;
-      align-items: center;
-      margin-bottom: 20px;
-    }
-
-    .review-section-avatar {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-right: 15px;
-      border: 3px solid var(--accent);
-    }
-
-    .review-section-info h4 {
-      font-size: 1.2rem;
-      color: var(--dark);
-    }
-
-    .review-section-info p {
-      color: #6c757d;
-      font-size: 0.9rem;
-    }
-
-    .review-section-stars {
-      margin-bottom: 15px;
-    }
-
-    .review-section-stars .star {
-      color: #ffc107;
-      font-size: 1.2rem;
-      margin-right: 3px;
-    }
-
-    .review-section-content {
-      color: #495057;
-      margin-bottom: 20px;
-    }
-
-    .review-section-meta {
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.9rem;
-      color: #6c757d;
-    }
-
-    .review-section-type {
-      padding: 4px 12px;
-      border-radius: 20px;
-      font-size: 0.8rem;
-      font-weight: 600;
-    }
-
-    .review-section-type.mcq {
-      background: #d1fae5;
-      color: #065f46;
-    }
-
-    .review-section-type.practical {
-      background: #dbeafe;
-      color: #1e40af;
-    }
-
-    .review-section-highlight {
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      border-radius: var(--border-radius);
-      color: white;
-      padding: 40px;
-      margin-top: 60px;
-    }
-
-    .review-section-highlight-content {
-      font-size: 1.2rem;
-      line-height: 1.8;
-      font-style: italic;
-      margin-bottom: 20px;
-    }
-
-    .review-section-highlight-author {
-      display: flex;
-      align-items: center;
-    }
-
-    .review-section-highlight-author img {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      margin-right: 15px;
-      border: 2px solid white;
-    }
-
-    .review-section-author-info h5 {
-      font-size: 1.1rem;
-    }
-
-    .review-section-author-info p {
-      opacity: 0.8;
-      font-size: 0.9rem;
-    }
-
-    @media (max-width: 768px) {
-      section.review-section {
-        padding: 40px 0;
-      }
-
-      .review-section-title h2 {
-        font-size: 2rem;
-      }
-
-      .review-section-highlight {
-        padding: 30px;
-      }
-
-      .review-section-highlight-content {
-        font-size: 1.1rem;
-      }
-    }
-
-    @media (max-width: 576px) {
-      .review-section-header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .review-section-avatar {
-        margin-bottom: 10px;
-      }
-
-      .review-section-stats {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .review-section-stat {
-        width: 100%;
-        margin-bottom: 20px;
-      }
+      font-family: 'Inter', sans-serif;
     }
   </style>
 </head>
-<body>
-  <section class="review-section">
-    <div class="review-section-container">
-      <div class="review-section-title">
-        <h2>What Our Students Say</h2>
-        <p>Read honest reviews from students who have taken our MCQ tests and practical series</p>
-      </div>
+<body >
 
-     <div class="review-section-stats">
-  <div class="review-section-stat">
-    <div class="review-section-stat-number" data-count="4.8">0</div>
-    <div class="review-section-stat-label">Average Rating</div>
-  </div>
-  <div class="review-section-stat">
-    <div class="review-section-stat-number" data-count="1250">0</div>
-    <div class="review-section-stat-label">MCQ Tests Taken</div>
-  </div>
-  <div class="review-section-stat">
-    <div class="review-section-stat-number" data-count="580">0</div>
-    <div class="review-section-stat-label">Practical Exercises</div>
-  </div>
-  <div class="review-section-stat">
-    <div class="review-section-stat-number" data-count="98">0</div>
-    <div class="review-section-stat-label">Would Recommend (%)</div>
-  </div>
-</div>
-
-
-      <div class="review-section-reviews">
-        <!-- Card 1 -->
-        <div class="review-section-card">
-          <div class="review-section-header">
-            <img src="https://randomuser.me/api/portraits/women/43.jpg" class="review-section-avatar" alt="Sarah Johnson" />
-            <div class="review-section-info">
-              <h4>Sarah Johnson</h4>
-              <p>Computer Science Student</p>
-            </div>
-          </div>
-          <div class="review-section-stars">
-            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
-          </div>
-          <div class="review-section-content">
-            The MCQ tests were incredibly helpful for my exam preparation. The detailed explanations helped me understand concepts I was struggling with.
-          </div>
-          <div class="review-section-meta">
-            <span class="review-section-type mcq">MCQ Series</span>
-            <span>2 weeks ago</span>
-          </div>
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-300 border-t border-gray-700 mt-10">
+    <div class="max-w-7xl mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-3 gap-8">
+      
+      <!-- Contact Info -->
+      <div>
+        <h2 class="text-xl font-semibold mb-4 text-white">Contact Us</h2>
+        <div class="flex items-start mb-3">
+          <img src="https://img.icons8.com/ios-filled/24/ffffff/marker.png" class="mr-3 mt-1"/>
+          <span>Faiz Computer Institute, Telibagh, Lucknow</span>
         </div>
-
-        <!-- Card 2 -->
-        <div class="review-section-card">
-          <div class="review-section-header">
-            <img src="https://randomuser.me/api/portraits/men/32.jpg" class="review-section-avatar" alt="Michael Chen" />
-            <div class="review-section-info">
-              <h4>Michael Chen</h4>
-              <p>Engineering Student</p>
-            </div>
-          </div>
-          <div class="review-section-stars">
-            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
-          </div>
-          <div class="review-section-content">
-            The practical series was exactly what I needed! The hands-on exercises helped me apply theoretical knowledge.
-          </div>
-          <div class="review-section-meta">
-            <span class="review-section-type practical">Practical Series</span>
-            <span>1 month ago</span>
-          </div>
+        <div class="flex items-center mb-3">
+          <img src="https://img.icons8.com/ios-filled/24/ffffff/phone.png" class="mr-3"/>
+          <span>+91 1234567890</span>
+        </div>
+        <div class="flex items-center">
+          <img src="https://img.icons8.com/ios-filled/24/ffffff/email.png" class="mr-3"/>
+          <span>faizcomputerinstitutes@gmail.com</span>
         </div>
       </div>
 
-      <div class="review-section-highlight">
-        <div class="review-section-highlight-content">
-          "This platform transformed how I prepare for exams. The combination of MCQ tests and practical exercises gave me both conceptual clarity and hands-on skills."
-        </div>
-        <div class="review-section-highlight-author">
-          <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="David Wilson">
-          <div class="review-section-author-info">
-            <h5>David Wilson</h5>
-            <p>Certified Professional</p>
-          </div>
-        </div>
+      <!-- About Section -->
+      <div>
+        <h2 class="text-xl font-semibold mb-4 text-white">About Us</h2>
+        <p class="text-sm text-justify text-gray-400">
+          Faiz Computer Institute is a premier training center in Lucknow, India.
+          We offer industry-relevant computer science and technology courses, empowering
+          students with practical knowledge and professional skills.
+        </p>
       </div>
+
+      <!-- Social Media & Website -->
+      <div>
+        <h2 class="text-xl font-semibold mb-4 text-white">Connect With Us</h2>
+        <div class="flex space-x-4">
+          <a href="https://www.facebook.com/FaizComputerInstitute" target="_blank" class="hover:scale-110 transition-transform duration-200">
+            <img src="https://img.icons8.com/ios-filled/30/ffffff/facebook-new.png" alt="Facebook"/>
+          </a>
+          <a href="https://www.instagram.com/faizcomputerinstitute/" target="_blank" class="hover:scale-110 transition-transform duration-200">
+            <img src="https://img.icons8.com/ios-filled/30/ffffff/instagram-new.png" alt="Instagram"/>
+          </a>
+          <a href="https://www.faizcomputerinstitute.com" target="_blank" class="hover:scale-110 transition-transform duration-200">
+            <img src="https://img.icons8.com/ios-filled/30/ffffff/domain.png" alt="Website"/>
+          </a>
+        </div>
+        <p class="mt-4 text-sm text-gray-500">&copy; 2025 Faiz Computer Institute. All rights reserved.</p>
+      </div>
+
     </div>
-  </section>
-  <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const counters = document.querySelectorAll(".review-section-stat-number");
-    let counted = false;
-
-    const animateCount = (counter) => {
-      const target = +counter.getAttribute("data-count");
-      let count = 0;
-      const speed = target > 100 ? 10 : 50;
-      const step = target / 100;
-
-      const update = () => {
-        if (count < target) {
-          count += step;
-          counter.textContent = target >= 100 ? Math.floor(count) : count.toFixed(1);
-          setTimeout(update, speed);
-        } else {
-          counter.textContent = target >= 100 ? target + "+" : target;
-        }
-      };
-
-      update();
-    };
-
-    const observer = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting && !counted) {
-          counters.forEach(counter => animateCount(counter));
-          counted = true;
-          observer.disconnect(); // Stop observing after counting once
-        }
-      });
-    }, {
-      threshold: 0.5
-    });
-
-    const statSection = document.querySelector(".review-section-stats");
-    if (statSection) observer.observe(statSection);
-  });
-</script>
+  </footer>
 
 </body>
 </html>
