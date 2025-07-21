@@ -221,6 +221,57 @@
     </div>
   </section>
 
+ <footer class="bg-gray-900 text-gray-300 mt-10">
+  <div class="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-3 gap-10">
+    
+    <!-- Contact Info -->
+    <div>
+      <h2 class="text-lg font-semibold text-white mb-4">Contact Us</h2>
+      <div class="space-y-3 text-sm text-gray-400">
+        <div class="flex items-start">
+          <img src="https://img.icons8.com/ios-filled/24/ffffff/marker.png" class="mr-3 mt-1"/>
+          <span>Faiz Computer Institute, Telibagh, Lucknow</span>
+        </div>
+        <div class="flex items-center">
+          <img src="https://img.icons8.com/ios-filled/24/ffffff/phone.png" class="mr-3"/>
+          <span>+91 1234567890</span>
+        </div>
+        <div class="flex items-center">
+          <img src="https://img.icons8.com/ios-filled/24/ffffff/email.png" class="mr-3"/>
+          <span>faizcomputerinstitutes@gmail.com</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- About Us -->
+    <div>
+      <h2 class="text-lg font-semibold text-white mb-4">About Us</h2>
+      <p class="text-sm text-justify text-gray-400">
+        Faiz Computer Institute is a premier training center in Lucknow, India. 
+        We provide industry-relevant computer science and technology courses, empowering 
+        students with practical knowledge and professional skills to succeed in their careers.
+      </p>
+    </div>
+
+    <!-- Connect With Us -->
+    <div>
+      <h2 class="text-lg font-semibold text-white mb-4">Connect With Us</h2>
+      <div class="flex space-x-4 mb-4">
+        <a href="https://www.facebook.com/FaizComputerInstitute" target="_blank" class="hover:scale-110 transition-transform duration-200">
+          <img src="https://img.icons8.com/ios-filled/30/ffffff/facebook-new.png" alt="Facebook"/>
+        </a>
+        <a href="https://www.instagram.com/faizcomputerinstitute/" target="_blank" class="hover:scale-110 transition-transform duration-200">
+          <img src="https://img.icons8.com/ios-filled/30/ffffff/instagram-new.png" alt="Instagram"/>
+        </a>
+        <a href="https://www.faizcomputerinstitute.com" target="_blank" class="hover:scale-110 transition-transform duration-200">
+          <img src="https://img.icons8.com/ios-filled/30/ffffff/domain.png" alt="Website"/>
+        </a>
+      </div>
+      <p class="text-sm text-gray-500">&copy; 2025 Faiz Computer Institute. All rights reserved.</p>
+    </div>
+
+  </div>
+</footer>
 
   <script>
     // Add simple animation when cards come into view
