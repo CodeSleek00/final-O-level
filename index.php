@@ -80,7 +80,7 @@
     <div class="grid">
       <div class="card">
         <div class="icon-container">
-         <img width="100" height="100" src="https://img.icons8.com/clouds/100/workstation.png" alt="workstation"/>
+         <img class="grid-image" width="100" height="100" src="https://img.icons8.com/clouds/100/workstation.png" alt="workstation"/>
         </div>
         <h3>SHORTCUT KEYS</h3>
         <p>Master keyboard shortcuts to work faster and more efficiently across all applications, reducing reliance on mouse navigation.</p>
@@ -89,7 +89,7 @@
 
       <div class="card">
         <div class="icon-container">
-          <img width="100" height="100" src="https://img.icons8.com/clouds/100/ok.png" alt="ok"/>
+          <img width="100" class="grid-image" height="100" src="https://img.icons8.com/clouds/100/ok.png" alt="ok"/>
         </div>
         <h3>MS-OFFICE</h3>
         <p>Comprehensive training in Word, Excel, PowerPoint and more to maximize your productivity with Microsoft's powerful suite.</p>
@@ -98,7 +98,7 @@
 
       <div class="card">
         <div class="icon-container">
-         <img width="100" height="100" src="https://img.icons8.com/clouds/100/test-passed.png" alt="test-passed"/>
+         <img width="100"class="grid-image" height="100" src="https://img.icons8.com/clouds/100/test-passed.png" alt="test-passed"/>
         </div>
         <h3>PROGRAMMING</h3>
         <p>From Python to JavaScript, master coding languages through hands-on projects and real-world applications.</p>
@@ -107,7 +107,7 @@
 
       <div class="card">
         <div class="icon-container">
-         <img width="150" height="150" src="https://img.icons8.com/clouds/150/imac-idea.png" alt="imac-idea"/>
+         <img width="150" class="grid-image" height="150" src="https://img.icons8.com/clouds/150/imac-idea.png" alt="imac-idea"/>
         </div>
         <h3>EXAMS & PRACTICALS</h3>
         <p>Interactive assessments with instant feedback to evaluate your knowledge and track your learning progress.</p>
@@ -116,7 +116,7 @@
 
       <div class="card">
         <div class="icon-container">
-          <img width="100" height="100" src="https://img.icons8.com/clouds/100/repository.png" alt="repository"/>
+          <img width="100" class="grid-image" height="100" src="https://img.icons8.com/clouds/100/repository.png" alt="repository"/>
         </div>
         <h3>TALLY SOLUTIONS</h3>
         <p>Complete financial management training including accounting, inventory, payroll and GST using Tally software.</p>
@@ -125,7 +125,7 @@
 
       <div class="card">
         <div class="icon-container">
-         <img width="100" height="100" src="https://img.icons8.com/clouds/100/macbook-idea.png" alt="macbook-idea"/>
+         <img width="100" class="grid-image" height="100" src="https://img.icons8.com/clouds/100/macbook-idea.png" alt="macbook-idea"/>
         </div>
         <h3>STUDY MATERIALS</h3>
         <p>Curated resources and concise notes designed for effective learning and quick revision of key concepts.</p>
