@@ -13,12 +13,17 @@ body {
     background-color: #f8fafc;
 }
 
+/* Container Styles */
 .container {
-    margin: 20px auto; /* Changed from margin: 20px */
-    padding: 0 20px; /* Added horizontal padding */
-    width: calc(100% - 40px); /* Accounts for padding */
-    max-width: 1200px; /* Or your preferred max width */
+    margin: 20px;
+    padding: 0;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    width: auto;
 }
+
 /* Hero Section */
 .hero {
     display: flex;
