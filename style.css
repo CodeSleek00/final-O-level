@@ -1,205 +1,39 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
-        body {
-            overflow-x: hidden;
-        }
-        
-      /* Hero Section Design Start From here*/
-        .container {
-            margin: 20px;
-            padding:0;
-            border: 1px solid #e2e8f0;
-            border-radius: 16px;
-            background-color: #ffffff;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-            width: auto;
-        }
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
 
-        .hero {
-            display: flex;
-            align-items: center;
-        
-        }
-        
-        .hero-content {
-            flex: 1;
-            padding-right: 1rem;
-        }
-        
-        .hero-image {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .hero-image img {
-            width: 100%;
-            max-width: 500px;
-            height: auto;
-            border-radius: 12px;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-            object-fit: cover;
-        }
-        
-        .hero h1 {
-            font-size: 2.8rem;
-            font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
-            color: #1a365d;
-        }
-        
-        .hero p {
-            font-size: 1.1rem;
-            color: #4a5568;
-            margin-bottom: 2.5rem;
-            max-width: 500px;
-            line-height: 1.7;
-        }
-        
-        .cta-button {
-            display: inline-block;
-            background-color: #3182ce;
-            color: white;
-            padding: 1rem 2.5rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-            box-shadow: 0 4px 6px rgba(49, 130, 206, 0.2);
-            margin-bottom: 1rem;
-        }
-        
-        .cta-button:hover {
-            background-color: #2c5282;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 8px rgba(49, 130, 206, 0.3);
-        }
-        
-        .stats {
-            display: flex;
-            gap: 3rem;
-            margin-top: 2rem;
-            flex-wrap: wrap;
-        }
-        
-        .stat-item {
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .stat-number {
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: #3182ce;
-            line-height: 1;
-        }
-        
-        .stat-label {
-            font-size: 0.95rem;
-            color: #718096;
-            margin-top: 0.5rem;
-        }
-        /*Hero Section Design ends Here */
-        /*Join Faiz Computer institute Section Start  */
-          .join-us-section {
-        background: linear-gradient(135deg, #0400ff 0%, #2a27d9 100%);
-        padding: 6vh 2vh;
-        text-align: center;
-        color: white;
-        font-family: 'Segoe UI', Roboto, sans-serif;
-        position: relative;
-        overflow: hidden;
-    }
-    
-    .join-us-section::before {
-        content: '';
-        position: absolute;
-        top: -50px;
-        right: -50px;
-        width: 200px;
-        height: 200px;
-        background: rgba(255, 255, 255, 0.1);
-        border-radius: 50%;
-    }
-    
-    .join-us-section::after {
-        content: '';
-        position: absolute;
-        bottom: -80px;
-        left: -80px;
-        width: 300px;
-        height: 300px;
-        background: rgba(255, 255, 255, 0.05);
-        border-radius: 50%;
-    }
-    
-    .join-us-content {
-       
-        position: relative;
-        z-index: 1;
-    }
-    
-    .join-us-section h1 {
-        font-size: 2.5rem;
-        margin-bottom: 20px;
-        font-weight: 700;
-        text-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-    
-    .join-us-section p {
-        font-size: 1.2rem;
-        line-height: 1.6;
-        margin: 0 auto 30px;
-        opacity: 0.9;
-    }
-    
-    .join-btn {
-       
-        width: fit-content;
-        background-color: #ffb700;
-        color: #222;
-        padding: 15px 35px;
-        border-radius: 10px;
-        text-decoration: none;
-        font-weight: 600;
-        font-size: 1.1rem;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 15px rgba(255, 183, 0, 0.3);
-        border: 2px solid transparent;
-    }
-    
-    .join-btn:hover {
-        background-color: #ffcc00;
-        transform: translateY(-3px);
-        box-shadow: 0 6px 20px rgba(255, 183, 0, 0.4);
-    }
-    
-    .join-btn:active {
-        transform: translateY(1px);
-    }
-    
-/* Hero Section Design Start From here*/
+body {
+    overflow-x: hidden;
+    background-color: #f8fafc;
+}
 
+/* Container Styles */
+.container {
+    margin: 20px;
+    padding: 0;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    width: auto;
+}
 
+/* Hero Section */
 .hero {
     display: flex;
     align-items: center;
+    padding: 40px;
 }
 
 .hero-content {
     flex: 1;
-    padding-right: 1rem;
+    padding-right: 2rem;
 }
 
 .hero-image {
@@ -280,17 +114,16 @@
     color: #718096;
     margin-top: 0.5rem;
 }
-/*Hero Section Design ends Here */
 
-/*Join Faiz Computer institute Section Start */
+/* Join Us Section */
 .join-us-section {
     background: linear-gradient(135deg, #0400ff 0%, #2a27d9 100%);
     padding: 6vh 2vh;
     text-align: center;
     color: white;
-    font-family: 'Segoe UI', Roboto, sans-serif;
     position: relative;
     overflow: hidden;
+    margin: 40px 0;
 }
 
 .join-us-section::before {
@@ -362,13 +195,14 @@
     transform: translateY(1px);
 }
 
+/* Practice Section */
 .practice {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 40px;
-    padding: 20px 40px;
-    max-width: auto;
+    padding: 40px 20px;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
@@ -404,7 +238,7 @@
 .boxes a {
     text-decoration: none;
     color: #fff;
-    background-color:#e78702;
+    background-color: #e78702;
     padding: 10px 20px;
     border-radius: 8px;
     transition: background-color 0.3s ease;
@@ -416,10 +250,11 @@
     background-color: #2980b9;
 }
 
+/* Services Section */
 .services-main {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 40px 20px;
 }
 
 .services-main h2 {
@@ -430,8 +265,6 @@
     margin-bottom: 15px;
     position: relative;
     display: inline-block;
-    left: 50%;
-    transform: translateX(-50%);
 }
 
 .services-main h2::after {
@@ -445,7 +278,7 @@
     border-radius: 2px;
 }
 
-p.intro {
+.services-main .intro {
     text-align: center;
     font-size: 1.1rem;
     color: #4b5563;
@@ -458,7 +291,6 @@ p.intro {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
-    padding: 0 20px;
 }
 
 .card {
@@ -511,7 +343,6 @@ p.intro {
     font-weight: 700;
     color: #111827;
     margin-bottom: 15px;
-    position: relative;
 }
 
 .card p {
@@ -540,236 +371,198 @@ p.intro {
     color: white;
 }
 
+/* Review Section */
+.review-section-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 40px 20px;
+}
 
-    .review-section-container {
-      max-width: 1200px;
-      margin: auto;
-      padding: 0 20px;
-    }
+.review-section {
+    padding: 60px 0;
+}
 
-    section.review-section {
-      padding: 60px 0;
-    }
+.review-section-title {
+    text-align: center;
+    margin-bottom: 50px;
+}
 
-    .review-section-title {
-      text-align: center;
-      margin-bottom: 50px;
-    }
+.review-section-title h2 {
+    font-size: 2.5rem;
+    color: #1a365d;
+    position: relative;
+    display: inline-block;
+    margin-bottom: 15px;
+}
 
-    .review-section-title h2 {
-      font-size: 2.5rem;
-      color: var(--secondary);
-      position: relative;
-      display: inline-block;
-      margin-bottom: 15px;
-    }
+.review-section-title h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #3182ce, #2c5282);
+    border-radius: 2px;
+}
 
-    .review-section-title h2::after {
-      content: '';
-      position: absolute;
-      bottom: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 80px;
-      height: 4px;
-      background: linear-gradient(90deg, var(--primary), var(--accent));
-      border-radius: 2px;
-    }
+.review-section-title p {
+    color: #6c757d;
+    max-width: 700px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+}
 
-    .review-section-title p {
-      color: #6c757d;
-      max-width: 700px;
-      margin: 0 auto;
-      font-size: 1.1rem;
-    }
+.review-section-stats {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom: 40px;
+}
 
-    .review-section-stats {
-      background: #fff;
-      border-radius: var(--border-radius);
-      box-shadow: var(--shadow);
-      padding: 30px;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-around;
-      margin-bottom: 40px;
-    }
+.review-section-stat {
+    text-align: center;
+    padding: 15px;
+}
 
-    .review-section-stat {
-      text-align: center;
-      padding: 15px;
-    }
+.review-section-stat-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #3182ce;
+}
 
-    .review-section-stat-number {
-      font-size: 2.5rem;
-      font-weight: bold;
-      color: var(--primary);
-    }
+.review-section-stat-label {
+    color: #6c757d;
+    font-size: 1rem;
+}
 
-    .review-section-stat-label {
-      color: #6c757d;
-      font-size: 1rem;
-    }
+.review-section-reviews {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
 
-    .review-section-reviews {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-    }
+.review-section-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    transition: 0.3s;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
 
-    .review-section-card {
-      background: #fff;
-      border-radius: var(--border-radius);
-      box-shadow: var(--shadow);
-      padding: 30px;
-      transition: 0.3s;
-      border: 1px solid rgba(0, 0, 0, 0.05);
-    }
+.review-section-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
 
-    .review-section-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-    }
+.review-section-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
 
-    .review-section-header {
-      display: flex;
-      align-items: center;
-      margin-bottom: 20px;
-    }
+.review-section-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 15px;
+    border: 3px solid #ffb700;
+}
 
-    .review-section-avatar {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-right: 15px;
-      border: 3px solid var(--accent);
-    }
+.review-section-info h4 {
+    font-size: 1.2rem;
+    color: #1a365d;
+}
 
-    .review-section-info h4 {
-      font-size: 1.2rem;
-      color: var(--dark);
-    }
+.review-section-info p {
+    color: #6c757d;
+    font-size: 0.9rem;
+}
 
-    .review-section-info p {
-      color: #6c757d;
-      font-size: 0.9rem;
-    }
+.review-section-stars {
+    margin-bottom: 15px;
+}
 
-    .review-section-stars {
-      margin-bottom: 15px;
-    }
+.review-section-stars .star {
+    color: #ffc107;
+    font-size: 1.2rem;
+    margin-right: 3px;
+}
 
-    .review-section-stars .star {
-      color: #ffc107;
-      font-size: 1.2rem;
-      margin-right: 3px;
-    }
+.review-section-content {
+    color: #495057;
+    margin-bottom: 20px;
+}
 
-    .review-section-content {
-      color: #495057;
-      margin-bottom: 20px;
-    }
+.review-section-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: #6c757d;
+}
 
-    .review-section-meta {
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.9rem;
-      color: #6c757d;
-    }
+.review-section-type {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
 
-    .review-section-type {
-      padding: 4px 12px;
-      border-radius: 20px;
-      font-size: 0.8rem;
-      font-weight: 600;
-    }
+.review-section-type.mcq {
+    background: #d1fae5;
+    color: #065f46;
+}
 
-    .review-section-type.mcq {
-      background: #d1fae5;
-      color: #065f46;
-    }
+.review-section-type.practical {
+    background: #dbeafe;
+    color: #1e40af;
+}
 
-    .review-section-type.practical {
-      background: #dbeafe;
-      color: #1e40af;
-    }
+.review-section-highlight {
+    background: linear-gradient(135deg, #3182ce, #2c5282);
+    border-radius: 12px;
+    color: white;
+    padding: 40px;
+    margin-top: 60px;
+}
 
-    .review-section-highlight {
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      border-radius: var(--border-radius);
-      color: white;
-      padding: 40px;
-      margin-top: 60px;
-    }
+.review-section-highlight-content {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    font-style: italic;
+    margin-bottom: 20px;
+}
 
-    .review-section-highlight-content {
-      font-size: 1.2rem;
-      line-height: 1.8;
-      font-style: italic;
-      margin-bottom: 20px;
-    }
+.review-section-highlight-author {
+    display: flex;
+    align-items: center;
+}
 
-    .review-section-highlight-author {
-      display: flex;
-      align-items: center;
-    }
+.review-section-highlight-author img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 15px;
+    border: 2px solid white;
+}
 
-    .review-section-highlight-author img {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      margin-right: 15px;
-      border: 2px solid white;
-    }
+.review-section-author-info h5 {
+    font-size: 1.1rem;
+}
 
-    .review-section-author-info h5 {
-      font-size: 1.1rem;
-    }
+.review-section-author-info p {
+    opacity: 0.8;
+    font-size: 0.9rem;
+}
 
-    .review-section-author-info p {
-      opacity: 0.8;
-      font-size: 0.9rem;
-    }
-
-    @media (max-width: 768px) {
-      section.review-section {
-        padding: 40px 0;
-      }
-
-      .review-section-title h2 {
-        font-size: 2rem;
-      }
-
-      .review-section-highlight {
-        padding: 30px;
-      }
-
-      .review-section-highlight-content {
-        font-size: 1.1rem;
-      }
-    }
-
-    @media (max-width: 576px) {
-      .review-section-header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .review-section-avatar {
-        margin-bottom: 10px;
-      }
-
-      .review-section-stats {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .review-section-stat {
-        width: 100%;
-        margin-bottom: 20px;
-      }
-    }
-  
+/* Responsive Styles */
 @media (max-width: 1024px) {
     .hero {
         gap: 2rem;
@@ -793,6 +586,7 @@ p.intro {
     .hero {
         flex-direction: column;
         text-align: center;
+        padding: 20px;
     }
     
     .hero-content {
@@ -817,17 +611,11 @@ p.intro {
         max-width: 100%;
     }
     
-    /* Join section adjustments */
     .join-us-section h1 {
         font-size: 2rem;
     }
     
     .join-us-section p {
-        font-size: 1rem;
-        text-align: center;
-    }
-    
-    .join-btn {
         font-size: 1rem;
     }
     
@@ -835,13 +623,25 @@ p.intro {
         font-size: 2rem;
     }
     
-    p.intro {
+    .services-main .intro {
         font-size: 1rem;
     }
     
     .grid {
         grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
         gap: 20px;
+    }
+    
+    .review-section-title h2 {
+        font-size: 2rem;
+    }
+    
+    .review-section-highlight {
+        padding: 30px;
+    }
+    
+    .review-section-highlight-content {
+        font-size: 1.1rem;
     }
 }
 
@@ -854,6 +654,10 @@ p.intro {
         background-color: transparent;
     }
     
+    .hero {
+        padding: 15px;
+    }
+    
     .hero h1 {
         font-size: 2rem;
     }
@@ -864,8 +668,6 @@ p.intro {
     }
     
     .stats {
-        display: flex;
-        justify-content: space-around;
         gap: 1rem;
     }
     
@@ -894,13 +696,9 @@ p.intro {
         font-size: 1.8rem;
     }
     
-    .join-us-section p {
-        text-align: center;
-        margin: 0 auto 20px;
-    }
-    
     .join-btn {
         padding: 12px 25px;
+        width: auto;
     }
     
     .practice {
@@ -911,101 +709,23 @@ p.intro {
     .boxes {
         max-width: 100%;
     }
+    
+    .review-section-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .review-section-avatar {
+        margin-bottom: 10px;
+    }
+    
+    .review-section-stats {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .review-section-stat {
+        width: 100%;
+        margin-bottom: 20px;
+    }
 }
-        /*Join Faiz Computer institute Section ends Here */
-        @media (max-width: 1024px) {
-            .hero {
-                gap: 2rem;
-            }
-            
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .container {
-                padding: auto;
-                border-radius: 12px;
-            }
-            
-            .hero {
-                flex-direction: column;
-                text-align: center;
-                padding: 0%;
-                margin: 0%;
-                
-            }
-            
-            .hero-content {
-                padding-right: 0;
-            }
-            
-            .hero p {
-                margin-left: auto;
-                margin-right: auto;
-            }
-            
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-            
-            .stats {
-                justify-content: center;
-                gap: 2rem;
-            }
-            
-            .hero-image img {
-               display: none;
-            }
-            /*Ends here hero section and join faiz cimouter starts here */
-              .join-us-section h1 {
-            font-size: 2rem;
-        }
-        
-        .join-us-section p {
-            font-size: 1rem;
-            margin: 20px 20px;
-            text-align: justify;
-        }
-        
-        .join-btn {
-            display: inline-block;
-            width: 80%;
-            font-size: 1rem;
-        }
-        }
-        
-        @media (max-width: 480px) {
-            .container {
-                
-                border: none;
-                box-shadow: none;
-                background-color: transparent;
-                margin: 15px;
-                margin-bottom: 0%;
-                padding-bottom: 0%;
-            }
-            
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .hero p {
-                font-size: 1rem;
-                margin-bottom: 5px;
-            }
-            
-            .stats {
-                display: none;
-            }
-            
-            .hero-image img {
-                display: none;
-            }
-            
-            .cta-button {
-                width: 100%;
-                text-align: center;
-            }
-        }
