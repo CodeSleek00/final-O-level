@@ -14,7 +14,7 @@
 
 <body>
     <!-- Navbar would be included here -->
-    
+        <?php include 'navbar.html'; ?>
     
     <div class="container">
         <section class="hero">
