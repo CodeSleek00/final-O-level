@@ -295,7 +295,7 @@
                     <div class="footer-contact-icon">
                         <i class="fas fa-phone-alt"></i>
                     </div>
-                    <p>+91 1234567890</p>
+                    <p>+91 9721896891</p>
                 </div>
                 <div class="footer-contact-item">
                     <div class="footer-contact-icon">
