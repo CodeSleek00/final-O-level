@@ -31,6 +31,7 @@ $subject_id = 1; // IT Tools (M1-R5)
     margin-bottom:30px;
     color:#222;
     text-align: center;
+    font-weight: bold;
 }
 
 /* Grid Layout */
