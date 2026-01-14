@@ -292,28 +292,6 @@ $subject_id = 1; // IT Tools (M1-R5)
         </div>
     </section>
 </div>
-<div class="container">
-
-    <div class="cards-grid">
-        <?php
-        $q = $conn->query("SELECT * FROM test_sets WHERE subject_id=$subject_id");
-        while($row = $q->fetch_assoc()){
-
-            $countQ = $conn->query("
-                SELECT COUNT(*) AS total 
-                FROM questions 
-                WHERE set_id={$row['id']}
-            ")->fetch_assoc();
-        ?>
-            <div class="test-card">
-                <h1><?= $row['set_name']; ?></h1>
-                <p>This Mock Test Consist : <b><?= $countQ['total']; ?> Questions</b></p>
-                <a class="start-btn" href="../exam.php?sid=<?= $subject_id; ?>&setid=<?= $row['id']; ?>">Start Exam</a>
-            </div>
-        <?php } ?>
-    </div>
-
-</div>
 
 <div class="container">
     <h1>Chapter-wise Practice</h1>
@@ -343,6 +321,30 @@ $count = $conn->query("
 <?php } ?>
 
 </div>
+</div>
+
+
+<div class="container">
+
+    <div class="cards-grid">
+        <?php
+        $q = $conn->query("SELECT * FROM test_sets WHERE subject_id=$subject_id");
+        while($row = $q->fetch_assoc()){
+
+            $countQ = $conn->query("
+                SELECT COUNT(*) AS total 
+                FROM questions 
+                WHERE set_id={$row['id']}
+            ")->fetch_assoc();
+        ?>
+            <div class="test-card">
+                <h1><?= $row['set_name']; ?></h1>
+                <p>This Mock Test Consist : <b><?= $countQ['total']; ?> Questions</b></p>
+                <a class="start-btn" href="../exam.php?sid=<?= $subject_id; ?>&setid=<?= $row['id']; ?>">Start Exam</a>
+            </div>
+        <?php } ?>
+    </div>
+
 </div>
 
 
