@@ -290,7 +290,7 @@ $subject_id = 1; // IT Tools (M1-R5)
             ")->fetch_assoc();
         ?>
             <div class="test-card">
-                <h3><?= $row['set_name']; ?></h3>
+                <h1><?= $row['set_name']; ?></h1>
                 <p>This Mock Test Consist : <b><?= $countQ['total']; ?> Questions</b></p>
                 <a class="start-btn" href="../exam.php?sid=<?= $subject_id; ?>&setid=<?= $row['id']; ?>">Start Exam</a>
             </div>
