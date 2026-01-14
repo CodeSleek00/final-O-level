@@ -1,6 +1,6 @@
 <?php
 include '../db_connect.php';
-$subject_id = 1; // IT Tools (M1-R5)
+$subject_id = 4; // Python (M4-R5)
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,7 +11,7 @@ $subject_id = 1; // IT Tools (M1-R5)
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <title>M1-R5 (IT Tools)</title>
+    <title>M4-R5 (Python)</title>
 
     <style>
         body{
@@ -57,7 +57,7 @@ $subject_id = 1; // IT Tools (M1-R5)
 
 <div class="container">
     <div class="module-title">
-        <h2>M1-R5 – IT Tools</h2>
+        <h2>M4-R5 – Python</h2>
         <p>Select Test Set</p>
     </div>
 
