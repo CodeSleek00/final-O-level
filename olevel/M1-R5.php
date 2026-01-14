@@ -58,7 +58,7 @@ $subject_id = 1; // IT Tools (M1-R5)
         .page-wrapper {
             max-width: 1200px;
             margin: auto;
-            padding: 30px 20px;
+            padding-top: 20px;
         }
 
         /* ===== HEADER ===== */
