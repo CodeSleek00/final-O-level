@@ -74,7 +74,7 @@ $subject_id = 1; // IT Tools (M1-R5)
 
         /* ===== BANNER ===== */
         .it-banner {
-            background: url('image/bg.svg');
+            background: url('../image/bg.svg');
             background-size: cover;
             background-position: center center;
             padding: 40px 40px;
