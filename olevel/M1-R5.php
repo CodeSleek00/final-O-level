@@ -135,7 +135,7 @@ $subject_id = 1; // IT Tools (M1-R5)
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 25px;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
         }
 
         .feature-box {
