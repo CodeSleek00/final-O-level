@@ -20,7 +20,69 @@ $subject_id = 1; // IT Tools (M1-R5)
             background:#f4f6f9;
             margin:0;
         }
-      
+      /* Container */
+.container{
+    max-width:1200px;
+    margin:50px auto;
+    padding:0 20px;
+}
+
+/* Grid Layout */
+.cards-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr); /* Mobile default: 2 cards per row */
+    gap:25px;
+}
+
+/* Card Style */
+.test-card{
+    background:#fff;
+    border-radius:16px;
+    padding:25px;
+    box-shadow:0 12px 30px rgba(0,0,0,0.08);
+    text-align:center;
+    transition:.3s;
+}
+
+.test-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 18px 40px rgba(0,0,0,0.12);
+}
+
+.test-card h3{
+    font-size:20px;
+    margin-bottom:10px;
+    color:#222;
+}
+
+.test-card p{
+    font-size:14px;
+    color:#555;
+    margin-bottom:20px;
+}
+
+.start-btn{
+    display:inline-block;
+    padding:12px 25px;
+    background:#0d6efd;
+    color:#fff;
+    border-radius:30px;
+    text-decoration:none;
+    font-weight:500;
+    transition:.3s;
+}
+
+.start-btn:hover{
+    background:#084298;
+}
+
+/* Laptop/Desktop: 4 cards per row */
+@media(min-width:1024px){
+    .cards-grid{
+        grid-template-columns:repeat(4,1fr);
+    }
+}
+
         /* ===== PAGE WRAPPER ===== */
         .page-wrapper {
             max-width: 1200px;
