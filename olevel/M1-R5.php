@@ -291,7 +291,7 @@ $subject_id = 1; // IT Tools (M1-R5)
         ?>
             <div class="test-card">
                 <h3><?= $row['set_name']; ?></h3>
-                <p>Total Questions: <b><?= $countQ['total']; ?></b></p>
+                <p>his Mock Test Consist : <b><?= $countQ['total']; ?> Questions</b></p>
                 <a class="start-btn" href="../exam.php?sid=<?= $subject_id; ?>&setid=<?= $row['id']; ?>">Start Exam</a>
             </div>
         <?php } ?>
