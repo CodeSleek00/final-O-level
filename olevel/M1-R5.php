@@ -50,7 +50,7 @@ $subject_id = 1; // IT Tools (M1-R5)
 }
 
 .test-card h1{
-    font-size:30px;
+    font-size:20px;
     margin-bottom:10px;
     color:#222;
 }
