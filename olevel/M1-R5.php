@@ -66,7 +66,7 @@ $subject_id = 1; // IT Tools (M1-R5)
     padding:12px 25px;
     background:#0d6efd;
     color:#fff;
-    border-radius:30px;
+    border-radius:5px;
     text-decoration:none;
     font-weight:500;
     transition:.3s;
