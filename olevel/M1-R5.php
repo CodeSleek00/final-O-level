@@ -11,7 +11,7 @@ $subject_id = 1; // IT Tools (M1-R5)
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="../style.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="style.css?v=<?php echo time(); ?>">
 
 
     <style>
@@ -92,7 +92,24 @@ $subject_id = 1; // IT Tools (M1-R5)
             padding-top: 20px;
         }
 
-      
+        /* ===== HEADER ===== */
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        header h2 {
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 6px;
+        }
+
+        header p {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
         /* ===== BANNER ===== */
         .it-banner {
             background: url('../image/bg.svg');
@@ -123,12 +140,6 @@ $subject_id = 1; // IT Tools (M1-R5)
             font-size: 40px;
             font-weight: 700;
             margin-bottom: 15px;
-        }
-        .footer h2 {
-            text-align: left;
-        }
-        .footer p {
-            color: white;
         }
 
         .it-banner p {
@@ -229,7 +240,6 @@ $subject_id = 1; // IT Tools (M1-R5)
                 padding: 10px 10px;
              }
 
-
         }
     </style>
 </head>
@@ -295,63 +305,6 @@ $subject_id = 1; // IT Tools (M1-R5)
 
 </div>
 
-
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h2>Contact Us</h2>
-                <div class="footer-contact-item">
-                    <div class="footer-contact-icon">
-                        <i class="fas fa-map-marker-alt"></i>
-                    </div>
-                    <p>Faiz Computer Institute, Telibagh, Lucknow</p>
-                </div>
-                <div class="footer-contact-item">
-                    <div class="footer-contact-icon">
-                        <i class="fas fa-phone-alt"></i>
-                    </div>
-                    <p>+91 9721896891</p>
-                </div>
-                <div class="footer-contact-item">
-                    <div class="footer-contact-icon">
-                        <i class="fas fa-envelope"></i>
-                    </div>
-                    <p>faizcomputerinstitutes@gmail.com</p>
-                </div>
-            </div>
-            
-            <div class="footer-section">
-                <h2>Quick Links</h2>
-                <a href="#">Home</a>
-                <a href="#">Courses</a>
-                <a href="#">Practice Tests</a>
-                <a href="#">Study Materials</a>
-                <a href="#">About Us</a>
-            </div>
-            
-            <div class="footer-section">
-                <h2>Connect With Us</h2>
-                <div class="social-icons">
-                    <a href="https://www.facebook.com/FaizComputerInstitute" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://www.instagram.com/faizcomputerinstitute/" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
-                    <a href="https://www.faizcomputerinstitute.com" target="_blank"><i class="fas fa-globe"></i></a>
-                </div>
-                <h2 style="margin-top: 30px;">Newsletter</h2>
-                <p>Subscribe to get updates on new courses and materials</p>
-                <div class="newsletter-input">
-                    <input type="email" placeholder="Your Email">
-                    <button type="submit">
-                        <i class="fas fa-paper-plane"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-        
-        <div class="copyright">
-            <p>&copy; 2025 Faiz Computer Institute. All rights reserved.</p>
-        </div>
-    </footer>
 
 </body>
 </html>
