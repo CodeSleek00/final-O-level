@@ -20,7 +20,7 @@
         <section class="hero">
             <div class="hero-content">
                 <h1>Prepare For O Level & CCC</h1>
-                <p>Comprehensive practice for O Level, CCC, CCC+, and more. Perfect your knowledge and ace your certifications with interactive exercises and mock tests.</p>
+                <p>Comprehensive practice for O Level, CCC, CCC+, and more. Learn, practice, and succeed with interactive exercises and mock tests by Faiz Computer Institute.</p>
                 <a href="#signup" class="cta-button">Start Learning Today</a>
                 
                 <div class="stats">
