@@ -327,7 +327,7 @@ $count = $conn->query("
     <p>Total Questions: <b><?= $count['total']; ?></b></p>
 
     <a class="start-btn"
-       href="exam/chapter_exam.php?cid=<?= $ch['id']; ?>">
+       href="../exam/chapter_exam.php?cid=<?= $ch['id']; ?>">
        Start Practice
     </a>
 </div>
