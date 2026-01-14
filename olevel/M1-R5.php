@@ -124,6 +124,12 @@ $subject_id = 1; // IT Tools (M1-R5)
             font-weight: 700;
             margin-bottom: 15px;
         }
+        .footer h2 {
+            text-align: left;
+        }
+        .footer p {
+            color: white;
+        }
 
         .it-banner p {
             font-size: 17px;
@@ -222,6 +228,7 @@ $subject_id = 1; // IT Tools (M1-R5)
             .start-btn{
                 padding: 10px 10px;
              }
+
 
         }
     </style>
