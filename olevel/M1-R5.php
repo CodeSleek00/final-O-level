@@ -81,7 +81,7 @@ $subject_id = 1; // IT Tools (M1-R5)
             border-radius: 18px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.06);
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: auto;
             background-color: black;
             color: white;
         }
