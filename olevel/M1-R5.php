@@ -37,7 +37,7 @@ $subject_id = 1; // IT Tools (M1-R5)
 /* Card Style */
 .test-card{
     background:#fff;
-    border-radius:8px;
+    border-radius:3px;
     padding:25px;
     box-shadow:0 12px 30px rgba(0,0,0,0.08);
     text-align:center;
