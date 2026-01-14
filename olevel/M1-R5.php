@@ -37,7 +37,7 @@ $subject_id = 1; // IT Tools (M1-R5)
 /* Card Style */
 .test-card{
     background:#fff;
-    border-radius:16px;
+    border-radius:8px;
     padding:25px;
     box-shadow:0 12px 30px rgba(0,0,0,0.08);
     text-align:center;
@@ -291,7 +291,7 @@ $subject_id = 1; // IT Tools (M1-R5)
         ?>
             <div class="test-card">
                 <h3><?= $row['set_name']; ?></h3>
-                <p>his Mock Test Consist : <b><?= $countQ['total']; ?> Questions</b></p>
+                <p>This Mock Test Consist : <b><?= $countQ['total']; ?> Questions</b></p>
                 <a class="start-btn" href="../exam.php?sid=<?= $subject_id; ?>&setid=<?= $row['id']; ?>">Start Exam</a>
             </div>
         <?php } ?>
