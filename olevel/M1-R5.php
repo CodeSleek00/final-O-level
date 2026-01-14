@@ -89,6 +89,7 @@ $subject_id = 1; // IT Tools (M1-R5)
             margin: auto;
             padding-left: 20px;
             padding-right: 20px;
+            padding-top: 20px;
         }
 
         /* ===== HEADER ===== */
