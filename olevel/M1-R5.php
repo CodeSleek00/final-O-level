@@ -24,10 +24,7 @@ $subject_id = 1; // IT Tools (M1-R5)
             margin:80px auto;
             padding:20px;
         }
-        .module-title{
-            text-align:center;
-            margin-bottom:30px;
-        }
+        
         .set-box{
             background:#fff;
             padding:20px;
@@ -56,10 +53,7 @@ $subject_id = 1; // IT Tools (M1-R5)
 <?php include '../navbar.html'; ?>
 
 <div class="container">
-    <div class="module-title">
-        <h2>M1-R5 – IT Tools</h2>
-        <p>Select Test Set</p>
-    </div>
+   
 
     <div class="set-box">
         <?php
