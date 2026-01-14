@@ -19,6 +19,7 @@ $subject_id = 1; // IT Tools (M1-R5)
             font-family: 'Poppins', sans-serif;
             background:#f4f6f9;
             margin:0;
+            height: 1000px;
         }
         .container{
             max-width:900px;
