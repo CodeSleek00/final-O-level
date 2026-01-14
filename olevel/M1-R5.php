@@ -236,6 +236,10 @@ $subject_id = 1; // IT Tools (M1-R5)
             .features {
                 display: none;
             }
+            .start-btn{
+                padding: 10px 20px;
+             }
+
         }
     </style>
 </head>
