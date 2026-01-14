@@ -19,34 +19,54 @@ $subject_id = 1; // IT Tools (M1-R5)
             font-family: 'Poppins', sans-serif;
             background:#f4f6f9;
             margin:0;
-            height: 1000px;
         }
-        .container{
-            max-width:900px;
-            margin:0px auto;
-            padding:20px;
-        }
-        
-        .set-box{
-            background:#fff;
-            padding:20px;
-            border-radius:12px;
-            box-shadow:0 10px 25px rgba(0,0,0,.08);
-        }
-        .set-box a{
-            display:block;
-            padding:15px;
-            margin-bottom:15px;
-            background:#0d6efd;
-            color:#fff;
-            text-decoration:none;
-            border-radius:8px;
-            font-weight:500;
-            transition:.3s;
-        }
-        .set-box a:hover{
-            background:#084298;
-        }
+       .cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+    gap:25px;
+}
+
+.test-card{
+    background:#ffffff;
+    padding:25px;
+    border-radius:16px;
+    box-shadow:0 12px 30px rgba(0,0,0,0.08);
+    transition:.3s;
+    text-align:center;
+}
+
+.test-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 18px 40px rgba(0,0,0,0.12);
+}
+
+.test-card h3{
+    font-size:20px;
+    margin-bottom:10px;
+    color:#222;
+}
+
+.test-card p{
+    font-size:14px;
+    color:#555;
+    margin-bottom:20px;
+}
+
+.start-btn{
+    display:inline-block;
+    padding:12px 25px;
+    background:#0d6efd;
+    color:#fff;
+    border-radius:30px;
+    text-decoration:none;
+    font-weight:500;
+    transition:.3s;
+}
+
+.start-btn:hover{
+    background:#084298;
+}
+
 
         /* ===== PAGE WRAPPER ===== */
         .page-wrapper {
@@ -241,21 +261,38 @@ $subject_id = 1; // IT Tools (M1-R5)
         </div>
     </section>
 </div>
-
 <div class="container">
-   
 
-    <div class="set-box">
+    <div class="cards">
         <?php
         $q = $conn->query("SELECT * FROM test_sets WHERE subject_id=$subject_id");
         while($row = $q->fetch_assoc()){
-            echo "<a href='../exam.php?sid=$subject_id&setid={$row['id']}'>
-                    <i class='fa-solid fa-file-lines'></i> {$row['set_name']}
-                  </a>";
-        }
+
+            // count questions in this set
+            $countQ = $conn->query(
+                "SELECT COUNT(*) AS total 
+                 FROM questions 
+                 WHERE set_id={$row['id']}"
+            )->fetch_assoc();
         ?>
+            <div class="test-card">
+                <h3><?= $row['set_name']; ?></h3>
+
+                <p>
+                    <i class="fa-solid fa-circle-question"></i>
+                    Total Questions: <b><?= $countQ['total']; ?></b>
+                </p>
+
+                <a class="start-btn"
+                   href="../exam.php?sid=<?= $subject_id; ?>&setid=<?= $row['id']; ?>">
+                   Start Exam
+                </a>
+            </div>
+        <?php } ?>
     </div>
+
 </div>
+
 
 </body>
 </html>
