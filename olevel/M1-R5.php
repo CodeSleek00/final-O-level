@@ -27,7 +27,7 @@ $subject_id = 1; // IT Tools (M1-R5)
     padding:0 20px;
 }
 .container h1{
-    font-size:28px;
+    font-size:20px;
     margin-bottom:30px;
     color:#222;
     text-align: center;
