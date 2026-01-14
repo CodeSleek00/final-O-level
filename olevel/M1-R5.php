@@ -18,7 +18,7 @@ $subject_id = 1; // IT Tools (M1-R5)
 
 <body>
     <!-- Navbar would be included here -->
-        <?php include 'navbar.html'; ?>
+        <?php include '../navbar.html'; ?>
     
     
     <style>
