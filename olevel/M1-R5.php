@@ -325,7 +325,7 @@ $count = $conn->query("
 
 
 <div class="container">
- <h1>Mock Practice</h1>
+ <h1>Mock Test</h1>
     <div class="cards-grid">
         <?php
         $q = $conn->query("SELECT * FROM test_sets WHERE subject_id=$subject_id");
