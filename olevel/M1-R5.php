@@ -239,6 +239,9 @@ $subject_id = 1; // IT Tools (M1-R5)
             .start-btn{
                 padding: 10px 10px;
              }
+             .test-card {
+                padding: 15px;
+             }
 
         }
     </style>
