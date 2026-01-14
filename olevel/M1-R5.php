@@ -27,7 +27,7 @@ $subject_id = 1; // IT Tools (M1-R5)
         }
         .container{
             max-width:900px;
-            margin:auto auto;
+            margin:0px auto;
             padding:20px;
         }
         .module-title{
