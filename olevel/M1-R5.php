@@ -49,8 +49,8 @@ $subject_id = 1; // IT Tools (M1-R5)
     box-shadow:0 18px 40px rgba(0,0,0,0.12);
 }
 
-.test-card h3{
-    font-size:20px;
+.test-card h1{
+    font-size:30px;
     margin-bottom:10px;
     color:#222;
 }
