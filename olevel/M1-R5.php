@@ -54,6 +54,149 @@ $subject_id = 1; // IT Tools (M1-R5)
         .set-box a:hover{
             background:#084298;
         }
+           /* ===== PAGE WRAPPER ===== */
+        .page-wrapper {
+            max-width: 1200px;
+            margin: auto;
+            padding: 30px 20px;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        header h2 {
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 6px;
+        }
+
+        header p {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        /* ===== BANNER ===== */
+        .it-banner {
+            background: var(--card-bg);
+            padding: 40px 40px;
+            border-radius: 18px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 6px 18px;
+            background: #eef2ff;
+            color: var(--primary);
+            font-size: 13px;
+            font-weight: 600;
+            border-radius: 20px;
+            margin-bottom: 18px;
+        }
+
+        .it-banner h1 {
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .it-banner p {
+            font-size: 17px;
+            line-height: 1.7;
+            color: var(--text-light);
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 14px 34px;
+            background: var(--primary);
+            color: #fff;
+            border-radius: 50px;
+            font-size: 15px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: 0.3s ease;
+        }
+
+        .cta-btn:hover {
+            background: #1e40af;
+            transform: translateY(-2px);
+        }
+
+        /* ===== FEATURES ===== */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .feature-box {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+
+        .feature-box h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .feature-box p {
+            font-size: 14px;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 900px) {
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .it-banner h1 {
+                font-size: 34px;
+            }
+             .features {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .it-banner {
+                padding: 40px 25px;
+            }
+
+            .it-banner h1 {
+                font-size: 30px;
+            }
+
+            .it-banner p {
+                font-size: 16px;
+            }
+            .features {
+                display: none;
+            }
+        }
     </style>
 </head>
 
@@ -61,11 +204,42 @@ $subject_id = 1; // IT Tools (M1-R5)
 
 <?php include '../navbar.html'; ?>
 
+<div class="page-wrapper">
+
+   
+
+    <!-- BANNER -->
+    <section class="it-banner">
+        
+        <h1>IT Tools MCQ Practice</h1>
+        <p>
+            Practice updated MCQs based on the latest NIELIT syllabus.
+            Improve accuracy, speed, and confidence with topic-wise
+            IT Tools questions designed for O Level students.
+        </p>
+        
+    </section>
+
+    <!-- FEATURES -->
+    <section class="features">
+        <div class="feature-box">
+            <h3>📘 Updated Syllabus</h3>
+            <p>MCQs strictly based on latest NIELIT O Level M1-R5 syllabus.</p>
+        </div>
+
+        <div class="feature-box">
+            <h3>📝 Topic-wise Practice</h3>
+            <p>Practice MS Word, Excel, PowerPoint, Internet & IT Tools.</p>
+        </div>
+
+        <div class="feature-box">
+            <h3>⏱ Exam-Oriented</h3>
+            <p>Designed to improve speed, accuracy, and exam confidence.</p>
+        </div>
+    </section>
+</div>
 <div class="container">
-    <div class="module-title">
-        <h2>M1-R5 – IT Tools</h2>
-        <p>Select Test Set</p>
-    </div>
+   
 
     <div class="set-box">
         <?php
