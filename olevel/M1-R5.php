@@ -92,24 +92,7 @@ $subject_id = 1; // IT Tools (M1-R5)
             padding-top: 20px;
         }
 
-        /* ===== HEADER ===== */
-        header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        header h2 {
-            font-size: 22px;
-            font-weight: 600;
-            color: var(--primary);
-            margin-bottom: 6px;
-        }
-
-        header p {
-            font-size: 14px;
-            color: var(--text-light);
-        }
-
+      
         /* ===== BANNER ===== */
         .it-banner {
             background: url('../image/bg.svg');
