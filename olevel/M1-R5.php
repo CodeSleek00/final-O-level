@@ -308,6 +308,35 @@ $subject_id = 1; // IT Tools (M1-R5)
 
 </div>
 
+<div class="container">
+<div class="cards-grid">
+
+<?php
+$q = $conn->query("SELECT * FROM chapters WHERE subject_id=$subject_id");
+while($ch = $q->fetch_assoc()){
+
+$count = $conn->query("
+    SELECT COUNT(*) total 
+    FROM chapter_questions 
+    WHERE chapter_id={$ch['id']}
+")->fetch_assoc();
+?>
+
+<div class="test-card">
+    <h3><?= $ch['chapter_name']; ?></h3>
+    <p>Total Questions: <b><?= $count['total']; ?></b></p>
+
+    <a class="start-btn"
+       href="chapter_exam.php?cid=<?= $ch['id']; ?>">
+       Start Practice
+    </a>
+</div>
+
+<?php } ?>
+
+</div>
+</div>
+
 
 </body>
 </html>
