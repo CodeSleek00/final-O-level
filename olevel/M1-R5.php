@@ -309,8 +309,9 @@ $subject_id = 1; // IT Tools (M1-R5)
 </div>
 
 <div class="container">
+    <h1>Chapter-wise Practice</h1>
 <div class="cards-grid">
-<h1>Chapter-wise Practice</h1>
+
 <?php
 $q = $conn->query("SELECT * FROM chapters WHERE subject_id=$subject_id");
 while($ch = $q->fetch_assoc()){
