@@ -177,6 +177,9 @@ $subject_id = 1; // IT Tools (M1-R5)
              .features {
                 display: none;
             }
+             .it-banner {
+                margin-bottom: 0px;
+            }
         }
 
         @media (max-width: 480px) {
