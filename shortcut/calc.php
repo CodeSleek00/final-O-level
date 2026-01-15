@@ -1,5 +1,5 @@
 <?php
-include("db_connect.php");
+include("../db_connect.php");
 $result = $conn->query("SELECT * FROM shortcuts WHERE category='LibreOffice Calc'");
 ?>
 
