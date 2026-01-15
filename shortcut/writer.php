@@ -170,14 +170,6 @@ $result = $conn->query($sql);
 
       
 
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white mt-12 py-6">
-        <div class="container mx-auto px-4 text-center">
-            <p class="text-gray-300">© <?php echo date('Y'); ?> Faiz Computer Institute. All rights reserved.</p>
-            <p class="text-gray-400 text-sm mt-2">Master document editing with LibreOffice Writer shortcuts</p>
-        </div>
-    </footer>
-
     <script>
         // Copy shortcut to clipboard
         function copyToClipboard(text) {
