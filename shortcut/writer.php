@@ -168,37 +168,7 @@ $result = $conn->query($sql);
             </div>
         </div>
 
-        <!-- Quick Tips -->
-        <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="bg-blue-50 rounded-lg p-5 border border-blue-100">
-                <div class="flex items-center mb-3">
-                    <div class="bg-blue-100 p-2 rounded-lg mr-3">
-                        <i class="fas fa-lightbulb text-blue-600"></i>
-                    </div>
-                    <h3 class="font-semibold text-gray-800">Pro Tip</h3>
-                </div>
-                <p class="text-gray-600 text-sm">Use <kbd class="keyboard-key">Ctrl</kbd> + <kbd class="keyboard-key">S</kbd> frequently to save your work</p>
-            </div>
-            <div class="bg-green-50 rounded-lg p-5 border border-green-100">
-                <div class="flex items-center mb-3">
-                    <div class="bg-green-100 p-2 rounded-lg mr-3">
-                        <i class="fas fa-bolt text-green-600"></i>
-                    </div>
-                    <h3 class="font-semibold text-gray-800">Quick Navigation</h3>
-                </div>
-                <p class="text-gray-600 text-sm"><kbd class="keyboard-key">F5</kbd> opens the Navigator for quick document navigation</p>
-            </div>
-            <div class="bg-purple-50 rounded-lg p-5 border border-purple-100">
-                <div class="flex items-center mb-3">
-                    <div class="bg-purple-100 p-2 rounded-lg mr-3">
-                        <i class="fas fa-clipboard text-purple-600"></i>
-                    </div>
-                    <h3 class="font-semibold text-gray-800">Copy Shortcuts</h3>
-                </div>
-                <p class="text-gray-600 text-sm">Click the copy icon next to any shortcut to copy it</p>
-            </div>
-        </div>
-    </div>
+      
 
     <!-- Footer -->
     <footer class="bg-gray-800 text-white mt-12 py-6">
