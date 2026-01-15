@@ -1,77 +1,113 @@
 <?php
 include '../db_connect.php';
-$subject_id = 4; // Python (M4-R5)
+$subject_id = 4; // PYthon M4-R5
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <title>M4-R5 (Python)</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css?v=<?php echo time(); ?>">
 
-    <title>M4-R5 (Python)</title>
-
-    <style>
-        body{
-            font-family: 'Poppins', sans-serif;
-            background:#f4f6f9;
-            margin:0;
-        }
-        .container{
-            max-width:900px;
-            margin:80px auto;
-            padding:20px;
-        }
-        .module-title{
-            text-align:center;
-            margin-bottom:30px;
-        }
-        .set-box{
-            background:#fff;
-            padding:20px;
-            border-radius:12px;
-            box-shadow:0 10px 25px rgba(0,0,0,.08);
-        }
-        .set-box a{
-            display:block;
-            padding:15px;
-            margin-bottom:15px;
-            background:#0d6efd;
-            color:#fff;
-            text-decoration:none;
-            border-radius:8px;
-            font-weight:500;
-            transition:.3s;
-        }
-        .set-box a:hover{
-            background:#084298;
-        }
-    </style>
 </head>
 
 <body>
 
 <?php include '../navbar.html'; ?>
 
-<div class="container">
-    <div class="module-title">
-        <h2>M4-R5 – Python</h2>
-        <p>Select Test Set</p>
-    </div>
+<div class="page-wrapper">
 
-    <div class="set-box">
+   
+
+    <!-- BANNER -->
+    <section class="it-banner">
+        
+        <h1>Python MCQ Practice</h1>
+        <p>
+            Practice updated MCQs based on the latest NIELIT syllabus.
+            Improve accuracy, speed, and confidence with topic-wise
+            Python questions designed for O Level students.
+        </p>
+        
+    </section>
+
+    <!-- FEATURES -->
+    <section class="features">
+        <div class="feature-box">
+            <h3>📘 Updated Syllabus</h3>
+            <p>MCQs strictly based on latest NIELIT O Level M4-R5 syllabus.</p>
+        </div>
+
+        <div class="feature-box">
+            <h3>📝 Topic-wise Practice</h3>
+            <p>Practice Python, Data Structures, and Algorithms topics.</p>
+        </div>
+
+        <div class="feature-box">
+            <h3>⏱ Exam-Oriented</h3>
+            <p>Designed to improve speed, accuracy, and exam confidence.</p>
+        </div>
+    </section>
+</div>
+
+<div class="container">
+    <h1>Chapter-wise Practice</h1>
+<div class="cards-grid">
+
+<?php
+$q = $conn->query("SELECT * FROM chapters WHERE subject_id=$subject_id");
+while($ch = $q->fetch_assoc()){
+
+$count = $conn->query("
+    SELECT COUNT(*) total 
+    FROM chapter_questions 
+    WHERE chapter_id={$ch['id']}
+")->fetch_assoc();
+?>
+
+<div class="test-card">
+    <h3><?= $ch['chapter_name']; ?></h3>
+    <p>Total Questions: <b><?= $count['total']; ?></b></p>
+
+    <a class="start-btn"
+       href="../exam/chapter_exam.php?cid=<?= $ch['id']; ?>">
+       Start Practice
+    </a>
+</div>
+
+<?php } ?>
+
+</div>
+</div>
+
+
+<div class="container">
+ <h1>Mock Test</h1>
+    <div class="cards-grid">
         <?php
         $q = $conn->query("SELECT * FROM test_sets WHERE subject_id=$subject_id");
         while($row = $q->fetch_assoc()){
-            echo "<a href='../exam.php?sid=$subject_id&setid={$row['id']}'>
-                    <i class='fa-solid fa-file-lines'></i> {$row['set_name']}
-                  </a>";
-        }
+
+            $countQ = $conn->query("
+                SELECT COUNT(*) AS total 
+                FROM questions 
+                WHERE set_id={$row['id']}
+            ")->fetch_assoc();
         ?>
+            <div class="test-card">
+                <h1><?= $row['set_name']; ?></h1>
+                <p>This Mock Test Consist : <b><?= $countQ['total']; ?> Questions</b></p>
+                <a class="start-btn" href="../exam.php?sid=<?= $subject_id; ?>&setid=<?= $row['id']; ?>">Start Exam</a>
+            </div>
+        <?php } ?>
     </div>
+
 </div>
+
 
 </body>
 </html>
