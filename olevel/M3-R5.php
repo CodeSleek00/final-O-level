@@ -1,13 +1,13 @@
 <?php
 include '../db_connect.php';
-$subject_id = 3; // IOT (M3-R5)
+$subject_id = 3; // PYTHON (M3-R5)
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>M3-R5 (Internet of Things)</title>
+    <title>M3-R5 (Python Programming)</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -26,11 +26,11 @@ $subject_id = 3; // IOT (M3-R5)
     <!-- BANNER -->
     <section class="it-banner">
         
-        <h1>Internet of Things MCQ Practice</h1>
+        <h1>Python Programming MCQ Practice</h1>
         <p>
             Practice updated MCQs based on the latest NIELIT syllabus.
             Improve accuracy, speed, and confidence with topic-wise
-            Internet of Things questions designed for O Level students.
+            Python Programming questions designed for O Level students.
         </p>
         
     </section>
@@ -44,7 +44,7 @@ $subject_id = 3; // IOT (M3-R5)
 
         <div class="feature-box">
             <h3>📝 Topic-wise Practice</h3>
-            <p>Practice IOT, Sensors, and Networking topics.</p>
+            <p>Practice Python Programming topics.</p>
         </div>
 
         <div class="feature-box">

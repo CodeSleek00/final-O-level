@@ -1,13 +1,13 @@
 <?php
 include '../db_connect.php';
-$subject_id = 4; // PYthon M4-R5
+$subject_id = 4; // IOT M4-R5
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>M4-R5 (Python)</title>
+    <title>M4-R5 (Internet of Things)</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -26,11 +26,11 @@ $subject_id = 4; // PYthon M4-R5
     <!-- BANNER -->
     <section class="it-banner">
         
-        <h1>Python MCQ Practice</h1>
+        <h1>Internet of Things MCQ Practice</h1>
         <p>
             Practice updated MCQs based on the latest NIELIT syllabus.
             Improve accuracy, speed, and confidence with topic-wise
-            Python questions designed for O Level students.
+            Internet of Things questions designed for O Level students.
         </p>
         
     </section>
@@ -44,7 +44,7 @@ $subject_id = 4; // PYthon M4-R5
 
         <div class="feature-box">
             <h3>📝 Topic-wise Practice</h3>
-            <p>Practice Python, Data Structures, and Algorithms topics.</p>
+            <p>Practice Internet of Things, Sensors, and Networking topics.</p>
         </div>
 
         <div class="feature-box">
