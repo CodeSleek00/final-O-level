@@ -17,7 +17,7 @@ $subject_id = 3; // IOT (M3-R5)
 
 <body>
 
-<?php include '../navbar.html'; ?>
+<?php include 'navbar.html'; ?>
 
 <div class="page-wrapper">
 

@@ -17,7 +17,7 @@ $subject_id = 4; // PYthon M4-R5
 
 <body>
 
-<?php include '../navbar.html'; ?>
+<?php include 'navbar.html'; ?>
 
 <div class="page-wrapper">
 
