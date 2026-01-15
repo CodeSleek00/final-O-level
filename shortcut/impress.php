@@ -3,6 +3,8 @@ include("../db_connect.php");
 $result = $conn->query("SELECT * FROM shortcuts WHERE category='LibreOffice Impress'");
 ?>
 
+<?php include 'navbar.html'; ?>
+
 <h2>LibreOffice Impress Shortcut Keys</h2>
 
 <?php while($row = $result->fetch_assoc()) { ?>

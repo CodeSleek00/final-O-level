@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Faiz Computer Institute</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    :root {
+      --primary: #000000;
+      --primary-dark: #3a56d4;
+      --primary-light: #ebf2ff;
+      --secondary: #4cc9f0;
+      --bg: #ffffff;
+      --text: #2b2d42;
+      --text-light: #6c757d;
+      --border: #e9ecef;
+      --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      --radius: 8px;
+      --radius-sm: 4px;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      
+    }
+
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.75rem 2rem;
+
+      background-color: var(--bg);
+      box-shadow: var(--shadow);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .logo-container:hover {
+      opacity: 0.9;
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .logo-text .main {
+      font-weight: 600;
+      font-size: 1.3rem;
+      color: var(--primary);
+      letter-spacing: -0.5px;
+    }
+
+    .logo-text .sub {
+      font-size: 0.75rem;
+      color: var(--text-light);
+      font-weight: 500;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.5rem;
+      list-style: none;
+    }
+
+    .nav-item {
+      position: relative;
+    }
+
+    .nav-link {
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 500;
+      padding: 0.75rem 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: var(--transition);
+      border-radius: var(--radius-sm);
+      position: relative;
+    }
+
+    .nav-link:hover {
+      color: var(--primary);
+      background: var(--primary-light);
+    }
+
+    .nav-link.active {
+      color: var(--primary);
+      background: var(--primary-light);
+    }
+
+    .nav-link i {
+      font-size: 0.9rem;
+      width: 18px;
+      text-align: center;
+    }
+
+    /* Arrow icon for dropdown */
+    .nav-link .arrow {
+      margin-left: 0.5rem;
+      transition: var(--transition);
+      font-size: 0.7rem;
+      width: 14px;
+      color: var(--text-light);
+    }
+
+    .nav-item:hover .nav-link .arrow,
+    .nav-item.active .nav-link .arrow {
+      color: var(--primary);
+    }
+
+    .dropdown {
+      position: absolute;
+      top: calc(100% );
+      left: 0;
+      background-color: var(--bg);
+      box-shadow: var(--shadow);
+      border-radius: var(--radius-sm);
+      display: none;
+      flex-direction: column;
+      min-width: 220px;
+      padding: 0.5rem 0;
+      border: 1px solid var(--border);
+      z-index: 1001;
+      animation: fadeIn 0.2s ease-out;
+      transform-origin: top center;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px) scale(0.95); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .dropdown.active {
+      display: flex;
+    }
+
+    .dropdown-link {
+      padding: 0.65rem 1.5rem;
+      width: max-content;
+      color: var(--text);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      transition: var(--transition);
+      font-size: 0.9rem;
+    }
+
+    .dropdown-link:hover {
+      background: var(--primary-light);
+      color: var(--primary);
+      padding-left: 1.75rem;
+      width: 100%;
+    }
+
+    .dropdown-link i {
+      color: var(--primary);
+      font-size: 0.8rem;
+      width: 100%;
+    }
+
+    .dropdown-divider {
+      height: 1px;
+      background: var(--border);
+      margin: 0.25rem 1.5rem;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 0.75rem;
+      border-radius: var(--radius-sm);
+      transition: var(--transition);
+    }
+
+    .hamburger:hover {
+      background: var(--primary-light);
+    }
+
+    .hamburger span {
+      width: 24px;
+      height: 2.5px;
+      background: black;
+      transition: var(--transition);
+      border-radius: 2px;
+    }
+
+    .hamburger.active span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+    a {
+      text-decoration: none;
+      color: orange;
+    }
+    a:hover {
+      color: black;
+      transition: 0.5s ease-in;
+    }
+    /* Mobile Styles */
+    @media (max-width: 992px) {
+      nav {
+        padding: 0.75rem 1.5rem;
+      }
+      
+      .hamburger {
+        display: flex;
+      }
+
+      .nav-links {
+        flex-direction: column;
+        background-color: var(--bg);
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 70%;
+        height: 100vh;
+        padding: 5rem 1.5rem 2rem;
+        transition: left 0.3s ease;
+        box-shadow: 4px 0 15px rgba(0, 0, 0, 0.1);
+        overflow-y: auto;
+        margin: 0;
+      }
+
+      .nav-links.active {
+        left: 0;
+      }
+
+      .nav-item {
+        margin: 0.5rem 0;
+      }
+
+      .nav-link {
+        padding: 0.85rem 1rem;
+        border-radius: var(--radius-sm);
+      }
+
+      .dropdown {
+        position: static;
+        box-shadow: none;
+        border: none;
+        display: none;
+        margin: 0.5rem 0 0 1rem;
+        border-left: 2px solid var(--border);
+        animation: none;
+        width: calc(100% - 1rem);
+      }
+
+      .dropdown.active {
+        display: flex;
+      }
+
+      .dropdown-link {
+        padding: 0.65rem 1rem;
+        font-size: 0.85rem;
+      }
+
+      .dropdown-link:hover {
+        padding-left: 1.25rem;
+      }
+
+      /* Mobile arrow animation */
+      .nav-link .arrow {
+        transition: transform 0.3s ease;
+      }
+
+      .nav-item.active .nav-link .arrow {
+        transform: rotate(180deg);
+      }
+    }
+
+    /* Backdrop for mobile menu */
+    .backdrop {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 999;
+      backdrop-filter: blur(2px);
+    }
+
+    .backdrop.active {
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="backdrop" id="backdrop"></div>
+  
+  <nav>
+      <div class="logo-text">
+        <span class="main">O Level Preparation</span>
+        <span class="sub"><a href="https://www.faizcomputerinstitute.com">By Faiz Computer Institute</span></a>
+      </div>
+    
+    
+    <ul class="nav-links" id="navLinks">
+      <li class="nav-item">
+        <a href="../index.php" class="nav-link "> Home</a>
+
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link">MCQ <i class="fas fa-chevron-down arrow"></i></a>
+        <div class="dropdown">
+          <a href="#" class="dropdown-link">O Level</a>
+          <a href="#" class="dropdown-link">CCC</a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-link">Mock Tests</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link"> Shortcut Keys <i class="fas fa-chevron-down arrow"></i></a>
+        <div class="dropdown">
+          <a href="#" class="dropdown-link"> LibreOffice Writer</a>
+          <a href="#" class="dropdown-link"> LibreOffice Calc</a>
+          <a href="#" class="dropdown-link">LibreOffice Impress</a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-link"> All Shortcut Keys</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link">O Level MCQ<i class="fas fa-chevron-down arrow"></i></a>
+        <div class="dropdown">
+          <a href="olevel/M1-R5.php" class="dropdown-link"> M1-R5: IT Tools</a>
+          <a href="olevel/M2-R5.php" class="dropdown-link">M2-R5 : Web Design & Publishing</a>
+          <a href="olevel/M3-R5.php" class="dropdown-link"> M3-R5 : Python Programming</a>
+          <a href="olevel/M4-R5.php" class="dropdown-link"> M4-R5 : IOT (Internet Of Things)</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link"> Practical Portal <i class="fas fa-chevron-down arrow"></i></a>
+        <div class="dropdown">
+          <a href="#" class="dropdown-link"> M1-R5 : IT Tools </a>
+          <a href="#" class="dropdown-link"> M2-R5 : Web Design & Publishing</a>
+          <a href="#" class="dropdown-link"> M3-R5 : Python Programming</a>
+          <a href="#" class="dropdown-link"> M4-R5 : IOT (Internet Of Things)</a>
+        </div>
+      </li>
+       <li class="nav-item">
+        <a href="#" class="nav-link"> Syllabus</a>
+      </li>
+    </ul>
+    
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const hamburger = document.getElementById('hamburger');
+      const navLinks = document.getElementById('navLinks');
+      const backdrop = document.getElementById('backdrop');
+      const navItems = document.querySelectorAll('.nav-item');
+      
+      // Mobile menu toggle
+      hamburger.addEventListener('click', function() {
+        this.classList.toggle('active');
+        navLinks.classList.toggle('active');
+        backdrop.classList.toggle('active');
+        document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+      });
+      
+      // Close menu when clicking backdrop
+      backdrop.addEventListener('click', function() {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('active');
+        this.classList.remove('active');
+        document.body.style.overflow = '';
+        closeAllDropdowns();
+      });
+      
+      // Handle dropdown interactions
+      navItems.forEach(item => {
+        const link = item.querySelector('.nav-link');
+        const dropdown = item.querySelector('.dropdown');
+        const arrow = item.querySelector('.arrow');
+        
+        if (!dropdown) return;
+        
+        // Hover functionality for desktop
+        item.addEventListener('mouseenter', function() {
+          if (window.innerWidth > 992) {
+            closeAllDropdowns();
+            dropdown.classList.add('active');
+            arrow.style.transform = 'rotate(180deg)';
+          }
+        });
+        
+        item.addEventListener('mouseleave', function() {
+          if (window.innerWidth > 992) {
+            dropdown.classList.remove('active');
+            arrow.style.transform = 'rotate(0deg)';
+          }
+        });
+        
+        // Click functionality for mobile
+        link.addEventListener('click', function(e) {
+          if (window.innerWidth <= 992) {
+            e.preventDefault();
+            const wasActive = item.classList.contains('active');
+            closeAllDropdowns();
+            
+            if (!wasActive) {
+              item.classList.add('active');
+              dropdown.classList.add('active');
+              arrow.style.transform = 'rotate(180deg)';
+            }
+          }
+        });
+      });
+      
+      // Close dropdowns when clicking outside
+      document.addEventListener('click', function(e) {
+        if (!e.target.closest('.nav-item') && !e.target.closest('.hamburger')) {
+          closeAllDropdowns();
+        }
+      });
+      
+      // Active link highlighting - only for non-dropdown links
+      const navLinksAll = document.querySelectorAll('.nav-link');
+      navLinksAll.forEach(link => {
+        if (!link.querySelector('.arrow')) {
+          link.addEventListener('click', function(e) {
+            navLinksAll.forEach(l => l.classList.remove('active'));
+            this.classList.add('active');
+          });
+        }
+      });
+      
+      function closeAllDropdowns() {
+        document.querySelectorAll('.dropdown').forEach(dropdown => {
+          dropdown.classList.remove('active');
+        });
+        document.querySelectorAll('.nav-item').forEach(item => {
+          item.classList.remove('active');
+        });
+        document.querySelectorAll('.arrow').forEach(arrow => {
+          arrow.style.transform = 'rotate(0deg)';
+        });
+      }
+      
+      // Handle window resize
+      window.addEventListener('resize', function() {
+        if (window.innerWidth > 992) {
+          hamburger.classList.remove('active');
+          navLinks.classList.remove('active');
+          backdrop.classList.remove('active');
+          document.body.style.overflow = '';
+          closeAllDropdowns();
+        }
+      });
+    });
+  </script>
+</body>
+</html>
