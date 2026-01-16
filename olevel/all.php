@@ -98,9 +98,10 @@ body {
 </style>
 
 </head>
+<?php include 'navbar.html'; ?>
 <body>
 
-<?php include 'navbar.html'; ?>
+
 
 
 <div class="card-container">
