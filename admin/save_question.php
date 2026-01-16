@@ -2,14 +2,13 @@
 include("../db_connect.php");
 
 $subject  = $_POST['subject'];
+$chapter  = $_POST['chapter'];
 $question = $_POST['question'];
 $answer   = $_POST['answer'];
 
-$stmt = $conn->prepare("
-    INSERT INTO practical_question (subject, question, answer)
-    VALUES (?,?,?)
-");
-$stmt->bind_param("sss", $subject, $question, $answer);
-$stmt->execute();
+$sql = "INSERT INTO practical_questions (subject, chapter, question, answer)
+        VALUES ('$subject', '$chapter', '$question', '$answer')";
 
-header("Location: add_practical_question.php");
+$conn->query($sql);
+
+header("Location: add_practical_question.php?success=1");
