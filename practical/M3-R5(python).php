@@ -56,6 +56,9 @@ body { font-family:'Poppins', sans-serif; background:#f8fafc; color:#1e293b; lin
 .left-panel, .center-panel, .right-panel{ flex:none; width:100%; min-height:auto; }
 #codeEditor{ height:300px; }
 #output{ height:200px; }
+.center-panel {
+    height: 500px;
+}
 }
 </style>
 </head>
