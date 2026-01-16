@@ -49,11 +49,11 @@ body{
     margin-bottom:8px;
 }
 .header h1 i{
-    color:#2563eb;
+    color:white;
     margin-right:10px;
 }
 .header p{
-    color:whitesmoke;
+    color:#e5e7eb;
     font-size:18px;
 }
 
