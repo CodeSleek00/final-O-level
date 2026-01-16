@@ -222,7 +222,7 @@ tr:hover{
 
     <!-- Header -->
     <div class="header">
-        <h1><i class="fas fa-file-word"></i>LibreOffice Writer Shortcut Keys</h1>
+        <h1>LibreOffice Writer Shortcut Keys</h1>
         <p>Master your document editing with these essential keyboard shortcuts</p>
     </div>
 
