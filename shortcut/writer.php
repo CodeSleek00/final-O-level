@@ -1,9 +1,9 @@
 <?php
 include("../db_connect.php");
+
 $search = isset($_GET['search']) ? $_GET['search'] : '';
 $category = "LibreOffice Writer";
 
-// Build query with search functionality
 $sql = "SELECT * FROM shortcuts WHERE category='$category'";
 if (!empty($search)) {
     $search = $conn->real_escape_string($search);
@@ -15,190 +15,286 @@ $result = $conn->query($sql);
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LibreOffice Writer Shortcut Keys | Faiz Computer Institute</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        * {
-            font-family: 'Poppins', sans-serif;
-        }
-        .keyboard-key {
-            display: inline-block;
-            padding: 2px 8px;
-            margin: 2px;
-            background: linear-gradient(145deg, #f0f0f0, #ffffff);
-            border: 1px solid #d1d5db;
-            border-radius: 4px;
-            box-shadow: 0 2px 3px rgba(0,0,0,0.1);
-            font-family: 'Segoe UI', monospace;
-            font-weight: 600;
-            color: #374151;
-        }
-        .key-combination {
-            white-space: nowrap;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LibreOffice Writer Shortcut Keys | Faiz Computer Institute</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+body{
+    background:#f9fafb;
+}
+.container{
+    max-width:1200px;
+    margin:auto;
+    padding:30px 15px;
+}
+
+/* Header */
+.header{
+    text-align:center;
+    margin-bottom:35px;
+}
+.header h1{
+    font-size:36px;
+    color:#1f2937;
+    margin-bottom:8px;
+}
+.header h1 i{
+    color:#2563eb;
+    margin-right:10px;
+}
+.header p{
+    color:#6b7280;
+    font-size:18px;
+}
+
+/* Search box */
+.search-box{
+    background:#fff;
+    padding:20px;
+    border-radius:14px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+    margin-bottom:30px;
+}
+.search-row{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+}
+.search-input{
+    flex:1;
+    position:relative;
+}
+.search-input i{
+    position:absolute;
+    top:50%;
+    left:12px;
+    transform:translateY(-50%);
+    color:#9ca3af;
+}
+.search-input input{
+    width:100%;
+    padding:14px 14px 14px 38px;
+    border:1px solid #d1d5db;
+    border-radius:8px;
+    font-size:15px;
+}
+.search-input input:focus{
+    outline:none;
+    border-color:#2563eb;
+    box-shadow:0 0 0 2px rgba(37,99,235,.2);
+}
+.search-actions{
+    display:flex;
+    gap:10px;
+}
+.btn{
+    padding:14px 22px;
+    border:none;
+    border-radius:8px;
+    font-size:15px;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+.btn-primary{
+    background:#2563eb;
+    color:#fff;
+}
+.btn-primary:hover{ background:#1d4ed8; }
+.btn-light{
+    background:#e5e7eb;
+    color:#374151;
+}
+.btn-light:hover{ background:#d1d5db; }
+
+.result-info{
+    margin-top:15px;
+    font-size:14px;
+    color:#4b5563;
+}
+
+/* Table */
+.table-box{
+    background:#fff;
+    border-radius:14px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+    overflow:hidden;
+}
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+thead{
+    background:#f3f4f6;
+}
+th,td{
+    padding:16px 18px;
+    text-align:left;
+    border-bottom:1px solid #e5e7eb;
+}
+th{
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:.05em;
+    color:#374151;
+}
+tr:hover{
+    background:#f9fafb;
+}
+
+/* Keyboard key */
+.keyboard-key{
+    display:inline-block;
+    padding:4px 8px;
+    margin:2px;
+    background:linear-gradient(145deg,#f0f0f0,#ffffff);
+    border:1px solid #d1d5db;
+    border-radius:4px;
+    box-shadow:0 2px 3px rgba(0,0,0,0.1);
+    font-weight:600;
+    color:#374151;
+}
+.key-combination{
+    white-space:nowrap;
+}
+
+/* Copy button */
+.copy-btn{
+    background:none;
+    border:none;
+    color:#9ca3af;
+    cursor:pointer;
+    font-size:16px;
+}
+.copy-btn:hover{
+    color:#2563eb;
+}
+
+/* No data */
+.no-data{
+    text-align:center;
+    padding:60px 20px;
+    color:#9ca3af;
+}
+.no-data i{
+    font-size:48px;
+    margin-bottom:15px;
+}
+
+/* Responsive */
+@media(max-width:600px){
+    .header h1{ font-size:26px; }
+    th,td{ padding:12px 10px; }
+}
+</style>
 </head>
-<body class="bg-gray-50">
-    <?php include 'navbar.html'; ?>
 
-    <div class="container mx-auto px-4 py-8">
-        <!-- Header -->
-        <div class="text-center mb-10">
-            <h1 class="text-4xl font-bold text-gray-800 mb-2">
-                <i class="fas fa-file-word text-blue-600 mr-3"></i>
-                LibreOffice Writer Shortcut Keys
-            </h1>
-            <p class="text-gray-600 text-lg">Master your document editing with these essential keyboard shortcuts</p>
-            
-        </div>
+<body>
 
-        <!-- Search Bar -->
-        <div class="bg-white rounded-xl shadow-lg p-6 mb-8">
-            <div class="flex flex-col md:flex-row gap-4">
-                <div class="flex-1 relative">
-                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                        <i class="fas fa-search text-gray-400"></i>
-                    </div>
-                    <form method="GET" action="">
-                        <input type="text" 
-                               name="search" 
-                               value="<?php echo htmlspecialchars($search); ?>"
-                               placeholder="Search shortcuts or descriptions..." 
-                               class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition">
+<?php include 'navbar.html'; ?>
+
+<div class="container">
+
+    <!-- Header -->
+    <div class="header">
+        <h1><i class="fas fa-file-word"></i>LibreOffice Writer Shortcut Keys</h1>
+        <p>Master your document editing with these essential keyboard shortcuts</p>
+    </div>
+
+    <!-- Search -->
+    <div class="search-box">
+        <form method="GET">
+            <div class="search-row">
+                <div class="search-input">
+                    <i class="fas fa-search"></i>
+                    <input type="text" name="search" value="<?php echo htmlspecialchars($search); ?>" placeholder="Search shortcuts or descriptions...">
                 </div>
-                <div class="flex gap-3">
-                    <button type="submit" 
-                            class="px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition duration-300 flex items-center">
-                        <i class="fas fa-search mr-2"></i> Search
+                <div class="search-actions">
+                    <button class="btn btn-primary" type="submit">
+                        <i class="fas fa-search"></i>Search
                     </button>
-                    </form>
-                    <?php if (!empty($search)): ?>
-                        <a href="?search=" 
-                           class="px-6 py-3 bg-gray-200 text-gray-700 font-medium rounded-lg hover:bg-gray-300 transition duration-300 flex items-center">
-                            <i class="fas fa-times mr-2"></i> Clear
+                    <?php if(!empty($search)): ?>
+                        <a href="?search=" class="btn btn-light">
+                            <i class="fas fa-times"></i>Clear
                         </a>
                     <?php endif; ?>
                 </div>
             </div>
-            
-            <?php if (!empty($search)): ?>
-                <div class="mt-4 text-sm text-gray-600">
-                    Showing results for: "<span class="font-semibold"><?php echo htmlspecialchars($search); ?></span>"
-                    (<?php echo $result->num_rows; ?> results found)
-                </div>
+        </form>
+
+        <?php if(!empty($search)): ?>
+        <div class="result-info">
+            Showing results for "<b><?php echo htmlspecialchars($search); ?></b>"
+            (<?php echo $result->num_rows; ?> found)
+        </div>
+        <?php endif; ?>
+    </div>
+
+    <!-- Table -->
+    <div class="table-box">
+        <table>
+            <thead>
+                <tr>
+                    <th><i class="fas fa-keyboard"></i> Shortcut</th>
+                    <th><i class="fas fa-info-circle"></i> Description</th>
+                </tr>
+            </thead>
+            <tbody>
+            <?php if($result->num_rows>0): ?>
+                <?php while($row=$result->fetch_assoc()): ?>
+                <tr>
+                    <td>
+                        <div class="key-combination">
+                        <?php
+                        $keys = explode('+',$row['shortcut_key']);
+                        foreach($keys as $i=>$k):
+                        ?>
+                            <kbd class="keyboard-key"><?php echo htmlspecialchars(trim($k)); ?></kbd>
+                            <?php if($i<count($keys)-1): ?><span>+</span><?php endif; ?>
+                        <?php endforeach; ?>
+                        </div>
+                    </td>
+                    <td>
+                        <?php echo htmlspecialchars($row['description']); ?>
+                        <button class="copy-btn" onclick="copyToClipboard('<?php echo htmlspecialchars($row['shortcut_key']); ?>')">
+                            <i class="far fa-copy"></i>
+                        </button>
+                    </td>
+                </tr>
+                <?php endwhile; ?>
+            <?php else: ?>
+                <tr>
+                    <td colspan="2">
+                        <div class="no-data">
+                            <i class="fas fa-search"></i>
+                            <h3>No shortcuts found</h3>
+                        </div>
+                    </td>
+                </tr>
             <?php endif; ?>
-        </div>
+            </tbody>
+        </table>
+    </div>
+</div>
 
-        <!-- Shortcuts Table -->
-        <div class="bg-white rounded-xl shadow-lg overflow-hidden">
-            <div class="overflow-x-auto">
-                <table class="min-w-full divide-y divide-gray-200">
-                    <thead class="bg-gray-50">
-                        <tr>
-                            <th scope="col" class="px-6 py-4 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider w-1/3">
-                                <i class="fas fa-keyboard mr-2"></i>Shortcut Key
-                            </th>
-                            <th scope="col" class="px-6 py-4 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider w-2/3">
-                                <i class="fas fa-info-circle mr-2"></i>Description
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody class="bg-white divide-y divide-gray-100">
-                        <?php if ($result->num_rows > 0): ?>
-                            <?php while($row = $result->fetch_assoc()): ?>
-                                <tr class="hover:bg-gray-50 transition duration-150">
-                                    <td class="px-6 py-4">
-                                        <div class="key-combination">
-                                            <?php 
-                                            // Parse and format keyboard shortcuts
-                                            $keys = explode('+', $row['shortcut_key']);
-                                            foreach ($keys as $index => $key):
-                                                $key = trim($key);
-                                                $key_class = strtolower($key);
-                                            ?>
-                                                <kbd class="keyboard-key <?php echo $key_class; ?>">
-                                                    <?php echo htmlspecialchars($key); ?>
-                                                </kbd>
-                                                <?php if ($index < count($keys) - 1): ?>
-                                                    <span class="mx-1 text-gray-400">+</span>
-                                                <?php endif; ?>
-                                            <?php endforeach; ?>
-                                        </div>
-                                    </td>
-                                    <td class="px-6 py-4 text-gray-700">
-                                        <div class="flex items-start">
-                                            <div class="flex-1">
-                                                <?php echo htmlspecialchars($row['description']); ?>
-                                            </div>
-                                            <button onclick="copyToClipboard('<?php echo htmlspecialchars($row['shortcut_key']); ?>')" 
-                                                    class="ml-4 p-2 text-gray-400 hover:text-blue-600 transition"
-                                                    title="Copy shortcut">
-                                                <i class="far fa-copy"></i>
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                            <?php endwhile; ?>
-                        <?php else: ?>
-                            <tr>
-                                <td colspan="2" class="px-6 py-12 text-center">
-                                    <div class="text-gray-400">
-                                        <i class="fas fa-search fa-3x mb-4"></i>
-                                        <p class="text-xl font-medium">No shortcuts found</p>
-                                        <p class="mt-2">
-                                            <?php if (!empty($search)): ?>
-                                                Try different search terms or clear the search
-                                            <?php else: ?>
-                                                No shortcuts available in this category
-                                            <?php endif; ?>
-                                        </p>
-                                    </div>
-                                </td>
-                            </tr>
-                        <?php endif; ?>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+<script>
+function copyToClipboard(text){
+    navigator.clipboard.writeText(text);
+    alert("Copied: " + text);
+}
+</script>
 
-      
-
-    <script>
-        // Copy shortcut to clipboard
-        function copyToClipboard(text) {
-            navigator.clipboard.writeText(text).then(() => {
-                // Show success feedback
-                const originalText = text;
-                const button = event.target.closest('button');
-                const icon = button.querySelector('i');
-                const originalClass = icon.className;
-                
-                icon.className = 'fas fa-check text-green-500';
-                button.title = 'Copied!';
-                
-                setTimeout(() => {
-                    icon.className = originalClass;
-                    button.title = 'Copy shortcut';
-                }, 2000);
-            });
-        }
-
-        // Highlight search terms in table
-        document.addEventListener('DOMContentLoaded', function() {
-            const searchTerm = "<?php echo addslashes($search); ?>";
-            if (searchTerm) {
-                const cells = document.querySelectorAll('td');
-                cells.forEach(cell => {
-                    const html = cell.innerHTML;
-                    const regex = new RegExp(`(${searchTerm})`, 'gi');
-                    cell.innerHTML = html.replace(regex, '<span class="bg-yellow-200 px-1 rounded">$1</span>');
-                });
-            }
-        });
-    </script>
 </body>
 </html>
+ 
