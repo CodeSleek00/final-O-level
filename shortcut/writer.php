@@ -45,7 +45,7 @@ body{
 }
 .header h1{
     font-size:36px;
-    color:#1f2937;
+    color:#e5e7eb;
     margin-bottom:8px;
 }
 .header h1 i{
@@ -53,7 +53,7 @@ body{
     margin-right:10px;
 }
 .header p{
-    color:#6b7280;
+    color:whitesmoke;
     font-size:18px;
 }
 
