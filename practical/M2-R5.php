@@ -1,14 +1,17 @@
 <?php
 include("../db_connect.php");
-$q = $conn->query("SELECT * FROM practical_question");
+
+// Fetch all practical questions
+$q = $conn->query("SELECT * FROM practical_questions ORDER BY subject, chapter");
 $data = [];
 while($row = $q->fetch_assoc()){
     $data[] = $row;
 }
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
 <title>Code Practice</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -217,88 +220,53 @@ while($row = $q->fetch_assoc()){
 
     /* MOBILE RESPONSIVE */
     @media (max-width: 768px) {
-        .container {
-            padding: 12px;
-            gap: 12px;
-            overflow-y: auto;
-            height: auto;
-        }
-
         .main-content {
             flex-direction: column;
             min-height: auto;
         }
-
-        .left-panel,
-        .center-panel,
-        .right-panel {
+        .left-panel, .center-panel, .right-panel {
             flex: none;
             width: 100%;
             height: auto;
         }
-
         .right-panel {
             height: 400px;
         }
-
-        .question-header {
-            flex-direction: column;
-            gap: 12px;
-            align-items: flex-start;
-        }
-
-        .nav-btns {
-            flex-direction: column;
-        }
-
         .editor-header {
             flex-direction: column;
         }
-
         .editor-header button {
             width: 100%;
+        }
+        .nav-btns {
+            flex-direction: column;
         }
     }
 
     @media (max-width: 480px) {
-        .left-panel,
-        .center-panel,
-        .right-panel {
+        .left-panel, .center-panel, .right-panel {
             padding: 16px;
         }
-
-        .question-header h3,
-        .output-header h3 {
+        .question-header h3, .output-header h3 {
             font-size: 1.25rem;
         }
-
         #questionBox {
             font-size: 0.95rem;
-        }
-
-        .nav-btns button,
-        .editor-header button {
-            padding: 14px;
-            font-size: 1rem;
         }
     }
 
     /* SCROLLBAR STYLING */
     ::-webkit-scrollbar {
         width: 8px;
-        height: 8px;
     }
-
     ::-webkit-scrollbar-track {
         background: #f1f5f9;
         border-radius: 4px;
     }
-
     ::-webkit-scrollbar-thumb {
         background: #cbd5e1;
         border-radius: 4px;
     }
-
     ::-webkit-scrollbar-thumb:hover {
         background: #94a3b8;
     }
@@ -307,11 +275,9 @@ while($row = $q->fetch_assoc()){
 <body>
 
 <div class="container">
-
-    <!-- Main Content Area -->
     <div class="main-content">
-        
-        <!-- LEFT PANEL - Questions -->
+
+        <!-- LEFT PANEL -->
         <div class="left-panel">
             <div class="question-header">
                 <h3>Code Challenge</h3>
@@ -324,7 +290,7 @@ while($row = $q->fetch_assoc()){
             </div>
         </div>
 
-        <!-- CENTER PANEL - Editor -->
+        <!-- CENTER PANEL -->
         <div class="center-panel">
             <div class="editor-header">
                 <button onclick="loadAnswer()">Show Answer</button>
@@ -340,7 +306,7 @@ while($row = $q->fetch_assoc()){
             </textarea>
         </div>
 
-        <!-- RIGHT PANEL - Output -->
+        <!-- RIGHT PANEL -->
         <div class="right-panel">
             <div class="output-header">
                 <h3>Preview</h3>
@@ -349,7 +315,6 @@ while($row = $q->fetch_assoc()){
         </div>
 
     </div>
-
 </div>
 
 <script>
@@ -358,7 +323,7 @@ let index = -1;
 
 function updateCounter() {
     const total = questions.length;
-    const current = index + 1;
+    const current = index >= 0 ? index + 1 : 0;
     document.getElementById("questionCounter").textContent = `${current}/${total}`;
 }
 
@@ -378,18 +343,23 @@ function prevQ(){
 
 function showQuestion(){
     if(index >= 0 && index < questions.length) {
-        document.getElementById("questionBox").innerText = questions[index].question;
+        document.getElementById("questionBox").innerHTML = `
+            <strong>Subject:</strong> ${questions[index].subject}<br>
+            <strong>Chapter:</strong> ${questions[index].chapter}<br><br>
+            ${questions[index].question}
+        `;
+
         updateCounter();
-        
-        // Reset editor to default
-        document.getElementById("codeEditor").value = 
+
+        // Reset editor
+        document.getElementById("codeEditor").value =
 `<!DOCTYPE html>
 <html>
 <body>
 
 </body>
 </html>`;
-        
+
         // Clear output
         document.getElementById("output").srcdoc = "";
     }
@@ -407,7 +377,9 @@ function runCode(){
 }
 
 // Initialize counter on load
-document.addEventListener('DOMContentLoaded', updateCounter);
+document.addEventListener('DOMContentLoaded', () => {
+    updateCounter();
+});
 </script>
 
 </body>
