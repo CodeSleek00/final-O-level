@@ -2,7 +2,7 @@
 include("../db_connect.php");
 
 // Fetch all practical questions
-$q = $conn->query("SELECT * FROM practical_questions ORDER BY subject, chapter");
+$q = $conn->query("SELECT * FROM practical_questions WHERE subject='HTML' ORDER BY chapter, id");
 $data = [];
 while($row = $q->fetch_assoc()){
     $data[] = $row;
