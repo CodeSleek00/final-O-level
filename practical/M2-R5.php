@@ -12,6 +12,7 @@ while($row = $q->fetch_assoc()){
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Code Practice</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -218,40 +219,162 @@ while($row = $q->fetch_assoc()){
         background: white;
     }
 
-    /* MOBILE RESPONSIVE */
+    /* MOBILE RESPONSIVE - ROW LAYOUT */
     @media (max-width: 768px) {
+        body {
+            overflow-y: auto;
+            height: auto;
+        }
+
+        .container {
+            height: auto;
+            min-height: 100vh;
+            padding: 12px;
+            gap: 12px;
+        }
+
         .main-content {
             flex-direction: column;
             min-height: auto;
+            gap: 12px;
         }
-        .left-panel, .center-panel, .right-panel {
+
+        /* Each panel becomes a row */
+        .left-panel,
+        .center-panel,
+        .right-panel {
             flex: none;
             width: 100%;
+            min-height: 300px;
             height: auto;
         }
+
+        /* Adjust heights for better row layout */
+        .left-panel {
+            min-height: 250px;
+            order: 1;
+        }
+
+        .center-panel {
+            min-height: 300px;
+            order: 2;
+        }
+
         .right-panel {
-            height: 400px;
+            min-height: 300px;
+            order: 3;
         }
+
+        /* Button adjustments */
         .editor-header {
-            flex-direction: column;
+            flex-direction: row;
+            flex-wrap: wrap;
         }
+
         .editor-header button {
-            width: 100%;
+            flex: 1;
+            min-width: 120px;
         }
+
+        /* Question box adjustments */
+        #questionBox {
+            min-height: 150px;
+        }
+
+        /* Navigation buttons */
         .nav-btns {
-            flex-direction: column;
+            flex-direction: row;
+        }
+
+        .nav-btns button {
+            min-height: 44px;
         }
     }
 
+    /* Small mobile adjustments */
     @media (max-width: 480px) {
-        .left-panel, .center-panel, .right-panel {
-            padding: 16px;
+        .container {
+            padding: 8px;
+            gap: 8px;
         }
-        .question-header h3, .output-header h3 {
+
+        .left-panel,
+        .center-panel,
+        .right-panel {
+            padding: 16px;
+            min-height: 250px;
+        }
+
+        .question-header {
+            flex-direction: column;
+            gap: 12px;
+            align-items: flex-start;
+        }
+
+        .question-header h3,
+        .output-header h3 {
             font-size: 1.25rem;
         }
+
         #questionBox {
             font-size: 0.95rem;
+            min-height: 120px;
+        }
+
+        .editor-header {
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .editor-header button {
+            width: 100%;
+            padding: 12px;
+        }
+
+        #codeEditor {
+            padding: 16px;
+            font-size: 13px;
+        }
+
+        .nav-btns {
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .nav-btns button {
+            padding: 14px;
+            font-size: 1rem;
+        }
+    }
+
+    /* Very small screens */
+    @media (max-width: 360px) {
+        .left-panel,
+        .center-panel,
+        .right-panel {
+            padding: 12px;
+            min-height: 200px;
+        }
+
+        .question-header h3,
+        .output-header h3 {
+            font-size: 1.1rem;
+        }
+
+        #questionBox {
+            padding: 12px;
+            font-size: 0.9rem;
+        }
+
+        .editor-header button,
+        .nav-btns button {
+            padding: 10px;
+            font-size: 0.9rem;
+        }
+
+        #codeEditor {
+            padding: 12px;
+            font-size: 12px;
         }
     }
 
