@@ -28,6 +28,7 @@ body {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 60px;
+    padding: 30px;
 }
 
 .card {
