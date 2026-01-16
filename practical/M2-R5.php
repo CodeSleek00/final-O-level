@@ -27,7 +27,7 @@ while($row = $q->fetch_assoc()){
         background: #f8fafc;
         color: #1e293b;
         line-height: 1.6;
-        height: 100vh;
+       
         overflow: hidden;
     }
 
