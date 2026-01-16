@@ -420,8 +420,8 @@ while($row = $q->fetch_assoc()){
     <section class="it-banner">
         <h1>CSS Code Practice</h1>
         <p>
-            Practice HTML coding challenges based on the latest NIELIT syllabus.
-            Improve your coding skills with practical HTML questions designed for O Level students.
+            Practice CSS coding challenges based on the latest NIELIT syllabus.
+            Improve your coding skills with practical CSS questions designed for O Level students.
         </p>
     </section>
 

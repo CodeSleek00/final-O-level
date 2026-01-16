@@ -13,7 +13,7 @@ while($row = $q->fetch_assoc()){
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Code Practice || CSS</title>
+<title>Code Practice || JS</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
     * {
@@ -418,10 +418,10 @@ while($row = $q->fetch_assoc()){
     
     <!-- BANNER -->
     <section class="it-banner">
-        <h1>CSS Code Practice</h1>
+        <h1>JavaScript Code Practice</h1>
         <p>
-            Practice HTML coding challenges based on the latest NIELIT syllabus.
-            Improve your coding skills with practical HTML questions designed for O Level students.
+            Practice JavaScript coding challenges based on the latest NIELIT syllabus.
+            Improve your coding skills with practical JavaScript questions designed for O Level students.
         </p>
     </section>
 
