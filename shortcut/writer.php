@@ -281,9 +281,7 @@ tr:hover{
                     </td>
                     <td>
                         <?php echo htmlspecialchars($row['description']); ?>
-                        <button class="copy-btn" onclick="copyToClipboard('<?php echo htmlspecialchars($row['shortcut_key']); ?>')">
-                            <i class="far fa-copy"></i>
-                        </button>
+                        
                     </td>
                 </tr>
                 <?php endwhile; ?>
@@ -302,12 +300,6 @@ tr:hover{
     </div>
 </div>
 
-<script>
-function copyToClipboard(text){
-    navigator.clipboard.writeText(text);
-    alert("Copied: " + text);
-}
-</script>
 
 </body>
 </html>
