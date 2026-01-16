@@ -1,6 +1,6 @@
 <?php
 include("../db_connect.php");
-$questions = $conn->query("SELECT * FROM practical_question");
+$questions = $conn->query("SELECT * FROM practical_question/");
 ?>
 <!DOCTYPE html>
 <html>

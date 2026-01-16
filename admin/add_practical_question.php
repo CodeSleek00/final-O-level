@@ -20,6 +20,11 @@
         <option>HTML</option>
         <option>CSS</option>
         <option>JavaScript</option>
+        <option>LibreOffice Calc</option>
+        <option>LibreOffice Impress</option>
+        <option>LibreOffice Writer</option>
+        <option>Python</option>
+        <option>IOT</option>
     </select>
 
     <textarea name="question" placeholder="Write Question" required></textarea>
