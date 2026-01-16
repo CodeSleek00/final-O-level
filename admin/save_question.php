@@ -12,4 +12,4 @@ $stmt = $conn->prepare("
 $stmt->bind_param("sss", $subject, $question, $answer);
 $stmt->execute();
 
-header("Location: add_question.php");
+header("Location: add_practical_question.php");
