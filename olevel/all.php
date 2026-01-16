@@ -100,6 +100,9 @@ body {
 </head>
 <body>
 
+<?php include 'navbar.html'; ?>
+
+
 <div class="card-container">
 
     <div class="card">
