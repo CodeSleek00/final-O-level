@@ -191,6 +191,20 @@ tr:hover{
     font-size:48px;
     margin-bottom:15px;
 }
+/* ===== BANNER ===== */
+        .header {
+            background: url('../image/bg.svg');
+            background-size: cover;
+            background-position: center center;
+            padding: 40px 40px;
+            border-radius: 18px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+            text-align: center;
+            margin-bottom: 50px;
+            background-color: black;
+            color: white;
+        }
+        
 
 /* Responsive */
 @media(max-width:600px){
