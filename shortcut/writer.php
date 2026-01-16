@@ -53,10 +53,7 @@ $result = $conn->query($sql);
                 LibreOffice Writer Shortcut Keys
             </h1>
             <p class="text-gray-600 text-lg">Master your document editing with these essential keyboard shortcuts</p>
-            <div class="mt-4 inline-flex items-center bg-blue-50 text-blue-700 px-4 py-2 rounded-lg">
-                <i class="fas fa-info-circle mr-2"></i>
-                <span><?php echo $result->num_rows; ?> shortcuts available</span>
-            </div>
+            
         </div>
 
         <!-- Search Bar -->
