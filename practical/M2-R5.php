@@ -29,6 +29,7 @@ while($row = $q->fetch_assoc()){
         line-height: 1.6;
         height: 100vh;
         overflow: hidden;
+        padding: 20px;
     }
 
     .container {
