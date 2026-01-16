@@ -256,7 +256,7 @@ while($row = $q->fetch_assoc()){
         }
 
         .center-panel {
-            min-height: 300px;
+            min-height: 700px;
             order: 2;
         }
 
@@ -299,7 +299,6 @@ while($row = $q->fetch_assoc()){
         }
 
         .left-panel,
-        .center-panel,
         .right-panel {
             padding: 16px;
             min-height: 250px;
