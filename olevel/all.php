@@ -115,7 +115,7 @@ body {
                MCQ Questions (IT TOOLS) <br> Chapter Wise Practice || Mock Tests 
             </p>
             <hr>
-            <a href="M1-R5.php"><button>Read More</button></a>
+            <a href="M1-R5.php"><button>Start Practice</button></a>
         </div>
     </div>
 
@@ -127,7 +127,7 @@ body {
                MCQ Questions (Web Designing & Publishing) <br>  Chapter Wise Practice || Mock Tests 
             </p>
             <hr>
-            <a href="M2-R5.php"><button>Read More</button></a>
+            <a href="M2-R5.php"><button>Start Practice</button></a>
         </div>
     </div>
     <div class="card">
@@ -138,7 +138,7 @@ body {
                MCQ Questions (Python Programming) <br> Chapter Wise Practice || Mock Tests
             </p>
             <hr>
-            <a href="M3-R5.php"><button>Read More</button></a>
+            <a href="M3-R5.php"><button>Start Practice</button></a>
         </div>
     </div>
     <div class="card">
@@ -149,7 +149,7 @@ body {
                MCQ Questions (IOT - Internet Of Things) <br> Chapter Wise Practice || Mock Tests
             </p>
             <hr>
-            <a href="M4-R5.php"><button>Read More</button></a>
+            <a href="M4-R5.php"><button>Start Practice</button></a>
         </div>
     </div>
    
