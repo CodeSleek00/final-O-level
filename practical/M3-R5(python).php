@@ -19,7 +19,7 @@ while($row = $q->fetch_assoc()){
 * { margin:0; padding:0; box-sizing:border-box; }
 body { font-family:'Poppins', sans-serif; background:#f8fafc; color:#1e293b; line-height:1.6; }
 .container { display:flex; flex-direction:column; padding:20px; gap:20px; }
-.main-content { display:flex; gap:20px; min-height:600px; }
+.main-content { display:flex; gap:20px;  }
 
 /* Left Panel */
 .left-panel { flex:0 0 30%; background:white; border-radius:12px; padding:20px; box-shadow:0 4px 6px rgba(0,0,0,0.1); display:flex; flex-direction:column; }
