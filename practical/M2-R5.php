@@ -392,9 +392,34 @@ while($row = $q->fetch_assoc()){
     ::-webkit-scrollbar-thumb:hover {
         background: #94a3b8;
     }
+            /* ===== BANNER ===== */
+        .it-banner {
+            background: url('../image/bg.svg');
+            background-size: cover;
+            background-position: center center;
+            padding: 40px 40px;
+            border-radius: 18px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+            text-align: center;
+            margin-bottom: 50px;
+            background-color: black;
+            color: white;
+        }
 </style>
 </head>
 <body>
+    <?php include 'navbar.html'; ?>
+     <!-- BANNER -->
+    <section class="it-banner">
+        
+        <h1>IT Tools MCQ Practice</h1>
+        <p>
+            Practice updated MCQs based on the latest NIELIT syllabus.
+            Improve accuracy, speed, and confidence with topic-wise
+            IT Tools questions designed for O Level students.
+        </p>
+        
+    </section>
 
 <div class="container">
     <div class="main-content">
