@@ -1,8 +1,8 @@
 <?php
 include("../db_connect.php");
-$questions = $conn->query("SELECT * FROM practical_question");
+$q = $conn->query("SELECT * FROM practical_question");
 $data = [];
-while($row = $questions->fetch_assoc()){
+while($row = $q->fetch_assoc()){
     $data[] = $row;
 }
 ?>
@@ -18,22 +18,19 @@ while($row = $questions->fetch_assoc()){
 
     <!-- LEFT -->
     <div class="left">
-        <?php foreach($data as $i => $q){ ?>
-            <div class="q-item" onclick="loadQuestion(<?= $i ?>)">
-                <?= $q['subject'] ?> – Q<?= $i+1 ?>
-            </div>
-        <?php } ?>
+        <h3>Question</h3>
+        <div id="questionBox">Click Next</div>
+
+        <div class="nav-btns">
+            <button onclick="prevQ()">◀ Prev</button>
+            <button onclick="nextQ()">Next ▶</button>
+        </div>
     </div>
 
     <!-- CENTER -->
     <div class="center">
-        <h3 id="questionText">Select a Question</h3>
-
-        <button class="answer-btn" onclick="toggleAnswer()">Show Answer</button>
-        <pre id="answerBox"></pre>
-
-        <div class="editor-header">
-            <span>HTML Editor</span>
+        <div class="top-bar">
+            <button onclick="loadAnswer()">Show Answer</button>
             <button onclick="runCode()">Run ▶</button>
         </div>
 
@@ -56,24 +53,46 @@ while($row = $questions->fetch_assoc()){
 
 <script>
 const questions = <?= json_encode($data) ?>;
-let answerVisible = false;
+let index = -1;
 
-function loadQuestion(index){
-    document.getElementById("questionText").innerText = questions[index].question;
-    document.getElementById("answerBox").innerText = questions[index].answer;
-    document.getElementById("answerBox").style.display = "none";
-    answerVisible = false;
+function nextQ(){
+    if(index < questions.length - 1){
+        index++;
+        showQuestion();
+    }
 }
 
-function toggleAnswer(){
-    const box = document.getElementById("answerBox");
-    answerVisible = !answerVisible;
-    box.style.display = answerVisible ? "block" : "none";
+function prevQ(){
+    if(index > 0){
+        index--;
+        showQuestion();
+    }
+}
+
+function showQuestion(){
+    document.getElementById("questionBox").innerText =
+        (index+1) + ". " + questions[index].question;
+
+    // Reset editor on question change
+    document.getElementById("codeEditor").value =
+`<!DOCTYPE html>
+<html>
+<body>
+
+</body>
+</html>`;
+}
+
+function loadAnswer(){
+    if(index >= 0){
+        document.getElementById("codeEditor").value =
+            questions[index].answer;
+    }
 }
 
 function runCode(){
-    const code = document.getElementById("codeEditor").value;
-    document.getElementById("output").srcdoc = code;
+    document.getElementById("output").srcdoc =
+        document.getElementById("codeEditor").value;
 }
 </script>
 
