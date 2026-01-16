@@ -495,7 +495,7 @@ function showQuestion(){
         const q = questions[index];
         document.getElementById("questionBox").innerHTML = `
             <div style="margin-bottom: 15px;">
-                <strong style="color: #3b82f6;">Subject:</strong> ${q.subject}<br>
+               
                 <strong style="color: #3b82f6;">Chapter:</strong> ${q.chapter}
             </div>
             <div style="background: white; padding: 15px; border-radius: 6px; border-left: 4px solid #3b82f6;">
