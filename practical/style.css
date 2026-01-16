@@ -1,53 +1,111 @@
-body {
+*{
     margin:0;
-    background:#0f172a;
-    color:white;
-    font-family:Arial;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Segoe UI', sans-serif;
 }
-.container {
+
+body{
+    background:#f4f6f8;
+}
+
+.container{
     display:flex;
     height:100vh;
 }
-.left {
+
+/* LEFT */
+.left{
     width:20%;
-    background:#020617;
+    background:#ffffff;
+    border-right:1px solid #ddd;
+    padding:10px;
     overflow-y:auto;
 }
-.center {
+
+.q-item{
+    padding:12px;
+    margin-bottom:8px;
+    background:#f9fafb;
+    border-radius:6px;
+    cursor:pointer;
+    font-size:14px;
+    transition:0.2s;
+}
+
+.q-item:hover{
+    background:#e6f0ff;
+}
+
+/* CENTER */
+.center{
     width:50%;
-    padding:10px;
+    padding:15px;
 }
-.right {
-    width:30%;
-    background:white;
+
+#questionText{
+    margin-bottom:10px;
+    color:#333;
 }
-.q-item {
-    padding:10px;
-    border-bottom:1px solid #333;
+
+.answer-btn{
+    padding:6px 12px;
+    margin-bottom:10px;
+    border:none;
+    background:#007bff;
+    color:white;
+    border-radius:4px;
     cursor:pointer;
 }
-.q-item:hover {
-    background:#1e293b;
+
+#answerBox{
+    background:#fff;
+    border:1px solid #ddd;
+    padding:10px;
+    margin-bottom:10px;
+    display:none;
+    white-space:pre-wrap;
+    border-radius:5px;
 }
-textarea {
-    width:100%;
-    height:300px;
-    background:#020617;
-    color:#0f0;
-}
-.editor-header {
+
+.editor-header{
     display:flex;
     justify-content:space-between;
-    margin:10px 0;
+    align-items:center;
+    margin-bottom:5px;
 }
-iframe {
+
+.editor-header span{
+    font-weight:600;
+}
+
+.editor-header button{
+    padding:5px 12px;
+    border:none;
+    background:#28a745;
+    color:white;
+    border-radius:4px;
+    cursor:pointer;
+}
+
+textarea{
+    width:100%;
+    height:300px;
+    padding:10px;
+    border:1px solid #ccc;
+    border-radius:6px;
+    font-family:monospace;
+}
+
+/* RIGHT */
+.right{
+    width:30%;
+    background:#ffffff;
+    border-left:1px solid #ddd;
+}
+
+iframe{
     width:100%;
     height:100%;
     border:none;
-}
-#answerBox {
-    display:none;
-    background:#111;
-    padding:10px;
-    margin:10px 0;
 }
