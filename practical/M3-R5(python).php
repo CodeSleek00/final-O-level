@@ -60,9 +60,32 @@ body { font-family:'Poppins', sans-serif; background:#f8fafc; color:#1e293b; lin
     height: 500px;
 }
 }
+/* BANNER */
+    .it-banner {
+        background: url('../image/bg.svg');
+        background-size: cover;
+        background-position: center center;
+        padding: 40px 20px;
+        border-radius: 18px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+        text-align: center;
+        margin: 20px;
+        background-color: black;
+        color: white;
+    }
 </style>
 </head>
 <body>
+ <?php include 'navbar.html'; ?>
+    
+    <!-- BANNER -->
+    <section class="it-banner">
+        <h1>Python Code Practice</h1>
+        <p>
+            Practice Python coding challenges based on the latest NIELIT syllabus.
+            Improve your coding skills with practical Python questions designed for O Level students.
+        </p>
+    </section>
 
 <div class="container">
 <div class="main-content">
