@@ -27,14 +27,13 @@ while($row = $q->fetch_assoc()){
         background: #f8fafc;
         color: #1e293b;
         line-height: 1.6;
-       
-        overflow: hidden;
+        overflow-x: hidden;
     }
 
     .container {
         display: flex;
         flex-direction: column;
-        height: 100vh;
+        min-height: 100vh;
         padding: 20px;
         gap: 20px;
     }
@@ -43,7 +42,7 @@ while($row = $q->fetch_assoc()){
         display: flex;
         flex: 1;
         gap: 20px;
-        min-height: 0;
+        min-height: 600px;
     }
 
     /* LEFT PANEL */
@@ -76,16 +75,18 @@ while($row = $q->fetch_assoc()){
     .question-counter {
         background: #3b82f6;
         color: white;
-        padding: 4px 12px;
+        padding: 6px 16px;
         border-radius: 20px;
         font-size: 0.875rem;
         font-weight: 500;
+        min-width: 70px;
+        text-align: center;
     }
 
     #questionBox {
         flex: 1;
         overflow-y: auto;
-        padding: 16px;
+        padding: 20px;
         background: #f8fafc;
         border-radius: 8px;
         border: 1px solid #e2e8f0;
@@ -98,11 +99,13 @@ while($row = $q->fetch_assoc()){
         display: flex;
         gap: 12px;
         margin-top: auto;
+        padding-top: 20px;
+        border-top: 1px solid #e2e8f0;
     }
 
     .nav-btns button {
         flex: 1;
-        padding: 12px;
+        padding: 12px 20px;
         border: none;
         border-radius: 8px;
         font-family: 'Poppins', sans-serif;
@@ -150,7 +153,8 @@ while($row = $q->fetch_assoc()){
     }
 
     .editor-header button {
-        padding: 10px 20px;
+        flex: 1;
+        padding: 12px 20px;
         border: none;
         border-radius: 8px;
         font-family: 'Poppins', sans-serif;
@@ -158,6 +162,7 @@ while($row = $q->fetch_assoc()){
         font-size: 0.95rem;
         cursor: pointer;
         transition: all 0.2s ease;
+        min-width: 140px;
     }
 
     .editor-header button:first-child {
@@ -189,6 +194,7 @@ while($row = $q->fetch_assoc()){
         background: #0f172a;
         color: #e2e8f0;
         outline: none;
+        tab-size: 4;
     }
 
     /* RIGHT PANEL */
@@ -198,12 +204,15 @@ while($row = $q->fetch_assoc()){
         border-radius: 12px;
         overflow: hidden;
         box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+        display: flex;
+        flex-direction: column;
     }
 
     .output-header {
         padding: 20px;
         background: #f8fafc;
         border-bottom: 2px solid #e2e8f0;
+        flex-shrink: 0;
     }
 
     .output-header h3 {
@@ -213,168 +222,39 @@ while($row = $q->fetch_assoc()){
     }
 
     #output {
+        flex: 1;
         width: 100%;
-        height: calc(100% - 70px);
         border: none;
         background: white;
+        min-height: 400px;
     }
 
-    /* MOBILE RESPONSIVE - ROW LAYOUT */
-    @media (max-width: 768px) {
-        body {
-            overflow-y: auto;
-            height: auto;
-        }
-
-        .container {
-            height: auto;
-            min-height: 100vh;
-            padding: 12px;
-            gap: 12px;
-        }
-
-        .main-content {
-            flex-direction: column;
-            min-height: auto;
-            gap: 12px;
-        }
-
-        /* Each panel becomes a row */
-        .left-panel,
-        .center-panel,
-        .right-panel {
-            flex: none;
-            width: 100%;
-            min-height: 300px;
-            height: auto;
-        }
-
-        /* Adjust heights for better row layout */
-        .left-panel {
-            min-height: 250px;
-            order: 1;
-        }
-
-        .center-panel {
-            min-height: 500px;
-            order: 2;
-        }
-
-        .right-panel {
-            min-height: 300px;
-            order: 3;
-        }
-
-        /* Button adjustments */
-        .editor-header {
-            flex-direction: row;
-            flex-wrap: wrap;
-        }
-
-        .editor-header button {
-            flex: 1;
-            min-width: 120px;
-        }
-
-        /* Question box adjustments */
-        #questionBox {
-            min-height: 150px;
-        }
-
-        /* Navigation buttons */
-        .nav-btns {
-            flex-direction: row;
-        }
-
-        .nav-btns button {
-            min-height: 44px;
-        }
+    /* BANNER */
+    .it-banner {
+        background: url('../image/bg.svg');
+        background-size: cover;
+        background-position: center center;
+        padding: 40px 20px;
+        border-radius: 18px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+        text-align: center;
+        margin: 20px;
+        background-color: black;
+        color: white;
     }
 
-    /* Small mobile adjustments */
-    @media (max-width: 480px) {
-        .container {
-            padding: 8px;
-            gap: 8px;
-        }
-
-        .left-panel,
-        .right-panel {
-            padding: 16px;
-            min-height: 250px;
-        }
-
-        .question-header {
-            flex-direction: column;
-            gap: 12px;
-            align-items: flex-start;
-        }
-
-        .question-header h3,
-        .output-header h3 {
-            font-size: 1.25rem;
-        }
-
-        #questionBox {
-            font-size: 0.95rem;
-            min-height: 120px;
-        }
-
-        .editor-header {
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .editor-header button {
-            width: 100%;
-            padding: 12px;
-        }
-
-        #codeEditor {
-            padding: 16px;
-            font-size: 13px;
-        }
-
-        .nav-btns {
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .nav-btns button {
-            padding: 14px;
-            font-size: 1rem;
-        }
+    .it-banner h1 {
+        font-size: 2.5rem;
+        margin-bottom: 15px;
+        font-weight: 700;
     }
 
-    /* Very small screens */
-    @media (max-width: 360px) {
-        .left-panel,
-        .center-panel,
-        .right-panel {
-            padding: 12px;
-            min-height: 200px;
-        }
-
-        .question-header h3,
-        .output-header h3 {
-            font-size: 1.1rem;
-        }
-
-        #questionBox {
-            padding: 12px;
-            font-size: 0.9rem;
-        }
-
-        .editor-header button,
-        .nav-btns button {
-            padding: 10px;
-            font-size: 0.9rem;
-        }
-
-        #codeEditor {
-            padding: 12px;
-            font-size: 12px;
-        }
+    .it-banner p {
+        font-size: 1.1rem;
+        max-width: 800px;
+        margin: 0 auto;
+        line-height: 1.6;
+        opacity: 0.9;
     }
 
     /* SCROLLBAR STYLING */
@@ -392,78 +272,199 @@ while($row = $q->fetch_assoc()){
     ::-webkit-scrollbar-thumb:hover {
         background: #94a3b8;
     }
-            /* ===== BANNER ===== */
-        .it-banner {
-            background: url('../image/bg.svg');
-            background-size: cover;
-            background-position: center center;
-            padding: 40px 40px;
-            border-radius: 18px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
-            text-align: center;
-            margin-bottom: 50px;
-            background-color: black;
-            color: white;
-            margin: 20px;
+
+    /* MOBILE RESPONSIVE */
+    @media (max-width: 768px) {
+        .container {
+            padding: 15px;
+            gap: 15px;
         }
+
+        .main-content {
+            flex-direction: column;
+            min-height: auto;
+            gap: 15px;
+        }
+
+        .left-panel,
+        .center-panel,
+        .right-panel {
+            flex: none;
+            width: 100%;
+            min-height: auto;
+        }
+
+        .left-panel {
+            min-height: 350px;
+        }
+
+        .center-panel {
+            min-height: 500px;
+        }
+
+        .right-panel {
+            min-height: 400px;
+        }
+
+        .it-banner {
+            margin: 15px;
+            padding: 30px 15px;
+        }
+
+        .it-banner h1 {
+            font-size: 2rem;
+        }
+
+        .it-banner p {
+            font-size: 1rem;
+        }
+
+        .question-header {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .question-counter {
+            align-self: flex-end;
+        }
+
+        .editor-header {
+            flex-wrap: wrap;
+        }
+
+        .editor-header button {
+            min-width: calc(50% - 6px);
+        }
+    }
+
+    @media (max-width: 480px) {
+        .container {
+            padding: 10px;
+            gap: 10px;
+        }
+
+        .left-panel,
+        .center-panel,
+        .right-panel {
+            padding: 15px;
+        }
+
+        .it-banner {
+            margin: 10px;
+            padding: 25px 15px;
+        }
+
+        .it-banner h1 {
+            font-size: 1.75rem;
+        }
+
+        .question-header h3,
+        .output-header h3 {
+            font-size: 1.25rem;
+        }
+
+        #questionBox {
+            padding: 15px;
+            font-size: 0.95rem;
+        }
+
+        .editor-header {
+            flex-direction: column;
+        }
+
+        .editor-header button {
+            width: 100%;
+            min-width: 100%;
+        }
+
+        .nav-btns {
+            flex-direction: row;
+        }
+
+        .nav-btns button {
+            padding: 14px;
+        }
+
+        #codeEditor {
+            padding: 15px;
+            font-size: 13px;
+        }
+    }
+
+    /* Small screens */
+    @media (max-width: 360px) {
+        .it-banner h1 {
+            font-size: 1.5rem;
+        }
+
+        .question-header h3 {
+            font-size: 1.1rem;
+        }
+
+        .nav-btns {
+            flex-direction: column;
+        }
+
+        #codeEditor {
+            font-size: 12px;
+            padding: 12px;
+        }
+    }
 </style>
 </head>
 <body>
     <?php include 'navbar.html'; ?>
-     <!-- BANNER -->
+    
+    <!-- BANNER -->
     <section class="it-banner">
-        
-        <h1>IT Tools MCQ Practice</h1>
+        <h1>IT Tools Code Practice</h1>
         <p>
-            Practice updated MCQs based on the latest NIELIT syllabus.
-            Improve accuracy, speed, and confidence with topic-wise
-            IT Tools questions designed for O Level students.
+            Practice HTML coding challenges based on the latest NIELIT syllabus.
+            Improve your coding skills with practical HTML questions designed for O Level students.
         </p>
-        
     </section>
 
-<div class="container">
-    <div class="main-content">
+    <div class="container">
+        <div class="main-content">
+            <!-- LEFT PANEL -->
+            <div class="left-panel">
+                <div class="question-header">
+                    <h3>Code Challenge</h3>
+                    <div class="question-counter" id="questionCounter">0/0</div>
+                </div>
+                <div id="questionBox">Click Next to start practicing</div>
+                <div class="nav-btns">
+                    <button onclick="prevQ()">← Previous</button>
+                    <button onclick="nextQ()">Next →</button>
+                </div>
+            </div>
 
-        <!-- LEFT PANEL -->
-        <div class="left-panel">
-            <div class="question-header">
-                <h3>Code Challenge</h3>
-                <div class="question-counter" id="questionCounter">0/0</div>
-            </div>
-            <div id="questionBox">Click Next to start practicing</div>
-            <div class="nav-btns">
-                <button onclick="prevQ()">← Previous</button>
-                <button onclick="nextQ()">Next →</button>
-            </div>
-        </div>
-
-        <!-- CENTER PANEL -->
-        <div class="center-panel">
-            <div class="editor-header">
-                <button onclick="loadAnswer()">Show Answer</button>
-                <button onclick="runCode()">▶ Run Code</button>
-            </div>
-            <textarea id="codeEditor" placeholder="Write your HTML code here...">
+            <!-- CENTER PANEL -->
+            <div class="center-panel">
+                <div class="editor-header">
+                    <button onclick="loadAnswer()">Show Answer</button>
+                    <button onclick="runCode()">▶ Run Code</button>
+                </div>
+                <textarea id="codeEditor" placeholder="Write your HTML code here...">
 <!DOCTYPE html>
 <html>
 <body>
 
 </body>
 </html>
-            </textarea>
-        </div>
-
-        <!-- RIGHT PANEL -->
-        <div class="right-panel">
-            <div class="output-header">
-                <h3>Preview</h3>
+                </textarea>
             </div>
-            <iframe id="output" title="Code Output"></iframe>
-        </div>
 
+            <!-- RIGHT PANEL -->
+            <div class="right-panel">
+                <div class="output-header">
+                    <h3>Preview</h3>
+                </div>
+                <iframe id="output" title="Code Output"></iframe>
+            </div>
+        </div>
     </div>
-</div>
 
 <script>
 const questions = <?= json_encode($data) ?>;
@@ -491,22 +492,21 @@ function prevQ(){
 
 function showQuestion(){
     if(index >= 0 && index < questions.length) {
+        const q = questions[index];
         document.getElementById("questionBox").innerHTML = `
-            <strong>Subject:</strong> ${questions[index].subject}<br>
-            <strong>Chapter:</strong> ${questions[index].chapter}<br><br>
-            ${questions[index].question}
+            <div style="margin-bottom: 15px;">
+                <strong style="color: #3b82f6;">Subject:</strong> ${q.subject}<br>
+                <strong style="color: #3b82f6;">Chapter:</strong> ${q.chapter}
+            </div>
+            <div style="background: white; padding: 15px; border-radius: 6px; border-left: 4px solid #3b82f6;">
+                ${q.question}
+            </div>
         `;
 
         updateCounter();
 
         // Reset editor
-        document.getElementById("codeEditor").value =
-`<!DOCTYPE html>
-<html>
-<body>
-
-</body>
-</html>`;
+        document.getElementById("codeEditor").value = `<!DOCTYPE html>\n<html>\n<body>\n\n</body>\n</html>`;
 
         // Clear output
         document.getElementById("output").srcdoc = "";
@@ -521,12 +521,19 @@ function loadAnswer(){
 
 function runCode(){
     const code = document.getElementById("codeEditor").value;
-    document.getElementById("output").srcdoc = code;
+    const iframe = document.getElementById("output");
+    iframe.srcdoc = code;
 }
 
-// Initialize counter on load
+// Initialize on load
 document.addEventListener('DOMContentLoaded', () => {
     updateCounter();
+    
+    // Auto-resize iframe
+    const iframe = document.getElementById('output');
+    iframe.onload = function() {
+        this.style.height = this.contentWindow.document.body.scrollHeight + 'px';
+    };
 });
 </script>
 
