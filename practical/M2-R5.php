@@ -418,7 +418,7 @@ while($row = $q->fetch_assoc()){
     
     <!-- BANNER -->
     <section class="it-banner">
-        <h1>IT Tools Code Practice</h1>
+        <h1>HTML Code Practice</h1>
         <p>
             Practice HTML coding challenges based on the latest NIELIT syllabus.
             Improve your coding skills with practical HTML questions designed for O Level students.
