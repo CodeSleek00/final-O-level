@@ -29,7 +29,6 @@ while($row = $q->fetch_assoc()){
         line-height: 1.6;
         height: 100vh;
         overflow: hidden;
-        padding: 20px;
     }
 
     .container {
@@ -405,6 +404,7 @@ while($row = $q->fetch_assoc()){
             margin-bottom: 50px;
             background-color: black;
             color: white;
+            margin: 20px;
         }
 </style>
 </head>
