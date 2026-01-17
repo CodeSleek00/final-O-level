@@ -2,9 +2,9 @@
 include '../db_connect.php';
 
 // Get chapter ID from URL
-$cid = isset($_GET['cid']) ? intval($_GET['cid']) : 0;
+$cid = isset($_GET['chapter_id']) ? intval($_GET['chapter_id']) : 0;
 if(!$cid){
-    die("Invalid Chapter ID.");
+    die("<p style='text-align:center; margin-top:50px; font-size:18px; color:red;'>Invalid Chapter ID. <a href='chapter_list.php'>Go Back</a></p>");
 }
 
 /* ===== FETCH CHAPTER INFO ===== */
@@ -16,7 +16,7 @@ $chapter_query = $conn->query("
 ");
 
 if($chapter_query->num_rows == 0){
-    die("Chapter not found.");
+    die("<p style='text-align:center; margin-top:50px; font-size:18px; color:red;'>Chapter not found. <a href='chapter_list.php'>Go Back</a></p>");
 }
 
 $chapter = $chapter_query->fetch_assoc();
@@ -28,7 +28,7 @@ $questions = $conn->query("
 ");
 
 if($questions->num_rows == 0){
-    die("No questions found for this chapter.");
+    die("<p style='text-align:center; margin-top:50px; font-size:18px; color:red;'>No questions found for this chapter. <a href='chapter_list.php'>Go Back</a></p>");
 }
 ?>
 
@@ -36,40 +36,34 @@ if($questions->num_rows == 0){
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title><?= htmlspecialchars($chapter['chapter_name']); ?> | Practice</title>
+<title><?= htmlspecialchars($chapter['chapter_name']); ?> | Chapter Practice</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-body{
+body {
     font-family:'Poppins',sans-serif;
     background:#f4f6f9;
     margin:0;
 }
-.container{
+.container {
     max-width:900px;
-    margin:80px auto;
+    margin:50px auto 80px auto;
     padding:20px;
     background:#fff;
     border-radius:16px;
     box-shadow:0 10px 30px rgba(0,0,0,.08);
 }
-h2{
-    margin-bottom:5px;
-}
-.subtitle{
+h2 { margin-bottom:5px; }
+.subtitle {
     color:#666;
     font-size:14px;
     margin-bottom:30px;
 }
-.question{
-    margin-bottom:25px;
-}
-.question p{
-    font-weight:500;
-}
-.options label{
+.question { margin-bottom:25px; }
+.question p { font-weight:500; }
+.options label {
     display:block;
     padding:10px 14px;
     border:1px solid #ddd;
@@ -77,7 +71,7 @@ h2{
     margin-bottom:10px;
     cursor:pointer;
 }
-.submit-btn{
+.submit-btn {
     background:#0d6efd;
     color:#fff;
     border:none;
@@ -86,13 +80,11 @@ h2{
     font-size:16px;
     cursor:pointer;
 }
-.correct{ background:#d4edda; border-color:#28a745; }
-.wrong{ background:#f8d7da; border-color:#dc3545; }
-.explain{
-    font-size:14px;
-    color:#333;
-    margin-top:8px;
-}
+.correct { background:#d4edda; border-color:#28a745; }
+.wrong { background:#f8d7da; border-color:#dc3545; }
+.explain { font-size:14px; color:#333; margin-top:8px; }
+.back-link { display:inline-block; margin-top:20px; color:#0d6efd; text-decoration:none; }
+.back-link:hover { text-decoration:underline; }
 </style>
 </head>
 
@@ -140,6 +132,8 @@ h2{
 
 <button class="submit-btn" name="submit">Submit Practice</button>
 </form>
+
+<a class="back-link" href="chapter_list.php">← Back to Chapters</a>
 
 </div>
 
