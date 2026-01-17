@@ -50,6 +50,8 @@ body {
     max-width: 700px;
     margin: 0 auto;
     background:url('../image/bg.svg') no-repeat center bottom;
+    background-size:contain;
+    background-color: #0f172a;
 }
 
 .header-title {
