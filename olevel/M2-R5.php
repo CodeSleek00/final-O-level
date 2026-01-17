@@ -8,11 +8,12 @@ $subject_id = 2; // Web (M2-R5)
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>M2-R5 (Web Designing & Publishing)</title>
+
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="style.css?v=<?php echo time(); ?>">
 
+    <!-- SAME CSS (NO TAILWIND) -->
+    <link rel="stylesheet" href="style.css?v=<?php echo time(); ?>">
 </head>
 
 <body>
@@ -21,18 +22,14 @@ $subject_id = 2; // Web (M2-R5)
 
 <div class="page-wrapper">
 
-   
-
     <!-- BANNER -->
     <section class="it-banner">
-        
         <h1>Web Designing & Publishing MCQ Practice</h1>
         <p>
             Practice updated MCQs based on the latest NIELIT syllabus.
             Improve accuracy, speed, and confidence with topic-wise
             Web Designing & Publishing questions designed for O Level students.
         </p>
-        
     </section>
 
     <!-- FEATURES -->
@@ -54,60 +51,73 @@ $subject_id = 2; // Web (M2-R5)
     </section>
 </div>
 
+<!-- ================= CHAPTER WISE PRACTICE ================= -->
 <div class="container">
     <h1>Chapter-wise Practice</h1>
-<div class="cards-grid">
 
-<?php
-$q = $conn->query("SELECT * FROM chapters WHERE subject_id=$subject_id");
-while($ch = $q->fetch_assoc()){
-
-$count = $conn->query("
-    SELECT COUNT(*) total 
-    FROM chapter_questions 
-    WHERE chapter_id={$ch['id']}
-")->fetch_assoc();
-?>
-
-<div class="test-card">
-    <h3><?= $ch['chapter_name']; ?></h3>
-    <p>Total Questions: <b><?= $count['total']; ?></b></p>
-
-    <a class="start-btn"
-       href="../exam/chapter_exam.php?cid=<?= $ch['id']; ?>">
-       Start Practice
-    </a>
-</div>
-
-<?php } ?>
-
-</div>
-</div>
-
-
-<div class="container">
- <h1>Mock Test</h1>
     <div class="cards-grid">
         <?php
-        $q = $conn->query("SELECT * FROM test_sets WHERE subject_id=$subject_id");
-        while($row = $q->fetch_assoc()){
+        $q = $conn->query("SELECT * FROM chapters WHERE subject_id=$subject_id");
 
-            $countQ = $conn->query("
-                SELECT COUNT(*) AS total 
-                FROM questions 
-                WHERE set_id={$row['id']}
+        while ($ch = $q->fetch_assoc()) {
+
+            $count = $conn->query("
+                SELECT COUNT(*) AS total
+                FROM chapter_questions
+                WHERE chapter_id = {$ch['id']}
             ")->fetch_assoc();
         ?>
             <div class="test-card">
-                <h1><?= $row['set_name']; ?></h1>
-                <p>This Mock Test Consist : <b><?= $countQ['total']; ?> Questions</b></p>
-                <a class="start-btn" href="../exam.php?sid=<?= $subject_id; ?>&setid=<?= $row['id']; ?>">Start Exam</a>
+                <h3><?= htmlspecialchars($ch['chapter_name']); ?></h3>
+                <p>Total Questions: <b><?= $count['total']; ?></b></p>
+
+                <a class="start-btn"
+                   href="../exam/chapter_exam.php?cid=<?= $ch['id']; ?>">
+                   Start Practice
+                </a>
             </div>
         <?php } ?>
     </div>
-
 </div>
 
+<!-- ================= MOCK TEST (FIXED) ================= -->
+<div class="container">
+    <h1>Mock Test</h1>
+
+    <div class="cards-grid">
+        <?php
+        /*
+          Correct logic:
+          - questions table
+          - subject_id filter
+          - set_id grouping
+        */
+        $tests = $conn->query("
+            SELECT set_id, COUNT(*) AS total
+            FROM questions
+            WHERE subject_id = $subject_id
+            GROUP BY set_id
+            ORDER BY set_id ASC
+        ");
+
+        while ($row = $tests->fetch_assoc()) {
+        ?>
+            <div class="test-card">
+                <h3>Mock Test <?= $row['set_id']; ?></h3>
+
+                <p>
+                    This Mock Test Consists of
+                    <b><?= $row['total']; ?> Questions</b>
+                </p>
+
+                <a class="start-btn"
+                   href="../exam.php?sid=<?= $subject_id; ?>&setid=<?= $row['set_id']; ?>">
+                   Start Exam
+                </a>
+            </div>
+        <?php } ?>
+    </div>
+</div>
 
 </body>
 </html>
