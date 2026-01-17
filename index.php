@@ -17,34 +17,58 @@
         <?php include 'navbar.html'; ?>
     
     <div class="container">
-        <section class="hero">
-            <div class="hero-content">
-                <h1>Prepare For O Level & CCC</h1>
-                <p>Comprehensive practice for O Level, CCC, CCC+, and more. Learn, practice, and succeed with interactive exercises and mock tests by Faiz Computer Institute.</p>
-                <a href="faizcomputerinstitute.com" class="cta-button">Start Learning Today</a>
+    <section class="olevel-hero">
+        <div class="olevel-hero-content">
+            <!-- First Block -->
+            <div class="olevel-block">
+                <h1 class="olevel-title">Prepare For O Level & CCC</h1>
+                <p class="olevel-desc">
+                    Comprehensive practice for O Level, CCC, CCC+, and more. Learn, practice, and succeed with interactive exercises and mock tests by Faiz Computer Institute.
+                </p>
+                <a href="https://faizcomputerinstitute.com" class="olevel-cta">Start Learning Today</a>
                 
-                <div class="stats">
-                    <div class="stat-item">
-                        <span class="stat-number">10,000+</span>
-                        <span class="stat-label">Practice Questions</span>
+                <div class="olevel-stats">
+                    <div class="olevel-stat-item">
+                        <span class="olevel-stat-number">10,000+</span>
+                        <span class="olevel-stat-label">Practice Questions</span>
                     </div>
-                    <div class="stat-item">
-                        <span class="stat-number">95%</span>
-                        <span class="stat-label">Success Rate</span>
+                    <div class="olevel-stat-item">
+                        <span class="olevel-stat-number">95%</span>
+                        <span class="olevel-stat-label">Success Rate</span>
                     </div>
-                    <div class="stat-item">
-                        <span class="stat-number">24/7</span>
-                        <span class="stat-label">Access</span>
+                    <div class="olevel-stat-item">
+                        <span class="olevel-stat-number">24/7</span>
+                        <span class="olevel-stat-label">Access</span>
                     </div>
                 </div>
             </div>
-            
-            <div class="hero-image">
-                <img src="image/image.png" alt="Student studying with laptop">
+
+            <!-- Second Block (hidden on mobile) -->
+            <div class="olevel-block olevel-second">
+                <h1 class="olevel-title">Prepare For O Level & CCC</h1>
+                <p class="olevel-desc">
+                    Comprehensive practice for O Level, CCC, CCC+, and more. Learn, practice, and succeed with interactive exercises and mock tests by Faiz Computer Institute.
+                </p>
+                <a href="https://faizcomputerinstitute.com" class="olevel-cta">Start Learning Today</a>
+                
+                <div class="olevel-stats">
+                    <div class="olevel-stat-item">
+                        <span class="olevel-stat-number">10,000+</span>
+                        <span class="olevel-stat-label">Practice Questions</span>
+                    </div>
+                    <div class="olevel-stat-item">
+                        <span class="olevel-stat-number">95%</span>
+                        <span class="olevel-stat-label">Success Rate</span>
+                    </div>
+                    <div class="olevel-stat-item">
+                        <span class="olevel-stat-number">24/7</span>
+                        <span class="olevel-stat-label">Access</span>
+                    </div>
+                </div>
             </div>
-        </section>
-    </div>
-    
+        </div>
+    </section>
+</div>
     <section class="join-us-section">
         <div class="join-us-content">
             <h1>Join Faiz Computer Institute Today!</h1>

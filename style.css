@@ -889,4 +889,95 @@
             
             
         }
-    
+    .olevel-hero .container, .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Hero Section */
+.olevel-hero-content {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Blocks */
+.olevel-block {
+    flex: 1 1 450px;
+    background: #fff;
+    padding: 30px 25px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.olevel-title {
+    font-size: 2rem;
+    color: #1e40af;
+    margin-bottom: 15px;
+}
+
+.olevel-desc {
+    color: #555;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.olevel-cta {
+    display: inline-block;
+    padding: 12px 30px;
+    background: #4f46e5;
+    color: #fff;
+    border-radius: 8px;
+    font-weight: 500;
+    text-decoration: none;
+    margin-bottom: 20px;
+    transition: 0.3s;
+}
+
+.olevel-cta:hover {
+    background: #6366f1;
+}
+
+/* Stats */
+.olevel-stats {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.olevel-stat-item {
+    background: #f0f4ff;
+    padding: 10px 15px;
+    border-radius: 8px;
+    text-align: center;
+    flex: 1 1 80px;
+}
+
+.olevel-stat-number {
+    display: block;
+    font-weight: 600;
+    color: #1e40af;
+    font-size: 1.2rem;
+}
+
+.olevel-stat-label {
+    font-size: 0.85rem;
+    color: #555;
+}
+
+/* MOBILE: hide second block and full-width first block */
+@media (max-width: 900px){
+    .olevel-hero-content {
+        flex-direction: column;
+        align-items: center;
+    }
+    .olevel-block {
+        width: 100%;
+    }
+    .olevel-second {
+        display: none !important;
+    }
+}
