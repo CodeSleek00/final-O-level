@@ -75,6 +75,7 @@ body {
     margin-bottom: 48px;
     margin-top: 30px;
     padding: 10px 10px;
+    z-index: 1;
 }
 
 .subject-nav-item {
