@@ -81,7 +81,7 @@ body {
     flex-wrap: wrap;
     gap: 12px;
     margin-bottom: 48px;
-    padding: 0 10px;
+    padding: 10px 10px;
     z-index: 1;
 }
 
