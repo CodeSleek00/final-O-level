@@ -1,31 +1,42 @@
 <?php
 include '../db_connect.php';
 
-$cid = $_GET['cid'] ?? 0;
+// Get chapter ID from URL
+$cid = isset($_GET['cid']) ? intval($_GET['cid']) : 0;
 if(!$cid){
-    die("Invalid Chapter");
+    die("Invalid Chapter ID.");
 }
 
 /* ===== FETCH CHAPTER INFO ===== */
-$chapter = $conn->query("
+$chapter_query = $conn->query("
     SELECT c.chapter_name, s.subject_name
     FROM chapters c
     JOIN subjects s ON c.subject_id = s.id
     WHERE c.id = $cid
-")->fetch_assoc();
+");
+
+if($chapter_query->num_rows == 0){
+    die("Chapter not found.");
+}
+
+$chapter = $chapter_query->fetch_assoc();
 
 /* ===== FETCH QUESTIONS ===== */
 $questions = $conn->query("
     SELECT * FROM chapter_questions
     WHERE chapter_id = $cid
 ");
+
+if($questions->num_rows == 0){
+    die("No questions found for this chapter.");
+}
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title><?= $chapter['chapter_name']; ?> | Practice</title>
+<title><?= htmlspecialchars($chapter['chapter_name']); ?> | Practice</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -89,24 +100,24 @@ h2{
 
 <div class="container">
 
-<h2><?= $chapter['chapter_name']; ?></h2>
-<div class="subtitle"><?= $chapter['subject_name']; ?> • Chapter-wise Practice</div>
+<h2><?= htmlspecialchars($chapter['chapter_name']); ?></h2>
+<div class="subtitle"><?= htmlspecialchars($chapter['subject_name']); ?> • Chapter-wise Practice</div>
 
 <form method="post">
 
 <?php $i=1; while($q = $questions->fetch_assoc()){ ?>
 <div class="question">
-    <p>Q<?= $i++; ?>. <?= $q['question']; ?></p>
+    <p>Q<?= $i++; ?>. <?= htmlspecialchars($q['question']); ?></p>
 
     <div class="options">
-        <?php foreach(['A','B','C','D'] as $opt){
+        <?php foreach(['A','B','C','D'] as $opt):
             $text = $q['option_'.strtolower($opt)];
         ?>
         <label>
             <input type="radio" name="ans[<?= $q['id']; ?>]" value="<?= $opt; ?>">
-            <?= $text; ?>
+            <?= htmlspecialchars($text); ?>
         </label>
-        <?php } ?>
+        <?php endforeach; ?>
     </div>
 
     <?php
@@ -119,7 +130,9 @@ h2{
                 ? "<div class='explain correct'>✅ Correct</div>"
                 : "<div class='explain wrong'>❌ Wrong | Correct: $correct</div>";
         }
-        echo "<div class='explain'><b>Explanation:</b> {$q['explanation']}</div>";
+        if(!empty($q['explanation'])){
+            echo "<div class='explain'><b>Explanation:</b> ".htmlspecialchars($q['explanation'])."</div>";
+        }
     }
     ?>
 </div>
