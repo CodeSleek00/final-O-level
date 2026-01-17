@@ -282,11 +282,11 @@ body {
 <div class="page-wrapper">
 
     <!-- Header -->
-    <header class="header-section">
+   
         <div class="it-banner">
         <h1 class="header-title">MCQ Practice Hub</h1>
         <p class="header-subtitle">Practice questions across all subjects—Web, IoT, Python, IT Tools, and more—in one streamlined interface.</p>
-    </header></div>
+</div>
 
     <!-- Subject Navigation -->
     <nav class="subject-nav">
