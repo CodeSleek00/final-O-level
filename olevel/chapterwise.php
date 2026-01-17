@@ -50,7 +50,7 @@ body {
     max-width: 700px;
     margin: 0 auto;
     background:url('../image/bg.svg') no-repeat center bottom;
-    background-size:contain;
+    background-size:cover;
     background-color: #0f172a;
 }
 
@@ -58,14 +58,14 @@ body {
     font-family: 'Space Grotesk', sans-serif;
     font-size: 2.5rem;
     font-weight: 700;
-    color: #0f172a;
+    color: white;
     margin-bottom: 16px;
     letter-spacing: -0.5px;
 }
 
 .header-subtitle {
     font-size: 1.1rem;
-    color: #64748b;
+    color: #a5afbc;
     font-weight: 400;
     max-width: 550px;
     margin: 0 auto;
