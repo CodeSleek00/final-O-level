@@ -308,24 +308,16 @@
     .backdrop.active {
       display: block;
     }
-    /* ===== Sub Dropdown (Open Downward) ===== */
+    /* ===== Sub Dropdown (Downward Only) ===== */
 .dropdown-item {
   position: relative;
 }
 
 .sub-dropdown {
-  position: static;              /* RIGHT SIDE BAND */
-  background-color: transparent;
-  box-shadow: none;
-  border: none;
-  min-width: 100%;
   display: none;
   flex-direction: column;
-  padding-left: 1.5rem;          /* Indent */
-}
-
-.dropdown-item.active .sub-dropdown {
-  display: flex;
+  padding-left: 1.5rem;
+  margin-top: 0.3rem;
 }
 
 .sub-dropdown a {
@@ -337,6 +329,13 @@
 .sub-dropdown a:hover {
   background: var(--primary-light);
   color: var(--primary);
+}
+
+/* ✅ DESKTOP HOVER */
+@media (min-width: 993px) {
+  .dropdown-item:hover .sub-dropdown {
+    display: flex;
+  }
 }
 
   </style>
@@ -554,12 +553,19 @@
         }
       });
     });
-    // Sub-dropdown toggle (downward open)
+    // Sub-dropdown click support (mobile + optional desktop)
 document.querySelectorAll('.dropdown-item > .dropdown-link').forEach(link => {
   link.addEventListener('click', function (e) {
-    e.preventDefault();
-    const parent = this.parentElement;
-    parent.classList.toggle('active');
+    if (window.innerWidth <= 992) {
+      e.preventDefault();
+      const parent = this.parentElement;
+      parent.classList.toggle('active');
+
+      const sub = parent.querySelector('.sub-dropdown');
+      if (sub) {
+        sub.style.display = sub.style.display === 'flex' ? 'none' : 'flex';
+      }
+    }
   });
 });
 
