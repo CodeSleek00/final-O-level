@@ -308,6 +308,78 @@
     .backdrop.active {
       display: block;
     }
+    .nav-item {
+  position: relative;
+  list-style: none;
+}
+
+.nav-link {
+  color: #fff;
+  text-decoration: none;
+  padding: 12px 15px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* First dropdown */
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #1e1e2f;
+  min-width: 260px;
+  display: none;
+  border-radius: 6px;
+}
+
+.nav-item:hover .dropdown {
+  display: block;
+}
+
+/* dropdown items */
+.dropdown-item {
+  position: relative;
+}
+
+.dropdown-item > a {
+  padding: 12px 15px;
+  display: flex;
+  justify-content: space-between;
+  color: #fff;
+  text-decoration: none;
+}
+
+.dropdown-item > a:hover {
+  background: #2a2a40;
+}
+
+/* Sub dropdown */
+.sub-dropdown {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  background: #2a2a40;
+  min-width: 220px;
+  display: none;
+  border-radius: 6px;
+}
+
+.dropdown-item:hover .sub-dropdown {
+  display: block;
+}
+
+.sub-dropdown a {
+  padding: 10px 15px;
+  display: block;
+  color: #fff;
+  text-decoration: none;
+}
+
+.sub-dropdown a:hover {
+  background: #3a3a55;
+}
+
   </style>
 </head>
 
@@ -354,21 +426,56 @@
           <a href="olevel/all.php" class="dropdown-link"> All MCQs</a>
         </div>
       </li>
-      <li class="nav-item">
-        <a href="#" class="nav-link"> Practical Portal <i class="fas fa-chevron-down arrow"></i></a>
-        <div class="dropdown">
-          <a href="#" class="dropdown-link"> M1-R5 : IT Tools </a>
-         
-          <a href="#" class="dropdown-link"> M3-R5 : Python Programming</a>
-          <a href="#" class="dropdown-link"> M4-R5 : IOT (Internet Of Things)</a>
-        </div>
-         <a href="#" class="nav-link"> M2-R5 : Web Design & Publishing <i class="fas fa-chevron-down arrow"></i></a>
-          <div class="dropdown">
-            <a href="#" class="dropdown-link"> HTML</a>
-            <a href="#" class="dropdown-link"> CSS</a>
-            <a href="#" class="dropdown-link"> JavaScript</a>
-          </div>
-      </li>
+     <li class="nav-item">
+  <a href="#" class="nav-link">
+    Practical Portal <i class="fas fa-chevron-down arrow"></i>
+  </a>
+
+  <div class="dropdown">
+
+    <!-- M1 -->
+    <div class="dropdown-item">
+      <a href="#">M1-R5 : IT Tools <i class="fas fa-chevron-right"></i></a>
+      <div class="sub-dropdown">
+        <a href="#">LibreOffice Writer</a>
+        <a href="#">LibreOffice Calc</a>
+        <a href="#">LibreOffice Impress</a>
+      </div>
+    </div>
+
+    <!-- M2 -->
+    <div class="dropdown-item">
+      <a href="#">M2-R5 : Web Design <i class="fas fa-chevron-right"></i></a>
+      <div class="sub-dropdown">
+        <a href="#">HTML Practical</a>
+        <a href="#">CSS Practical</a>
+        <a href="#">JavaScript Practical</a>
+      </div>
+    </div>
+
+    <!-- M3 -->
+    <div class="dropdown-item">
+      <a href="#">M3-R5 : Python <i class="fas fa-chevron-right"></i></a>
+      <div class="sub-dropdown">
+        <a href="#">Basics</a>
+        <a href="#">Loops</a>
+        <a href="#">Functions</a>
+      </div>
+    </div>
+
+    <!-- M4 -->
+    <div class="dropdown-item">
+      <a href="#">M4-R5 : IOT <i class="fas fa-chevron-right"></i></a>
+      <div class="sub-dropdown">
+        <a href="#">Sensors</a>
+        <a href="#">Arduino</a>
+        <a href="#">Projects</a>
+      </div>
+    </div>
+
+  </div>
+</li>
+
        <li class="nav-item">
         <a href="#" class="nav-link"> Syllabus</a>
       </li>
