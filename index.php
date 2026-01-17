@@ -164,15 +164,7 @@
         </div>
 
         <div class="services-grid">
-            <div class="service-card">
-                <div class="service-icon-container">
-                    <img width="40" height="40" src="https://img.icons8.com/clouds/100/workstation.png" alt="workstation"/>
-                </div>
-                <h3>M4-R5(IOT) PRACTICAL PORTAL</h3>
-                <p>Comprehensive training in Web Designing and Publishing and more to maximize your productivity with Microsoft's powerful suite.</p>
-                <a href="practical/M4-R5(IOT).php" class="service-btn">Learn More <i class="fas fa-arrow-right"></i></a>
-            </div>
-
+            
             <div class="service-card">
                 <div class="service-icon-container">
                     <img width="40" height="40" src="https://img.icons8.com/clouds/100/ok.png" alt="ok"/>
@@ -217,6 +209,15 @@
                 <p>Comprehensive training in Python and more to maximize your productivity with Microsoft's powerful suite.</p>
                 <a href="practical/M3-R5(pythob).php" class="service-btn">Learn More <i class="fas fa-arrow-right"></i></a>
             </div>
+            <div class="service-card">
+                <div class="service-icon-container">
+                    <img width="40" height="40" src="https://img.icons8.com/clouds/100/workstation.png" alt="workstation"/>
+                </div>
+                <h3>M4-R5(IOT) PRACTICAL PORTAL</h3>
+                <p>Comprehensive training in Web Designing and Publishing and more to maximize your productivity with Microsoft's powerful suite.</p>
+                <a href="practical/M4-R5(IOT).php" class="service-btn">Learn More <i class="fas fa-arrow-right"></i></a>
+            </div>
+
         </div>
     </section>
     
