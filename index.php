@@ -45,7 +45,7 @@
 
             <!-- Second Block (hidden on mobile) -->
             <div class="olevel-block olevel-second">
-                <h1 class="olevel-title">Prepare For O Level & CCC</h1>
+                <h1 class="olevel-title">Faiz Computer Institute</h1>
                 <p class="olevel-desc">
                     Comprehensive practice for O Level, CCC, CCC+, and more. Learn, practice, and succeed with interactive exercises and mock tests by Faiz Computer Institute.
                 </p>
@@ -53,16 +53,16 @@
                 
                 <div class="olevel-stats">
                     <div class="olevel-stat-item">
-                        <span class="olevel-stat-number">10,000+</span>
-                        <span class="olevel-stat-label">Practice Questions</span>
+                        <span class="olevel-stat-number">50+</span>
+                        <span class="olevel-stat-label">Courses</span>
                     </div>
                     <div class="olevel-stat-item">
-                        <span class="olevel-stat-number">95%</span>
-                        <span class="olevel-stat-label">Success Rate</span>
+                        <span class="olevel-stat-number">2000+</span>
+                        <span class="olevel-stat-label">Qualified Students</span>
                     </div>
                     <div class="olevel-stat-item">
-                        <span class="olevel-stat-number">24/7</span>
-                        <span class="olevel-stat-label">Access</span>
+                        <span class="olevel-stat-number">20+</span>
+                        <span class="olevel-stat-label">Years of Experience</span>
                     </div>
                 </div>
             </div>
