@@ -345,7 +345,7 @@ body {
 </style>
 </head>
 <body>
-
+<?php include 'navbar.html'; ?>
 <div class="page-wrapper">
 
     <!-- Header -->
