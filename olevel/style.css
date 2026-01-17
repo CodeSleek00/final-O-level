@@ -232,5 +232,8 @@
              .test-card {
                 padding: 15px;
              }
+              .feature-box {
+                display: none;
+              }
 
         }
