@@ -73,6 +73,7 @@ body {
     flex-wrap: wrap;
     gap: 12px;
     margin-bottom: 48px;
+    margin-top: 30px;
     padding: 0 10px;
 }
 
