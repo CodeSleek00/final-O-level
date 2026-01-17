@@ -1,7 +1,7 @@
 <?php
 include '../db_connect.php';
 
-// SUBJECT ID (change only this)
+/* CHANGE ONLY THIS WHEN SUBJECT CHANGES */
 $subject_id = 1; // M1-R5 (IT Tools)
 ?>
 <!DOCTYPE html>
@@ -11,8 +11,10 @@ $subject_id = 1; // M1-R5 (IT Tools)
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>M1-R5 | IT Tools MCQ Practice</title>
 
-    <!-- Fonts & Icons -->
+    <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- Tailwind -->
@@ -26,36 +28,33 @@ $subject_id = 1; // M1-R5 (IT Tools)
 
 <?php include 'navbar.html'; ?>
 
-<div class="page-wrapper">
+<!-- ================= BANNER ================= -->
+<section class="it-banner text-center">
+    <h1>IT Tools MCQ Practice</h1>
+    <p>
+        Practice updated MCQs based on the latest NIELIT syllabus.
+        Improve accuracy, speed, and confidence with topic-wise
+        IT Tools questions designed for O Level students.
+    </p>
+</section>
 
-    <!-- ================= BANNER ================= -->
-    <section class="it-banner text-center">
-        <h1>IT Tools MCQ Practice</h1>
-        <p>
-            Practice updated MCQs based on the latest NIELIT syllabus.
-            Improve accuracy, speed, and confidence with topic-wise
-            IT Tools questions designed for O Level students.
-        </p>
-    </section>
+<!-- ================= FEATURES ================= -->
+<section class="features">
+    <div class="feature-box">
+        <h3>📘 Updated Syllabus</h3>
+        <p>MCQs strictly based on latest NIELIT O Level M1-R5 syllabus.</p>
+    </div>
 
-    <!-- ================= FEATURES ================= -->
-    <section class="features">
-        <div class="feature-box">
-            <h3>📘 Updated Syllabus</h3>
-            <p>MCQs strictly based on latest NIELIT O Level M1-R5 syllabus.</p>
-        </div>
+    <div class="feature-box">
+        <h3>📝 Topic-wise Practice</h3>
+        <p>Practice MS Word, Excel, PowerPoint, Internet & IT Tools.</p>
+    </div>
 
-        <div class="feature-box">
-            <h3>📝 Topic-wise Practice</h3>
-            <p>Practice MS Word, Excel, PowerPoint, Internet & IT Tools.</p>
-        </div>
-
-        <div class="feature-box">
-            <h3>⏱ Exam-Oriented</h3>
-            <p>Designed to improve speed, accuracy, and exam confidence.</p>
-        </div>
-    </section>
-</div>
+    <div class="feature-box">
+        <h3>⏱ Exam-Oriented</h3>
+        <p>Designed to improve speed, accuracy, and exam confidence.</p>
+    </div>
+</section>
 
 <!-- ================= CHAPTER WISE PRACTICE ================= -->
 <div class="container">
@@ -64,7 +63,7 @@ $subject_id = 1; // M1-R5 (IT Tools)
     <div class="cards-grid">
         <?php
         $chapters = $conn->query("
-            SELECT * FROM chapters 
+            SELECT * FROM chapters
             WHERE subject_id = $subject_id
             ORDER BY id ASC
         ");
@@ -72,8 +71,8 @@ $subject_id = 1; // M1-R5 (IT Tools)
         while ($ch = $chapters->fetch_assoc()) {
 
             $count = $conn->query("
-                SELECT COUNT(*) AS total 
-                FROM chapter_questions 
+                SELECT COUNT(*) AS total
+                FROM chapter_questions
                 WHERE chapter_id = {$ch['id']}
             ")->fetch_assoc();
         ?>
@@ -90,34 +89,41 @@ $subject_id = 1; // M1-R5 (IT Tools)
     </div>
 </div>
 
-<!-- ================= MOCK TEST SECTION ================= -->
+<!-- ================= MOCK TEST (BASED ON QUESTIONS TABLE) ================= -->
 <div class="container">
     <h1>Mock Test</h1>
 
     <div class="cards-grid">
         <?php
-        // Sirf subject_id se test fetch honge
+        /*
+          IMPORTANT:
+          - Sirf questions table use ho rahi hai
+          - subject_id se filter
+          - set_id se grouping
+        */
+
         $tests = $conn->query("
-            SELECT ts.id, ts.set_name, COUNT(q.id) AS total_questions
-            FROM test_sets ts
-            LEFT JOIN questions q ON ts.id = q.set_id
-            WHERE ts.subject_id = $subject_id
-            GROUP BY ts.id
-            ORDER BY ts.id ASC
+            SELECT set_id, COUNT(*) AS total_questions
+            FROM questions
+            WHERE subject_id = $subject_id
+            GROUP BY set_id
+            ORDER BY set_id ASC
         ");
 
-        while ($test = $tests->fetch_assoc()) {
+        while ($row = $tests->fetch_assoc()) {
+            $setId = $row['set_id'];
+            $totalQ = $row['total_questions'];
         ?>
             <div class="test-card">
-                <h3><?= htmlspecialchars($test['set_name']); ?></h3>
+                <h3>Mock Test <?= $setId; ?></h3>
 
                 <p>
                     Total Questions:
-                    <b><?= $test['total_questions']; ?></b>
+                    <b><?= $totalQ; ?></b>
                 </p>
 
                 <a class="start-btn"
-                   href="../exam.php?sid=<?= $subject_id; ?>&setid=<?= $test['id']; ?>">
+                   href="../exam.php?sid=<?= $subject_id; ?>&setid=<?= $setId; ?>">
                     Start Exam
                 </a>
             </div>
