@@ -421,7 +421,7 @@ if($selected_subject_id > 0 && $subject){
                         </div>
                     </div>
                     <div class="chapter-action">
-                        <a class="chapter-button" href="chapter_exam.php?chapter_id='.$ch['id'].'&subject_id='.$selected_subject_id.'">
+                        <a class="chapter-button" href="../exam/chapter_exam.php?chapter_id='.$ch['id'].'&subject_id='.$selected_subject_id.'">
                             
                             Start Practice
                         </a>
