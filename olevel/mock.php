@@ -285,7 +285,7 @@ body {
     <!-- Header -->
    
         <div class="it-banner">
-        <h1 class="header-title">MCQ Practice Hub</h1>
+        <h1 class="header-title">Mock Test</h1>
         <p class="header-subtitle">Practice questions across all subjects—Web, IoT, Python, IT Tools, and more—in one streamlined interface.</p>
 </div>
 
