@@ -1,14 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>O Level Practice | Faiz Computer Institute</title>
+
+    <!-- PRIMARY SEO TITLE -->
+    <title>O Level Preparation 2025 | O Level MCQ, Practical, CCC | Faiz Computer Institute</title>
+
+    <!-- META DESCRIPTION -->
+    <meta name="description" content="Best O Level preparation platform for NIELIT O Level examination. Practice O Level MCQs, chapter-wise questions, mock tests, practical portals (M1-R5, M2-R5, M3-R5, M4-R5), CCC & CCC+ preparation by Faiz Computer Institute.">
+
+    <!-- KEYWORDS (still useful for Indian SEO) -->
+    <meta name="keywords" content="O Level, O Level Preparation, O Level Exam, NIELIT O Level, O Level MCQ, O Level Mock Test, O Level Practical, M1-R5, M2-R5, M3-R5, M4-R5, CCC Exam, CCC Preparation, O Level Online Practice">
+
+    <meta name="author" content="Faiz Computer Institute">
+    <meta name="robots" content="index, follow">
+
+    <!-- CANONICAL -->
+    <link rel="canonical" href="https://www.faizcomputerinstitute.com/">
+
+    <!-- OPEN GRAPH (Facebook / WhatsApp) -->
+    <meta property="og:title" content="O Level Preparation | MCQ, Practical & Mock Tests">
+    <meta property="og:description" content="Prepare for NIELIT O Level exam with MCQs, mock tests & practical portals. Trusted by thousands of students.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.faizcomputerinstitute.com/">
+    <meta property="og:image" content="https://www.faizcomputerinstitute.com/assets/og-image.jpg">
+
+    <!-- TWITTER -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="O Level Preparation 2025 | Faiz Computer Institute">
+    <meta name="twitter:description" content="Best platform for O Level MCQ, mock test & practical preparation.">
+
+    <!-- GOOGLE FONTS & ICONS -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="style.css?v=<?php echo time(); ?>">
 
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css?v=<?php echo time(); ?>">
 </head>
 
 
