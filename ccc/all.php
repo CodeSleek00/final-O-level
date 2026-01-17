@@ -18,7 +18,7 @@ $subject_id = 1; // M1-R5 (IT Tools)
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- YOUR EXISTING CSS -->
-    <link rel="stylesheet" href="style.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../olevel/style.css?v=<?php echo time(); ?>">
 </head>
 
 <body>
