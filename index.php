@@ -168,9 +168,9 @@
                 <div class="service-icon-container">
                     <img width="40" height="40" src="https://img.icons8.com/clouds/100/workstation.png" alt="workstation"/>
                 </div>
-                <h3>MCQ Question</h3>
-                <p>Master keyboard shortcuts to work faster and more efficiently across all applications, reducing reliance on mouse navigation.</p>
-                <a href="olevel/all.php" class="service-btn">Learn More <i class="fas fa-arrow-right"></i></a>
+                <h3>M4-R5(IOT) PRACTICAL PORTAL</h3>
+                <p>Comprehensive training in Web Designing and Publishing and more to maximize your productivity with Microsoft's powerful suite.</p>
+                <a href="practical/M4-R5(IOT).php" class="service-btn">Learn More <i class="fas fa-arrow-right"></i></a>
             </div>
 
             <div class="service-card">
