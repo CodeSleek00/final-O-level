@@ -82,6 +82,7 @@ body {
     gap: 12px;
     margin-bottom: 48px;
     padding: 0 10px;
+    z-index: 1;
 }
 
 .subject-nav-item {
