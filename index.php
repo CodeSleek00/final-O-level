@@ -91,7 +91,7 @@
                     </div>
                     <h3>O Level Practice</h3>
                     <p>Master O Level concepts with thousands of questions, detailed explanations, and progress tracking.</p>
-                    <a href="#">Start Practice</a>
+                    <a href="olevel/all.php">Start Practice</a>
                 </div>
             </div>
             
@@ -102,7 +102,7 @@
                     </div>
                     <h3>CCC Practice</h3>
                     <p>Prepare for CCC certification with our comprehensive test series and mock exams.</p>
-                    <a href="#">Start Practice</a>
+                    <a href="ccc/all.php">Start Practice</a>
                 </div>
             </div>
             
@@ -113,7 +113,7 @@
                     </div>
                     <h3>Chapter-wise MCQs</h3>
                     <p>Focus on specific topics with our organized chapter-by-chapter question banks.</p>
-                    <a href="#">Start Practice</a>
+                    <a href="olevel/chapterwise.php">Start Practice</a>
                 </div>
             </div>
             
@@ -122,31 +122,31 @@
                     <div class="practice-card-icon">
                         <i class="fas fa-desktop"></i>
                     </div>
-                    <h3>Shortcut Keys</h3>
+                    <h3>Writer Shortcut Keys</h3>
                     <p>Master essential keyboard shortcuts to improve your productivity and efficiency.</p>
-                    <a href="#">Start Practice</a>
+                    <a href="shortcut/writer.php">Start Practice</a>
                 </div>
             </div>
             
             <div class="practice-card">
                 <div class="practice-card-content">
                     <div class="practice-card-icon">
-                        <i class="far fa-star"></i>
+                        <i class="fas fa-desktop"></i>
                     </div>
-                    <h3>Important Points</h3>
-                    <p>Key concepts and must-know information for exam success in concise format.</p>
-                    <a href="#">Start Practice</a>
+                    <h3>Impress Shortcut Keys</h3>
+                    <p>Master essential keyboard shortcuts to improve your productivity and efficiency.</p>
+                    <a href="shortcut/impress.php">Start Practice</a>
                 </div>
             </div>
             
             <div class="practice-card">
                 <div class="practice-card-content">
                     <div class="practice-card-icon">
-                        <i class="fas fa-keyboard"></i>
+                        <i class="fas fa-desktop"></i>
                     </div>
-                    <h3>Practical Portal</h3>
-                    <p>Hands-on exercises and projects to develop real-world skills and applications.</p>
-                    <a href="#">Start Practice</a>
+                    <h3>CalcShortcut Keys</h3>
+                    <p>Master essential keyboard shortcuts to improve your productivity and efficiency.</p>
+                    <a href="shortcut/calc.php">Start Practice</a>
                 </div>
             </div>
         </div>
