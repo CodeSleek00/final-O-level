@@ -79,45 +79,46 @@ $subject_id = 4; // IOT (M4-R5)
         <?php } ?>
     </div>
 </div>
-
-<!-- ================= MOCK TEST (FIXED LOGIC) ================= -->
+<!-- ================= MOCK TEST (SUBJECT_ID BASED – FIXED) ================= -->
 <div class="container">
     <h1>Mock Test</h1>
 
     <div class="cards-grid">
         <?php
-        /*
-          Correct logic:
-          - questions table
-          - subject_id = 4
-          - group by set_id
-        */
-        $tests = $conn->query("
-            SELECT set_id, COUNT(*) AS total
-            FROM questions
+        // 1️⃣ subject_id se test sets lao
+        $sets = $conn->query("
+            SELECT * FROM test_sets 
             WHERE subject_id = $subject_id
-            GROUP BY set_id
-            ORDER BY set_id ASC
+            ORDER BY id ASC
         ");
 
-        while ($row = $tests->fetch_assoc()) {
+        while ($set = $sets->fetch_assoc()) {
+
+            // 2️⃣ har set ke questions count karo
+            $countQ = $conn->query("
+                SELECT COUNT(*) AS total
+                FROM questions
+                WHERE set_id = {$set['id']}
+            ")->fetch_assoc();
         ?>
             <div class="test-card">
-                <h3>Mock Test <?= $row['set_id']; ?></h3>
+                <h3><?= htmlspecialchars($set['set_name']); ?></h3>
 
                 <p>
                     This Mock Test Consists of
-                    <b><?= $row['total']; ?> Questions</b>
+                    <b><?= $countQ['total']; ?> Questions</b>
                 </p>
 
+                <!-- SAME OLD EXAM START LOGIC -->
                 <a class="start-btn"
-                   href="../exam.php?sid=<?= $subject_id; ?>&setid=<?= $row['set_id']; ?>">
+                   href="../exam.php?sid=<?= $subject_id; ?>&setid=<?= $set['id']; ?>">
                    Start Exam
                 </a>
             </div>
         <?php } ?>
     </div>
 </div>
+
 
 </body>
 </html>
