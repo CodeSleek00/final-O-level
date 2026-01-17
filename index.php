@@ -168,54 +168,54 @@
                 <div class="service-icon-container">
                     <img width="40" height="40" src="https://img.icons8.com/clouds/100/workstation.png" alt="workstation"/>
                 </div>
-                <h3>SHORTCUT KEYS</h3>
+                <h3>MCQ Question</h3>
                 <p>Master keyboard shortcuts to work faster and more efficiently across all applications, reducing reliance on mouse navigation.</p>
-                <a href="#" class="service-btn">Learn More <i class="fas fa-arrow-right"></i></a>
+                <a href="olevel/all.php" class="service-btn">Learn More <i class="fas fa-arrow-right"></i></a>
             </div>
 
             <div class="service-card">
                 <div class="service-icon-container">
                     <img width="40" height="40" src="https://img.icons8.com/clouds/100/ok.png" alt="ok"/>
                 </div>
-                <h3>MS-OFFICE</h3>
-                <p>Comprehensive training in Word, Excel, PowerPoint and more to maximize your productivity with Microsoft's powerful suite.</p>
-                <a href="#" class="service-btn">Learn More <i class="fas fa-arrow-right"></i></a>
+                <h3>M1-R5 PRACTICAL PORTAL</h3>
+                <p>Comprehensive training in Libreoffice Writer,Calc,Impress and more to maximize your productivity with Microsoft's powerful suite.</p>
+                <a href="practical/M1-R5.html" class="service-btn">Learn More <i class="fas fa-arrow-right"></i></a>
             </div>
 
             <div class="service-card">
                 <div class="service-icon-container">
                     <img width="40" height="40" src="https://img.icons8.com/clouds/100/test-passed.png" alt="test-passed"/>
                 </div>
-                <h3>PROGRAMMING</h3>
-                <p>From Python to JavaScript, master coding languages through hands-on projects and real-world applications.</p>
-                <a href="#" class="service-btn">Learn More <i class="fas fa-arrow-right"></i></a>
+               <h3>M2-R5(WEB DESIGNING) PRACTICAL PORTAL</h3>
+                <p>Comprehensive training in Web Designing and Publishing and more to maximize your productivity with Microsoft's powerful suite.</p>
+                <a href="practical/M2-R5(HTML).php" class="service-btn">Learn More <i class="fas fa-arrow-right"></i></a>
             </div>
 
             <div class="service-card">
                 <div class="service-icon-container">
                     <img width="40" height="40" src="https://img.icons8.com/clouds/100/imac-idea.png" alt="imac-idea"/>
                 </div>
-                <h3>EXAMS & PRACTICALS</h3>
-                <p>Interactive assessments with instant feedback to evaluate your knowledge and track your learning progress.</p>
-                <a href="#" class="service-btn">Learn More <i class="fas fa-arrow-right"></i></a>
+                <h3>M2-R5(CSS) PRACTICAL PORTAL</h3>
+                <p>Comprehensive training in Web Designing and Publishing and more to maximize your productivity with Microsoft's powerful suite.</p>
+                <a href="practical/M2-R5(CSS).php" class="service-btn">Learn More <i class="fas fa-arrow-right"></i></a>
             </div>
 
             <div class="service-card">
                 <div class="service-icon-container">
                     <img width="40" height="40" src="https://img.icons8.com/clouds/100/repository.png" alt="repository"/>
                 </div>
-                <h3>TALLY SOLUTIONS</h3>
-                <p>Complete financial management training including accounting, inventory, payroll and GST using Tally software.</p>
-                <a href="#" class="service-btn">Learn More <i class="fas fa-arrow-right"></i></a>
+               <h3>M2-R5(JavaScript) PRACTICAL PORTAL</h3>
+                <p>Comprehensive training in Web Designing and Publishing and more to maximize your productivity with Microsoft's powerful suite.</p>
+                <a href="practical/M2-R5(JS).php" class="service-btn">Learn More <i class="fas fa-arrow-right"></i></a>
             </div>
 
             <div class="service-card">
                 <div class="service-icon-container">
                     <img width="40" height="40" src="https://img.icons8.com/clouds/100/macbook-idea.png" alt="macbook-idea"/>
                 </div>
-                <h3>STUDY MATERIALS</h3>
-                <p>Curated resources and concise notes designed for effective learning and quick revision of key concepts.</p>
-                <a href="#" class="service-btn">Learn More <i class="fas fa-arrow-right"></i></a>
+                <h3>M3-R5(PYTHON) PRACTICAL PORTAL</h3>
+                <p>Comprehensive training in Python and more to maximize your productivity with Microsoft's powerful suite.</p>
+                <a href="practical/M3-R5(pythob).php" class="service-btn">Learn More <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
     </section>
