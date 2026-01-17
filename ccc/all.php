@@ -9,7 +9,7 @@ $subject_id = 1; // M1-R5 (IT Tools)
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>M1-R5 | IT Tools MCQ Practice</title>
+    <title>CCC MCQ Practice</title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -29,11 +29,11 @@ $subject_id = 1; // M1-R5 (IT Tools)
 
     <!-- ================= BANNER ================= -->
     <section class="it-banner">
-        <h1>IT Tools MCQ Practice</h1>
+        <h1>CCC MCQ Practice</h1>
         <p>
             Practice updated MCQs based on the latest NIELIT syllabus.
             Improve accuracy, speed, and confidence with topic-wise
-            IT Tools questions designed for O Level students.
+            CCC  questions designed for NIELIT students.
         </p>
     </section>
 
