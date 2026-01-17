@@ -19,7 +19,7 @@
 
 body {
     background: #f5f7fa;
-    padding: 30px;
+   
 }
 
 .card-container {
