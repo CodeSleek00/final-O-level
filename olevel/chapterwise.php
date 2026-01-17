@@ -349,10 +349,10 @@ body {
 <div class="page-wrapper">
 
     <!-- Header -->
-    <header class="it-banner">
+    <div class="it-banner">
         <h1 class="header-title">Chapter-wise Practice</h1>
         <p class="header-subtitle">Master each topic individually by practicing questions organized by chapters</p>
-    </header>
+    </div>
 
     <!-- Subject Navigation -->
     <nav class="subject-nav">
