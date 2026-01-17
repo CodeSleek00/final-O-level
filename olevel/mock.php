@@ -43,40 +43,7 @@ if($subjects && $subjects->num_rows > 0){
         <h2><?= htmlspecialchars($sub['subject_name']); ?> Practice</h2>
     </section>
 
-    <!-- ================= CHAPTER WISE PRACTICE ================= -->
-    <div class="container">
-        <h3>Chapter-wise Practice</h3>
-        <div class="cards-grid">
-        <?php
-        $chapters = $conn->query("
-            SELECT * FROM chapters
-            WHERE subject_id = $subject_id
-            ORDER BY id ASC
-        ");
-
-        if($chapters && $chapters->num_rows > 0){
-            while($ch = $chapters->fetch_assoc()){
-                $count = $conn->query("
-                    SELECT COUNT(*) AS total
-                    FROM chapter_questions
-                    WHERE chapter_id = ".intval($ch['id'])
-                )->fetch_assoc();
-        ?>
-            <div class="test-card">
-                <h4><?= htmlspecialchars($ch['chapter_name']); ?></h4>
-                <p>Total Questions: <b><?= $count['total']; ?></b></p>
-                <a class="start-btn" href="../exam/chapter_exam.php?cid=<?= intval($ch['id']); ?>">
-                    Start Practice
-                </a>
-            </div>
-        <?php 
-            } // end chapters loop
-        } else {
-            echo "<p>No chapters available for this subject.</p>";
-        }
-        ?>
-        </div>
-    </div>
+   
 
     <!-- ================= MOCK TEST ================= -->
     <div class="container">
