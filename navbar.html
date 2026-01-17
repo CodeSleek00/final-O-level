@@ -198,7 +198,7 @@
       z-index: 1001;
       animation: slideDown 0.3s ease-out;
       transform-origin: top center;
-      min-width: 500px; /* Larger width */
+      min-width: 500px;
       max-width: 600px;
     }
 
@@ -232,7 +232,6 @@
 
     .dropdown-title {
       font-size: 0.85rem;
-     
       color: var(--primary);
       margin-bottom: 0.5rem;
       padding-bottom: 0.5rem;
@@ -367,10 +366,60 @@
       display: block;
     }
 
-    /* Mobile Styles - Keep mobile as before */
+    /* Mobile Banner - Positioned at bottom of left panel */
+    .mobile-banner {
+      display: none;
+      background: linear-gradient(135deg, var(--primary), #4f46e5);
+      color: white;
+      padding: 1.2rem;
+      text-align: center;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1001;
+      border-top: 2px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 -4px 15px rgba(37, 99, 235, 0.2);
+    }
+
+    .mobile-banner::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%);
+      animation: shine 3s infinite;
+      pointer-events: none;
+    }
+
+    @keyframes shine {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+
+    .mobile-banner h2 {
+      font-size: 1.2rem;
+      margin-bottom: 0.3rem;
+      font-weight: 700;
+      position: relative;
+      z-index: 1;
+    }
+
+    .mobile-banner p {
+      font-size: 0.85rem;
+      opacity: 0.9;
+      position: relative;
+      z-index: 1;
+      margin: 0;
+    }
+
+    /* Mobile Styles */
     @media (max-width: 992px) {
       nav {
         padding: 0.8rem 1.5rem;
+        position: relative;
       }
       
       .hamburger {
@@ -388,7 +437,7 @@
         transition: left 0.3s ease;
         box-shadow: 4px 0 25px rgba(0, 0, 0, 0.1);
         overflow-y: auto;
-        padding: 1.5rem 0;
+        padding: 0;
         z-index: 1000;
       }
 
@@ -397,25 +446,36 @@
       }
 
       .nav-item {
-        margin: 0.3rem 1.2rem;
+        margin: 0;
+        padding: 0.3rem 1.2rem;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .nav-item:last-child {
+        border-bottom: none;
       }
 
       .nav-link {
-        padding: 0.9rem 1.2rem;
+        padding: 1rem 0.5rem;
         font-size: 0.95rem;
       }
 
-      /* Mobile dropdown - single column */
+      /* Mobile dropdown - FIXED Practical Portal and others */
       .dropdown {
         position: static;
         box-shadow: none;
-        border: 1px solid var(--border);
+        border: none;
+        border-left: 3px solid var(--primary-light);
         display: none;
-        margin: 0.5rem 0 0 1.5rem;
-        width: calc(100% - 3rem);
+        margin: 0.5rem 0 0 0.5rem;
+        width: calc(100% - 1rem);
         padding: 1rem;
         min-width: unset;
         max-width: unset;
+        border-radius: var(--radius-sm);
+        background: #f8fafc;
+        max-height: 400px;
+        overflow-y: auto;
       }
 
       .dropdown.active {
@@ -430,6 +490,31 @@
       .dropdown-link {
         padding: 0.75rem 1rem;
         font-size: 0.85rem;
+        background: white;
+        margin-bottom: 0.3rem;
+      }
+
+      .dropdown-link img {
+        width: 30px;
+        height: 30px;
+        object-fit: contain;
+      }
+
+      /* Ensure dropdown stays inside nav-links */
+      .nav-links {
+        overflow-y: auto;
+        padding-bottom: 120px; /* Space for banner */
+      }
+
+      /* Make sure dropdown doesn't overflow */
+      .dropdown {
+        max-height: 300px;
+        overflow-y: auto;
+      }
+      
+      /* Specific fix for Practical Portal dropdown */
+      .nav-item:nth-child(5) .dropdown {
+        max-height: 350px;
       }
     }
 
@@ -513,12 +598,10 @@
   
   <nav>
     <div class="logo-container">
-      
       <div class="logo-text">
         <span class="main">O Level Preparation</span>
         <span class="sub">
           <a href="https://www.faizcomputerinstitute.com">
-           
             Faiz Computer Institute
           </a>
         </span>
@@ -527,15 +610,13 @@
     
     <ul class="nav-links" id="navLinks">
       <li class="nav-item">
-        <a href="../index.php" class="nav-link ">
-         
+        <a href="../index.php" class="nav-link">
           Home
         </a>
       </li>
       
       <li class="nav-item">
         <a href="#" class="nav-link">
-         
           MCQ Tests
           <i class="fas fa-chevron-down arrow"></i>
         </a>
@@ -547,14 +628,13 @@
                 Certification Tests
               </div>
               <a href="olevel/all.php" class="dropdown-link">
-                <img width="60" height="60" src="https://img.icons8.com/clouds/100/technology.png" alt="technology"/>
+                <img width="30" height="30" src="https://img.icons8.com/clouds/100/technology.png" alt="technology"/>
                 O Level (NIELIT)
               </a>
               <a href="ccc/all.php" class="dropdown-link">
-               <img width="60" height="60" src="https://img.icons8.com/clouds/100/imac-settings.png" alt="imac-settings"/>
+                <img width="30" height="30" src="https://img.icons8.com/clouds/100/imac-settings.png" alt="imac-settings"/>
                 CCC Exam Prep
               </a>
-              
             </div>
             
             <div class="dropdown-column">
@@ -563,127 +643,60 @@
                 Practice & Analysis
               </div>
               <a href="#" class="dropdown-link">
-               <img width="60" height="60" src="https://img.icons8.com/clouds/100/report-card.png" alt="report-card"/>
+                <img width="30" height="30" src="https://img.icons8.com/clouds/100/report-card.png" alt="report-card"/>
                 Mock Tests
               </a>
               <a href="#" class="dropdown-link">
-                <img width="60" height="60" src="https://img.icons8.com/clouds/100/question-mark.png" alt="question-mark"/>
-               Chapter-wise Quizzes
-               
+                <img width="30" height="30" src="https://img.icons8.com/clouds/100/question-mark.png" alt="question-mark"/>
+                Chapter-wise Quizzes
               </a>
-             
             </div>
-            
-            <div class="dropdown-divider"></div>
-            
-            
           </div>
         </div>
       </li>
       
+     
+      
       <li class="nav-item">
         <a href="#" class="nav-link">
-         
-          Shortcut Keys
+          O Level MCQ
           <i class="fas fa-chevron-down arrow"></i>
         </a>
         <div class="dropdown">
           <div class="dropdown-grid">
             <div class="dropdown-column">
               <div class="dropdown-title">
-                <i class="fas fa-desktop"></i>
-                LibreOffice Suite
-              </div>
-              <a href="shortcut/writer.php" class="dropdown-link">
-               <img width="40" height="40" src="https://img.icons8.com/fluency/96/libre-office-writer.png" alt="libre-office-writer"/>
-                Writer (Word Processing)
-              </a>
-              <a href="shortcut/calc.php" class="dropdown-link">
-                <img width="40" height="40" src="https://img.icons8.com/fluency/96/libre-office-calc.png" alt="libre-office-calc"/>
-                Calc (Spreadsheets)
-              </a>
-              <a href="shortcut/impress.php" class="dropdown-link">
-               <img width="40" height="40" src="https://img.icons8.com/fluency/96/libre-office-impress.png" alt="libre-office-impress"/>
-                Impress (Presentations)
-              </a>
-            </div>
-            
-            <div class="dropdown-column">
-              <div class="dropdown-title">
-                <i class="fas fa-code"></i>
-                Programming & Web
-              </div>
-              <a href="#" class="dropdown-link">
-               <img width="40" height="40" src="https://img.icons8.com/color/96/html-5--v1.png" alt="html-5--v1"/>
-                HTML/CSS Shortcuts
-              </a>
-              <a href="#" class="dropdown-link">
-               <img width="60" height="60" src="https://img.icons8.com/clouds/100/python.png" alt="python"/>
-                Python IDE Shortcuts
-              </a>
-              <a href="#" class="dropdown-link">
-                <img width="60" height="60" src="https://img.icons8.com/clouds/100/symlink-file.png" alt="symlink-file"/>
-               Basic Shortcuts
-              </a>
-            </div>
-            
-            <div class="dropdown-divider"></div>
-            
-            
-          </div>
-        </div>
-      </li>
-      
-      <li class="nav-item">
-        <a href="#" class="nav-link">
-         
-          O Level Subjects
-          <i class="fas fa-chevron-down arrow"></i>
-        </a>
-        <div class="dropdown">
-          <div class="dropdown-grid">
-            <div class="dropdown-column">
-              <div class="dropdown-title">
-                <i class="fas fa-tools"></i>
-                Core Subjects
+                1 Semester
               </div>
               <a href="olevel/M1-R5.php" class="dropdown-link">
-               <img width="60" height="60" src="https://img.icons8.com/clouds/100/macbook-settings.png" alt="macbook-settings"/>
+                <img width="30" height="30" src="https://img.icons8.com/clouds/100/macbook-settings.png" alt="macbook-settings"/>
                 M1-R5: IT Tools
               </a>
               <a href="olevel/M2-R5.php" class="dropdown-link">
-                <img width="60" height="60" src="https://img.icons8.com/clouds/100/domain.png" alt="domain"/>
+                <img width="30" height="30" src="https://img.icons8.com/clouds/100/domain.png" alt="domain"/>
                 M2-R5: Web Design
               </a>
-              
             </div>
             
             <div class="dropdown-column">
               <div class="dropdown-title">
-                <i class="fas fa-microchip"></i>
-                Advanced Subjects
+                2 Semester
               </div>
               <a href="olevel/M4-R5.php" class="dropdown-link">
-                <img width="60" height="60" src="https://img.icons8.com/clouds/100/python.png" alt="python"/>
+                <img width="30" height="30" src="https://img.icons8.com/clouds/100/python.png" alt="python"/>
                 M3-R5: Python
               </a>
               <a href="olevel/M4-R5.php" class="dropdown-link">
-                <img width="60" height="60" src="https://img.icons8.com/clouds/100/connected-devices.png" alt="connected-devices"/>
+                <img width="30" height="30" src="https://img.icons8.com/clouds/100/connected-devices.png" alt="connected-devices"/>
                 M4-R5: IoT
               </a>
-              
             </div>
-            
-            <div class="dropdown-divider"></div>
-            
-          
           </div>
         </div>
       </li>
       
       <li class="nav-item">
         <a href="#" class="nav-link">
-         
           Practical Portal
           <i class="fas fa-chevron-down arrow"></i>
         </a>
@@ -691,23 +704,22 @@
           <div class="dropdown-grid">
             <div class="dropdown-column">
               <div class="dropdown-title">
-                
                 Office Applications
               </div>
               <a href="#" class="dropdown-link">
-                <img width="50" height="50" src="https://img.icons8.com/fluency/96/libre-office-writer.png" alt="libre-office-writer"/>
+                <img width="30" height="30" src="https://img.icons8.com/fluency/96/libre-office-writer.png" alt="libre-office-writer"/>
                 Writer Practicals
               </a>
               <a href="#" class="dropdown-link">
-                <img width="50" height="50" src="https://img.icons8.com/fluency/96/libre-office-calc.png" alt="libre-office-calc"/>
+                <img width="30" height="30" src="https://img.icons8.com/fluency/96/libre-office-calc.png" alt="libre-office-calc"/>
                 Calc Practicals
               </a>
               <a href="#" class="dropdown-link">
-               <img width="50" height="50" src="https://img.icons8.com/fluency/96/libre-office-impress.png" alt="libre-office-impress"/>
+                <img width="30" height="30" src="https://img.icons8.com/fluency/96/libre-office-impress.png" alt="libre-office-impress"/>
                 Impress Practicals
               </a>
-               <a href="#" class="dropdown-link">
-               <img width="50" height="50" src="https://img.icons8.com/fluency/96/python.png" alt="python"/>
+              <a href="#" class="dropdown-link">
+                <img width="30" height="30" src="https://img.icons8.com/fluency/96/python.png" alt="python"/>
                 Python Practicals
               </a>
             </div>
@@ -718,36 +730,66 @@
                 Programming
               </div>
               <a href="#" class="dropdown-link">
-                <img width="50" height="50" src="https://img.icons8.com/plasticine/100/html-5.png" alt="html-5"/>
+                <img width="30" height="30" src="https://img.icons8.com/plasticine/100/html-5.png" alt="html-5"/>
                 HTML Practicals
               </a>
               <a href="#" class="dropdown-link">
-                <img width="50" height="50" src="https://img.icons8.com/plasticine/100/css3.png" alt="css3"/>
+                <img width="30" height="30" src="https://img.icons8.com/plasticine/100/css3.png" alt="css3"/>
                 Css Practicals
               </a>
               <a href="#" class="dropdown-link">
-               <img width="50" height="50" src="https://img.icons8.com/color/96/javascript--v1.png" alt="javascript--v1"/>
+                <img width="30" height="30" src="https://img.icons8.com/color/96/javascript--v1.png" alt="javascript--v1"/>
                 JS Practicals
               </a>
               <a href="#" class="dropdown-link">
-              <img width="50" height="50" src="https://img.icons8.com/external-outline-design-circle/66/external-iot-digitalization-and-industry-outline-design-circle.png" alt="external-iot-digitalization-and-industry-outline-design-circle"/>
+                <img width="30" height="30" src="https://img.icons8.com/external-outline-design-circle/66/external-iot-digitalization-and-industry-outline-design-circle.png" alt="iot"/>
                 IOT Practicals
               </a>
             </div>
-            
-            <div class="dropdown-divider"></div>
+          </div>
+        </div>
+      </li>
+       <li class="nav-item">
+        <a href="#" class="nav-link">
+          Shortcut Keys
+          <i class="fas fa-chevron-down arrow"></i>
+        </a>
+        <div class="dropdown">
+          
+            <div class="dropdown-column">
+              <div class="dropdown-title">
+                <i class="fas fa-desktop"></i>
+                LibreOffice Suite
+              </div>
+              <a href="shortcut/writer.php" class="dropdown-link">
+                <img width="30" height="30" src="https://img.icons8.com/fluency/96/libre-office-writer.png" alt="libre-office-writer"/>
+                Writer (Word Processing)
+              </a>
+              <a href="shortcut/calc.php" class="dropdown-link">
+                <img width="30" height="30" src="https://img.icons8.com/fluency/96/libre-office-calc.png" alt="libre-office-calc"/>
+                Calc (Spreadsheets)
+              </a>
+              <a href="shortcut/impress.php" class="dropdown-link">
+                <img width="30" height="30" src="https://img.icons8.com/fluency/96/libre-office-impress.png" alt="libre-office-impress"/>
+                Impress (Presentations)
+              </a>
+            </div>
             
             
           </div>
         </div>
       </li>
-      
       <li class="nav-item">
         <a href="#" class="nav-link">
-         
           Study Materials
         </a>
       </li>
+      
+      <!-- Mobile Banner inside nav-links at the bottom -->
+      <div class="mobile-banner" id="mobileBanner">
+        <h2>Faiz Computer Institute</h2>
+        <p>Quality Education for Digital Excellence</p>
+      </div>
     </ul>
     
     <div class="hamburger" id="hamburger">
@@ -757,20 +799,29 @@
     </div>
   </nav>
 
-
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       const hamburger = document.getElementById('hamburger');
       const navLinks = document.getElementById('navLinks');
       const backdrop = document.getElementById('backdrop');
       const navItems = document.querySelectorAll('.nav-item');
+      const mobileBanner = document.getElementById('mobileBanner');
       
       // Mobile menu toggle
       hamburger.addEventListener('click', function() {
         this.classList.toggle('active');
         navLinks.classList.toggle('active');
         backdrop.classList.toggle('active');
-        document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+        
+        if (navLinks.classList.contains('active')) {
+          document.body.style.overflow = 'hidden';
+          // Show banner when menu is open
+          mobileBanner.style.display = 'block';
+        } else {
+          document.body.style.overflow = '';
+          // Hide banner when menu is closed
+          mobileBanner.style.display = 'none';
+        }
       });
       
       // Close menu when clicking backdrop
@@ -779,10 +830,11 @@
         navLinks.classList.remove('active');
         this.classList.remove('active');
         document.body.style.overflow = '';
+        mobileBanner.style.display = 'none';
         closeAllDropdowns();
       });
       
-      // Handle dropdown interactions - DESKTOP ONLY
+      // Handle dropdown interactions
       navItems.forEach(item => {
         const link = item.querySelector('.nav-link');
         const dropdown = item.querySelector('.dropdown');
@@ -818,6 +870,13 @@
               dropdown.classList.add('active');
               if (arrow) arrow.style.transform = 'rotate(180deg)';
             }
+            
+            // Scroll dropdown into view if needed
+            setTimeout(() => {
+              if (dropdown.classList.contains('active')) {
+                dropdown.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+              }
+            }, 50);
           }
         });
       });
@@ -849,6 +908,7 @@
           hamburger.classList.remove('active');
           navLinks.classList.remove('active');
           backdrop.classList.remove('active');
+          mobileBanner.style.display = 'none';
           document.body.style.overflow = '';
           closeAllDropdowns();
         }
