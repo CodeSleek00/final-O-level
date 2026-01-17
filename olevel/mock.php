@@ -24,7 +24,7 @@ include '../db_connect.php';
 
 <div class="page-wrapper">
 
-    <div class="main-heading">
+    <div class="it-banner">
         <h1>MCQ Practice – All Subjects</h1>
         <p>Practice Web, IoT, Python, IT Tools and all other subjects in one place</p>
     </div>
