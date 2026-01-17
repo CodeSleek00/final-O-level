@@ -93,45 +93,49 @@ $subjects = $conn->query("SELECT * FROM subjects");
 
 while($sub = $subjects->fetch_assoc()){
 ?>
-<!-- ================= MOCK TEST (SUBJECT_ID BASED – FIXED) ================= -->
-<div class="container">
-    <h1>Mock Test</h1>
 
-    <div class="cards-grid">
+    <div class="subject-box">
+        <div class="subject-title">
+            <?= $sub['subject_name']; ?>
+        </div>
+
+        <div class="mock-grid">
+
         <?php
-        // 1️⃣ subject_id se test sets lao
+        /* MOCK TEST FETCH (PURANA LOGIC) */
         $sets = $conn->query("
             SELECT * FROM test_sets 
-            WHERE subject_id = $subject_id
-            ORDER BY id ASC
+            WHERE subject_id = {$sub['id']}
         ");
 
-        while ($set = $sets->fetch_assoc()) {
+        if($sets->num_rows == 0){
+            echo "<p>No mock tests available.</p>";
+        }
 
-            // 2️⃣ har set ke questions count karo
-            $countQ = $conn->query("
-                SELECT COUNT(*) AS total
-                FROM questions
+        while($set = $sets->fetch_assoc()){
+
+            $totalQ = $conn->query("
+                SELECT COUNT(*) AS total 
+                FROM questions 
                 WHERE set_id = {$set['id']}
             ")->fetch_assoc();
         ?>
-            <div class="test-card">
-                <h3><?= htmlspecialchars($set['set_name']); ?></h3>
 
-                <p>
-                    This Mock Test Consists of
-                    <b><?= $countQ['total']; ?> Questions</b>
-                </p>
+            <div class="mock-card">
+                <h3><?= $set['set_name']; ?></h3>
+                <p>Total Questions: <b><?= $totalQ['total']; ?></b></p>
 
-                <!-- SAME OLD EXAM START LOGIC -->
+                <!-- SAME OLD START EXAM LOGIC -->
                 <a class="start-btn"
-                   href="../exam.php?sid=<?= $subject_id; ?>&setid=<?= $set['id']; ?>">
-                   Start Exam
+                   href="../exam.php?sid=<?= $sub['id']; ?>&setid=<?= $set['id']; ?>">
+                   Start Mock Test
                 </a>
             </div>
+
         <?php } ?>
+
+        </div>
     </div>
-</div>
 
 <?php } ?>
 
