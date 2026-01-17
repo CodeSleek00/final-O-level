@@ -7,7 +7,7 @@ include '../db_connect.php';
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>IT Tools Mock Tests</title>
+<title>All Mock Tests</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
@@ -83,61 +83,62 @@ body{
 <div class="page-wrapper">
 
     <div class="main-heading">
-        <h1>IT Tools – All Mock Tests</h1>
-        <p>Practice all subjects mock tests at one place</p>
+        <h1>All Mock Tests – Practice Here</h1>
+        <p>Web, IoT, Python, and all subjects in one place</p>
     </div>
 
 <?php
-/* SUBJECT FETCH */
-$subjects = $conn->query("SELECT * FROM subjects");
+// FETCH ALL SUBJECTS
+$subjects = $conn->query("SELECT * FROM subjects ORDER BY id ASC");
 
-while($sub = $subjects->fetch_assoc()){
+if($subjects && $subjects->num_rows > 0){
+    while($sub = $subjects->fetch_assoc()){
 ?>
 
     <div class="subject-box">
         <div class="subject-title">
-            <?= $sub['subject_name']; ?>
+            <?= htmlspecialchars($sub['subject_name']); ?>
         </div>
 
         <div class="mock-grid">
 
         <?php
-        /* MOCK TEST FETCH (PURANA LOGIC) */
-        $sets = $conn->query("
-            SELECT * FROM test_sets 
-            WHERE subject_id = {$sub['id']}
-        ");
+        // FETCH TEST SETS FOR THIS SUBJECT
+        $sets = $conn->query("SELECT * FROM test_sets WHERE subject_id = ".intval($sub['id'])." ORDER BY id ASC");
 
-        if($sets->num_rows == 0){
-            echo "<p>No mock tests available.</p>";
-        }
+        if($sets && $sets->num_rows > 0){
+            while($set = $sets->fetch_assoc()){
 
-        while($set = $sets->fetch_assoc()){
-
-            $totalQ = $conn->query("
-                SELECT COUNT(*) AS total 
-                FROM questions 
-                WHERE set_id = {$set['id']}
-            ")->fetch_assoc();
+                $totalQRes = $conn->query("SELECT COUNT(*) AS total FROM questions WHERE set_id = ".intval($set['id']));
+                $totalQ = $totalQRes ? $totalQRes->fetch_assoc() : ['total' => 0];
         ?>
 
             <div class="mock-card">
-                <h3><?= $set['set_name']; ?></h3>
+                <h3><?= htmlspecialchars($set['set_name']); ?></h3>
                 <p>Total Questions: <b><?= $totalQ['total']; ?></b></p>
 
-                <!-- SAME OLD START EXAM LOGIC -->
                 <a class="start-btn"
-                   href="../exam.php?sid=<?= $sub['id']; ?>&setid=<?= $set['id']; ?>">
+                   href="../exam.php?sid=<?= intval($sub['id']); ?>&setid=<?= intval($set['id']); ?>">
                    Start Mock Test
                 </a>
             </div>
 
-        <?php } ?>
+        <?php 
+            } // end sets loop
+        } else {
+            echo "<p>No mock tests available for this subject.</p>";
+        }
+        ?>
 
         </div>
     </div>
 
-<?php } ?>
+<?php 
+    } // end subjects loop
+} else {
+    echo "<p>No subjects found.</p>";
+}
+?>
 
 </div>
 
