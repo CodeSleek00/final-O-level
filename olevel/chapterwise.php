@@ -45,13 +45,16 @@ body {
 
 /* Header Section */
 .header-section {
-    text-align: center;
-    padding: 60px 20px 40px;
-    max-width: 700px;
-    margin: 0 auto;
-    background:url('../image/bg.svg') no-repeat center bottom;
-    background-size:cover;
-    background-color: #0f172a;
+     background: url('../image/bg.svg');
+            background-size: cover;
+            background-position: center center;
+            padding: 40px 40px;
+            border-radius: 18px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+            text-align: center;
+            margin-bottom: 50px;
+            background-color: black;
+            color: white;
 }
 
 .header-title {
