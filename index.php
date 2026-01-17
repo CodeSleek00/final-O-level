@@ -40,7 +40,7 @@
             </div>
             
             <div class="hero-image">
-                <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Student studying with laptop">
+                <img src="image/image.png" alt="Student studying with laptop">
             </div>
         </section>
     </div>
