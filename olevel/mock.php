@@ -93,49 +93,45 @@ $subjects = $conn->query("SELECT * FROM subjects");
 
 while($sub = $subjects->fetch_assoc()){
 ?>
+<!-- ================= MOCK TEST (SUBJECT_ID BASED – FIXED) ================= -->
+<div class="container">
+    <h1>Mock Test</h1>
 
-    <div class="subject-box">
-        <div class="subject-title">
-            <?= $sub['subject_name']; ?>
-        </div>
-
-        <div class="mock-grid">
-
+    <div class="cards-grid">
         <?php
-        /* MOCK TEST FETCH (PURANA LOGIC) */
+        // 1️⃣ subject_id se test sets lao
         $sets = $conn->query("
             SELECT * FROM test_sets 
-            WHERE subject_id = {$sub['id']}
+            WHERE subject_id = $subject_id
+            ORDER BY id ASC
         ");
 
-        if($sets->num_rows == 0){
-            echo "<p>No mock tests available.</p>";
-        }
+        while ($set = $sets->fetch_assoc()) {
 
-        while($set = $sets->fetch_assoc()){
-
-            $totalQ = $conn->query("
-                SELECT COUNT(*) AS total 
-                FROM questions 
+            // 2️⃣ har set ke questions count karo
+            $countQ = $conn->query("
+                SELECT COUNT(*) AS total
+                FROM questions
                 WHERE set_id = {$set['id']}
             ")->fetch_assoc();
         ?>
+            <div class="test-card">
+                <h3><?= htmlspecialchars($set['set_name']); ?></h3>
 
-            <div class="mock-card">
-                <h3><?= $set['set_name']; ?></h3>
-                <p>Total Questions: <b><?= $totalQ['total']; ?></b></p>
+                <p>
+                    This Mock Test Consists of
+                    <b><?= $countQ['total']; ?> Questions</b>
+                </p>
 
-                <!-- SAME OLD START EXAM LOGIC -->
+                <!-- SAME OLD EXAM START LOGIC -->
                 <a class="start-btn"
-                   href="../exam.php?sid=<?= $sub['id']; ?>&setid=<?= $set['id']; ?>">
-                   Start Mock Test
+                   href="../exam.php?sid=<?= $subject_id; ?>&setid=<?= $set['id']; ?>">
+                   Start Exam
                 </a>
             </div>
-
         <?php } ?>
-
-        </div>
     </div>
+</div>
 
 <?php } ?>
 
