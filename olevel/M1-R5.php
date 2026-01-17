@@ -1,67 +1,52 @@
 <?php
 include '../db_connect.php';
-
-/* SUBJECT ID */
-$subject_id = 1; // M1-R5 (IT Tools)
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>M1-R5 | IT Tools MCQ Practice</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>All Subjects MCQ Practice</title>
 
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<!-- Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- YOUR EXISTING CSS -->
-    <link rel="stylesheet" href="style.css?v=<?php echo time(); ?>">
+<!-- Custom CSS -->
+<link rel="stylesheet" href="style.css?v=<?php echo time(); ?>">
 </head>
-
 <body>
 
 <?php include 'navbar.html'; ?>
 
 <div class="page-wrapper">
 
-    <!-- ================= BANNER ================= -->
-    <section class="it-banner">
-        <h1>IT Tools MCQ Practice</h1>
-        <p>
-            Practice updated MCQs based on the latest NIELIT syllabus.
-            Improve accuracy, speed, and confidence with topic-wise
-            IT Tools questions designed for O Level students.
-        </p>
+    <div class="main-heading">
+        <h1>MCQ Practice – All Subjects</h1>
+        <p>Practice Web, IoT, Python, IT Tools and all other subjects in one place</p>
+    </div>
+
+<?php
+// Fetch all subjects
+$subjects = $conn->query("SELECT * FROM subjects ORDER BY id ASC");
+
+if($subjects && $subjects->num_rows > 0){
+    while($sub = $subjects->fetch_assoc()){
+        $subject_id = intval($sub['id']);
+?>
+
+    <!-- ================= SUBJECT BANNER ================= -->
+    <section class="subject-banner">
+        <h2><?= htmlspecialchars($sub['subject_name']); ?> Practice</h2>
     </section>
 
-    <!-- ================= FEATURES ================= -->
-    <section class="features">
-        <div class="feature-box">
-            <h3>📘 Updated Syllabus</h3>
-            <p>MCQs strictly based on latest NIELIT O Level M1-R5 syllabus.</p>
-        </div>
-
-        <div class="feature-box">
-            <h3>📝 Topic-wise Practice</h3>
-            <p>Practice MS Word, Excel, PowerPoint, Internet & IT Tools.</p>
-        </div>
-
-        <div class="feature-box">
-            <h3>⏱ Exam-Oriented</h3>
-            <p>Designed to improve speed, accuracy, and exam confidence.</p>
-        </div>
-    </section>
-
-</div>
-
-<!-- ================= CHAPTER WISE PRACTICE ================= -->
-<div class="container">
-    <h1>Chapter-wise Practice</h1>
-
-    <div class="cards-grid">
+    <!-- ================= CHAPTER WISE PRACTICE ================= -->
+    <div class="container">
+        <h3>Chapter-wise Practice</h3>
+        <div class="cards-grid">
         <?php
         $chapters = $conn->query("
             SELECT * FROM chapters
@@ -69,39 +54,35 @@ $subject_id = 1; // M1-R5 (IT Tools)
             ORDER BY id ASC
         ");
 
-        while ($ch = $chapters->fetch_assoc()) {
-
-            $count = $conn->query("
-                SELECT COUNT(*) AS total
-                FROM chapter_questions
-                WHERE chapter_id = {$ch['id']}
-            ")->fetch_assoc();
+        if($chapters && $chapters->num_rows > 0){
+            while($ch = $chapters->fetch_assoc()){
+                $count = $conn->query("
+                    SELECT COUNT(*) AS total
+                    FROM chapter_questions
+                    WHERE chapter_id = ".intval($ch['id'])
+                )->fetch_assoc();
         ?>
             <div class="test-card">
-                 <h3 style="font-weight: normal;"><?= htmlspecialchars($ch['chapter_name']); ?></h3>
+                <h4><?= htmlspecialchars($ch['chapter_name']); ?></h4>
                 <p>Total Questions: <b><?= $count['total']; ?></b></p>
-
-                <a class="start-btn"
-                   href="../exam/chapter_exam.php?cid=<?= $ch['id']; ?>">
+                <a class="start-btn" href="../exam/chapter_exam.php?cid=<?= intval($ch['id']); ?>">
                     Start Practice
                 </a>
             </div>
-        <?php } ?>
+        <?php 
+            } // end chapters loop
+        } else {
+            echo "<p>No chapters available for this subject.</p>";
+        }
+        ?>
+        </div>
     </div>
-</div>
 
-<!-- ================= MOCK TEST ================= -->
-<div class="container">
-    <h1>Mock Test</h1>
-
-    <div class="cards-grid">
+    <!-- ================= MOCK TEST ================= -->
+    <div class="container">
+        <h3>Mock Tests</h3>
+        <div class="cards-grid">
         <?php
-        /*
-         Logic as per YOUR DATABASE:
-         - questions table
-         - subject_id filter
-         - set_id grouping
-        */
         $tests = $conn->query("
             SELECT set_id, COUNT(*) AS total_questions
             FROM questions
@@ -110,24 +91,32 @@ $subject_id = 1; // M1-R5 (IT Tools)
             ORDER BY set_id ASC
         ");
 
-        while ($row = $tests->fetch_assoc()) {
+        if($tests && $tests->num_rows > 0){
+            while($row = $tests->fetch_assoc()){
         ?>
             <div class="test-card">
-                <h3 style="font-weight: normal;">Mock Test <?= $row['set_id']; ?></h3>
-
-                <p>
-                    Total Questions:
-                    <b><?= $row['total_questions']; ?></b>
-                </p>
-
-                <a class="start-btn"
-                   href="../exam.php?sid=<?= $subject_id; ?>&setid=<?= $row['set_id']; ?>">
+                <h4>Mock Test <?= $row['set_id']; ?></h4>
+                <p>Total Questions: <b><?= $row['total_questions']; ?></b></p>
+                <a class="start-btn" href="../exam.php?sid=<?= $subject_id; ?>&setid=<?= $row['set_id']; ?>">
                     Start Exam
                 </a>
             </div>
-        <?php } ?>
+        <?php 
+            } // end tests loop
+        } else {
+            echo "<p>No mock tests available for this subject.</p>";
+        }
+        ?>
+        </div>
     </div>
-</div>
 
+<?php 
+    } // end subjects loop
+} else {
+    echo "<p>No subjects found.</p>";
+}
+?>
+
+</div>
 </body>
 </html>
