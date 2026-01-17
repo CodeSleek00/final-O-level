@@ -157,7 +157,7 @@
             <div class="services-icon">
                 <i class="fas fa-graduation-cap"></i>
             </div>
-            <h2>Our Expert Services</h2>
+            <h2>Our Practical Portal</h2>
             <p class="intro">
                 We deliver premium solutions crafted for your specific requirements, guaranteeing exceptional outcomes. Benefit from dependable assistance, streamlined workflows, and customized care to accomplish your objectives effortlessly.
             </p>
