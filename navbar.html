@@ -308,54 +308,35 @@
     .backdrop.active {
       display: block;
     }
-    /* ===== Sub Dropdown ===== */
+    /* ===== Sub Dropdown (Open Downward) ===== */
 .dropdown-item {
   position: relative;
 }
 
 .sub-dropdown {
-  position: absolute;
-  top: 0;
-  left: 100%;
-  background-color: var(--bg);
-  box-shadow: var(--shadow);
-  border-radius: var(--radius-sm);
-  min-width: 220px;
+  position: static;              /* RIGHT SIDE BAND */
+  background-color: transparent;
+  box-shadow: none;
+  border: none;
+  min-width: 100%;
   display: none;
   flex-direction: column;
-  padding: 0.5rem 0;
-  border: 1px solid var(--border);
-  z-index: 1002;
+  padding-left: 1.5rem;          /* Indent */
 }
 
-.dropdown-item:hover .sub-dropdown {
+.dropdown-item.active .sub-dropdown {
   display: flex;
 }
 
 .sub-dropdown a {
-  padding: 0.65rem 1.5rem;
-  color: var(--text);
-  font-size: 0.9rem;
+  padding: 0.55rem 1.2rem;
+  font-size: 0.85rem;
+  color: var(--text-light);
 }
 
 .sub-dropdown a:hover {
   background: var(--primary-light);
   color: var(--primary);
-}
-
-/* Mobile support */
-@media (max-width: 992px) {
-  .sub-dropdown {
-    position: static;
-    box-shadow: none;
-    border: none;
-    margin-left: 1rem;
-    display: none;
-  }
-
-  .dropdown-item.active .sub-dropdown {
-    display: flex;
-  }
 }
 
   </style>
@@ -573,14 +554,12 @@
         }
       });
     });
-    // Sub dropdown mobile click
+    // Sub-dropdown toggle (downward open)
 document.querySelectorAll('.dropdown-item > .dropdown-link').forEach(link => {
   link.addEventListener('click', function (e) {
-    if (window.innerWidth <= 992) {
-      e.preventDefault();
-      const parent = this.parentElement;
-      parent.classList.toggle('active');
-    }
+    e.preventDefault();
+    const parent = this.parentElement;
+    parent.classList.toggle('active');
   });
 });
 
