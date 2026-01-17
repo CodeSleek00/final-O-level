@@ -74,7 +74,7 @@ body {
     gap: 12px;
     margin-bottom: 48px;
     margin-top: 30px;
-    padding: 0 10px;
+    padding: 10px 10px;
 }
 
 .subject-nav-item {
