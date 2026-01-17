@@ -251,10 +251,10 @@
                 <!-- Card 1 -->
                 <div class="review-section-card">
                     <div class="review-section-header">
-                        <img src="https://randomuser.me/api/portraits/women/43.jpg" class="review-section-avatar" alt="Sarah Johnson" />
+                       
                         <div class="review-section-info">
-                            <h4>Sarah Johnson</h4>
-                            <p>Computer Science Student</p>
+                            <h4>Satish Kumar</h4>
+                            
                         </div>
                     </div>
                     <div class="review-section-stars">
@@ -272,10 +272,10 @@
                 <!-- Card 2 -->
                 <div class="review-section-card">
                     <div class="review-section-header">
-                        <img src="https://randomuser.me/api/portraits/men/32.jpg" class="review-section-avatar" alt="Michael Chen" />
+                        
                         <div class="review-section-info">
-                            <h4>Michael Chen</h4>
-                            <p>Engineering Student</p>
+                            <h4>Muskan Singh</h4>
+                            
                         </div>
                     </div>
                     <div class="review-section-stars">
@@ -296,10 +296,10 @@
                     "This platform transformed how I prepare for exams. The combination of MCQ tests and practical exercises gave me both conceptual clarity and hands-on skills."
                 </div>
                 <div class="review-section-highlight-author">
-                    <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="David Wilson">
+                   
                     <div class="review-section-author-info">
-                        <h5>David Wilson</h5>
-                        <p>Certified Professional</p>
+                        <h5>Mohd. Saif</h5>
+                      
                     </div>
                 </div>
             </div>
