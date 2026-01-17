@@ -12,10 +12,8 @@ $selected_subject_id = isset($_GET['subject']) ? intval($_GET['subject']) : 0;
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Chapter-wise MCQ Practice</title>
 
-<!-- Fonts -->
+<!-- Fonts & Icons -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-<!-- Icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <!-- Custom CSS -->
@@ -25,12 +23,10 @@ $selected_subject_id = isset($_GET['subject']) ? intval($_GET['subject']) : 0;
 body { font-family: 'Poppins', sans-serif; background: #f9f9f9; margin: 0; }
 .page-wrapper { max-width: 1200px; margin: 0 auto; padding: 20px; }
 
-/* Main Banner */
 .it-banner { text-align: center; padding: 40px 20px 20px; }
 .it-banner h1 { color: #1e40af; font-size: 2.5rem; margin-bottom: 10px; }
 .it-banner p { color: #555; font-size: 1.1rem; }
 
-/* Subject Filters */
 .subject-filters { text-align: center; margin-bottom: 30px; }
 .subject-filters a {
     display: inline-block;
@@ -46,7 +42,6 @@ body { font-family: 'Poppins', sans-serif; background: #f9f9f9; margin: 0; }
 .subject-filters a.active,
 .subject-filters a:hover { background: #6366f1; }
 
-/* Subject / Chapter Banner */
 .subject-banner {
     background: linear-gradient(90deg, #4f46e5, #6366f1);
     color: #fff;
@@ -58,7 +53,6 @@ body { font-family: 'Poppins', sans-serif; background: #f9f9f9; margin: 0; }
 }
 .subject-banner h2 { font-size: 1.8rem; }
 
-/* Chapter Cards */
 .container h3 { font-size: 1.5rem; color: #1e3a8a; margin-bottom: 15px; }
 .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
 .chapter-card {
@@ -102,38 +96,27 @@ body { font-family: 'Poppins', sans-serif; background: #f9f9f9; margin: 0; }
     </div>
 
 <?php
-// Fetch chapters for the selected subject
 if($selected_subject_id > 0){
+    // Fetch chapters for selected subject
     $chapters = $conn->query("SELECT * FROM chapters WHERE subject_id = $selected_subject_id ORDER BY id ASC");
     
     if($chapters && $chapters->num_rows > 0){
-        while($chapter = $chapters->fetch_assoc()):
+        echo '<div class="container"><h3>Chapters</h3><div class="cards-grid">';
+        while($chapter = $chapters->fetch_assoc()){
             $chapter_id = intval($chapter['id']);
+            
+            // Count total questions in this chapter
+            $q_count = $conn->query("SELECT COUNT(*) AS total_questions FROM chapter_questions WHERE subject_id = $selected_subject_id AND chapter_id = $chapter_id");
+            $q_row = $q_count->fetch_assoc();
 ?>
-    <!-- Chapter Banner -->
-    <section class="subject-banner">
-        <h2><?= htmlspecialchars($chapter['chapter_name']); ?></h2>
-    </section>
-
-    <!-- Chapter Cards -->
-    <div class="container">
-        <h3>Chapter Practice</h3>
-        <div class="cards-grid">
-        <?php
-        // Count total questions in this chapter
-        $questions = $conn->query("SELECT COUNT(*) AS total_questions FROM questions WHERE subject_id = $selected_subject_id AND chapter_id = $chapter_id");
-        $q_row = $questions->fetch_assoc();
-        ?>
             <div class="chapter-card">
                 <h4><?= htmlspecialchars($chapter['chapter_name']); ?></h4>
                 <p>Total Questions: <b><?= $q_row['total_questions']; ?></b></p>
                 <a class="start-btn" href="chapter_exam.php?sid=<?= $selected_subject_id; ?>&chapter_id=<?= $chapter_id; ?>">Start Chapter Exam</a>
             </div>
-        </div>
-    </div>
-
 <?php
-        endwhile;
+        }
+        echo '</div></div>'; // end cards grid & container
     } else {
         echo "<p style='text-align:center;'>No chapters found for this subject.</p>";
     }
