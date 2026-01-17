@@ -13,7 +13,7 @@ $selected_subject_id = isset($_GET['subject']) ? intval($_GET['subject']) : 0;
 <title>All Subjects MCQ Practice</title>
 
 <!-- Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600&display=swap" rel="stylesheet">
 
 <!-- Icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -27,7 +27,7 @@ $selected_subject_id = isset($_GET['subject']) ? intval($_GET['subject']) : 0;
 
 /* Typography & Base */
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Poppins', sans-serif;
     background: #f8fafc;
     color: #334155;
     line-height: 1.6;
@@ -282,7 +282,7 @@ body {
 <div class="page-wrapper">
 
     <!-- Header -->
-    <header class="header-section">
+    <header class="it-banner">
         <h1 class="header-title">MCQ Practice Hub</h1>
         <p class="header-subtitle">Practice questions across all subjects—Web, IoT, Python, IT Tools, and more—in one streamlined interface.</p>
     </header>
