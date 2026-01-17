@@ -53,7 +53,7 @@ body {
     font-family: 'Space Grotesk', sans-serif;
     font-size: 2.8rem;
     font-weight: 700;
-    color: #0f172a;
+    color: white;
     margin-bottom: 16px;
     letter-spacing: -0.5px;
 }
