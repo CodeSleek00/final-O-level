@@ -49,6 +49,7 @@ body {
     padding: 60px 20px 40px;
     max-width: 700px;
     margin: 0 auto;
+    background:url('../image/bg.svg') no-repeat center bottom;
 }
 
 .header-title {
@@ -349,10 +350,10 @@ body {
 <div class="page-wrapper">
 
     <!-- Header -->
-    <div class="it-banner">
+    <header class="header-section">
         <h1 class="header-title">Chapter-wise Practice</h1>
         <p class="header-subtitle">Master each topic individually by practicing questions organized by chapters</p>
-    </div>
+    </header>
 
     <!-- Subject Navigation -->
     <nav class="subject-nav">
