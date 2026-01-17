@@ -56,7 +56,6 @@ $subject_id = 1; // M1-R5 (IT Tools)
     </section>
 
 </div>
-
 <!-- ================= CHAPTER WISE PRACTICE ================= -->
 <div class="container">
     <h1>Chapter-wise Practice</h1>
@@ -64,30 +63,45 @@ $subject_id = 1; // M1-R5 (IT Tools)
     <div class="cards-grid">
         <?php
         $chapters = $conn->query("
-            SELECT * FROM chapters
-            WHERE subject_id = $subject_id
+            SELECT * FROM chapters 
+            WHERE subject_id = ".intval($subject_id)."
             ORDER BY id ASC
         ");
 
-        while ($ch = $chapters->fetch_assoc()) {
+        if($chapters && $chapters->num_rows > 0){
 
-            $count = $conn->query("
-                SELECT COUNT(*) AS total
-                FROM chapter_questions
-                WHERE chapter_id = {$ch['id']}
-            ")->fetch_assoc();
+            while ($ch = $chapters->fetch_assoc()) {
+
+                // COUNT QUESTIONS SAFELY
+                $countRes = $conn->query("
+                    SELECT COUNT(*) AS total 
+                    FROM chapter_questions 
+                    WHERE chapter_id = ".intval($ch['id'])
+                );
+
+                $count = ($countRes) ? $countRes->fetch_assoc()['total'] : 0;
         ?>
             <div class="test-card">
-                <h3 style="font-weight:normal;"><?= htmlspecialchars($ch['chapter_name']); ?></h3>
-                <p>Total Questions: <b><?= $count['total']; ?></b></p>
+                <h3 style="font-weight:normal;">
+                    <?= htmlspecialchars($ch['chapter_name']); ?>
+                </h3>
+
+                <p>Total Questions: <b><?= $count; ?></b></p>
 
                 <a class="start-btn"
-                   href="../exam/chapter_exam.php?cid=<?= $ch['id']; ?>">
+                   href="../exam/chapter_exam.php?cid=<?= intval($ch['id']); ?>">
                     Start Practice
                 </a>
             </div>
-        <?php } ?>
+        <?php
+            }
+        } else {
+            echo "<p style='color:#666'>No chapters available for this subject.</p>";
+        }
+        ?>
     </div>
+</div>
+
 </div>
 
 <!-- ================= MOCK TEST ================= -->
