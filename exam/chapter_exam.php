@@ -1,141 +1,73 @@
 <?php
 include '../db_connect.php';
 
-// Get chapter ID from URL
-$cid = isset($_GET['chapter_id']) ? intval($_GET['chapter_id']) : 0;
-if(!$cid){
-    die("<p style='text-align:center; margin-top:50px; font-size:18px; color:red;'>Invalid Chapter ID. <a href='chapter_list.php'>Go Back</a></p>");
+// Get selected subject
+$selected_subject_id = isset($_GET['subject']) ? intval($_GET['subject']) : 0;
+
+// Fetch subject info
+$subject = $conn->query("SELECT * FROM subjects WHERE id = $selected_subject_id")->fetch_assoc();
+if(!$subject){
+    die("<p style='text-align:center; margin-top:50px; font-size:18px; color:red;'>Invalid Subject. <a href='all_subjects.php'>Go Back</a></p>");
 }
 
-/* ===== FETCH CHAPTER INFO ===== */
-$chapter_query = $conn->query("
-    SELECT c.chapter_name, s.subject_name
+// Fetch chapters with at least 1 question
+$chapters = $conn->query("
+    SELECT c.id, c.chapter_name, COUNT(q.id) AS total_questions
     FROM chapters c
-    JOIN subjects s ON c.subject_id = s.id
-    WHERE c.id = $cid
+    LEFT JOIN chapter_questions q ON c.id = q.chapter_id AND c.subject_id = q.subject_id
+    WHERE c.subject_id = $selected_subject_id
+    GROUP BY c.id
+    HAVING total_questions > 0
+    ORDER BY c.id ASC
 ");
-
-if($chapter_query->num_rows == 0){
-    die("<p style='text-align:center; margin-top:50px; font-size:18px; color:red;'>Chapter not found. <a href='chapter_list.php'>Go Back</a></p>");
-}
-
-$chapter = $chapter_query->fetch_assoc();
-
-/* ===== FETCH QUESTIONS ===== */
-$questions = $conn->query("
-    SELECT * FROM chapter_questions
-    WHERE chapter_id = $cid
-");
-
-if($questions->num_rows == 0){
-    die("<p style='text-align:center; margin-top:50px; font-size:18px; color:red;'>No questions found for this chapter. <a href='chapter_list.php'>Go Back</a></p>");
-}
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title><?= htmlspecialchars($chapter['chapter_name']); ?> | Chapter Practice</title>
+<title><?= htmlspecialchars($subject['subject_name']); ?> Chapters</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-body {
-    font-family:'Poppins',sans-serif;
-    background:#f4f6f9;
-    margin:0;
-}
-.container {
-    max-width:900px;
-    margin:50px auto 80px auto;
-    padding:20px;
-    background:#fff;
-    border-radius:16px;
-    box-shadow:0 10px 30px rgba(0,0,0,.08);
-}
+body { font-family:'Poppins',sans-serif; background:#f4f6f9; margin:0; padding:0;}
+.container { max-width:900px; margin:50px auto; padding:20px; background:#fff; border-radius:16px; box-shadow:0 10px 30px rgba(0,0,0,.08);}
 h2 { margin-bottom:5px; }
-.subtitle {
-    color:#666;
-    font-size:14px;
-    margin-bottom:30px;
+.subtitle { color:#666; font-size:14px; margin-bottom:20px; }
+.chapter-table { width:100%; border-collapse:collapse; }
+.chapter-table tr { border-bottom:1px solid #eee; transition:0.2s; }
+.chapter-table tr:hover { background:#f0f4ff; }
+.chapter-table td { padding:15px; vertical-align:middle; }
+.chapter-name { font-weight:500; font-size:16px; color:#1e40af; }
+.start-btn { background:#4f46e5; color:#fff; padding:10px 20px; border-radius:8px; text-decoration:none; font-weight:500; transition:0.3s; display:inline-block;}
+.start-btn:hover { background:#6366f1; }
+@media (max-width:600px){
+    .chapter-table td { display:block; width:100%; padding:10px 0; text-align:center; }
+    .start-btn { width:80%; margin-top:5px; }
 }
-.question { margin-bottom:25px; }
-.question p { font-weight:500; }
-.options label {
-    display:block;
-    padding:10px 14px;
-    border:1px solid #ddd;
-    border-radius:8px;
-    margin-bottom:10px;
-    cursor:pointer;
-}
-.submit-btn {
-    background:#0d6efd;
-    color:#fff;
-    border:none;
-    padding:14px 30px;
-    border-radius:30px;
-    font-size:16px;
-    cursor:pointer;
-}
-.correct { background:#d4edda; border-color:#28a745; }
-.wrong { background:#f8d7da; border-color:#dc3545; }
-.explain { font-size:14px; color:#333; margin-top:8px; }
-.back-link { display:inline-block; margin-top:20px; color:#0d6efd; text-decoration:none; }
-.back-link:hover { text-decoration:underline; }
 </style>
 </head>
-
 <body>
 
 <div class="container">
+<h2><?= htmlspecialchars($subject['subject_name']); ?> Chapters</h2>
+<div class="subtitle">Click Start Exam to practice chapter-wise questions</div>
 
-<h2><?= htmlspecialchars($chapter['chapter_name']); ?></h2>
-<div class="subtitle"><?= htmlspecialchars($chapter['subject_name']); ?> • Chapter-wise Practice</div>
-
-<form method="post">
-
-<?php $i=1; while($q = $questions->fetch_assoc()){ ?>
-<div class="question">
-    <p>Q<?= $i++; ?>. <?= htmlspecialchars($q['question']); ?></p>
-
-    <div class="options">
-        <?php foreach(['A','B','C','D'] as $opt):
-            $text = $q['option_'.strtolower($opt)];
-        ?>
-        <label>
-            <input type="radio" name="ans[<?= $q['id']; ?>]" value="<?= $opt; ?>">
-            <?= htmlspecialchars($text); ?>
-        </label>
-        <?php endforeach; ?>
-    </div>
-
-    <?php
-    if(isset($_POST['submit'])){
-        $user = $_POST['ans'][$q['id']] ?? '';
-        $correct = $q['correct_option'];
-
-        if($user){
-            echo $user == $correct
-                ? "<div class='explain correct'>✅ Correct</div>"
-                : "<div class='explain wrong'>❌ Wrong | Correct: $correct</div>";
-        }
-        if(!empty($q['explanation'])){
-            echo "<div class='explain'><b>Explanation:</b> ".htmlspecialchars($q['explanation'])."</div>";
-        }
-    }
-    ?>
-</div>
-<?php } ?>
-
-<button class="submit-btn" name="submit">Submit Practice</button>
-</form>
-
-<a class="back-link" href="chapter_list.php">← Back to Chapters</a>
+<?php if($chapters->num_rows > 0): ?>
+<table class="chapter-table">
+<?php while($ch = $chapters->fetch_assoc()): ?>
+<tr>
+    <td class="chapter-name"><?= htmlspecialchars($ch['chapter_name']); ?> (<?= $ch['total_questions']; ?> Qs)</td>
+    <td style="text-align:right;"><a class="start-btn" href="chapter_exam.php?chapter_id=<?= $ch['id']; ?>">Start Exam</a></td>
+</tr>
+<?php endwhile; ?>
+</table>
+<?php else: ?>
+<p style="text-align:center; margin-top:30px;">No chapters with questions found for this subject.</p>
+<?php endif; ?>
 
 </div>
-
 </body>
 </html>
