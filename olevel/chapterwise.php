@@ -112,7 +112,7 @@ if($selected_subject_id > 0){
             <div class="chapter-card">
                 <h4><?= htmlspecialchars($chapter['chapter_name']); ?></h4>
                 <p>Total Questions: <b><?= $q_row['total_questions']; ?></b></p>
-                <a class="start-btn" href="chapter_exam.php?sid=<?= $selected_subject_id; ?>&chapter_id=<?= $chapter_id; ?>">Start Chapter Exam</a>
+                <a class="start-btn" href="../exam/chapter_exam.php?sid=<?= $selected_subject_id; ?>&chapter_id=<?= $chapter_id; ?>">Start Chapter Exam</a>
             </div>
 <?php
         }
