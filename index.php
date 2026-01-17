@@ -332,11 +332,11 @@
             
             <div class="footer-section">
                 <h2>Quick Links</h2>
-                <a href="#">Home</a>
-                <a href="#">Courses</a>
-                <a href="#">Practice Tests</a>
-                <a href="#">Study Materials</a>
-                <a href="#">About Us</a>
+                <a href="index.php">Home</a>
+                <a href="https://www.faizcomputerinstitute.com/all_course.php">Courses</a>
+                <a href="https://www.faizcomputerinstitute.com/contact/index.php">Contact Us</a>
+                <a href="https://www.faizcomputerinstitute.com/gallery.php">Gallery</a>
+              
             </div>
             
             <div class="footer-section">
@@ -347,13 +347,7 @@
                     <a href="https://www.youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
                     <a href="https://www.faizcomputerinstitute.com" target="_blank"><i class="fas fa-globe"></i></a>
                 </div>
-                <h2 style="margin-top: 30px;">Newsletter</h2>
-                <p>Subscribe to get updates on new courses and materials</p>
-                <div class="newsletter-input">
-                    <input type="email" placeholder="Your Email">
-                    <button type="submit">
-                        <i class="fas fa-paper-plane"></i>
-                    </button>
+               
                 </div>
             </div>
         </div>
