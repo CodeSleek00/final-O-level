@@ -8,62 +8,78 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
     :root {
-      --primary: #000000;
-      --primary-dark: #3a56d4;
-      --primary-light: #ebf2ff;
-      --secondary: #4cc9f0;
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --primary-light: #dbeafe;
+      --accent: #10b981;
+      --warning: #f59e0b;
       --bg: #ffffff;
-      --text: #2b2d42;
-      --text-light: #6c757d;
-      --border: #e9ecef;
-      --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      --text: #1f2937;
+      --text-light: #6b7280;
+      --border: #e5e7eb;
+      --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.15);
       --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-      --radius: 8px;
-      --radius-sm: 4px;
+      --radius: 12px;
+      --radius-sm: 8px;
     }
-    body {
+
+    * {
       margin: 0;
       padding: 0;
-      font-family: 'Poppins', sans-serif;
-      
+      box-sizing: border-box;
     }
 
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f8fafc;
+      min-height: 100vh;
+    }
 
+    /* Navigation */
     nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 0.75rem 2rem;
-
-      background-color: var(--bg);
+      padding: 0.8rem 2.5rem;
+      background: var(--bg);
       box-shadow: var(--shadow);
       position: sticky;
       top: 0;
       z-index: 1000;
+      border-bottom: 2px solid var(--primary-light);
     }
 
     .logo-container {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
-      cursor: pointer;
-      transition: var(--transition);
+      gap: 0.9rem;
     }
 
-    .logo-container:hover {
-      opacity: 0.9;
+    .logo-icon {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, var(--primary), #4f46e5);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.3rem;
+      box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2);
     }
 
     .logo-text {
       display: flex;
       flex-direction: column;
+      gap: 0.15rem;
     }
 
     .logo-text .main {
-      font-weight: 600;
-      font-size: 1.3rem;
-      color: var(--primary);
-      letter-spacing: -0.5px;
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: var(--text);
+      letter-spacing: -0.3px;
     }
 
     .logo-text .sub {
@@ -72,10 +88,26 @@
       font-weight: 500;
     }
 
+    .logo-text .sub a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.7rem;
+    }
+
+    .logo-text .sub a:hover {
+      color: var(--primary);
+    }
+
     .nav-links {
       display: flex;
-      gap: 0.5rem;
+      gap: 0.2rem;
       list-style: none;
+      margin: 0;
+      padding: 0;
     }
 
     .nav-item {
@@ -85,121 +117,222 @@
     .nav-link {
       text-decoration: none;
       color: var(--text);
-      font-weight: 500;
-      padding: 0.75rem 1rem;
+      font-weight: 600;
+      padding: 0.75rem 1.1rem;
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.6rem;
       transition: var(--transition);
       border-radius: var(--radius-sm);
       position: relative;
-    }
-
-    .nav-link:hover {
-      color: var(--primary);
-      background: var(--primary-light);
-    }
-
-    .nav-link.active {
-      color: var(--primary);
-      background: var(--primary-light);
+      font-size: 0.9rem;
+      white-space: nowrap;
     }
 
     .nav-link i {
-      font-size: 0.9rem;
+      font-size: 1rem;
       width: 18px;
       text-align: center;
+      color: var(--primary);
+      transition: var(--transition);
     }
 
-    /* Arrow icon for dropdown */
+    .nav-link:hover {
+      background: var(--primary-light);
+      color: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    .nav-link:hover i {
+      transform: scale(1.1);
+    }
+
+    .nav-link.active {
+      background: var(--primary-light);
+      color: var(--primary);
+      box-shadow: 0 2px 10px rgba(37, 99, 235, 0.15);
+    }
+
     .nav-link .arrow {
-      margin-left: 0.5rem;
-      transition: var(--transition);
+      margin-left: 0.3rem;
       font-size: 0.7rem;
-      width: 14px;
+      transition: var(--transition);
       color: var(--text-light);
     }
 
     .nav-item:hover .nav-link .arrow,
     .nav-item.active .nav-link .arrow {
       color: var(--primary);
+      transform: rotate(180deg);
     }
 
+    /* Badge */
+    .badge {
+      background: linear-gradient(135deg, var(--warning), #d97706);
+      color: white;
+      font-size: 0.65rem;
+      padding: 0.1rem 0.4rem;
+      border-radius: 10px;
+      margin-left: 0.4rem;
+      font-weight: 700;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    /* LARGER DESKTOP DROPDOWN WITH 2 COLUMNS */
     .dropdown {
       position: absolute;
-      top: calc(100% );
+      top: calc(100% + 2px);
       left: 0;
-      background-color: var(--bg);
-      box-shadow: var(--shadow);
-      border-radius: var(--radius-sm);
+      background: var(--bg);
+      box-shadow: var(--shadow-lg);
+      border-radius: var(--radius);
       display: none;
-      flex-direction: column;
-      min-width: 220px;
-      padding: 0.5rem 0;
+      padding: 1.5rem;
       border: 1px solid var(--border);
       z-index: 1001;
-      animation: fadeIn 0.2s ease-out;
+      animation: slideDown 0.3s ease-out;
       transform-origin: top center;
+      min-width: 500px;
+      max-width: 600px;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-10px) scale(0.95); }
-      to { opacity: 1; transform: translateY(0) scale(1); }
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-15px) scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
     }
 
     .dropdown.active {
+      display: block;
+    }
+
+    /* Two Column Layout for Dropdown */
+    .dropdown-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    .dropdown-column {
       display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .dropdown-title {
+      font-size: 0.85rem;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--primary-light);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .dropdown-title i {
+      font-size: 1rem;
     }
 
     .dropdown-link {
-      padding: 0.65rem 1.5rem;
-      width: max-content;
+      padding: 0.8rem 1rem;
       color: var(--text);
       text-decoration: none;
       display: flex;
       align-items: center;
-      gap: 0.75rem;
+      gap: 0.8rem;
       transition: var(--transition);
       font-size: 0.9rem;
-    }
-
-    .dropdown-link:hover {
-      background: var(--primary-light);
-      color: var(--primary);
-      padding-left: 1.75rem;
-      width: 100%;
+      border-radius: var(--radius-sm);
+      background: #f9fafb;
+      border: 1px solid transparent;
     }
 
     .dropdown-link i {
+      font-size: 1.1rem;
       color: var(--primary);
-      font-size: 0.8rem;
-      width: 100%;
+      width: 20px;
+      transition: var(--transition);
+      background: white;
+      padding: 0.4rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    .dropdown-link:hover {
+      background: white;
+      color: var(--primary);
+      transform: translateX(5px);
+      border-color: var(--primary-light);
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.1);
+    }
+
+    .dropdown-link:hover i {
+      transform: scale(1.1);
+      background: var(--primary-light);
+      color: var(--primary);
     }
 
     .dropdown-divider {
+      grid-column: 1 / -1;
       height: 1px;
-      background: var(--border);
-      margin: 0.25rem 1.5rem;
+      background: linear-gradient(to right, transparent, var(--border), transparent);
+      margin: 1rem 0;
     }
 
+    /* Special Link Styles */
+    .dropdown-special {
+      grid-column: 1 / -1;
+      background: linear-gradient(135deg, var(--primary-light), #e0f2fe);
+      border: 2px dashed var(--primary);
+      padding: 1rem;
+      border-radius: var(--radius);
+      text-align: center;
+      margin-top: 0.5rem;
+    }
+
+    .dropdown-special .dropdown-link {
+      background: transparent;
+      justify-content: center;
+      font-weight: 600;
+      color: var(--primary-dark);
+    }
+
+    /* Mobile Hamburger */
     .hamburger {
       display: none;
       flex-direction: column;
-      gap: 5px;
+      gap: 4px;
       cursor: pointer;
-      padding: 0.75rem;
+      padding: 0.6rem;
       border-radius: var(--radius-sm);
       transition: var(--transition);
-    }
-
-    .hamburger:hover {
       background: var(--primary-light);
     }
 
+    .hamburger:hover {
+      background: var(--primary);
+    }
+
+    .hamburger:hover span {
+      background: white;
+    }
+
     .hamburger span {
-      width: 24px;
+      width: 22px;
       height: 2.5px;
-      background: black;
+      background: var(--primary);
       transition: var(--transition);
       border-radius: 2px;
     }
@@ -207,93 +340,16 @@
     .hamburger.active span:nth-child(1) {
       transform: translateY(7px) rotate(45deg);
     }
+
     .hamburger.active span:nth-child(2) {
       opacity: 0;
     }
+
     .hamburger.active span:nth-child(3) {
       transform: translateY(-7px) rotate(-45deg);
     }
-    a {
-      text-decoration: none;
-      color: orange;
-    }
-    a:hover {
-      color: black;
-      transition: 0.5s ease-in;
-    }
-    /* Mobile Styles */
-    @media (max-width: 992px) {
-      nav {
-        padding: 0.75rem 1.5rem;
-      }
-      
-      .hamburger {
-        display: flex;
-      }
 
-      .nav-links {
-        flex-direction: column;
-        background-color: var(--bg);
-        position: fixed;
-        top: 0;
-        left: -100%;
-        width: 70%;
-        height: 100vh;
-       
-        transition: left 0.3s ease;
-        box-shadow: 4px 0 15px rgba(0, 0, 0, 0.1);
-        overflow-y: auto;
-        margin: 0;
-      }
-
-      .nav-links.active {
-        left: 0;
-      }
-
-      .nav-item {
-        margin: 0.5rem 0;
-      }
-
-      .nav-link {
-        padding: 0.85rem 1rem;
-        border-radius: var(--radius-sm);
-      }
-
-      .dropdown {
-        position: static;
-        box-shadow: none;
-        border: none;
-        display: none;
-        margin: 0.5rem 0 0 1rem;
-        border-left: 2px solid var(--border);
-        animation: none;
-        width: calc(100% - 1rem);
-      }
-
-      .dropdown.active {
-        display: flex;
-      }
-
-      .dropdown-link {
-        padding: 0.65rem 1rem;
-        font-size: 0.85rem;
-      }
-
-      .dropdown-link:hover {
-        padding-left: 1.25rem;
-      }
-
-      /* Mobile arrow animation */
-      .nav-link .arrow {
-        transition: transform 0.3s ease;
-      }
-
-      .nav-item.active .nav-link .arrow {
-        transform: rotate(180deg);
-      }
-    }
-
-    /* Backdrop for mobile menu */
+    /* Backdrop */
     .backdrop {
       display: none;
       position: fixed;
@@ -303,11 +359,236 @@
       height: 100%;
       background: rgba(0, 0, 0, 0.5);
       z-index: 999;
-      backdrop-filter: blur(2px);
+      backdrop-filter: blur(3px);
     }
 
     .backdrop.active {
       display: block;
+    }
+
+    /* Mobile Banner - Positioned at bottom of left panel */
+    .mobile-banner {
+      display: none;
+      background: linear-gradient(135deg, var(--primary), #4f46e5);
+      color: white;
+      padding: 1.2rem;
+      text-align: center;
+      position: absolute;
+      bottom: 60px;
+      left: 0;
+      width: 100%;
+      z-index: 1001;
+      border-top: 2px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 -4px 15px rgba(37, 99, 235, 0.2);
+    }
+
+    .mobile-banner::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%);
+      animation: shine 3s infinite;
+      pointer-events: none;
+    }
+
+    @keyframes shine {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+
+    .mobile-banner h2 {
+      font-size: 1.2rem;
+      margin-bottom: 0.3rem;
+      font-weight: 700;
+      position: relative;
+      z-index: 1;
+    }
+
+    .mobile-banner p {
+      font-size: 0.85rem;
+      opacity: 0.9;
+      position: relative;
+      z-index: 1;
+      margin: 0;
+    }
+
+    /* Mobile Styles */
+    @media (max-width: 992px) {
+      nav {
+        padding: 0.8rem 1.5rem;
+        position: relative;
+      }
+      
+      .hamburger {
+        display: flex;
+      }
+
+      .nav-links {
+        flex-direction: column;
+        background: var(--bg);
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 320px;
+        height: 100vh;
+        transition: left 0.3s ease;
+        box-shadow: 4px 0 25px rgba(0, 0, 0, 0.1);
+        overflow-y: auto;
+        padding: 0;
+        z-index: 1000;
+      }
+
+      .nav-links.active {
+        left: 0;
+      }
+
+      .nav-item {
+        margin: 0;
+        padding: 0.3rem 1.2rem;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .nav-item:last-child {
+        border-bottom: none;
+      }
+
+      .nav-link {
+        padding: 1rem 0.5rem;
+        font-size: 0.95rem;
+      }
+
+      /* Mobile dropdown - FIXED Practical Portal and others */
+      .dropdown {
+        position: static;
+        box-shadow: none;
+        border: none;
+        border-left: 3px solid var(--primary-light);
+        display: none;
+        margin: 0.5rem 0 0 0.5rem;
+        width: calc(100% - 1rem);
+        padding: 1rem;
+        min-width: unset;
+        max-width: unset;
+        border-radius: var(--radius-sm);
+        background: #f8fafc;
+        max-height: 400px;
+        overflow-y: auto;
+      }
+
+      .dropdown.active {
+        display: block;
+      }
+
+      .dropdown-grid {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+      }
+
+      .dropdown-link {
+        padding: 0.75rem 1rem;
+        font-size: 0.85rem;
+        background: white;
+        margin-bottom: 0.3rem;
+      }
+
+      .dropdown-link img {
+        width: 30px;
+        height: 30px;
+        object-fit: contain;
+      }
+
+      /* Ensure dropdown stays inside nav-links */
+      .nav-links {
+        overflow-y: auto;
+        padding-bottom: 120px; /* Space for banner */
+      }
+
+      /* Make sure dropdown doesn't overflow */
+      .dropdown {
+        max-height: 300px;
+        overflow-y: auto;
+      }
+      
+      /* Specific fix for Practical Portal dropdown */
+      .nav-item:nth-child(5) .dropdown {
+        max-height: 350px;
+      }
+    }
+
+    /* Demo Content */
+    .content {
+      max-width: 1200px;
+      margin: 3rem auto;
+      padding: 0 2rem;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 3rem 2rem;
+      background: white;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      margin-bottom: 2rem;
+    }
+
+    .hero h1 {
+      font-size: 2.2rem;
+      color: var(--text);
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    .hero p {
+      color: var(--text-light);
+      font-size: 1rem;
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .feature-card {
+      background: white;
+      padding: 1.5rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      text-align: center;
+      border-top: 4px solid var(--primary);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .feature-card i {
+      font-size: 2.5rem;
+      background: linear-gradient(135deg, var(--primary), #4f46e5);
+     
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 1rem;
+    }
+
+    .feature-card h3 {
+      color: var(--text);
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+    }
+
+    .feature-card p {
+      color: var(--text-light);
+      font-size: 0.9rem;
+      line-height: 1.5;
     }
   </style>
 </head>
@@ -316,57 +597,181 @@
   <div class="backdrop" id="backdrop"></div>
   
   <nav>
+    <div class="logo-container">
       <div class="logo-text">
         <span class="main">O Level Preparation</span>
-        <span class="sub"><a href="https://www.faizcomputerinstitute.com">By Faiz Computer Institute</span></a>
+        <span class="sub">
+          <a href="https://www.faizcomputerinstitute.com">
+            Faiz Computer Institute
+          </a>
+        </span>
       </div>
-    
+    </div>
     
     <ul class="nav-links" id="navLinks">
       <li class="nav-item">
-        <a href="../index.php" class="nav-link "> Home</a>
+        <a href="../index.php" class="nav-link">
+          Home
+        </a>
+      </li>
+      
+      <li class="nav-item">
+        <a href="#" class="nav-link">
+          MCQ Tests
+          <i class="fas fa-chevron-down arrow"></i>
+        </a>
+        <div class="dropdown">
+          <div class="dropdown-grid">
+            <div class="dropdown-column">
+              
+              <a href="../olevel/all.php" class="dropdown-link">
+                <img width="50" height="50" src="https://img.icons8.com/clouds/100/technology.png" alt="technology"/>
+                O Level (NIELIT)
+              </a>
+              <a href="../ccc/all.php" class="dropdown-link">
+                <img width="50" height="50" src="https://img.icons8.com/clouds/100/imac-settings.png" alt="imac-settings"/>
+                CCC Exam Prep
+              </a>
+            </div>
+            
+            <div class="dropdown-column">
 
-      </li>
-      <li class="nav-item">
-        <a href="#" class="nav-link">MCQ <i class="fas fa-chevron-down arrow"></i></a>
-        <div class="dropdown">
-          <a href="#" class="dropdown-link">O Level</a>
-          <a href="#" class="dropdown-link">CCC</a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-link">Mock Tests</a>
+              <a href="../olevel/mock.php" class="dropdown-link">
+                <img width="50" height="50" src="https://img.icons8.com/clouds/100/report-card.png" alt="report-card"/>
+                Mock Tests
+              </a>
+              <a href="../olevel/chapterwise.php" class="dropdown-link">
+                <img width="50" height="50" src="https://img.icons8.com/clouds/100/question-mark.png" alt="question-mark"/>
+                Chapter-wise Quizzes
+              </a>
+            </div>
+          </div>
         </div>
       </li>
+      
+     
+      
       <li class="nav-item">
-        <a href="../shortcut/all.php" class="nav-link"> Shortcut Keys <i class="fas fa-chevron-down arrow"></i></a>
+        <a href="#" class="nav-link">
+          O Level MCQ
+          <i class="fas fa-chevron-down arrow"></i>
+        </a>
         <div class="dropdown">
-          <a href="../shortcut/writer.php" class="dropdown-link"> LibreOffice Writer</a>
-          <a href="../shortcut/calc.php" class="dropdown-link"> LibreOffice Calc</a>
-          <a href="../shortcut/impress.php" class="dropdown-link">LibreOffice Impress</a>
-          <div class="dropdown-divider"></div>
-          <a href="../shortcut/all.php" class="dropdown-link"> All Shortcut Keys</a>
+          <div class="dropdown-grid">
+            <div class="dropdown-column">
+             
+              <a href="M1-R5.php" class="dropdown-link">
+                <img width="60" height="60" src="https://img.icons8.com/clouds/100/macbook-settings.png" alt="macbook-settings"/>
+                M1-R5: IT Tools
+              </a>
+              <a href="M2-R5.php" class="dropdown-link">
+                <img width="60" height="60" src="https://img.icons8.com/clouds/100/domain.png" alt="domain"/>
+                M2-R5: Web Design
+              </a>
+            </div>
+            
+            <div class="dropdown-column">
+              <a href="M3-R5.php" class="dropdown-link">
+                <img width="60" height="60" src="https://img.icons8.com/clouds/100/python.png" alt="python"/>
+                M3-R5: Python
+              </a>
+              <a href="M4-R5.php" class="dropdown-link">
+                <img width="60" height="60" src="https://img.icons8.com/clouds/100/connected-devices.png" alt="connected-devices"/>
+                M4-R5: IoT
+              </a>
+            </div>
+          </div>
         </div>
       </li>
+      
       <li class="nav-item">
-        <a href="all.php" class="nav-link">O Level MCQ<i class="fas fa-chevron-down arrow"></i></a>
+        <a href="#" class="nav-link">
+          Practical Portal
+          <i class="fas fa-chevron-down arrow"></i>
+        </a>
         <div class="dropdown">
-          <a href="M1-R5.php" class="dropdown-link"> M1-R5: IT Tools</a>
-          <a href="M2-R5.php" class="dropdown-link">M2-R5 : Web Design & Publishing</a>
-          <a href="M3-R5.php" class="dropdown-link"> M3-R5 : Python Programming</a>
-          <a href="M4-R5.php" class="dropdown-link"> M4-R5 : IOT (Internet Of Things)</a>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a href="#" class="nav-link"> Practical Portal <i class="fas fa-chevron-down arrow"></i></a>
-        <div class="dropdown">
-          <a href="#" class="dropdown-link"> M1-R5 : IT Tools </a>
-          <a href="#" class="dropdown-link"> M2-R5 : Web Design & Publishing</a>
-          <a href="#" class="dropdown-link"> M3-R5 : Python Programming</a>
-          <a href="#" class="dropdown-link"> M4-R5 : IOT (Internet Of Things)</a>
+          <div class="dropdown-grid">
+            <div class="dropdown-column">
+              
+              <a href="../practical/M1-R5.html" class="dropdown-link">
+                <img width="30" height="30" src="https://img.icons8.com/fluency/96/libre-office-writer.png" alt="libre-office-writer"/>
+                Writer Practicals
+              </a>
+              <a href="../practical/M1-R5(calc).html" class="dropdown-link">
+                <img width="30" height="30" src="https://img.icons8.com/fluency/96/libre-office-calc.png" alt="libre-office-calc"/>
+                Calc Practicals
+              </a>
+              <a href="../practical/M1-R5(impress).html" class="dropdown-link">
+                <img width="30" height="30" src="https://img.icons8.com/fluency/96/libre-office-impress.png" alt="libre-office-impress"/>
+                Impress Practicals
+              </a>
+              <a href="../practical/M3-R5(python).php" class="dropdown-link">
+                <img width="30" height="30" src="https://img.icons8.com/fluency/96/python.png" alt="python"/>
+                Python Practicals
+              </a>
+            </div>
+            
+            <div class="dropdown-column">
+             
+              <a href="../practical/M2-R5(HTML).php" class="dropdown-link">
+                <img width="30" height="30" src="https://img.icons8.com/plasticine/100/html-5.png" alt="html-5"/>
+                HTML Practicals
+              </a>
+              <a href="../practical/M2-R5(CSS).php" class="dropdown-link">
+                <img width="30" height="30" src="https://img.icons8.com/plasticine/100/css3.png" alt="css3"/>
+                Css Practicals
+              </a>
+              <a href="../practical/M2-R5(JS).php" class="dropdown-link">
+                <img width="30" height="30" src="https://img.icons8.com/color/96/javascript--v1.png" alt="javascript--v1"/>
+                JS Practicals
+              </a>
+              <a href="../practical/M4-R5(IOT).php" class="dropdown-link">
+                <img width="30" height="30" src="https://img.icons8.com/external-outline-design-circle/66/external-iot-digitalization-and-industry-outline-design-circle.png" alt="iot"/>
+                IOT Practicals
+              </a>
+            </div>
+          </div>
         </div>
       </li>
        <li class="nav-item">
-        <a href="#" class="nav-link"> Syllabus</a>
+        <a href="#" class="nav-link">
+          Shortcut Keys
+          <i class="fas fa-chevron-down arrow"></i>
+        </a>
+        <div class="dropdown">
+          
+            <div class="dropdown-column">
+              
+              <a href="../shortcut/writer.php" class="dropdown-link">
+                <img width="30" height="30" src="https://img.icons8.com/fluency/96/libre-office-writer.png" alt="libre-office-writer"/>
+                Writer (Word Processing)
+              </a>
+              <a href="../shortcut/calc.php" class="dropdown-link">
+                <img width="30" height="30" src="https://img.icons8.com/fluency/96/libre-office-calc.png" alt="libre-office-calc"/>
+                Calc (Spreadsheets)
+              </a>
+              <a href="../shortcut/impress.php" class="dropdown-link">
+                <img width="30" height="30" src="https://img.icons8.com/fluency/96/libre-office-impress.png" alt="libre-office-impress"/>
+                Impress (Presentations)
+              </a>
+            </div>
+            
+            
+          </div>
+        </div>
       </li>
+      <li class="nav-item">
+      <a href="O level Syllabus.pdf" class="nav-link" download>
+        Study Materials
+      </a>
+
+      </li>
+      
+      <!-- Mobile Banner inside nav-links at the bottom -->
+      <div class="mobile-banner" id="mobileBanner">
+        <h2>Faiz Computer Institute</h2>
+        <p>Quality Education for Digital Excellence</p>
+      </div>
     </ul>
     
     <div class="hamburger" id="hamburger">
@@ -382,13 +787,23 @@
       const navLinks = document.getElementById('navLinks');
       const backdrop = document.getElementById('backdrop');
       const navItems = document.querySelectorAll('.nav-item');
+      const mobileBanner = document.getElementById('mobileBanner');
       
       // Mobile menu toggle
       hamburger.addEventListener('click', function() {
         this.classList.toggle('active');
         navLinks.classList.toggle('active');
         backdrop.classList.toggle('active');
-        document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+        
+        if (navLinks.classList.contains('active')) {
+          document.body.style.overflow = 'hidden';
+          // Show banner when menu is open
+          mobileBanner.style.display = 'block';
+        } else {
+          document.body.style.overflow = '';
+          // Hide banner when menu is closed
+          mobileBanner.style.display = 'none';
+        }
       });
       
       // Close menu when clicking backdrop
@@ -397,6 +812,7 @@
         navLinks.classList.remove('active');
         this.classList.remove('active');
         document.body.style.overflow = '';
+        mobileBanner.style.display = 'none';
         closeAllDropdowns();
       });
       
@@ -413,14 +829,14 @@
           if (window.innerWidth > 992) {
             closeAllDropdowns();
             dropdown.classList.add('active');
-            arrow.style.transform = 'rotate(180deg)';
+            if (arrow) arrow.style.transform = 'rotate(180deg)';
           }
         });
         
         item.addEventListener('mouseleave', function() {
           if (window.innerWidth > 992) {
             dropdown.classList.remove('active');
-            arrow.style.transform = 'rotate(0deg)';
+            if (arrow) arrow.style.transform = 'rotate(0deg)';
           }
         });
         
@@ -434,27 +850,25 @@
             if (!wasActive) {
               item.classList.add('active');
               dropdown.classList.add('active');
-              arrow.style.transform = 'rotate(180deg)';
+              if (arrow) arrow.style.transform = 'rotate(180deg)';
             }
+            
+            // Scroll dropdown into view if needed
+            setTimeout(() => {
+              if (dropdown.classList.contains('active')) {
+                dropdown.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+              }
+            }, 50);
           }
         });
       });
       
-      // Close dropdowns when clicking outside
+      // Close dropdowns when clicking outside on desktop
       document.addEventListener('click', function(e) {
-        if (!e.target.closest('.nav-item') && !e.target.closest('.hamburger')) {
-          closeAllDropdowns();
-        }
-      });
-      
-      // Active link highlighting - only for non-dropdown links
-      const navLinksAll = document.querySelectorAll('.nav-link');
-      navLinksAll.forEach(link => {
-        if (!link.querySelector('.arrow')) {
-          link.addEventListener('click', function(e) {
-            navLinksAll.forEach(l => l.classList.remove('active'));
-            this.classList.add('active');
-          });
+        if (window.innerWidth > 992) {
+          if (!e.target.closest('.nav-item')) {
+            closeAllDropdowns();
+          }
         }
       });
       
@@ -476,6 +890,7 @@
           hamburger.classList.remove('active');
           navLinks.classList.remove('active');
           backdrop.classList.remove('active');
+          mobileBanner.style.display = 'none';
           document.body.style.overflow = '';
           closeAllDropdowns();
         }
