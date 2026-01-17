@@ -1,7 +1,7 @@
 <?php
 include '../db_connect.php';
 
-/* CHANGE ONLY THIS WHEN SUBJECT CHANGES */
+/* SUBJECT ID */
 $subject_id = 1; // M1-R5 (IT Tools)
 ?>
 <!DOCTYPE html>
@@ -11,50 +11,51 @@ $subject_id = 1; // M1-R5 (IT Tools)
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>M1-R5 | IT Tools MCQ Practice</title>
 
-    <!-- Google Font -->
+    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- Tailwind -->
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- Custom CSS -->
+    <!-- YOUR EXISTING CSS -->
     <link rel="stylesheet" href="style.css?v=<?php echo time(); ?>">
 </head>
 
-<body class="bg-gray-100 font-[Poppins]">
+<body>
 
 <?php include 'navbar.html'; ?>
 
-<!-- ================= BANNER ================= -->
-<section class="it-banner text-center">
-    <h1>IT Tools MCQ Practice</h1>
-    <p>
-        Practice updated MCQs based on the latest NIELIT syllabus.
-        Improve accuracy, speed, and confidence with topic-wise
-        IT Tools questions designed for O Level students.
-    </p>
-</section>
+<div class="page-wrapper">
 
-<!-- ================= FEATURES ================= -->
-<section class="features">
-    <div class="feature-box">
-        <h3>📘 Updated Syllabus</h3>
-        <p>MCQs strictly based on latest NIELIT O Level M1-R5 syllabus.</p>
-    </div>
+    <!-- ================= BANNER ================= -->
+    <section class="it-banner">
+        <h1>IT Tools MCQ Practice</h1>
+        <p>
+            Practice updated MCQs based on the latest NIELIT syllabus.
+            Improve accuracy, speed, and confidence with topic-wise
+            IT Tools questions designed for O Level students.
+        </p>
+    </section>
 
-    <div class="feature-box">
-        <h3>📝 Topic-wise Practice</h3>
-        <p>Practice MS Word, Excel, PowerPoint, Internet & IT Tools.</p>
-    </div>
+    <!-- ================= FEATURES ================= -->
+    <section class="features">
+        <div class="feature-box">
+            <h3>📘 Updated Syllabus</h3>
+            <p>MCQs strictly based on latest NIELIT O Level M1-R5 syllabus.</p>
+        </div>
 
-    <div class="feature-box">
-        <h3>⏱ Exam-Oriented</h3>
-        <p>Designed to improve speed, accuracy, and exam confidence.</p>
-    </div>
-</section>
+        <div class="feature-box">
+            <h3>📝 Topic-wise Practice</h3>
+            <p>Practice MS Word, Excel, PowerPoint, Internet & IT Tools.</p>
+        </div>
+
+        <div class="feature-box">
+            <h3>⏱ Exam-Oriented</h3>
+            <p>Designed to improve speed, accuracy, and exam confidence.</p>
+        </div>
+    </section>
+
+</div>
 
 <!-- ================= CHAPTER WISE PRACTICE ================= -->
 <div class="container">
@@ -89,19 +90,18 @@ $subject_id = 1; // M1-R5 (IT Tools)
     </div>
 </div>
 
-<!-- ================= MOCK TEST (BASED ON QUESTIONS TABLE) ================= -->
+<!-- ================= MOCK TEST ================= -->
 <div class="container">
     <h1>Mock Test</h1>
 
     <div class="cards-grid">
         <?php
         /*
-          IMPORTANT:
-          - Sirf questions table use ho rahi hai
-          - subject_id se filter
-          - set_id se grouping
+         Logic as per YOUR DATABASE:
+         - questions table
+         - subject_id filter
+         - set_id grouping
         */
-
         $tests = $conn->query("
             SELECT set_id, COUNT(*) AS total_questions
             FROM questions
@@ -111,19 +111,17 @@ $subject_id = 1; // M1-R5 (IT Tools)
         ");
 
         while ($row = $tests->fetch_assoc()) {
-            $setId = $row['set_id'];
-            $totalQ = $row['total_questions'];
         ?>
             <div class="test-card">
-                <h3>Mock Test <?= $setId; ?></h3>
+                <h3>Mock Test <?= $row['set_id']; ?></h3>
 
                 <p>
                     Total Questions:
-                    <b><?= $totalQ; ?></b>
+                    <b><?= $row['total_questions']; ?></b>
                 </p>
 
                 <a class="start-btn"
-                   href="../exam.php?sid=<?= $subject_id; ?>&setid=<?= $setId; ?>">
+                   href="../exam.php?sid=<?= $subject_id; ?>&setid=<?= $row['set_id']; ?>">
                     Start Exam
                 </a>
             </div>
