@@ -330,48 +330,19 @@ body {
 }
 
 /* ================= BANNER ================= */
-.it-banner {
-    background: url('../image/bg.svg');
-    background-size: cover;
-    background-position: center center;
-    padding: 50px 30px;
-    border-radius: 20px;
-    box-shadow: 0 12px 35px rgba(0,0,0,0.1);
-    text-align: center;
-    margin: 20px;
-    background-color: #1e293b;
-    color: white;
-    position: relative;
-    overflow: hidden;
-}
-
-.it-banner::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, rgba(30, 41, 59, 0.9) 0%, rgba(15, 23, 42, 0.95) 100%);
-}
-
-.it-banner h1 {
-    font-size: 2.5rem;
-    margin-bottom: 15px;
-    position: relative;
-    z-index: 1;
-}
-
-.it-banner p {
-    font-size: 1.2rem;
-    max-width: 800px;
-    margin: 0 auto;
-    line-height: 1.6;
-    opacity: 0.9;
-    position: relative;
-    z-index: 1;
-}
-
+/* BANNER */
+    .it-banner {
+        background: url('../image/bg.svg');
+        background-size: cover;
+        background-position: center center;
+        padding: 40px 20px;
+        border-radius: 18px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+        text-align: center;
+        margin: 20px;
+        background-color: black;
+        color: white;
+    }
 /* ================= LOADING INDICATOR ================= */
 .loading {
     display: inline-block;
