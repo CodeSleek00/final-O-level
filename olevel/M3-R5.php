@@ -59,7 +59,7 @@ $subject_id = 3; // M3-R5 Python Programming
 
 <!-- ================= CHAPTER WISE PRACTICE ================= -->
 <div class="container">
-    <h1>Chapter-wise Practice</h1>
+    <h1 style="font-weight:normal;">Chapter-wise Practice</h1>
 
     <div class="cards-grid">
         <?php
@@ -103,7 +103,7 @@ $subject_id = 3; // M3-R5 Python Programming
 
 <!-- ================= MOCK TEST ================= -->
 <div class="container">
-    <h1>Mock Test</h1>
+    <h1 style="font-weight:normal;">Mock Test</h1>
 
     <div class="cards-grid">
         <?php
