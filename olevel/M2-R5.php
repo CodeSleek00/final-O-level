@@ -1,18 +1,23 @@
 <?php
 include '../db_connect.php';
-$subject_id = 2; // Web (M2-R5)
+
+/* SUBJECT ID */
+$subject_id = 2; // M2-R5 (Web Designing & Publishing)
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>M2-R5 (Web Designing & Publishing)</title>
+    <title>M2-R5 | Web Designing & Publishing MCQ Practice</title>
 
+    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- SAME CSS (NO TAILWIND) -->
+    <!-- SAME CSS -->
     <link rel="stylesheet" href="style.css?v=<?php echo time(); ?>">
 </head>
 
@@ -22,7 +27,7 @@ $subject_id = 2; // Web (M2-R5)
 
 <div class="page-wrapper">
 
-    <!-- BANNER -->
+    <!-- ================= BANNER ================= -->
     <section class="it-banner">
         <h1>Web Designing & Publishing MCQ Practice</h1>
         <p>
@@ -32,7 +37,7 @@ $subject_id = 2; // Web (M2-R5)
         </p>
     </section>
 
-    <!-- FEATURES -->
+    <!-- ================= FEATURES ================= -->
     <section class="features">
         <div class="feature-box">
             <h3>📘 Updated Syllabus</h3>
@@ -41,7 +46,7 @@ $subject_id = 2; // Web (M2-R5)
 
         <div class="feature-box">
             <h3>📝 Topic-wise Practice</h3>
-            <p>Practice HTML, CSS, JavaScript, and Web Designing topics.</p>
+            <p>Practice HTML, CSS, JavaScript and Web Designing topics.</p>
         </div>
 
         <div class="feature-box">
@@ -49,6 +54,7 @@ $subject_id = 2; // Web (M2-R5)
             <p>Designed to improve speed, accuracy, and exam confidence.</p>
         </div>
     </section>
+
 </div>
 
 <!-- ================= CHAPTER WISE PRACTICE ================= -->
@@ -57,30 +63,54 @@ $subject_id = 2; // Web (M2-R5)
 
     <div class="cards-grid">
         <?php
-        $q = $conn->query("SELECT * FROM chapters WHERE subject_id=$subject_id");
+        /* 
+          CORRECT LOGIC:
+          - chapters table
+          - join with chapter_questions
+          - same subject_id
+          - show only chapters having questions
+        */
 
-        while ($ch = $q->fetch_assoc()) {
+        $chapters = $conn->query("
+            SELECT c.id, c.chapter_name, COUNT(q.id) AS total_questions
+            FROM chapters c
+            LEFT JOIN chapter_questions q 
+                ON c.id = q.chapter_id 
+               AND q.subject_id = c.subject_id
+            WHERE c.subject_id = $subject_id
+            GROUP BY c.id
+            HAVING total_questions > 0
+            ORDER BY c.id ASC
+        ");
 
-            $count = $conn->query("
-                SELECT COUNT(*) AS total
-                FROM chapter_questions
-                WHERE chapter_id = {$ch['id']}
-            ")->fetch_assoc();
+        if ($chapters && $chapters->num_rows > 0) {
+            while ($ch = $chapters->fetch_assoc()) {
         ?>
-            <div class="test-card">
-                <h3 style="font-weight:normal;"><?= htmlspecialchars($ch['chapter_name']); ?></h3>
-                <p>Total Questions: <b><?= $count['total']; ?></b></p>
+                <div class="test-card">
+                    <h3 style="font-weight:normal;">
+                        <?= htmlspecialchars($ch['chapter_name']); ?>
+                    </h3>
 
-                <a class="start-btn"
-                   href="../exam/chapter_exam.php?cid=<?= $ch['id']; ?>">
-                   Start Practice
-                </a>
-            </div>
-        <?php } ?>
+                    <p>
+                        Total Questions:
+                        <b><?= $ch['total_questions']; ?></b>
+                    </p>
+
+                    <a class="start-btn"
+                       href="../exam/chapter_exam.php?cid=<?= intval($ch['id']); ?>">
+                        Start Practice
+                    </a>
+                </div>
+        <?php
+            }
+        } else {
+            echo "<p style='color:#777'>No chapters available for this subject.</p>";
+        }
+        ?>
     </div>
 </div>
 
-<!-- ================= MOCK TEST (FIXED) ================= -->
+<!-- ================= MOCK TEST ================= -->
 <div class="container">
     <h1>Mock Test</h1>
 
@@ -93,29 +123,37 @@ $subject_id = 2; // Web (M2-R5)
           - set_id grouping
         */
         $tests = $conn->query("
-            SELECT set_id, COUNT(*) AS total
+            SELECT set_id, COUNT(*) AS total_questions
             FROM questions
             WHERE subject_id = $subject_id
             GROUP BY set_id
             ORDER BY set_id ASC
         ");
 
-        while ($row = $tests->fetch_assoc()) {
+        if ($tests && $tests->num_rows > 0) {
+            while ($row = $tests->fetch_assoc()) {
         ?>
-            <div class="test-card">
-                <h3 style="font-weight:normal;">Mock Test <?= $row['set_id']; ?></h3>
+                <div class="test-card">
+                    <h3 style="font-weight:normal;">
+                        Mock Test <?= $row['set_id']; ?>
+                    </h3>
 
-                <p>
-                    This Mock Test Consists of
-                    <b><?= $row['total']; ?> Questions</b>
-                </p>
+                    <p>
+                        This Mock Test Consists of
+                        <b><?= $row['total_questions']; ?> Questions</b>
+                    </p>
 
-                <a class="start-btn"
-                   href="../exam.php?sid=<?= $subject_id; ?>&setid=<?= $row['set_id']; ?>">
-                   Start Exam
-                </a>
-            </div>
-        <?php } ?>
+                    <a class="start-btn"
+                       href="../exam.php?sid=<?= $subject_id; ?>&setid=<?= $row['set_id']; ?>">
+                        Start Exam
+                    </a>
+                </div>
+        <?php
+            }
+        } else {
+            echo "<p style='color:#777'>No mock tests available.</p>";
+        }
+        ?>
     </div>
 </div>
 
