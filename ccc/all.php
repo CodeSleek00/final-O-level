@@ -1,8 +1,8 @@
 <?php
 include '../db_connect.php';
 
-/* SUBJECT ID */
-$subject_id = 1; // M1-R5 (IT Tools)
+/* ONLY IT TOOLS */
+$subject_id = 1; // M1-R5 IT Tools
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,8 +17,8 @@ $subject_id = 1; // M1-R5 (IT Tools)
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- YOUR EXISTING CSS -->
-    <link rel="stylesheet" href="../olevel/style.css?v=<?php echo time(); ?>">
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css?v=<?php echo time(); ?>">
 </head>
 
 <body>
@@ -33,7 +33,7 @@ $subject_id = 1; // M1-R5 (IT Tools)
         <p>
             Practice updated MCQs based on the latest NIELIT syllabus.
             Improve accuracy, speed, and confidence with topic-wise
-            CCC  questions designed for NIELIT students.
+            CCC questions designed for O Level students.
         </p>
     </section>
 
@@ -41,12 +41,12 @@ $subject_id = 1; // M1-R5 (IT Tools)
     <section class="features">
         <div class="feature-box">
             <h3>📘 Updated Syllabus</h3>
-            <p>MCQs strictly based on latest NIELIT O Level M1-R5 syllabus.</p>
+            <p>MCQs strictly based on latest NIELIT syllabus.</p>
         </div>
 
         <div class="feature-box">
             <h3>📝 Topic-wise Practice</h3>
-            <p>Practice Libreoffice Writer, Calc , Impress, Internet & IT Tools.</p>
+            <p>LibreOffice Writer, Calc, Impress, Internet & IT Tools.</p>
         </div>
 
         <div class="feature-box">
@@ -63,30 +63,41 @@ $subject_id = 1; // M1-R5 (IT Tools)
 
     <div class="cards-grid">
         <?php
+        /* 🔥 FIXED & CORRECT LOGIC (FROM YOUR OTHER PAGE) */
         $chapters = $conn->query("
-            SELECT * FROM chapters
-            WHERE subject_id = $subject_id
-            ORDER BY id ASC
+            SELECT c.id, c.chapter_name, COUNT(q.id) AS total_questions
+            FROM chapters c
+            LEFT JOIN chapter_questions q 
+                ON c.id = q.chapter_id 
+                AND q.subject_id = $subject_id
+            WHERE c.subject_id = $subject_id
+            GROUP BY c.id
+            HAVING total_questions > 0
+            ORDER BY c.id ASC
         ");
 
-        while ($ch = $chapters->fetch_assoc()) {
-
-            $count = $conn->query("
-                SELECT COUNT(*) AS total
-                FROM chapter_questions
-                WHERE chapter_id = {$ch['id']}
-            ")->fetch_assoc();
+        if ($chapters && $chapters->num_rows > 0) {
+            while ($ch = $chapters->fetch_assoc()) {
         ?>
             <div class="test-card">
                 <h3 style="font-weight:normal;"><?= htmlspecialchars($ch['chapter_name']); ?></h3>
-                <p>Total Questions: <b><?= $count['total']; ?></b></p>
+
+                <p>
+                    Total Questions:
+                    <b><?= $ch['total_questions']; ?></b>
+                </p>
 
                 <a class="start-btn"
-                   href="../exam/chapter_exam.php?cid=<?= $ch['id']; ?>">
+                   href="../exam/chapter_exam.php?chapter_id=<?= $ch['id']; ?>&subject_id=<?= $subject_id; ?>">
                     Start Practice
                 </a>
             </div>
-        <?php } ?>
+        <?php
+            }
+        } else {
+            echo "<p style='color:#666'>No chapters available.</p>";
+        }
+        ?>
     </div>
 </div>
 
@@ -96,12 +107,6 @@ $subject_id = 1; // M1-R5 (IT Tools)
 
     <div class="cards-grid">
         <?php
-        /*
-         Logic as per YOUR DATABASE:
-         - questions table
-         - subject_id filter
-         - set_id grouping
-        */
         $tests = $conn->query("
             SELECT set_id, COUNT(*) AS total_questions
             FROM questions
@@ -110,7 +115,8 @@ $subject_id = 1; // M1-R5 (IT Tools)
             ORDER BY set_id ASC
         ");
 
-        while ($row = $tests->fetch_assoc()) {
+        if ($tests && $tests->num_rows > 0) {
+            while ($row = $tests->fetch_assoc()) {
         ?>
             <div class="test-card">
                 <h3 style="font-weight:normal;">Mock Test <?= $row['set_id']; ?></h3>
@@ -125,7 +131,12 @@ $subject_id = 1; // M1-R5 (IT Tools)
                     Start Exam
                 </a>
             </div>
-        <?php } ?>
+        <?php
+            }
+        } else {
+            echo "<p style='color:#666'>No mock tests available.</p>";
+        }
+        ?>
     </div>
 </div>
 
