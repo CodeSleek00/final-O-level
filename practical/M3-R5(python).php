@@ -15,9 +15,10 @@ while($row = $q->fetch_assoc()){
 <title>Python Practice Portal</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
-    /* 🔴 SAME DESIGN — UPDATED UI ONLY */
+    /* 🔴 UPDATED DESIGN - IMPROVED MOBILE UX */
 * {
     margin:0;
     padding:0;
@@ -26,8 +27,9 @@ while($row = $q->fetch_assoc()){
 
 body {
     font-family:'Poppins', sans-serif;
-    background:#f8fafc;
+    background:linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
     color:#1e293b;
+    min-height:100vh;
 }
 
 .container {
@@ -35,7 +37,9 @@ body {
     flex-direction:column;
     padding:20px;
     gap:20px;
-    width:98%;
+    width:100%;
+    max-width:1600px;
+    margin:0 auto;
 }
 
 .main-content {
@@ -48,61 +52,90 @@ body {
 .left-panel{
     flex:0 0 30%;
     background:white;
-    border-radius:12px;
+    border-radius:16px;
     padding:20px;
-    box-shadow:0 4px 6px rgba(0,0,0,0.1);
+    box-shadow:0 8px 25px rgba(0,0,0,0.08);
     display:flex;
     flex-direction:column;
+    border:1px solid #e2e8f0;
 }
 
 .question-header{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    margin-bottom:15px;
+    margin-bottom:20px;
+    padding-bottom:15px;
     border-bottom:2px solid #e2e8f0;
-    padding-bottom:10px;
+}
+
+.question-header h3{
+    color:#1e293b;
+    font-size:1.4rem;
+    font-weight:600;
 }
 
 .question-counter{
-    background:#3b82f6;
+    background:linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
     color:white;
-    padding:4px 12px;
+    padding:6px 16px;
     border-radius:20px;
     font-size:14px;
+    font-weight:600;
+    box-shadow:0 2px 5px rgba(59, 130, 246, 0.3);
 }
 
 #questionBox{
     flex:1;
     overflow-y:auto;
-    padding:15px;
+    padding:20px;
     background:#f8fafc;
-    border-radius:8px;
+    border-radius:12px;
     border:1px solid #e2e8f0;
+    line-height:1.6;
+    font-size:16px;
 }
 
-/* NAV BUTTONS */
+/* NAV BUTTONS - COLORFUL UPDATE */
 .nav-btns{
     display:flex;
-    gap:10px;
-    margin-top:auto;
+    gap:12px;
+    margin-top:25px;
 }
 
 .nav-btns button{
     flex:1;
-    padding:10px;
+    padding:14px 5px;
     border:none;
-    border-radius:8px;
+    border-radius:10px;
     cursor:pointer;
-    background:#e5e7eb;
-    color:#1e293b;
-    font-weight:500;
-    transition:0.3s;
+    font-weight:600;
+    font-size:15px;
+    transition:all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    box-shadow:0 3px 8px rgba(0,0,0,0.1);
+}
+
+.nav-btns button:first-child {
+    background:linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+    color:white;
+}
+
+.nav-btns button:last-child {
+    background:linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color:white;
 }
 
 .nav-btns button:hover{
-    background:#3b82f6;
-    color:white;
+    transform:translateY(-2px);
+    box-shadow:0 5px 15px rgba(0,0,0,0.15);
+}
+
+.nav-btns button:active{
+    transform:translateY(0);
 }
 
 /* ================= CENTER PANEL ================= */
@@ -111,88 +144,188 @@ body {
     display:flex;
     flex-direction:column;
     background:white;
-    border-radius:12px;
+    border-radius:16px;
     overflow:hidden;
-    box-shadow:0 4px 6px rgba(0,0,0,0.1);
+    box-shadow:0 8px 25px rgba(0,0,0,0.08);
+    border:1px solid #e2e8f0;
 }
 
 .editor-header{
     display:flex;
-    gap:10px;
-    padding:15px;
-    background:#f8fafc;
+    gap:12px;
+    padding:18px;
+    background:linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
     border-bottom:2px solid #e2e8f0;
 }
 
 .editor-header button{
     flex:1;
-    padding:10px;
+    padding:14px 5px;
     border:none;
-    border-radius:8px;
+    border-radius:10px;
     cursor:pointer;
-    background:#e5e7eb;
-    color:#1e293b;
-    font-weight:500;
-    transition:0.3s;
+    font-weight:600;
+    font-size:15px;
+    transition:all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    box-shadow:0 3px 8px rgba(0,0,0,0.1);
+}
+
+.editor-header button:first-child{
+    background:linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    color:white;
+}
+
+.editor-header button:last-child{
+    background:linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+    color:white;
 }
 
 .editor-header button:hover{
-    background:#22c55e;
-    color:white;
+    transform:translateY(-2px);
+    box-shadow:0 5px 15px rgba(0,0,0,0.2);
 }
 
-/* RUN BUTTON */
-.editor-header button:last-child{
-    background:#2563eb !important;
-    color:white;
-}
-
-.editor-header button:last-child:hover{
-    background:#1d4ed8 !important;
+.editor-header button:active{
+    transform:translateY(0);
 }
 
 #codeEditor{
     flex:1;
-    padding:15px;
-    font-family:monospace;
+    padding:20px;
+    font-family:'Fira Code', 'Cascadia Code', 'Monaco', 'Courier New', monospace;
     background:#0f172a;
     color:#e2e8f0;
-    font-size:14px;
+    font-size:15px;
     border:none;
     resize:none;
+    line-height:1.5;
+    tab-size:4;
+}
+
+#codeEditor:focus{
+    outline:none;
 }
 
 /* ================= RIGHT PANEL ================= */
 .right-panel{
     flex:0 0 30%;
     background:white;
-    border-radius:12px;
+    border-radius:16px;
     display:flex;
     flex-direction:column;
-    box-shadow:0 4px 6px rgba(0,0,0,0.1);
+    box-shadow:0 8px 25px rgba(0,0,0,0.08);
+    border:1px solid #e2e8f0;
+    overflow:hidden;
 }
 
 #output{
     flex:1;
-    padding:15px;
-    font-family:monospace;
-    background:#f8fafc;
+    padding:20px;
+    font-family:'Fira Code', 'Cascadia Code', 'Monaco', 'Courier New', monospace;
+    background:#0f172a;
+    color:#e2e8f0;
     overflow:auto;
+    font-size:14px;
+    line-height:1.5;
+    white-space:pre-wrap;
 }
 
 /* ================= MOBILE RESPONSIVE ================= */
 @media(max-width:768px){
+    .container{
+        padding:15px;
+        gap:15px;
+    }
+    
     .main-content{
         flex-direction:column;
+        gap:15px;
     }
-
+    
+    .left-panel, .center-panel, .right-panel{
+        flex:1;
+        width:100%;
+        min-height:auto;
+    }
+    
+    /* CENTER PANEL - HEIGHT INCREASED */
+    .center-panel{
+        height:520px !important;
+        min-height:520px;
+    }
+    
     #codeEditor{
-        height:520px;   /* 🔥 BIG editor for mobile typing */
-        font-size:15px;
+        height:400px !important;
+        min-height:400px;
+        font-size:16px;
+        padding:18px;
     }
-
+    
+    /* RIGHT PANEL - OPTIMIZED HEIGHT */
+    .right-panel{
+        height:320px;
+        min-height:320px;
+    }
+    
     #output{
         height:260px;
+        font-size:15px;
+        padding:18px;
+    }
+    
+    /* BETTER BUTTONS FOR MOBILE */
+    .nav-btns, .editor-header{
+        gap:10px;
+    }
+    
+    .nav-btns button, .editor-header button{
+        padding:16px 5px;
+        font-size:16px;
+    }
+    
+    /* QUESTION BOX IMPROVED FOR MOBILE */
+    #questionBox{
+        padding:18px;
+        font-size:17px;
+        min-height:300px;
+        max-height:400px;
+    }
+}
+
+/* ================= TABLET RESPONSIVE ================= */
+@media(min-width:769px) and (max-width:1024px){
+    .container{
+        padding:15px;
+    }
+    
+    .main-content{
+        flex-wrap:wrap;
+        min-height:auto;
+    }
+    
+    .left-panel{
+        flex:0 0 100%;
+        order:1;
+        margin-bottom:15px;
+    }
+    
+    .center-panel{
+        flex:0 0 55%;
+        order:2;
+    }
+    
+    .right-panel{
+        flex:0 0 43%;
+        order:3;
+    }
+    
+    #codeEditor{
+        height:500px;
+        min-height:500px;
     }
 }
 
@@ -201,15 +334,89 @@ body {
     background: url('../image/bg.svg');
     background-size: cover;
     background-position: center center;
-    padding: 40px 20px;
-    border-radius: 18px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    padding: 50px 30px;
+    border-radius: 20px;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.1);
     text-align: center;
     margin: 20px;
-    background-color: black;
+    background-color: #1e293b;
     color: white;
+    position: relative;
+    overflow: hidden;
 }
 
+.it-banner::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(30, 41, 59, 0.9) 0%, rgba(15, 23, 42, 0.95) 100%);
+}
+
+.it-banner h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    position: relative;
+    z-index: 1;
+}
+
+.it-banner p {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+    opacity: 0.9;
+    position: relative;
+    z-index: 1;
+}
+
+/* ================= LOADING INDICATOR ================= */
+.loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(59, 130, 246, 0.3);
+    border-radius: 50%;
+    border-top-color: #3b82f6;
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ================= SCROLLBAR STYLING ================= */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+/* ================= SUCCESS/ERROR MESSAGES ================= */
+.success-msg {
+    color: #10b981;
+    font-weight: 600;
+}
+
+.error-msg {
+    color: #ef4444;
+    font-weight: 600;
+}
 </style>
 </head>
 
@@ -233,26 +440,28 @@ body {
         <div class="question-counter" id="questionCounter">0/0</div>
     </div>
 
-    <div id="questionBox">Click Next to start</div>
+    <div id="questionBox">Click Next to start practicing!</div>
 
     <div class="nav-btns">
-        <button onclick="prevQ()">← Previous</button>
-        <button onclick="nextQ()">Next →</button>
+        <button onclick="prevQ()"><i class="fas fa-arrow-left"></i> Previous</button>
+        <button onclick="nextQ()">Next <i class="fas fa-arrow-right"></i></button>
     </div>
 </div>
 
 <!-- CENTER -->
 <div class="center-panel">
     <div class="editor-header">
-        <button onclick="loadAnswer()">Show Answer</button>
-        <button onclick="runCode()" style="background:blue;color:white;">▶ Run</button>
+        <button onclick="loadAnswer()"><i class="fas fa-lightbulb"></i> Show Answer</button>
+        <button onclick="runCode()"><i class="fas fa-play"></i> Run Code</button>
     </div>
-    <textarea id="codeEditor">print("Hello World")</textarea>
+    <textarea id="codeEditor" placeholder="# Write your Python code here...">print("Hello World!")</textarea>
 </div>
 
 <!-- RIGHT -->
 <div class="right-panel">
-    <div style="padding:15px;border-bottom:2px solid #e2e8f0"><b>Output</b></div>
+    <div style="padding:18px;border-bottom:2px solid #e2e8f0;background:#f8fafc;">
+        <b style="font-size:16px;"><i class="fas fa-terminal"></i> Output</b>
+    </div>
     <pre id="output"></pre>
 </div>
 
@@ -286,17 +495,21 @@ function showQuestion(){
     let imgHTML = "";
     if(q.image){
         imgHTML = `<img src="../admin/uploads/${q.image}"
-                    style="width:100%;margin:10px 0;border-radius:8px">`;
+                    style="width:100%;margin:15px 0;border-radius:10px;max-height:300px;object-fit:contain;background:#f1f5f9;padding:10px;">`;
     }
 
     document.getElementById("questionBox").innerHTML = `
-        <b>Chapter:</b> ${q.chapter}<br><br>
+        <div style="margin-bottom:15px;">
+            <span style="background:#e0f2fe;color:#0369a1;padding:6px 12px;border-radius:8px;font-weight:600;font-size:14px;">
+                Chapter: ${q.chapter}
+            </span>
+        </div>
         ${imgHTML}
-        <div>${q.question}</div>
+        <div style="margin-top:15px;font-size:17px;">${q.question}</div>
     `;
 
-    document.getElementById("codeEditor").value = "# Write your code here\n";
-    document.getElementById("output").textContent = "";
+    document.getElementById("codeEditor").value = "# Write your code here\n# Use the Run button to execute your code\n\n";
+    document.getElementById("output").textContent = "Output will appear here...";
     updateCounter();
 }
 
@@ -304,6 +517,8 @@ function nextQ(){
     if(index < questions.length-1){
         index++;
         showQuestion();
+    } else {
+        alert("🎉 You've completed all questions! Review your answers or refresh for a new set.");
     }
 }
 function prevQ(){
@@ -316,33 +531,114 @@ function prevQ(){
 function loadAnswer(){
     if(index >= 0){
         document.getElementById("codeEditor").value =
-            questions[index].answer || "# No answer";
+            questions[index].answer || "# No answer available";
+        document.getElementById("output").textContent = "Answer loaded. Click 'Run Code' to see the output.";
+    } else {
+        alert("Please select a question first!");
     }
 }
 
 // PYODIDE
 let pyodide;
-loadPyodide().then(p => pyodide = p);
+let pyodideLoading = false;
+
+async function initializePyodide() {
+    if (!pyodide && !pyodideLoading) {
+        pyodideLoading = true;
+        const output = document.getElementById("output");
+        output.innerHTML = `<span class="loading"></span> Initializing Python environment...`;
+        
+        try {
+            pyodide = await loadPyodide();
+            output.textContent = "✅ Python environment ready! You can now run your code.";
+            pyodideLoading = false;
+        } catch (error) {
+            output.textContent = `❌ Failed to load Python: ${error}`;
+            pyodideLoading = false;
+        }
+    }
+}
 
 async function runCode(){
-    try{
-        document.getElementById("output").textContent = "";
+    const code = document.getElementById("codeEditor").value;
+    const output = document.getElementById("output");
+    
+    if (!code.trim()) {
+        output.textContent = "⚠️ Please write some code before running!";
+        return;
+    }
+    
+    if (!pyodide) {
+        output.textContent = "🔄 Loading Python environment, please wait...";
+        await initializePyodide();
+        if (!pyodide) {
+            output.textContent = "❌ Python environment failed to load. Please refresh the page.";
+            return;
+        }
+    }
+    
+    try {
+        output.textContent = "🔄 Running your code...";
+        
         await pyodide.runPythonAsync(`
 import sys
 from js import document
-class O:
-    def write(self,s):
-        document.getElementById("output").textContent += s
-    def flush(self): pass
-sys.stdout = sys.stderr = O()
+
+class OutputCapture:
+    def write(self, text):
+        current = document.getElementById("output").textContent
+        if current.includes("Running your code..."):
+            document.getElementById("output").textContent = text
+        else:
+            document.getElementById("output").textContent += text
+    
+    def flush(self):
+        pass
+
+sys.stdout = OutputCapture()
+sys.stderr = OutputCapture()
 `);
-        await pyodide.runPythonAsync(
-            document.getElementById("codeEditor").value
-        );
-    }catch(e){
-        document.getElementById("output").textContent = e;
+        
+        await pyodide.runPythonAsync(code);
+        
+        if (output.textContent === "🔄 Running your code..." || output.textContent.trim() === "") {
+            output.textContent = "✅ Code executed successfully (no output).";
+        }
+        
+    } catch (error) {
+        output.textContent = `❌ Error:\n${error}`;
     }
 }
+
+// Initialize on page load
+document.addEventListener('DOMContentLoaded', function() {
+    initializePyodide();
+    
+    // Auto-select first question if available
+    if (questions.length > 0) {
+        index = 0;
+        showQuestion();
+    }
+    
+    // Add keyboard shortcuts
+    document.addEventListener('keydown', function(e) {
+        if (e.ctrlKey && e.key === 'Enter') {
+            runCode();
+        } else if (e.key === 'ArrowLeft' && e.ctrlKey) {
+            prevQ();
+        } else if (e.key === 'ArrowRight' && e.ctrlKey) {
+            nextQ();
+        }
+    });
+    
+    // Show keyboard shortcuts hint
+    setTimeout(() => {
+        const output = document.getElementById("output");
+        if (output && output.textContent.includes("will appear here")) {
+            output.textContent = "💡 Tip: Use Ctrl+Enter to run code, Ctrl+Arrow keys to navigate questions.";
+        }
+    }, 2000);
+});
 </script>
 
 </body>
