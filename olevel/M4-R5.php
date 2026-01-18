@@ -7,12 +7,13 @@ $subject_id = 4; // IOT (M4-R5)
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>M4-R5 (Internet of Things)</title>
+    <title>M4-R5 | Internet of Things</title>
 
+    <!-- Fonts & Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- SAME EXISTING CSS -->
+    <!-- Main CSS -->
     <link rel="stylesheet" href="style.css?v=<?php echo time(); ?>">
 </head>
 
@@ -22,31 +23,30 @@ $subject_id = 4; // IOT (M4-R5)
 
 <div class="page-wrapper">
 
-    <!-- BANNER -->
+    <!-- ================= BANNER ================= -->
     <section class="it-banner">
         <h1>Internet of Things MCQ Practice</h1>
         <p>
-            Practice updated MCQs based on the latest NIELIT syllabus.
-            Improve accuracy, speed, and confidence with topic-wise
-            Internet of Things questions designed for O Level students.
+            Practice updated MCQs based on the latest NIELIT O Level syllabus.
+            Topic-wise and exam-oriented IoT questions to boost confidence.
         </p>
     </section>
 
-    <!-- FEATURES -->
+    <!-- ================= FEATURES ================= -->
     <section class="features">
         <div class="feature-box">
             <h3>📘 Updated Syllabus</h3>
-            <p>MCQs strictly based on latest NIELIT O Level M4-R5 syllabus.</p>
+            <p>Strictly based on NIELIT O Level M4-R5 syllabus.</p>
         </div>
 
         <div class="feature-box">
-            <h3>📝 Topic-wise Practice</h3>
-            <p>Practice Internet of Things, Sensors, and Networking topics.</p>
+            <h3>📝 Chapter-wise Practice</h3>
+            <p>IoT concepts, sensors, devices & networking.</p>
         </div>
 
         <div class="feature-box">
-            <h3>⏱ Exam-Oriented</h3>
-            <p>Designed to improve speed, accuracy, and exam confidence.</p>
+            <h3>⏱ Exam Oriented</h3>
+            <p>Improve speed, accuracy & exam readiness.</p>
         </div>
     </section>
 </div>
@@ -57,41 +57,45 @@ $subject_id = 4; // IOT (M4-R5)
 
     <div class="cards-grid">
         <?php
-        $q = $conn->query("SELECT * FROM chapters WHERE subject_id=$subject_id");
+        $chapters = $conn->query("
+            SELECT * FROM chapters
+            WHERE subject_id = $subject_id
+            ORDER BY id ASC
+        ");
 
-        while ($ch = $q->fetch_assoc()) {
+        if ($chapters->num_rows > 0) {
+            while ($ch = $chapters->fetch_assoc()) {
 
-            $count = $conn->query("
-                SELECT COUNT(*) AS total
-                FROM chapter_questions
-                WHERE chapter_id = {$ch['id']}
-            ")->fetch_assoc();
+                $count = $conn->query("
+                    SELECT COUNT(*) AS total
+                    FROM chapter_questions
+                    WHERE chapter_id = {$ch['id']}
+                ")->fetch_assoc();
         ?>
             <div class="test-card">
-                <h3 style="font-weight:normal;"><?= htmlspecialchars($ch['chapter_name']); ?></h3>
+                <h3><?= htmlspecialchars($ch['chapter_name']); ?></h3>
                 <p>Total Questions: <b><?= $count['total']; ?></b></p>
 
                 <a class="start-btn"
                    href="../exam/chapter_exam.php?cid=<?= $ch['id']; ?>">
-                   Start Practice
+                    Start Practice
                 </a>
             </div>
-        <?php } ?>
+        <?php
+            }
+        } else {
+            echo "<p style='text-align:center;'>No chapters available.</p>";
+        }
+        ?>
     </div>
 </div>
 
-<!-- ================= MOCK TEST (FIXED LOGIC) ================= -->
+<!-- ================= MOCK TEST ================= -->
 <div class="container">
-    <h1>Mock Test</h1>
+    <h1>Mock Tests</h1>
 
     <div class="cards-grid">
         <?php
-        /*
-          Correct logic:
-          - questions table
-          - subject_id = 4
-          - group by set_id
-        */
         $tests = $conn->query("
             SELECT set_id, COUNT(*) AS total
             FROM questions
@@ -100,22 +104,24 @@ $subject_id = 4; // IOT (M4-R5)
             ORDER BY set_id ASC
         ");
 
-        while ($row = $tests->fetch_assoc()) {
+        if ($tests->num_rows > 0) {
+            while ($row = $tests->fetch_assoc()) {
         ?>
             <div class="test-card">
-                <h3 style="font-weight:normal;">Mock Test <?= $row['set_id']; ?></h3>
-
-                <p>
-                    This Mock Test Consists of
-                    <b><?= $row['total']; ?> Questions</b>
-                </p>
+                <h3>Mock Test <?= $row['set_id']; ?></h3>
+                <p>Total Questions: <b><?= $row['total']; ?></b></p>
 
                 <a class="start-btn"
                    href="../exam.php?sid=<?= $subject_id; ?>&setid=<?= $row['set_id']; ?>">
-                   Start Exam
+                    Start Exam
                 </a>
             </div>
-        <?php } ?>
+        <?php
+            }
+        } else {
+            echo "<p style='text-align:center;'>No mock tests available.</p>";
+        }
+        ?>
     </div>
 </div>
 
