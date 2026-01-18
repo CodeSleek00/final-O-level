@@ -1,8 +1,8 @@
 <?php
 include("../db_connect.php");
 
-// Fetch IoT questions from database
-$q = $conn->query("SELECT * FROM practical_questions WHERE subject='IoT' ORDER BY chapter, id");
+// Fetch C questions from database
+$q = $conn->query("SELECT * FROM practical_questions WHERE subject='C' ORDER BY chapter, id");
 $data = [];
 while($row = $q->fetch_assoc()){
     $data[] = $row;
@@ -13,7 +13,7 @@ while($row = $q->fetch_assoc()){
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>IoT Practice Portal</title>
+<title>C Practice Portal</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
@@ -82,8 +82,8 @@ body{font-family:'Poppins',sans-serif;background:#f8fafc;color:#1e293b;}
 <?php include 'navbar.html'; ?>
 
 <section class="it-banner">
-    <h1>IoT Code Practice</h1>
-    <p>Practice IoT coding questions (Python) based on NIELIT O-Level syllabus.</p>
+    <h1>C Code Practice</h1>
+    <p>Practice C programming questions based on NIELIT O-Level syllabus.</p>
 </section>
 
 <div class="container">
@@ -92,7 +92,7 @@ body{font-family:'Poppins',sans-serif;background:#f8fafc;color:#1e293b;}
 <!-- LEFT -->
 <div class="left-panel">
     <div class="question-header">
-        <h3>IoT Questions</h3>
+        <h3>C Questions</h3>
         <div class="question-counter" id="questionCounter">0/0</div>
     </div>
     <div id="questionBox"></div>
@@ -108,7 +108,12 @@ body{font-family:'Poppins',sans-serif;background:#f8fafc;color:#1e293b;}
         <button onclick="loadAnswer()">Show Answer</button>
         <button onclick="runCode()">▶ Run</button>
     </div>
-    <textarea id="codeEditor">print("Hello IoT World")</textarea>
+    <textarea id="codeEditor">#include &lt;stdio.h&gt;
+
+int main() {
+    printf("Hello C World\n");
+    return 0;
+}</textarea>
 </div>
 
 <!-- RIGHT -->
@@ -120,7 +125,8 @@ body{font-family:'Poppins',sans-serif;background:#f8fafc;color:#1e293b;}
 </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/pyodide/v0.23.4/full/pyodide.js"></script>
+<!-- C Compiler in Browser (using WebAssembly) -->
+<script src="https://unpkg.com/wasm-c-runner/dist/wasm-c-runner.js"></script>
 <script>
 const questions = <?= json_encode($data) ?>;
 
@@ -134,7 +140,6 @@ function shuffle(arr){
 shuffle(questions);
 
 let index = 0; // first question auto-load
-
 window.onload = () => { showQuestion(); };
 
 function updateCounter(){
@@ -153,22 +158,16 @@ function showQuestion(){
         ${img}
         ${q.question}
     `;
-    document.getElementById("codeEditor").value = "# Write your code here\n";
+    document.getElementById("codeEditor").value = q.answer || "# Write your code here\n";
     document.getElementById("output").textContent = "";
     updateCounter();
 }
 
 function nextQ(){
-    if(index < questions.length-1){
-        index++;
-        showQuestion();
-    }
+    if(index < questions.length-1){ index++; showQuestion(); }
 }
 function prevQ(){
-    if(index > 0){
-        index--;
-        showQuestion();
-    }
+    if(index > 0){ index--; showQuestion(); }
 }
 
 function loadAnswer(){
@@ -176,25 +175,13 @@ function loadAnswer(){
         questions[index].answer || "# No answer available";
 }
 
-/* PYODIDE */
-let pyodide;
-loadPyodide().then(p => pyodide = p);
-
+/* Run C code in browser using wasm-c-runner */
 async function runCode(){
+    const code = document.getElementById("codeEditor").value;
+    document.getElementById("output").textContent = "Running...";
     try{
-        document.getElementById("output").textContent = "";
-        await pyodide.runPythonAsync(`
-import sys
-from js import document
-class O:
-    def write(self,s):
-        document.getElementById("output").textContent += s
-    def flush(self): pass
-sys.stdout=sys.stderr=O()
-`);
-        await pyodide.runPythonAsync(
-            document.getElementById("codeEditor").value
-        );
+        const result = await WasmCRunner.runC(code);
+        document.getElementById("output").textContent = result;
     }catch(e){
         document.getElementById("output").textContent = e;
     }
