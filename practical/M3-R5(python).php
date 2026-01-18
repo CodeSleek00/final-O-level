@@ -159,18 +159,19 @@ body{
     font-family:monospace;
     overflow:auto;
 }
-
 /* BANNER */
-.it-banner{
-    background:url('../image/bg.svg');
-    background-size:cover;
-    padding:40px 20px;
-    border-radius:18px;
-    margin:20px;
-    color:white;
-    text-align:center;
-    background-color:black;
-}
+    .it-banner {
+        background: url('../image/bg.svg');
+        background-size: cover;
+        background-position: center center;
+        padding: 40px 20px;
+        border-radius: 18px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+        text-align: center;
+        margin: 20px;
+        background-color: black;
+        color: white;
+    }
 
 /* MOBILE FIX */
 @media(max-width:768px){
