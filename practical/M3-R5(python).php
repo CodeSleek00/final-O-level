@@ -63,10 +63,10 @@ body { font-family:'Poppins', sans-serif; background:#f8fafc; color:#1e293b; }
 <?php include 'navbar.html'; ?>
 <!-- BANNER -->
     <section class="it-banner">
-        <h1>JavaScript Code Practice</h1>
+        <h1>Python Code Practice</h1>
         <p>
-            Practice JavaScript coding challenges based on the latest NIELIT syllabus.
-            Improve your coding skills with practical JavaScript questions designed for O Level students.
+            Practice Python coding challenges based on the latest NIELIT syllabus.
+            Improve your coding skills with practical Python questions designed for O Level students.
         </p>
     </section>
 <div class="container">
