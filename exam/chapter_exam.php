@@ -272,23 +272,27 @@ $text = $q['option_'.strtolower($opt)];
 </div>
 
 <script>
-document.querySelectorAll('.question').forEach(q=>{
-    const correct = q.dataset.correct;
+document.querySelectorAll('.question').forEach(q => {
+    const correctLetter = q.dataset.correct; // e.g., 'A'
     const radios = q.querySelectorAll('input[type=radio]');
     const result = q.querySelector('.result');
 
-    radios.forEach(radio=>{
-        radio.addEventListener('change', ()=>{
-            if(radio.value === correct){
+    radios.forEach(radio => {
+        radio.addEventListener('change', () => {
+            if (radio.value === correctLetter) {
                 result.innerHTML = "✅ Correct Answer";
                 result.className = "result correct";
-            }else{
-                result.innerHTML = "❌ Wrong Answer | Correct: " + correct;
+            } else {
+                // Find the label text of the correct option
+                const correctOptionText = Array.from(radios).find(r => r.value === correctLetter)
+                                               .parentElement.textContent.trim();
+                result.innerHTML = "❌ Wrong Answer | Correct Answer: " + correctOptionText;
                 result.className = "result wrong";
             }
         });
     });
 });
+
 
 function toggleExplain(el){
     const exp = el.nextElementSibling;
