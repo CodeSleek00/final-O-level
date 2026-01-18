@@ -1,19 +1,23 @@
 <?php
 include '../db_connect.php';
-$subject_id = 3; // PYTHON (M3-R5)
+
+/* ONLY Python Programming */
+$subject_id = 3; // M3-R5 Python Programming
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>M3-R5 | Python Programming</title>
+    <title>M3-R5 | Python Programming MCQ Practice</title>
 
-    <!-- Fonts & Icons -->
+    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- Main CSS -->
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css?v=<?php echo time(); ?>">
 </head>
 
@@ -27,8 +31,9 @@ $subject_id = 3; // PYTHON (M3-R5)
     <section class="it-banner">
         <h1>Python Programming MCQ Practice</h1>
         <p>
-            Practice updated MCQs based on the latest NIELIT O Level syllabus.
-            Topic-wise and exam-oriented questions for better accuracy & confidence.
+            Practice updated MCQs based on the latest NIELIT syllabus.
+            Improve accuracy, speed, and confidence with topic-wise
+            Python Programming questions designed for O Level students.
         </p>
     </section>
 
@@ -36,19 +41,20 @@ $subject_id = 3; // PYTHON (M3-R5)
     <section class="features">
         <div class="feature-box">
             <h3>📘 Updated Syllabus</h3>
-            <p>Strictly based on NIELIT O Level M3-R5 syllabus.</p>
+            <p>MCQs strictly based on latest NIELIT O Level M1-R5 syllabus.</p>
         </div>
 
         <div class="feature-box">
-            <h3>📝 Chapter-wise Practice</h3>
-            <p>Each Python chapter covered with MCQs.</p>
+            <h3>📝 Topic-wise Practice</h3>
+            <p>Python basics, data structures, functions, and OOP concepts.</p>
         </div>
 
         <div class="feature-box">
-            <h3>⏱ Exam Oriented</h3>
-            <p>Improve speed, accuracy & confidence.</p>
+            <h3>⏱ Exam-Oriented</h3>
+            <p>Designed to improve speed, accuracy, and exam confidence.</p>
         </div>
     </section>
+
 </div>
 
 <!-- ================= CHAPTER WISE PRACTICE ================= -->
@@ -57,34 +63,39 @@ $subject_id = 3; // PYTHON (M3-R5)
 
     <div class="cards-grid">
         <?php
+        /* 🔥 FIXED & CORRECT LOGIC (FROM YOUR OTHER PAGE) */
         $chapters = $conn->query("
-            SELECT * FROM chapters
-            WHERE subject_id = $subject_id
-            ORDER BY id ASC
+            SELECT c.id, c.chapter_name, COUNT(q.id) AS total_questions
+            FROM chapters c
+            LEFT JOIN chapter_questions q 
+                ON c.id = q.chapter_id 
+                AND q.subject_id = $subject_id
+            WHERE c.subject_id = $subject_id
+            GROUP BY c.id
+            HAVING total_questions > 0
+            ORDER BY c.id ASC
         ");
 
-        if ($chapters->num_rows > 0) {
+        if ($chapters && $chapters->num_rows > 0) {
             while ($ch = $chapters->fetch_assoc()) {
-
-                $count = $conn->query("
-                    SELECT COUNT(*) AS total
-                    FROM chapter_questions
-                    WHERE chapter_id = {$ch['id']}
-                ")->fetch_assoc();
         ?>
             <div class="test-card">
                 <h3><?= htmlspecialchars($ch['chapter_name']); ?></h3>
-                <p>Total Questions: <b><?= $count['total']; ?></b></p>
+
+                <p>
+                    Total Questions:
+                    <b><?= $ch['total_questions']; ?></b>
+                </p>
 
                 <a class="start-btn"
-                   href="../exam/chapter_exam.php?cid=<?= $ch['id']; ?>">
+                   href="../exam/chapter_exam.php?chapter_id=<?= $ch['id']; ?>&subject_id=<?= $subject_id; ?>">
                     Start Practice
                 </a>
             </div>
         <?php
             }
         } else {
-            echo "<p style='text-align:center;'>No chapters available.</p>";
+            echo "<p style='color:#666'>No chapters available.</p>";
         }
         ?>
     </div>
@@ -92,24 +103,28 @@ $subject_id = 3; // PYTHON (M3-R5)
 
 <!-- ================= MOCK TEST ================= -->
 <div class="container">
-    <h1>Mock Tests</h1>
+    <h1>Mock Test</h1>
 
     <div class="cards-grid">
         <?php
         $tests = $conn->query("
-            SELECT set_id, COUNT(*) AS total
+            SELECT set_id, COUNT(*) AS total_questions
             FROM questions
             WHERE subject_id = $subject_id
             GROUP BY set_id
             ORDER BY set_id ASC
         ");
 
-        if ($tests->num_rows > 0) {
+        if ($tests && $tests->num_rows > 0) {
             while ($row = $tests->fetch_assoc()) {
         ?>
             <div class="test-card">
                 <h3>Mock Test <?= $row['set_id']; ?></h3>
-                <p>Total Questions: <b><?= $row['total']; ?></b></p>
+
+                <p>
+                    Total Questions:
+                    <b><?= $row['total_questions']; ?></b>
+                </p>
 
                 <a class="start-btn"
                    href="../exam.php?sid=<?= $subject_id; ?>&setid=<?= $row['set_id']; ?>">
@@ -119,7 +134,7 @@ $subject_id = 3; // PYTHON (M3-R5)
         <?php
             }
         } else {
-            echo "<p style='text-align:center;'>No mock tests available.</p>";
+            echo "<p style='color:#666'>No mock tests available.</p>";
         }
         ?>
     </div>
