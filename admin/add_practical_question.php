@@ -9,13 +9,11 @@
             box-sizing:border-box;
             font-family:Segoe UI, Arial, sans-serif;
         }
-
         body{
             background:#f4f6f9;
             margin:0;
             padding:0;
         }
-
         .form-box{
             width:520px;
             margin:50px auto;
@@ -24,20 +22,17 @@
             border-radius:10px;
             box-shadow:0 10px 25px rgba(0,0,0,0.1);
         }
-
         h2{
             margin-bottom:15px;
             text-align:center;
             color:#333;
         }
-
         label{
             font-size:14px;
             color:#444;
             margin-top:10px;
             display:block;
         }
-
         select, textarea, input{
             width:100%;
             margin-top:6px;
@@ -46,13 +41,11 @@
             border-radius:6px;
             font-size:14px;
         }
-
         textarea{
             resize:vertical;
             min-height:90px;
             font-family:monospace;
         }
-
         button{
             margin-top:15px;
             width:100%;
@@ -64,7 +57,6 @@
             border-radius:6px;
             cursor:pointer;
         }
-
         button:hover{
             background:#0056b3;
         }
@@ -75,7 +67,7 @@
 <div class="form-box">
     <h2>Add Practical Question</h2>
 
-    <form action="save_question.php" method="POST">
+    <form action="save_question.php" method="POST" enctype="multipart/form-data">
 
         <label>Subject</label>
         <select name="subject" required>
@@ -91,13 +83,16 @@
         </select>
 
         <label>Chapter</label>
-        <input type="text" name="chapter" placeholder="e.g. Forms, Tables, Flexbox" required>
+        <input type="text" name="chapter" required>
 
         <label>Question</label>
-        <textarea name="question" placeholder="Write practical question here..." required></textarea>
+        <textarea name="question" required></textarea>
 
         <label>Answer (Code)</label>
-        <textarea name="answer" placeholder="Write full HTML / CSS / JS code here..."></textarea>
+        <textarea name="answer"></textarea>
+
+        <label>Question Image (optional)</label>
+        <input type="file" name="image" accept="image/*">
 
         <button type="submit">Save Question</button>
     </form>
