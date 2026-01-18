@@ -24,7 +24,7 @@ body{
     background:#f8fafc;
     color:#1e293b;
 }
-.container{padding:20px}
+.container{padding:20px;width: 98%;}
 .main-content{display:flex;gap:20px;min-height:600px}
 
 /* LEFT */
