@@ -20,7 +20,7 @@ while($row = $q->fetch_assoc()){
 /* 🔴 SAME DESIGN — NOT TOUCHED */
 * { margin:0; padding:0; box-sizing:border-box; }
 body { font-family:'Poppins', sans-serif; background:#f8fafc; color:#1e293b; }
-.container { display:flex; flex-direction:column; padding:20px; gap:20px; }
+.container { display:flex; flex-direction:column; padding:20px; gap:20px; width: 98%;}
 .main-content { display:flex; gap:20px; min-height:800px; }
 
 .left-panel{flex:0 0 30%;background:white;border-radius:12px;padding:20px;box-shadow:0 4px 6px rgba(0,0,0,0.1);display:flex;flex-direction:column;}
