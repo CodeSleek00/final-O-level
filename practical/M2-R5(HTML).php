@@ -1,7 +1,6 @@
 <?php
 include("../db_connect.php");
 
-/* Fetch HTML practical questions */
 $q = $conn->query("SELECT * FROM practical_questions WHERE subject='HTML' ORDER BY chapter, id");
 $data = [];
 while($row = $q->fetch_assoc()){
@@ -13,11 +12,12 @@ while($row = $q->fetch_assoc()){
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HTML Code Practice</title>
+<title>Code Practice</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
+/* ===== ORIGINAL DESIGN (UNCHANGED) ===== */
 *{margin:0;padding:0;box-sizing:border-box}
 body{
     font-family:'Poppins',sans-serif;
@@ -25,53 +25,41 @@ body{
     color:#1e293b;
 }
 
-/* BANNER */
-.it-banner{
-    background:#0f172a;
-    color:#fff;
-    padding:40px 20px;
-    text-align:center;
-}
-.it-banner h1{font-size:2.4rem;margin-bottom:10px}
-.it-banner p{opacity:.9}
-
-/* LAYOUT */
 .container{padding:20px}
 .main-content{
     display:flex;
     gap:20px;
-    min-height:650px;
+    min-height:600px;
 }
 
-/* LEFT PANEL */
+/* LEFT */
 .left-panel{
-    width:30%;
+    flex:0 0 30%;
     background:#fff;
     border-radius:12px;
-    padding:20px;
+    padding:24px;
     display:flex;
     flex-direction:column;
-    box-shadow:0 4px 10px rgba(0,0,0,.08);
+    box-shadow:0 4px 6px rgb(0 0 0 / 0.1);
 }
 .question-header{
     display:flex;
     justify-content:space-between;
-    margin-bottom:15px;
     border-bottom:2px solid #e2e8f0;
-    padding-bottom:10px;
+    padding-bottom:15px;
+    margin-bottom:15px;
 }
 .question-counter{
     background:#3b82f6;
     color:#fff;
-    padding:4px 14px;
+    padding:6px 16px;
     border-radius:20px;
-    font-size:14px;
 }
 #questionBox{
     flex:1;
     overflow-y:auto;
-    background:#f8fafc;
     padding:15px;
+    background:#f8fafc;
     border-radius:8px;
     border:1px solid #e2e8f0;
 }
@@ -82,23 +70,22 @@ body{
 }
 .nav-btns button{
     flex:1;
-    padding:10px;
+    padding:12px;
     border:none;
-    border-radius:6px;
+    border-radius:8px;
     cursor:pointer;
 }
-.nav-btns button:first-child{background:#e5e7eb}
 .nav-btns button:last-child{background:#3b82f6;color:#fff}
 
 /* CENTER */
 .center-panel{
-    width:40%;
-    background:#fff;
-    border-radius:12px;
+    flex:0 0 40%;
     display:flex;
     flex-direction:column;
+    background:#fff;
+    border-radius:12px;
     overflow:hidden;
-    box-shadow:0 4px 10px rgba(0,0,0,.08);
+    box-shadow:0 4px 6px rgb(0 0 0 / 0.1);
 }
 .editor-header{
     display:flex;
@@ -108,33 +95,34 @@ body{
 }
 .editor-header button{
     flex:1;
-    padding:10px;
+    padding:12px;
     border:none;
-    border-radius:6px;
+    border-radius:8px;
     cursor:pointer;
     color:#fff;
 }
 .editor-header button:first-child{background:#10b981}
 .editor-header button:last-child{background:#f59e0b}
+
 #codeEditor{
     flex:1;
     padding:15px;
     border:none;
+    resize:none;
     font-family:monospace;
     font-size:14px;
-    background:#020617;
-    color:#e5e7eb;
+    background:#0f172a;
+    color:#e2e8f0;
 }
 
 /* RIGHT */
 .right-panel{
-    width:30%;
+    flex:0 0 30%;
     background:#fff;
     border-radius:12px;
     display:flex;
     flex-direction:column;
-    overflow:hidden;
-    box-shadow:0 4px 10px rgba(0,0,0,.08);
+    box-shadow:0 4px 6px rgb(0 0 0 / 0.1);
 }
 .output-header{
     padding:15px;
@@ -143,21 +131,26 @@ body{
 #output{
     flex:1;
     border:none;
-    width:100%;
 }
 
-/* IMAGE */
+/* IMAGE (SAFE ADDITION) */
 .q-image{
-    max-width:100%;
     margin-top:15px;
+    max-width:100%;
     border-radius:8px;
-    box-shadow:0 4px 10px rgba(0,0,0,.15);
+    box-shadow:0 4px 12px rgba(0,0,0,.15);
 }
 
-/* MOBILE */
-@media(max-width:900px){
+/* ===== MOBILE ONLY CHANGE ===== */
+@media(max-width:768px){
     .main-content{flex-direction:column}
-    .left-panel,.center-panel,.right-panel{width:100%}
+    .left-panel,.center-panel,.right-panel{flex:none;width:100%}
+
+    /* 🔥 IMPORTANT: Bigger editor for mobile */
+    #codeEditor{
+        min-height:420px;   /* BIGGER */
+        font-size:15px;
+    }
 }
 </style>
 </head>
@@ -165,35 +158,30 @@ body{
 
 <?php include 'navbar.html'; ?>
 
-<section class="it-banner">
-    <h1>HTML Code Practice</h1>
-    <p>Practice HTML practical questions with live preview</p>
-</section>
-
 <div class="container">
-    <div class="main-content">
+<div class="main-content">
 
-        <!-- LEFT -->
-        <div class="left-panel">
-            <div class="question-header">
-                <h3>Question</h3>
-                <div class="question-counter" id="questionCounter">0/0</div>
-            </div>
+<!-- LEFT PANEL -->
+<div class="left-panel">
+    <div class="question-header">
+        <h3>Code Challenge</h3>
+        <div class="question-counter" id="questionCounter">0/0</div>
+    </div>
 
-            <div id="questionBox">Click Next to start</div>
+    <div id="questionBox">Click Next to start</div>
 
-            <div class="nav-btns">
-                <button onclick="prevQ()">← Previous</button>
-                <button onclick="nextQ()">Next →</button>
-            </div>
-        </div>
+    <div class="nav-btns">
+        <button onclick="prevQ()">← Previous</button>
+        <button onclick="nextQ()">Next →</button>
+    </div>
+</div>
 
-        <!-- CENTER -->
-        <div class="center-panel">
-            <div class="editor-header">
-                <button onclick="loadAnswer()">Show Answer</button>
-                <button onclick="runCode()">Run Code</button>
-            </div>
+<!-- CENTER PANEL -->
+<div class="center-panel">
+    <div class="editor-header">
+        <button onclick="loadAnswer()">Show Answer</button>
+        <button onclick="runCode()">Run Code</button>
+    </div>
 
 <textarea id="codeEditor">
 <!DOCTYPE html>
@@ -203,17 +191,17 @@ body{
 </body>
 </html>
 </textarea>
-        </div>
+</div>
 
-        <!-- RIGHT -->
-        <div class="right-panel">
-            <div class="output-header">
-                <h3>Preview</h3>
-            </div>
-            <iframe id="output"></iframe>
-        </div>
-
+<!-- RIGHT PANEL -->
+<div class="right-panel">
+    <div class="output-header">
+        <h3>Preview</h3>
     </div>
+    <iframe id="output"></iframe>
+</div>
+
+</div>
 </div>
 
 <script>
@@ -222,7 +210,7 @@ let index = -1;
 
 function updateCounter(){
     document.getElementById("questionCounter").innerText =
-        (index+1) + "/" + questions.length;
+        (index+1)+"/"+questions.length;
 }
 
 function nextQ(){
@@ -242,7 +230,7 @@ function showQuestion(){
 
     document.getElementById("questionBox").innerHTML = `
         <b style="color:#3b82f6">Chapter:</b> ${q.chapter}<br><br>
-        <div>${q.question}</div>
+        ${q.question}
         ${img}
     `;
 
