@@ -17,7 +17,7 @@ if(!$data){
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Python Practical</title>
+<title>O Level Practical Questions</title>
 <style>
 body{
     font-family:Segoe UI, Arial;
