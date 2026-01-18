@@ -1,13 +1,40 @@
 <?php
 include("../db_connect.php");
 
-// Fetch C questions for M4-R5 IoT
+// =========================
+// HANDLE FORM SUBMISSION
+// =========================
+if(isset($_POST['add_question'])){
+    $chapter = $_POST['chapter'];
+    $question = $_POST['question'];
+    $answer = $_POST['answer'];
+    $subject = 'C';
+
+    // Optional image upload
+    $imageName = '';
+    if(isset($_FILES['image']) && $_FILES['image']['name'] != ''){
+        $imageName = time().'_'.$_FILES['image']['name'];
+        move_uploaded_file($_FILES['image']['tmp_name'], "../admin/uploads/".$imageName);
+    }
+
+    $stmt = $conn->prepare("INSERT INTO practical_questions (subject, chapter, question, answer, image) VALUES (?, ?, ?, ?, ?)");
+    $stmt->bind_param("sssss", $subject, $chapter, $question, $answer, $imageName);
+    $stmt->execute();
+    $stmt->close();
+
+    echo "<script>alert('Question added successfully');window.location='iot_c_portal.php';</script>";
+}
+
+// =========================
+// FETCH QUESTIONS
+// =========================
 $q = $conn->query("SELECT * FROM practical_questions WHERE subject='C' ORDER BY chapter,id");
 $data = [];
 while($row = $q->fetch_assoc()){
     $data[] = $row;
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,6 +46,7 @@ while($row = $q->fetch_assoc()){
 *{margin:0;padding:0;box-sizing:border-box;}
 body{font-family:'Poppins',sans-serif;background:#f8fafc;color:#1e293b;}
 .container{width:98%;margin:auto;}
+.section{padding:20px;background:#f1f5f9;margin:20px;border-radius:12px;}
 .main-content{display:flex;gap:20px;min-height:600px;}
 .left-panel{flex:0 0 30%;background:#fff;border-radius:12px;padding:20px;box-shadow:0 4px 6px rgba(0,0,0,0.1);display:flex;flex-direction:column;}
 .question-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;border-bottom:2px solid #e2e8f0;padding-bottom:8px;}
@@ -39,6 +67,8 @@ body{font-family:'Poppins',sans-serif;background:#f8fafc;color:#1e293b;}
 #codeEditor{flex:1;background:#0f172a;color:#e2e8f0;border:none;resize:none;padding:15px;font-family:monospace;font-size:14px;}
 .right-panel{flex:0 0 35%;background:white;border-radius:12px;display:flex;flex-direction:column;box-shadow:0 4px 6px rgba(0,0,0,0.1);}
 #outputFrame{flex:1;border:none;border-top:2px solid #e2e8f0;padding:15px;overflow:auto;}
+form input,form textarea{margin:5px 0;padding:8px;width:100%;border:1px solid #ccc;border-radius:6px;}
+form button{margin-top:8px;}
 @media(max-width:768px){.main-content{flex-direction:column;}.left-panel,.center-panel,.right-panel{flex:1;}.center-panel{min-height:300px;}#codeEditor{height:250px;font-size:14px;}#outputFrame{height:200px;}}
 </style>
 </head>
@@ -46,11 +76,19 @@ body{font-family:'Poppins',sans-serif;background:#f8fafc;color:#1e293b;}
 
 <?php include 'navbar.html'; ?>
 
-<section style="padding:20px;text-align:center;background:black;color:white;border-radius:12px;margin:20px;">
-    <h1>M4-R5 IoT C Practice Portal</h1>
-    <p>Practice C programming questions for IoT. Click Run to execute code externally.</p>
-</section>
+<!-- ADD QUESTION FORM -->
+<div class="section">
+<h3>Add C Question (Admin)</h3>
+<form method="POST" enctype="multipart/form-data">
+    <input type="text" name="chapter" placeholder="Chapter" required>
+    <textarea name="question" placeholder="Question" required></textarea>
+    <textarea name="answer" placeholder="Answer / Code"></textarea>
+    <input type="file" name="image">
+    <button type="submit" name="add_question" style="background:#2563eb;color:white;border:none;padding:10px 15px;border-radius:8px;cursor:pointer;">Add Question</button>
+</form>
+</div>
 
+<!-- MAIN PORTAL -->
 <div class="container">
 <div class="main-content">
 
