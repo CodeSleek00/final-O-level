@@ -1,8 +1,8 @@
 <?php
 include '../db_connect.php';
 
-/* SUBJECT ID */
-$subject_id = 2; // M2-R5 (Web Designing & Publishing)
+/* ONLY IT TOOLS */
+$subject_id = 2; // M2-R5 Web Designing & Publishing
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,7 +17,7 @@ $subject_id = 2; // M2-R5 (Web Designing & Publishing)
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- SAME CSS -->
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css?v=<?php echo time(); ?>">
 </head>
 
@@ -41,12 +41,12 @@ $subject_id = 2; // M2-R5 (Web Designing & Publishing)
     <section class="features">
         <div class="feature-box">
             <h3>📘 Updated Syllabus</h3>
-            <p>MCQs strictly based on latest NIELIT O Level M2-R5 syllabus.</p>
+            <p>MCQs strictly based on latest NIELIT O Level M1-R5 syllabus.</p>
         </div>
 
         <div class="feature-box">
             <h3>📝 Topic-wise Practice</h3>
-            <p>Practice HTML, CSS, JavaScript and Web Designing topics.</p>
+            <p>HTML,CSS,JS Internet & Web Designing & Publishing.</p>
         </div>
 
         <div class="feature-box">
@@ -63,20 +63,13 @@ $subject_id = 2; // M2-R5 (Web Designing & Publishing)
 
     <div class="cards-grid">
         <?php
-        /* 
-          CORRECT LOGIC:
-          - chapters table
-          - join with chapter_questions
-          - same subject_id
-          - show only chapters having questions
-        */
-
+        /* 🔥 FIXED & CORRECT LOGIC (FROM YOUR OTHER PAGE) */
         $chapters = $conn->query("
             SELECT c.id, c.chapter_name, COUNT(q.id) AS total_questions
             FROM chapters c
             LEFT JOIN chapter_questions q 
                 ON c.id = q.chapter_id 
-               AND q.subject_id = c.subject_id
+                AND q.subject_id = $subject_id
             WHERE c.subject_id = $subject_id
             GROUP BY c.id
             HAVING total_questions > 0
@@ -86,25 +79,23 @@ $subject_id = 2; // M2-R5 (Web Designing & Publishing)
         if ($chapters && $chapters->num_rows > 0) {
             while ($ch = $chapters->fetch_assoc()) {
         ?>
-                <div class="test-card">
-                    <h3 style="font-weight:normal;">
-                        <?= htmlspecialchars($ch['chapter_name']); ?>
-                    </h3>
+            <div class="test-card">
+                <h3><?= htmlspecialchars($ch['chapter_name']); ?></h3>
 
-                    <p>
-                        Total Questions:
-                        <b><?= $ch['total_questions']; ?></b>
-                    </p>
+                <p>
+                    Total Questions:
+                    <b><?= $ch['total_questions']; ?></b>
+                </p>
 
-                    <a class="start-btn"
-                       href="../exam/chapter_exam.php?cid=<?= intval($ch['id']); ?>">
-                        Start Practice
-                    </a>
-                </div>
+                <a class="start-btn"
+                   href="../exam/chapter_exam.php?chapter_id=<?= $ch['id']; ?>&subject_id=<?= $subject_id; ?>">
+                    Start Practice
+                </a>
+            </div>
         <?php
             }
         } else {
-            echo "<p style='color:#777'>No chapters available for this subject.</p>";
+            echo "<p style='color:#666'>No chapters available.</p>";
         }
         ?>
     </div>
@@ -116,12 +107,6 @@ $subject_id = 2; // M2-R5 (Web Designing & Publishing)
 
     <div class="cards-grid">
         <?php
-        /*
-          Correct logic:
-          - questions table
-          - subject_id filter
-          - set_id grouping
-        */
         $tests = $conn->query("
             SELECT set_id, COUNT(*) AS total_questions
             FROM questions
@@ -133,25 +118,23 @@ $subject_id = 2; // M2-R5 (Web Designing & Publishing)
         if ($tests && $tests->num_rows > 0) {
             while ($row = $tests->fetch_assoc()) {
         ?>
-                <div class="test-card">
-                    <h3 style="font-weight:normal;">
-                        Mock Test <?= $row['set_id']; ?>
-                    </h3>
+            <div class="test-card">
+                <h3>Mock Test <?= $row['set_id']; ?></h3>
 
-                    <p>
-                        This Mock Test Consists of
-                        <b><?= $row['total_questions']; ?> Questions</b>
-                    </p>
+                <p>
+                    Total Questions:
+                    <b><?= $row['total_questions']; ?></b>
+                </p>
 
-                    <a class="start-btn"
-                       href="../exam.php?sid=<?= $subject_id; ?>&setid=<?= $row['set_id']; ?>">
-                        Start Exam
-                    </a>
-                </div>
+                <a class="start-btn"
+                   href="../exam.php?sid=<?= $subject_id; ?>&setid=<?= $row['set_id']; ?>">
+                    Start Exam
+                </a>
+            </div>
         <?php
             }
         } else {
-            echo "<p style='color:#777'>No mock tests available.</p>";
+            echo "<p style='color:#666'>No mock tests available.</p>";
         }
         ?>
     </div>
