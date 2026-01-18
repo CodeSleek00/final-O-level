@@ -80,7 +80,7 @@ $subject_id = 4; // M4-R5 IOT - Internet Of Things
             while ($ch = $chapters->fetch_assoc()) {
         ?>
             <div class="test-card">
-                <h3><?= htmlspecialchars($ch['chapter_name']); ?></h3>
+                <h3 style="font-weight:normal;"><?= htmlspecialchars($ch['chapter_name']); ?></h3>
 
                 <p>
                     Total Questions:
@@ -119,7 +119,7 @@ $subject_id = 4; // M4-R5 IOT - Internet Of Things
             while ($row = $tests->fetch_assoc()) {
         ?>
             <div class="test-card">
-                <h3>Mock Test <?= $row['set_id']; ?></h3>
+                <h3 style="font-weight:normal;">Mock Test <?= $row['set_id']; ?></h3>
 
                 <p>
                     Total Questions:
