@@ -60,8 +60,8 @@ body{
 .side-banner{
     position:fixed;
     top:90px;
-    width:160px;
-    height:520px;
+    width:230px;
+    height:720px;
     background:#e5efff;
     display:flex;
     align-items:center;
