@@ -53,7 +53,7 @@ while($q = $questions->fetch_assoc()):
     endif;
 ?>
     <div class="question-item"
-         onclick="window.location.href='answer.php?id=<?= $q['id'] ?>'">
+         onclick="window.location.href='view.php?id=<?= $q['id'] ?>'">
         <?= htmlspecialchars($q['question']) ?>
     </div>
 <?php endwhile; ?>

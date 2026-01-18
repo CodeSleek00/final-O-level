@@ -1,34 +1,39 @@
 <?php
 include("../db_connect.php");
 
-if(!isset($_GET['id'])){
-    die("Invalid Request");
+$id = $_GET['id'] ?? '';
+if(!$id){
+    echo "Invalid Question"; exit;
 }
 
-$id = intval($_GET['id']);
-$q = $conn->query("SELECT * FROM practical_questions WHERE id=$id");
+$q = $conn->query("SELECT * FROM practical_questions WHERE id='{$id}'");
 $data = $q->fetch_assoc();
 
 if(!$data){
-    die("Question not found");
+    echo "Question not found"; exit;
 }
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>O Level Practical Questions</title>
+<title>Answer</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 body{
-    font-family:Segoe UI, Arial;
-    background:#f4f6f9;
-    padding:20px;
+    font-family:'Poppins',sans-serif;
+    background:#f8fafc;
+    margin:0;
+    padding:30px;
+    color:#1e293b;
 }
 .box{
-    background:#fff;
-    padding:20px;
-    border-radius:8px;
-    box-shadow:0 3px 10px rgba(0,0,0,.1);
+    background:white;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.08);
+    max-width:900px;
+    margin:auto;
 }
 .question{
     font-size:18px;
@@ -36,30 +41,31 @@ body{
     margin-bottom:15px;
 }
 .answer{
-    background:#f9f9f9;
+    background:#f1f5f9;
     padding:15px;
-    border-left:4px solid #0066cc;
+    border-left:4px solid #3b82f6;
     white-space:pre-wrap;
+    font-family:monospace;
 }
 .back{
-    margin-top:20px;
+    margin-bottom:20px;
     display:inline-block;
-    color:#0066cc;
+    color:#2563eb;
+    text-decoration:none;
 }
 </style>
 </head>
 <body>
 
+<a class="back" href="questions.php?subject=<?= urlencode($data['subject']) ?>">← Back to Questions</a>
+
 <div class="box">
     <div class="question">
-        📌 <?php echo htmlspecialchars($data['question']); ?>
+        <?= htmlspecialchars($data['question']) ?>
     </div>
-
     <div class="answer">
-        <?php echo htmlspecialchars($data['answer']); ?>
+        <?= htmlspecialchars($data['answer']) ?>
     </div>
-
-    <a class="back" href="python_practicals.php">← Back to Practicals</a>
 </div>
 
 </body>
