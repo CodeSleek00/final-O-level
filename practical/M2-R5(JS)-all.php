@@ -12,7 +12,7 @@ while($row = $q->fetch_assoc()){
 <html>
 <head>
 <meta charset="UTF-8">
-<title>HTML Practical Questions - All</title>
+<title>JavaScript Practical Questions - All</title>
 <style>
 body{
     font-family:Segoe UI, Arial;
@@ -47,7 +47,7 @@ a:hover{
 </head>
 <body>
 
-<h1> CSS Practical Questions</h1>
+<h1> JavaScript Practical Questions</h1>
 
 <?php foreach($questions as $chapter => $rows){ ?>
 <div class="chapter">
