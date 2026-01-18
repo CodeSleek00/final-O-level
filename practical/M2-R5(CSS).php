@@ -12,7 +12,7 @@ while($row = $q->fetch_assoc()){
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HTML || O level Practice</title>
+<title>CSS || O level Practice</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
@@ -78,10 +78,10 @@ body{
 <?php include 'navbar.html'; ?>
 <!-- BANNER -->
     <section class="it-banner">
-        <h1>HTML Code Practice</h1>
+        <h1>CSS Code Practice</h1>
         <p>
-            Practice HTML coding challenges based on the latest NIELIT syllabus.
-            Improve your coding skills with practical HTML questions designed for O Level students.
+            Practice CSS coding challenges based on the latest NIELIT syllabus.
+            Improve your coding skills with practical CSS questions designed for O Level students.
         </p>
     </section>
 <div class="container">
