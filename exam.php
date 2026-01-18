@@ -515,6 +515,13 @@ if(isset($sid)) {
                 <?php } ?>
 
                 <div class="navigation">
+                    <div class="timer">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                        <span id="timer-display">60:00</span>
+                    </div>
                     
                     <button type="button" class="nav-btn btn-prev" onclick="prevQuestion()">
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -540,6 +547,28 @@ if(isset($sid)) {
 </div>
 
 <script>
+let current = 0;
+const total = <?= $total ?>;
+let attempted = new Set();
+let timeLeft = 60 * 60; // 60 minutes in seconds
+
+// Timer functionality
+function updateTimer() {
+    const minutes = Math.floor(timeLeft / 60);
+    const seconds = timeLeft % 60;
+    document.getElementById('timer-display').textContent = 
+        `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+    
+    if (timeLeft > 0) {
+        timeLeft--;
+    } else {
+        // Auto-submit when time runs out
+        document.getElementById('mockForm').submit();
+    }
+}
+
+// Update timer every second
+setInterval(updateTimer, 1000);
 
 function showQuestion(index) {
     // Hide current question
