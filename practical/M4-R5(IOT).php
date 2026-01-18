@@ -51,7 +51,7 @@ a:hover{
 
 <?php foreach($questions as $chapter => $rows){ ?>
 <div class="chapter">
-    <h2>Chapter <?php echo htmlspecialchars($chapter); ?></h2>
+    <h2>Chapter - <?php echo htmlspecialchars($chapter); ?></h2>
     <ul>
         <?php foreach($rows as $q){ ?>
         <li>
