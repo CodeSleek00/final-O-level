@@ -425,7 +425,23 @@ $total = count($questions);
     <!-- Header -->
     <div class="header">
         <h1>Mock Test</h1>
-        <div class="subtitle">Subject ID: <?= $sid ?> | Set ID: <?= $setid ?> | Total Questions: <?= $total ?></div>
+       <?php
+// Fetch subject name using $sid
+$subject_name = '';
+if(isset($sid)) {
+    $sub_q = $conn->query("SELECT subject_name FROM subjects WHERE id = $sid");
+    if($sub_q->num_rows > 0){
+        $subject_name = $sub_q->fetch_assoc()['subject_name'];
+    } else {
+        $subject_name = "Unknown Subject";
+    }
+}
+?>
+
+<div class="subtitle">
+    Subject: <?= htmlspecialchars($subject_name) ?> | Total Questions: <?= $total ?>
+</div>
+
     </div>
     
     <!-- Main Content -->
