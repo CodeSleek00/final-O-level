@@ -286,7 +286,7 @@ document.querySelectorAll('.question').forEach(q => {
                 // Find the label text of the correct option
                 const correctOptionText = Array.from(radios).find(r => r.value === correctLetter)
                                                .parentElement.textContent.trim();
-                result.innerHTML = "❌ Wrong Answer | Correct Answer: " + correct + correctOptionText;
+                result.innerHTML = "❌ Wrong Answer | Correct Answer: " + correctOptionText;
                 result.className = "result wrong";
             }
         });
