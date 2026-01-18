@@ -1,7 +1,7 @@
 <?php
 include("../db_connect.php");
 
-// Fetch C questions for IoT
+// Fetch C questions for M4-R5 IoT
 $q = $conn->query("SELECT * FROM practical_questions WHERE subject='C' ORDER BY chapter,id");
 $data = [];
 while($row = $q->fetch_assoc()){
@@ -38,8 +38,8 @@ body{font-family:'Poppins',sans-serif;background:#f8fafc;color:#1e293b;}
 .editor-header button:last-child:hover{background:#16a34a;}
 #codeEditor{flex:1;background:#0f172a;color:#e2e8f0;border:none;resize:none;padding:15px;font-family:monospace;font-size:14px;}
 .right-panel{flex:0 0 35%;background:white;border-radius:12px;display:flex;flex-direction:column;box-shadow:0 4px 6px rgba(0,0,0,0.1);}
-#outputFrame{flex:1;border:none;border-top:2px solid #e2e8f0;}
-@media(max-width:768px){.main-content{flex-direction:column;}.left-panel,.center-panel,.right-panel{flex:1;}.center-panel{min-height:300px;}#codeEditor{height:250px;font-size:14px;}#outputFrame{height:300px;}}
+#outputFrame{flex:1;border:none;border-top:2px solid #e2e8f0;padding:15px;overflow:auto;}
+@media(max-width:768px){.main-content{flex-direction:column;}.left-panel,.center-panel,.right-panel{flex:1;}.center-panel{min-height:300px;}#codeEditor{height:250px;font-size:14px;}#outputFrame{height:200px;}}
 </style>
 </head>
 <body>
@@ -48,7 +48,7 @@ body{font-family:'Poppins',sans-serif;background:#f8fafc;color:#1e293b;}
 
 <section style="padding:20px;text-align:center;background:black;color:white;border-radius:12px;margin:20px;">
     <h1>M4-R5 IoT C Practice Portal</h1>
-    <p>Practice C programming questions for IoT. Click Run to execute code in external compiler.</p>
+    <p>Practice C programming questions for IoT. Click Run to execute code externally.</p>
 </section>
 
 <div class="container">
@@ -71,7 +71,7 @@ body{font-family:'Poppins',sans-serif;background:#f8fafc;color:#1e293b;}
 <div class="center-panel">
     <div class="editor-header">
         <button onclick="loadAnswer()">Show Answer</button>
-        <button onclick="runCode()">▶ Run</button>
+        <button onclick="runCode()">▶ Run Externally</button>
     </div>
     <textarea id="codeEditor">#include &lt;stdio.h&gt;
 int main(){printf("Hello IoT C World\n");return 0;}</textarea>
@@ -79,7 +79,9 @@ int main(){printf("Hello IoT C World\n");return 0;}</textarea>
 
 <!-- RIGHT PANEL -->
 <div class="right-panel">
-    <iframe id="outputFrame" src="https://replit.com/languages/c" width="100%"></iframe>
+    <div id="outputFrame">
+        <b>Instructions:</b> Click "Run Externally" to execute your code in a free online C compiler like Paiza.io.
+    </div>
 </div>
 
 </div>
@@ -88,21 +90,24 @@ int main(){printf("Hello IoT C World\n");return 0;}</textarea>
 <script>
 const questions = <?= json_encode($data) ?>;
 
-let index = 0;
-window.onload = ()=>{showQuestion();};
-
+// Shuffle questions once
 function shuffle(arr){for(let i=arr.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[arr[i],arr[j]]=[arr[j],arr[i]];}}
 shuffle(questions);
 
+let index = 0;
+window.onload = ()=>{showQuestion();};
+
 function updateCounter(){document.getElementById("questionCounter").innerText=(index+1)+"/"+questions.length;}
+
 function showQuestion(){
-    const q=questions[index];
+    const q = questions[index];
     if(!q) return;
     let img = q?.image ? `<img src="../admin/uploads/${q.image}" style="width:100%;margin:10px 0;border-radius:8px">` : "";
     document.getElementById("questionBox").innerHTML=`<b>Chapter:</b> ${q.chapter || "N/A"}<br><br>${img}${q.question || "No question available"}`;
     document.getElementById("codeEditor").value=q.answer || "# Write your code here\n";
     updateCounter();
 }
+
 function nextQ(){if(index<questions.length-1){index++;showQuestion();}}
 function prevQ(){if(index>0){index--;showQuestion();}}
 function loadAnswer(){document.getElementById("codeEditor").value=questions[index].answer||"# No answer available";}
@@ -110,13 +115,9 @@ function loadAnswer(){document.getElementById("codeEditor").value=questions[inde
 // Run code in external compiler
 function runCode(){
     const code = document.getElementById("codeEditor").value;
-    const iframe = document.getElementById("outputFrame");
-
-    // Use repl.it C compiler link
-    // Open a new repl.it page with preloaded code
-    // This is a simple method for shared hosting
     const encodedCode = encodeURIComponent(code);
-    iframe.src = "https://replit.com/languages/c?code=" + encodedCode;
+    // Open Paiza.io in new tab with preloaded code
+    window.open("https://paiza.io/projects/new?language=c&source=" + encodedCode, "_blank");
 }
 </script>
 
