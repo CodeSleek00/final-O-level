@@ -1,90 +1,152 @@
 <?php
 include '../db_connect.php';
 
-// Get chapter ID from URL
+/* ===== GET CHAPTER ID ===== */
 $cid = isset($_GET['chapter_id']) ? intval($_GET['chapter_id']) : 0;
 if(!$cid){
-    die("<p style='text-align:center; margin-top:50px; font-size:18px; color:red;'>Invalid Chapter ID. <a href='chapter_list.php'>Go Back</a></p>");
+    die("Invalid Chapter ID");
 }
 
-/* ===== FETCH CHAPTER INFO ===== */
-$chapter_query = $conn->query("
+/* ===== PAGINATION ===== */
+$limit = 10;
+$page = isset($_GET['page']) ? max(1, intval($_GET['page'])) : 1;
+$offset = ($page - 1) * $limit;
+
+/* ===== CHAPTER INFO ===== */
+$chapter_q = $conn->query("
     SELECT c.chapter_name, s.subject_name
     FROM chapters c
     JOIN subjects s ON c.subject_id = s.id
     WHERE c.id = $cid
 ");
-
-if($chapter_query->num_rows == 0){
-    die("<p style='text-align:center; margin-top:50px; font-size:18px; color:red;'>Chapter not found. <a href='chapter_list.php'>Go Back</a></p>");
+if($chapter_q->num_rows == 0){
+    die("Chapter not found");
 }
+$chapter = $chapter_q->fetch_assoc();
 
-$chapter = $chapter_query->fetch_assoc();
+/* ===== TOTAL QUESTIONS ===== */
+$total_q = $conn->query("
+    SELECT COUNT(*) as total 
+    FROM chapter_questions 
+    WHERE chapter_id = $cid
+");
+$total = $total_q->fetch_assoc()['total'];
+$total_pages = ceil($total / $limit);
 
 /* ===== FETCH QUESTIONS ===== */
 $questions = $conn->query("
     SELECT * FROM chapter_questions
     WHERE chapter_id = $cid
+    LIMIT $limit OFFSET $offset
 ");
-
-if($questions->num_rows == 0){
-    die("<p style='text-align:center; margin-top:50px; font-size:18px; color:red;'>No questions found for this chapter. <a href='chapter_list.php'>Go Back</a></p>");
-}
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title><?= htmlspecialchars($chapter['chapter_name']); ?> | Chapter Practice</title>
+<title><?= htmlspecialchars($chapter['chapter_name']); ?> | Practice</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
-body {
+body{
+    margin:0;
     font-family:'Poppins',sans-serif;
     background:#f4f6f9;
-    margin:0;
 }
-.container {
+.container{
     max-width:900px;
-    margin:50px auto 80px auto;
-    padding:20px;
+    margin:40px auto 80px;
     background:#fff;
-    border-radius:16px;
+    padding:25px;
+    border-radius:18px;
     box-shadow:0 10px 30px rgba(0,0,0,.08);
 }
-h2 { margin-bottom:5px; }
-.subtitle {
-    color:#666;
+h2{
+    margin:0;
+}
+.subtitle{
     font-size:14px;
+    color:#64748b;
     margin-bottom:30px;
 }
-.question { margin-bottom:25px; }
-.question p { font-weight:500; }
-.options label {
+.question{
+    margin-bottom:30px;
+}
+.question p{
+    font-weight:500;
+}
+.options label{
     display:block;
     padding:10px 14px;
-    border:1px solid #ddd;
+    border:1px solid #e5e7eb;
     border-radius:8px;
     margin-bottom:10px;
     cursor:pointer;
+    transition:.2s;
 }
-.submit-btn {
+.options label:hover{
+    background:#f1f5f9;
+}
+.result{
+    margin-top:8px;
+    font-size:14px;
+}
+.correct{
+    background:#ecfdf5;
+    border:1px solid #10b981;
+    color:#065f46;
+    padding:8px;
+    border-radius:6px;
+}
+.wrong{
+    background:#fef2f2;
+    border:1px solid #ef4444;
+    color:#7f1d1d;
+    padding:8px;
+    border-radius:6px;
+}
+.explain-toggle{
+    font-size:13px;
+    color:#2563eb;
+    text-align:right;
+    cursor:pointer;
+    margin-top:6px;
+}
+.explanation{
+    display:none;
+    margin-top:10px;
+    background:#f8fafc;
+    padding:12px;
+    border-radius:10px;
+    font-size:14px;
+}
+.pagination{
+    display:flex;
+    justify-content:space-between;
+    margin-top:40px;
+}
+.page-btn{
+    padding:10px 22px;
+    border-radius:30px;
     background:#0d6efd;
     color:#fff;
-    border:none;
-    padding:14px 30px;
-    border-radius:30px;
-    font-size:16px;
-    cursor:pointer;
+    text-decoration:none;
+    font-size:14px;
 }
-.correct { background:#d4edda; border-color:#28a745; }
-.wrong { background:#f8d7da; border-color:#dc3545; }
-.explain { font-size:14px; color:#333; margin-top:8px; }
-.back-link { display:inline-block; margin-top:20px; color:#0d6efd; text-decoration:none; }
-.back-link:hover { text-decoration:underline; }
+.page-btn.disabled{
+    opacity:.4;
+    pointer-events:none;
+}
+.back{
+    display:inline-block;
+    margin-top:30px;
+    color:#2563eb;
+    text-decoration:none;
+    font-size:14px;
+}
 </style>
 </head>
 
@@ -93,49 +155,78 @@ h2 { margin-bottom:5px; }
 <div class="container">
 
 <h2><?= htmlspecialchars($chapter['chapter_name']); ?></h2>
-<div class="subtitle"><?= htmlspecialchars($chapter['subject_name']); ?> • Chapter-wise Practice</div>
+<div class="subtitle"><?= htmlspecialchars($chapter['subject_name']); ?> • Chapter Practice</div>
 
-<form method="post">
+<?php $i = $offset + 1; while($q = $questions->fetch_assoc()){ ?>
+<div class="question" data-correct="<?= $q['correct_option']; ?>">
 
-<?php $i=1; while($q = $questions->fetch_assoc()){ ?>
-<div class="question">
-    <p>Q<?= $i++; ?>. <?= htmlspecialchars($q['question']); ?></p>
+<p>Q<?= $i++; ?>. <?= htmlspecialchars($q['question']); ?></p>
 
-    <div class="options">
-        <?php foreach(['A','B','C','D'] as $opt):
-            $text = $q['option_'.strtolower($opt)];
-        ?>
-        <label>
-            <input type="radio" name="ans[<?= $q['id']; ?>]" value="<?= $opt; ?>">
-            <?= htmlspecialchars($text); ?>
-        </label>
-        <?php endforeach; ?>
-    </div>
+<div class="options">
+<?php foreach(['A','B','C','D'] as $opt):
+$text = $q['option_'.strtolower($opt)];
+?>
+<label>
+<input type="radio" name="q<?= $q['id']; ?>" value="<?= $opt; ?>">
+<?= htmlspecialchars($text); ?>
+</label>
+<?php endforeach; ?>
+</div>
 
-    <?php
-    if(isset($_POST['submit'])){
-        $user = $_POST['ans'][$q['id']] ?? '';
-        $correct = $q['correct_option'];
+<div class="result"></div>
 
-        if($user){
-            echo $user == $correct
-                ? "<div class='explain correct'>✅ Correct</div>"
-                : "<div class='explain wrong'>❌ Wrong | Correct: $correct</div>";
-        }
-        if(!empty($q['explanation'])){
-            echo "<div class='explain'><b>Explanation:</b> ".htmlspecialchars($q['explanation'])."</div>";
-        }
-    }
-    ?>
+<?php if(!empty($q['explanation'])){ ?>
+<div class="explain-toggle" onclick="toggleExplain(this)">Show Explanation</div>
+<div class="explanation">
+<?= nl2br(htmlspecialchars($q['explanation'])); ?>
 </div>
 <?php } ?>
 
-<button class="submit-btn" name="submit">Submit Practice</button>
-</form>
+</div>
+<?php } ?>
 
-<a class="back-link" href="chapter_list.php">← Back to Chapters</a>
+<div class="pagination">
+<a class="page-btn <?= ($page<=1?'disabled':'') ?>" 
+   href="?chapter_id=<?= $cid ?>&page=<?= $page-1 ?>">← Previous</a>
+
+<a class="page-btn <?= ($page>=$total_pages?'disabled':'') ?>" 
+   href="?chapter_id=<?= $cid ?>&page=<?= $page+1 ?>">Next →</a>
+</div>
+
+<a class="back" href="chapter_list.php">← Back to Chapters</a>
 
 </div>
+
+<script>
+document.querySelectorAll('.question').forEach(q=>{
+    const correct = q.dataset.correct;
+    const radios = q.querySelectorAll('input[type=radio]');
+    const result = q.querySelector('.result');
+
+    radios.forEach(radio=>{
+        radio.addEventListener('change', ()=>{
+            if(radio.value === correct){
+                result.innerHTML = "✅ Correct Answer";
+                result.className = "result correct";
+            }else{
+                result.innerHTML = "❌ Wrong Answer | Correct: " + correct;
+                result.className = "result wrong";
+            }
+        });
+    });
+});
+
+function toggleExplain(el){
+    const exp = el.nextElementSibling;
+    if(exp.style.display === "block"){
+        exp.style.display = "none";
+        el.innerText = "Show Explanation";
+    }else{
+        exp.style.display = "block";
+        el.innerText = "Hide Explanation";
+    }
+}
+</script>
 
 </body>
 </html>
