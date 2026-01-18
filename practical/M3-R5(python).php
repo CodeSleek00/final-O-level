@@ -17,152 +17,133 @@ while($row = $q->fetch_assoc()){
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-    /* 🔴 SAME DESIGN — UPDATED UI ONLY */
-* {
+*{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
-
-body {
-    font-family:'Poppins', sans-serif;
+body{
+    font-family:'Poppins',sans-serif;
     background:#f8fafc;
     color:#1e293b;
 }
-
-.container {
-    display:flex;
-    flex-direction:column;
-    padding:20px;
-    gap:20px;
+.container{
     width:98%;
+    margin:auto;
 }
-
-.main-content {
+.main-content{
     display:flex;
     gap:20px;
     min-height:800px;
 }
 
-/* ================= LEFT PANEL ================= */
+/* LEFT PANEL */
 .left-panel{
     flex:0 0 30%;
-    background:white;
+    background:#fff;
     border-radius:12px;
     padding:20px;
     box-shadow:0 4px 6px rgba(0,0,0,0.1);
     display:flex;
     flex-direction:column;
 }
-
 .question-header{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    margin-bottom:15px;
+    margin-bottom:10px;
     border-bottom:2px solid #e2e8f0;
-    padding-bottom:10px;
+    padding-bottom:8px;
 }
-
 .question-counter{
     background:#3b82f6;
-    color:white;
+    color:#fff;
     padding:4px 12px;
     border-radius:20px;
     font-size:14px;
 }
-
 #questionBox{
     flex:1;
-    overflow-y:auto;
-    padding:15px;
+    overflow:auto;
     background:#f8fafc;
-    border-radius:8px;
     border:1px solid #e2e8f0;
+    padding:15px;
+    border-radius:8px;
 }
-
-/* NAV BUTTONS */
 .nav-btns{
     display:flex;
     gap:10px;
-    margin-top:auto;
+    margin-top:15px;
 }
-
 .nav-btns button{
     flex:1;
     padding:10px;
     border:none;
     border-radius:8px;
     cursor:pointer;
-    background:#e5e7eb;
-    color:#1e293b;
     font-weight:500;
-    transition:0.3s;
 }
-
-.nav-btns button:hover{
-    background:#3b82f6;
+.nav-btns button:first-child{
+    background:#e5e7eb;
+}
+.nav-btns button:last-child{
+    background:#2563eb;
     color:white;
 }
+.nav-btns button:first-child:hover{
+    background:#cbd5e1;
+}
+.nav-btns button:last-child:hover{
+    background:#1d4ed8;
+}
 
-/* ================= CENTER PANEL ================= */
+/* CENTER PANEL */
 .center-panel{
     flex:0 0 40%;
-    display:flex;
-    flex-direction:column;
     background:white;
     border-radius:12px;
+    display:flex;
+    flex-direction:column;
     overflow:hidden;
     box-shadow:0 4px 6px rgba(0,0,0,0.1);
 }
-
 .editor-header{
     display:flex;
     gap:10px;
     padding:15px;
-    background:#f8fafc;
+    background:#f1f5f9;
     border-bottom:2px solid #e2e8f0;
 }
-
 .editor-header button{
     flex:1;
     padding:10px;
     border:none;
     border-radius:8px;
     cursor:pointer;
-    background:#e5e7eb;
-    color:#1e293b;
     font-weight:500;
-    transition:0.3s;
 }
-
-.editor-header button:hover{
+.editor-header button:first-child{
+    background:#e5e7eb;
+}
+.editor-header button:last-child{
     background:#22c55e;
     color:white;
 }
-
-/* RUN BUTTON */
-.editor-header button:last-child{
-    background:#2563eb !important;
-    color:white;
-}
-
 .editor-header button:last-child:hover{
-    background:#1d4ed8 !important;
+    background:#16a34a;
 }
-
 #codeEditor{
     flex:1;
-    padding:15px;
-    font-family:monospace;
     background:#0f172a;
     color:#e2e8f0;
-    font-size:14px;
     border:none;
     resize:none;
+    padding:15px;
+    font-family:monospace;
+    font-size:14px;
 }
 
-/* ================= RIGHT PANEL ================= */
+/* RIGHT PANEL */
 .right-panel{
     flex:0 0 30%;
     background:white;
@@ -171,58 +152,57 @@ body {
     flex-direction:column;
     box-shadow:0 4px 6px rgba(0,0,0,0.1);
 }
-
 #output{
     flex:1;
     padding:15px;
-    font-family:monospace;
     background:#f8fafc;
+    font-family:monospace;
     overflow:auto;
 }
 
-/* ================= MOBILE RESPONSIVE ================= */
+/* BANNER */
+.it-banner{
+    background:url('../image/bg.svg');
+    background-size:cover;
+    padding:40px 20px;
+    border-radius:18px;
+    margin:20px;
+    color:white;
+    text-align:center;
+    background-color:black;
+}
+
+/* MOBILE FIX */
 @media(max-width:768px){
     .main-content{
         flex-direction:column;
     }
-
+    .left-panel{
+        min-height:300px;
+    }
+    .center-panel{
+        min-height:520px;
+    }
     #codeEditor{
-        height:520px;   /* 🔥 BIG editor for mobile typing */
+        height:420px;
         font-size:15px;
     }
-
-    #output{
-        height:260px;
+    .right-panel{
+        min-height:260px;
     }
 }
-
-/* ================= BANNER ================= */
-.it-banner {
-    background: url('../image/bg.svg');
-    background-size: cover;
-    background-position: center center;
-    padding: 40px 20px;
-    border-radius: 18px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
-    text-align: center;
-    margin: 20px;
-    background-color: black;
-    color: white;
-}
-
 </style>
 </head>
 
 <body>
+
 <?php include 'navbar.html'; ?>
-<!-- BANNER -->
-    <section class="it-banner">
-        <h1>Python Code Practice</h1>
-        <p>
-            Practice Python coding challenges based on the latest NIELIT syllabus.
-            Improve your coding skills with practical Python questions designed for O Level students.
-        </p>
-    </section>
+
+<section class="it-banner">
+    <h1>Python Code Practice</h1>
+    <p>Practice Python coding questions based on NIELIT O-Level syllabus</p>
+</section>
+
 <div class="container">
 <div class="main-content">
 
@@ -232,9 +212,7 @@ body {
         <h3>Python Questions</h3>
         <div class="question-counter" id="questionCounter">0/0</div>
     </div>
-
-    <div id="questionBox">Click Next to start</div>
-
+    <div id="questionBox"></div>
     <div class="nav-btns">
         <button onclick="prevQ()">← Previous</button>
         <button onclick="nextQ()">Next →</button>
@@ -245,7 +223,7 @@ body {
 <div class="center-panel">
     <div class="editor-header">
         <button onclick="loadAnswer()">Show Answer</button>
-        <button onclick="runCode()" style="background:blue;color:white;">▶ Run</button>
+        <button onclick="runCode()">▶ Run</button>
     </div>
     <textarea id="codeEditor">print("Hello World")</textarea>
 </div>
@@ -264,37 +242,38 @@ body {
 <script>
 const questions = <?= json_encode($data) ?>;
 
-// 🔀 SHUFFLE ONLY ONCE
-function shuffle(array){
-    for(let i=array.length-1;i>0;i--){
+/* SHUFFLE QUESTIONS */
+function shuffle(arr){
+    for(let i=arr.length-1;i>0;i--){
         const j=Math.floor(Math.random()*(i+1));
-        [array[i],array[j]]=[array[j],array[i]];
+        [arr[i],arr[j]]=[arr[j],arr[i]];
     }
 }
 shuffle(questions);
 
-let index = -1;
+let index = 0;
+
+/* AUTO LOAD FIRST QUESTION */
+window.onload = () => {
+    showQuestion();
+};
 
 function updateCounter(){
-    document.getElementById("questionCounter").textContent =
-        `${index+1}/${questions.length}`;
+    document.getElementById("questionCounter").innerText =
+        (index+1)+"/"+questions.length;
 }
 
 function showQuestion(){
     const q = questions[index];
-
-    let imgHTML = "";
+    let img = "";
     if(q.image){
-        imgHTML = `<img src="../admin/uploads/${q.image}"
-                    style="width:100%;margin:10px 0;border-radius:8px">`;
+        img = `<img src="../admin/uploads/${q.image}" style="width:100%;margin:10px 0;border-radius:8px">`;
     }
-
     document.getElementById("questionBox").innerHTML = `
         <b>Chapter:</b> ${q.chapter}<br><br>
-        ${imgHTML}
-        <div>${q.question}</div>
+        ${img}
+        ${q.question}
     `;
-
     document.getElementById("codeEditor").value = "# Write your code here\n";
     document.getElementById("output").textContent = "";
     updateCounter();
@@ -314,13 +293,11 @@ function prevQ(){
 }
 
 function loadAnswer(){
-    if(index >= 0){
-        document.getElementById("codeEditor").value =
-            questions[index].answer || "# No answer";
-    }
+    document.getElementById("codeEditor").value =
+        questions[index].answer || "# No answer available";
 }
 
-// PYODIDE
+/* PYODIDE */
 let pyodide;
 loadPyodide().then(p => pyodide = p);
 
@@ -334,7 +311,7 @@ class O:
     def write(self,s):
         document.getElementById("output").textContent += s
     def flush(self): pass
-sys.stdout = sys.stderr = O()
+sys.stdout=sys.stderr=O()
 `);
         await pyodide.runPythonAsync(
             document.getElementById("codeEditor").value
