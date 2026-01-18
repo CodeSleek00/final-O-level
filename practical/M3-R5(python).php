@@ -17,45 +17,199 @@ while($row = $q->fetch_assoc()){
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-/* 🔴 SAME DESIGN — NOT TOUCHED */
-* { margin:0; padding:0; box-sizing:border-box; }
-body { font-family:'Poppins', sans-serif; background:#f8fafc; color:#1e293b; }
-.container { display:flex; flex-direction:column; padding:20px; gap:20px; width: 98%;}
-.main-content { display:flex; gap:20px; min-height:800px; }
-
-.left-panel{flex:0 0 30%;background:white;border-radius:12px;padding:20px;box-shadow:0 4px 6px rgba(0,0,0,0.1);display:flex;flex-direction:column;}
-.question-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:15px;border-bottom:2px solid #e2e8f0;padding-bottom:10px;}
-.question-counter{background:#3b82f6;color:white;padding:4px 12px;border-radius:20px;font-size:14px;}
-#questionBox{flex:1;overflow-y:auto;padding:15px;background:#f8fafc;border-radius:8px;border:1px solid #e2e8f0;}
-.nav-btns{display:flex;gap:10px;margin-top:auto;}
-.nav-btns button{flex:1;padding:10px;border:none;border-radius:8px;cursor:pointer;}
-
-.center-panel{flex:0 0 40%;display:flex;flex-direction:column;background:white;border-radius:12px;overflow:hidden;box-shadow:0 4px 6px rgba(0,0,0,0.1);}
-.editor-header{display:flex;gap:10px;padding:15px;background:#f8fafc;border-bottom:2px solid #e2e8f0;}
-.editor-header button{flex:1;padding:10px;border:none;border-radius:8px;cursor:pointer;}
-#codeEditor{flex:1;padding:15px;font-family:monospace;background:#0f172a;color:#e2e8f0;font-size:14px;}
-
-.right-panel{flex:0 0 30%;background:white;border-radius:12px;display:flex;flex-direction:column;box-shadow:0 4px 6px rgba(0,0,0,0.1);}
-#output{flex:1;padding:15px;font-family:monospace;background:#f8fafc;}
-
-@media(max-width:768px){
-.main-content{flex-direction:column;}
-#codeEditor{height:420px;} /* 📱 bigger editor */
-#output{height:220px;}
+    /* 🔴 SAME DESIGN — UPDATED UI ONLY */
+* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
- /* BANNER */
-    .it-banner {
-        background: url('../image/bg.svg');
-        background-size: cover;
-        background-position: center center;
-        padding: 40px 20px;
-        border-radius: 18px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.06);
-        text-align: center;
-        margin: 20px;
-        background-color: black;
-        color: white;
+
+body {
+    font-family:'Poppins', sans-serif;
+    background:#f8fafc;
+    color:#1e293b;
+}
+
+.container {
+    display:flex;
+    flex-direction:column;
+    padding:20px;
+    gap:20px;
+    width:98%;
+}
+
+.main-content {
+    display:flex;
+    gap:20px;
+    min-height:800px;
+}
+
+/* ================= LEFT PANEL ================= */
+.left-panel{
+    flex:0 0 30%;
+    background:white;
+    border-radius:12px;
+    padding:20px;
+    box-shadow:0 4px 6px rgba(0,0,0,0.1);
+    display:flex;
+    flex-direction:column;
+}
+
+.question-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:15px;
+    border-bottom:2px solid #e2e8f0;
+    padding-bottom:10px;
+}
+
+.question-counter{
+    background:#3b82f6;
+    color:white;
+    padding:4px 12px;
+    border-radius:20px;
+    font-size:14px;
+}
+
+#questionBox{
+    flex:1;
+    overflow-y:auto;
+    padding:15px;
+    background:#f8fafc;
+    border-radius:8px;
+    border:1px solid #e2e8f0;
+}
+
+/* NAV BUTTONS */
+.nav-btns{
+    display:flex;
+    gap:10px;
+    margin-top:auto;
+}
+
+.nav-btns button{
+    flex:1;
+    padding:10px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    background:#e5e7eb;
+    color:#1e293b;
+    font-weight:500;
+    transition:0.3s;
+}
+
+.nav-btns button:hover{
+    background:#3b82f6;
+    color:white;
+}
+
+/* ================= CENTER PANEL ================= */
+.center-panel{
+    flex:0 0 40%;
+    display:flex;
+    flex-direction:column;
+    background:white;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 4px 6px rgba(0,0,0,0.1);
+}
+
+.editor-header{
+    display:flex;
+    gap:10px;
+    padding:15px;
+    background:#f8fafc;
+    border-bottom:2px solid #e2e8f0;
+}
+
+.editor-header button{
+    flex:1;
+    padding:10px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    background:#e5e7eb;
+    color:#1e293b;
+    font-weight:500;
+    transition:0.3s;
+}
+
+.editor-header button:hover{
+    background:#22c55e;
+    color:white;
+}
+
+/* RUN BUTTON */
+.editor-header button:last-child{
+    background:#2563eb !important;
+    color:white;
+}
+
+.editor-header button:last-child:hover{
+    background:#1d4ed8 !important;
+}
+
+#codeEditor{
+    flex:1;
+    padding:15px;
+    font-family:monospace;
+    background:#0f172a;
+    color:#e2e8f0;
+    font-size:14px;
+    border:none;
+    resize:none;
+}
+
+/* ================= RIGHT PANEL ================= */
+.right-panel{
+    flex:0 0 30%;
+    background:white;
+    border-radius:12px;
+    display:flex;
+    flex-direction:column;
+    box-shadow:0 4px 6px rgba(0,0,0,0.1);
+}
+
+#output{
+    flex:1;
+    padding:15px;
+    font-family:monospace;
+    background:#f8fafc;
+    overflow:auto;
+}
+
+/* ================= MOBILE RESPONSIVE ================= */
+@media(max-width:768px){
+    .main-content{
+        flex-direction:column;
     }
+
+    #codeEditor{
+        height:520px;   /* 🔥 BIG editor for mobile typing */
+        font-size:15px;
+    }
+
+    #output{
+        height:260px;
+    }
+}
+
+/* ================= BANNER ================= */
+.it-banner {
+    background: url('../image/bg.svg');
+    background-size: cover;
+    background-position: center center;
+    padding: 40px 20px;
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    text-align: center;
+    margin: 20px;
+    background-color: black;
+    color: white;
+}
+
 </style>
 </head>
 
