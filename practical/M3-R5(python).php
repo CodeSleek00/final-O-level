@@ -71,7 +71,7 @@ body { font-family:'Poppins', sans-serif; background:#f8fafc; color:#1e293b; }
 <div class="center-panel">
     <div class="editor-header">
         <button onclick="loadAnswer()">Show Answer</button>
-        <button onclick="runCode()">▶ Run</button>
+        <button onclick="runCode()" style="background:blue;color:white;">▶ Run</button>
     </div>
     <textarea id="codeEditor">print("Hello World")</textarea>
 </div>
