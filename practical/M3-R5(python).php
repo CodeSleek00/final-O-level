@@ -111,7 +111,7 @@ function showQuestion(){
 
     let imgHTML = "";
     if(q.image){
-        imgHTML = `<img src="../uploads/practical/${q.image}"
+        imgHTML = `<img src="../admin/uploads/${q.image}"
                     style="width:100%;margin:10px 0;border-radius:8px">`;
     }
 
