@@ -7,12 +7,9 @@ $total_attempted = count($answers);
 $correct = 0;
 $wrong = 0;
 
-// Prepare detailed summary array
 $summary = [];
 
-// Loop through answers
 foreach($answers as $qid => $ans){
-    // Fetch full question info
     $res = $conn->query("SELECT * FROM questions WHERE id=$qid")->fetch_assoc();
     
     $is_correct = $res['correct_option'] == $ans;
@@ -38,13 +35,13 @@ foreach($answers as $qid => $ans){
     ];
 }
 
-// Fetch total questions in the set
 $setid = isset($_POST['setid']) ? intval($_POST['setid']) : 0;
 $sid   = isset($_POST['sid']) ? intval($_POST['sid']) : 0;
 
 $total_q_res = $conn->query("SELECT COUNT(*) as t FROM questions WHERE subject_id=$sid AND set_id=$setid")->fetch_assoc();
 $total_q = $total_q_res['t'];
 
+$unattempted = $total_q - $total_attempted;
 ?>
 
 <!DOCTYPE html>
@@ -53,45 +50,127 @@ $total_q = $total_q_res['t'];
 <meta charset="UTF-8">
 <title>Exam Result</title>
 <style>
-body{font-family: Arial, sans-serif; background:#f5f5f5; padding:20px;}
-h2, h3{color:#333;}
-table{border-collapse: collapse; width:100%; margin-top:20px; background:white;}
-th, td{border:1px solid #ccc; padding:10px; text-align:left;}
-th{background:#eee;}
-.correct{color:green; font-weight:bold;}
-.wrong{color:red; font-weight:bold;}
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 20px;
+}
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #333;
+}
+.stats {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.stat-item {
+    text-align: center;
+    padding: 10px;
+    background: #f8f8f8;
+    border-radius: 5px;
+    flex: 1;
+    margin: 0 5px;
+}
+.stat-number {
+    font-size: 24px;
+    font-weight: bold;
+}
+.stat-label {
+    font-size: 14px;
+    color: #666;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+th {
+    background-color: #f2f2f2;
+}
+.correct {
+    color: green;
+    font-weight: bold;
+}
+.wrong {
+    color: red;
+    font-weight: bold;
+}
+.unattempted {
+    color: orange;
+    font-weight: bold;
+}
 </style>
 </head>
 <body>
 
-<h2>Exam Result</h2>
+<div class="container">
+    <div class="header">
+        <h1>Exam Result</h1>
+    </div>
 
-<p>Attempted: <?= $total_attempted ?></p>
-<p>Correct: <?= $correct ?></p>
-<p>Wrong: <?= $wrong ?></p>
+    <div class="stats">
+        <div class="stat-item">
+            <div class="stat-number"><?= $total_q ?></div>
+            <div class="stat-label">Total Questions</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number"><?= $total_attempted ?></div>
+            <div class="stat-label">Attempted</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number"><?= $correct ?></div>
+            <div class="stat-label">Correct</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number"><?= $wrong ?></div>
+            <div class="stat-label">Wrong</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number"><?= $unattempted ?></div>
+            <div class="stat-label">Unattempted</div>
+        </div>
+    </div>
 
-<h3>Detailed Summary:</h3>
-<table>
-    <tr>
-        <th>Q No.</th>
-        <th>Question</th>
-        <th>Your Answer</th>
-        <th>Correct Answer</th>
-        <th>Status</th>
-    </tr>
-    <?php foreach($summary as $index => $s){ 
-        $your_ans_text = $s['options'][$s['selected']] ?? "Not Attempted";
-        $correct_ans_text = $s['options'][$s['correct']];
-    ?>
-    <tr>
-        <td><?= $index+1 ?></td>
-        <td><?= $s['question'] ?></td>
-        <td><?= $s['selected'] ? $your_ans_text." (".$s['selected'].")" : "Not Attempted" ?></td>
-        <td><?= $correct_ans_text." (".$s['correct'].")" ?></td>
-        <td class="<?= strtolower($s['status']) ?>"><?= $s['status'] ?></td>
-    </tr>
-    <?php } ?>
-</table>
+    <h3>Question Summary</h3>
+    <table>
+        <tr>
+            <th>Q.No.</th>
+            <th>Question</th>
+            <th>Your Answer</th>
+            <th>Correct Answer</th>
+            <th>Status</th>
+        </tr>
+        <?php foreach($summary as $index => $s): 
+            $your_ans_text = $s['options'][$s['selected']] ?? "Not Attempted";
+            $correct_ans_text = $s['options'][$s['correct']];
+        ?>
+        <tr>
+            <td><?= $index+1 ?></td>
+            <td><?= $s['question'] ?></td>
+            <td><?= $s['selected'] ? $your_ans_text." (".$s['selected'].")" : "Not Attempted" ?></td>
+            <td><?= $correct_ans_text." (".$s['correct'].")" ?></td>
+            <td class="<?= strtolower($s['status']) ?>"><?= $s['selected'] ? $s['status'] : "Unattempted" ?></td>
+        </tr>
+        <?php endforeach; ?>
+    </table>
+</div>
 
 </body>
 </html>
