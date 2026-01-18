@@ -218,7 +218,7 @@ h2{
 
 <!-- LEFT BANNER -->
 <div class="side-banner left-banner">
-    <img src="faiz-left.png" alt="Left Banner">
+    <img src="Group 1.svg" alt="Left Banner">
 </div>
 
 <!-- RIGHT BANNER -->
