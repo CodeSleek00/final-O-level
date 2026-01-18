@@ -87,44 +87,34 @@ int main(){printf("Hello C World\n");return 0;}</textarea>
 <script>
 const questions = <?= json_encode($data) ?>;
 
-function shuffle(arr){
-    for(let i=arr.length-1;i>0;i--){
-        const j=Math.floor(Math.random()*(i+1));
-        [arr[i],arr[j]]=[arr[j],arr[i]];
-    }
-}
+function shuffle(arr){for(let i=arr.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[arr[i],arr[j]]=[arr[j],arr[i]];}}
 shuffle(questions);
 
 let index = 0;
-window.onload = () => { showQuestion(); };
+window.onload = ()=>{showQuestion();};
 
-function updateCounter(){ document.getElementById("questionCounter").innerText = (index+1)+"/"+questions.length; }
+function updateCounter(){document.getElementById("questionCounter").innerText=(index+1)+"/"+questions.length;}
+function showQuestion(){const q=questions[index];let img=q.image?`<img src="../admin/uploads/${q.image}" style="width:100%;margin:10px 0;border-radius:8px">`:"";document.getElementById("questionBox").innerHTML=`<b>Chapter:</b> ${q.chapter}<br><br>${img}${q.question}`;document.getElementById("codeEditor").value=q.answer||"# Write your code here\n";document.getElementById("output").textContent="";updateCounter();}
+function nextQ(){if(index<questions.length-1){index++;showQuestion();}}
+function prevQ(){if(index>0){index--;showQuestion();}}
+function loadAnswer(){document.getElementById("codeEditor").value=questions[index].answer||"# No answer available";}
 
-function showQuestion(){
-    const q = questions[index];
-    let img = q.image ? `<img src="../admin/uploads/${q.image}" style="width:100%;margin:10px 0;border-radius:8px">` : "";
-    document.getElementById("questionBox").innerHTML = `<b>Chapter:</b> ${q.chapter}<br><br>${img}${q.question}`;
-    document.getElementById("codeEditor").value = q.answer || "# Write your code here\n";
-    document.getElementById("output").textContent = "";
-    updateCounter();
-}
-function nextQ(){ if(index < questions.length-1){ index++; showQuestion(); } }
-function prevQ(){ if(index > 0){ index--; showQuestion(); } }
-function loadAnswer(){ document.getElementById("codeEditor").value = questions[index].answer || "# No answer available"; }
-
-// Run code using backend PHP
+// Run code via JDoodle API backend
 function runCode(){
-    const code = document.getElementById("codeEditor").value;
-    document.getElementById("output").textContent = "Running...";
+    const code=document.getElementById("codeEditor").value;
+    document.getElementById("output").textContent="Running...";
     fetch('run_c_code.php',{
         method:'POST',
         headers:{'Content-Type':'application/x-www-form-urlencoded'},
         body:'code='+encodeURIComponent(code)
     })
-    .then(res => res.text())
-    .then(out => { document.getElementById("output").textContent = out; })
-    .catch(err => { document.getElementById("output").textContent = err; });
+    .then(res=>res.json())
+    .then(data=>{
+        document.getElementById("output").textContent=data.output||data.error||"No output";
+    })
+    .catch(err=>{document.getElementById("output").textContent=err;});
 }
 </script>
+
 </body>
 </html>
