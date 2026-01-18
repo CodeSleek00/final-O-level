@@ -40,7 +40,6 @@ $questions = $conn->query("
     LIMIT $limit OFFSET $offset
 ");
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,6 +55,47 @@ body{
     font-family:'Poppins',sans-serif;
     background:#f4f6f9;
 }
+
+/* ===== SIDE BANNERS ===== */
+.side-banner{
+    position:fixed;
+    top:90px;
+    width:160px;
+    height:520px;
+    background:#e5efff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:12px;
+    overflow:hidden;
+}
+.side-banner img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+.left-banner{ left:15px; }
+.right-banner{ right:15px; }
+
+/* ===== BACK ICON ===== */
+.back-icon{
+    position:fixed;
+    top:20px;
+    left:20px;
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    background:#0d6efd;
+    color:#fff;
+    font-size:22px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    box-shadow:0 4px 15px rgba(13,110,253,.4);
+}
+
+/* ===== MAIN CONTAINER ===== */
 .container{
     max-width:900px;
     margin:40px auto 80px;
@@ -63,21 +103,28 @@ body{
     padding:25px;
     border-radius:18px;
     box-shadow:0 10px 30px rgba(0,0,0,.08);
+    border-top:6px solid #0d6efd;
 }
+
 h2{
     margin:0;
+    color:#0d6efd;
 }
+
 .subtitle{
     font-size:14px;
     color:#64748b;
     margin-bottom:30px;
 }
+
 .question{
     margin-bottom:30px;
 }
+
 .question p{
     font-weight:500;
 }
+
 .options label{
     display:block;
     padding:10px 14px;
@@ -88,16 +135,19 @@ h2{
     transition:.2s;
 }
 .options label:hover{
-    background:#f1f5f9;
+    background:#eaf2ff;
+    border-color:#0d6efd;
 }
+
 .result{
     margin-top:8px;
     font-size:14px;
 }
+
 .correct{
-    background:#ecfdf5;
-    border:1px solid #10b981;
-    color:#065f46;
+    background:#e7f1ff;
+    border:1px solid #0d6efd;
+    color:#0a3fa8;
     padding:8px;
     border-radius:6px;
 }
@@ -108,13 +158,15 @@ h2{
     padding:8px;
     border-radius:6px;
 }
+
 .explain-toggle{
     font-size:13px;
-    color:#2563eb;
+    color:#0d6efd;
     text-align:right;
     cursor:pointer;
     margin-top:6px;
 }
+
 .explanation{
     display:none;
     margin-top:10px;
@@ -123,6 +175,8 @@ h2{
     border-radius:10px;
     font-size:14px;
 }
+
+/* ===== PAGINATION ===== */
 .pagination{
     display:flex;
     justify-content:space-between;
@@ -140,17 +194,37 @@ h2{
     opacity:.4;
     pointer-events:none;
 }
+
 .back{
     display:inline-block;
     margin-top:30px;
-    color:#2563eb;
+    color:#0d6efd;
     text-decoration:none;
     font-size:14px;
+}
+
+/* ===== MOBILE VIEW ===== */
+@media(max-width:1024px){
+    .side-banner{ display:none; }
+    .back-icon{ left:10px; }
 }
 </style>
 </head>
 
 <body>
+
+<!-- BACK ICON -->
+<div class="back-icon" onclick="history.back()">←</div>
+
+<!-- LEFT BANNER -->
+<div class="side-banner left-banner">
+    <img src="banner-left.jpg" alt="Left Banner">
+</div>
+
+<!-- RIGHT BANNER -->
+<div class="side-banner right-banner">
+    <img src="banner-right.jpg" alt="Right Banner">
+</div>
 
 <div class="container">
 
