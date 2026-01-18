@@ -55,7 +55,7 @@ a:hover{
     <ul>
         <?php foreach($rows as $q){ ?>
         <li>
-            <a href="python_practical_view.php?id=<?php echo $q['id']; ?>">
+            <a href="view_M4-R5.php?id=<?php echo $q['id']; ?>">
                 <?php echo htmlspecialchars($q['question']); ?>
             </a>
         </li>
