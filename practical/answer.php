@@ -119,12 +119,12 @@ body{
             <?= htmlspecialchars($data['question']) ?>
         </div>
 
-        <!-- QUESTION IMAGE (IF EXISTS) -->
         <?php if(!empty($data['image'])): ?>
         <div class="question-img">
-            <img src="<?= htmlspecialchars($data['image']) ?>" alt="Question Image">
+            <img src="../admin/uploads/<?= htmlspecialchars($data['image']) ?>" alt="Question Image">
         </div>
         <?php endif; ?>
+
 
         <!-- ANSWER -->
         <div class="answer-title">Answer</div>
