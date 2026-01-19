@@ -1,101 +1,67 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Add Practical Question</title>
+<?php
+$page_title = "Add Practical Question";
+include "admin_header.php";
+?>
 
-    <style>
-        *{
-            box-sizing:border-box;
-            font-family:Segoe UI, Arial, sans-serif;
-        }
-        body{
-            background:#f4f6f9;
-            margin:0;
-            padding:0;
-        }
-        .form-box{
-            width:520px;
-            margin:50px auto;
-            background:#fff;
-            padding:25px;
-            border-radius:10px;
-            box-shadow:0 10px 25px rgba(0,0,0,0.1);
-        }
-        h2{
-            margin-bottom:15px;
-            text-align:center;
-            color:#333;
-        }
-        label{
-            font-size:14px;
-            color:#444;
-            margin-top:10px;
-            display:block;
-        }
-        select, textarea, input{
-            width:100%;
-            margin-top:6px;
-            padding:10px;
-            border:1px solid #ccc;
-            border-radius:6px;
-            font-size:14px;
-        }
-        textarea{
-            resize:vertical;
-            min-height:90px;
-            font-family:monospace;
-        }
-        button{
-            margin-top:15px;
-            width:100%;
-            padding:12px;
-            background:#007bff;
-            border:none;
-            color:#fff;
-            font-size:15px;
-            border-radius:6px;
-            cursor:pointer;
-        }
-        button:hover{
-            background:#0056b3;
-        }
-    </style>
-</head>
-<body>
+<div class="admin-container">
+    <div class="form-container">
+        <div class="form-header">
+            <h2>🧪 Add Practical Question</h2>
+            <p>Create a new practical/coding question with optional image</p>
+        </div>
 
-<div class="form-box">
-    <h2>Add Practical Question</h2>
+        <form action="save_question.php" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="subject">Subject</label>
+                <select id="subject" name="subject" required>
+                    <option value="">Select Subject</option>
+                    <option value="HTML">HTML</option>
+                    <option value="CSS">CSS</option>
+                    <option value="JavaScript">JavaScript</option>
+                    <option value="LibreOffice Calc">LibreOffice Calc</option>
+                    <option value="LibreOffice Impress">LibreOffice Impress</option>
+                    <option value="LibreOffice Writer">LibreOffice Writer</option>
+                    <option value="Python">Python</option>
+                    <option value="IOT">IOT</option>
+                </select>
+            </div>
 
-    <form action="save_question.php" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="chapter">Chapter</label>
+                <input type="text" id="chapter" name="chapter" 
+                       placeholder="e.g., Forms, Tables, Functions" 
+                       required>
+            </div>
 
-        <label>Subject</label>
-        <select name="subject" required>
-            <option value="">Select Subject</option>
-            <option>HTML</option>
-            <option>CSS</option>
-            <option>JavaScript</option>
-            <option>LibreOffice Calc</option>
-            <option>LibreOffice Impress</option>
-            <option>LibreOffice Writer</option>
-            <option>Python</option>
-            <option>IOT</option>
-        </select>
+            <div class="form-group">
+                <label for="question">Question</label>
+                <textarea id="question" name="question" 
+                          placeholder="Enter the practical question here..." 
+                          required></textarea>
+            </div>
 
-        <label>Chapter</label>
-        <input type="text" name="chapter" required>
+            <div class="form-group">
+                <label for="answer">Answer (Code/Solution)</label>
+                <textarea id="answer" name="answer" 
+                          class="code"
+                          placeholder="Enter the code or solution here..."></textarea>
+            </div>
 
-        <label>Question</label>
-        <textarea name="question" required></textarea>
+            <div class="form-group">
+                <label for="image">Question Image (Optional)</label>
+                <div class="file-upload-wrapper">
+                    <input type="file" id="image" name="image" accept="image/*">
+                </div>
+                <small style="color: #6b7280; font-size: 0.85rem; margin-top: 5px; display: block;">
+                    Supported formats: JPG, PNG, GIF
+                </small>
+            </div>
 
-        <label>Answer (Code)</label>
-        <textarea name="answer"></textarea>
+            <button type="submit" class="btn btn-primary btn-full">Save Question</button>
+        </form>
 
-        <label>Question Image (optional)</label>
-        <input type="file" name="image" accept="image/*">
-
-        <button type="submit">Save Question</button>
-    </form>
+        <a href="admin_home.php" class="btn-back">← Back to Dashboard</a>
+    </div>
 </div>
 
 </body>

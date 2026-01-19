@@ -10,69 +10,120 @@ $chapter_q = $conn->query("SELECT COUNT(*) total FROM chapter_questions")->fetch
 $practicals = $conn->query("SELECT COUNT(*) total FROM practical_questions")->fetch_assoc()['total'];
 $shortcut_cat = $conn->query("SELECT COUNT(*) total FROM categories")->fetch_assoc()['total'];
 $shortcuts = $conn->query("SELECT COUNT(*) total FROM shortcuts")->fetch_assoc()['total'];
+
+$page_title = "Admin Dashboard";
+include "admin_header.php";
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-<title>Admin Dashboard</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-<style>
-body{font-family:Poppins;background:#f4f6f9;margin:0;padding:30px}
-h2{margin-bottom:10px}
-.dashboard{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
-.card{
-    background:#fff;
-    padding:20px;
-    border-radius:12px;
-    box-shadow:0 5px 15px rgba(0,0,0,.08);
-}
-.card h3{margin:0;font-size:16px;color:#555}
-.card p{font-size:26px;margin:8px 0;font-weight:600;color:#0d6efd}
-.section{margin-top:40px}
-a.btn{
-    display:block;
-    padding:14px;
-    background:#0d6efd;
-    color:#fff;
-    text-decoration:none;
-    border-radius:8px;
-    text-align:center;
-    margin-bottom:12px;
-}
-</style>
-</head>
-<body>
 
-<h2>📊 Admin Summary</h2>
+<div class="admin-container">
+    <div class="section-header">
+        <h2>📊 Dashboard Overview</h2>
+    </div>
 
-<div class="dashboard">
-    <div class="card"><h3>Total Subjects</h3><p><?= $subjects ?></p></div>
-    <div class="card"><h3>Mock Test Sets</h3><p><?= $sets ?></p></div>
-    <div class="card"><h3>Total MCQs</h3><p><?= $mcqs ?></p></div>
-    <div class="card"><h3>Total Chapters</h3><p><?= $chapters ?></p></div>
-    <div class="card"><h3>Chapter Questions</h3><p><?= $chapter_q ?></p></div>
-    <div class="card"><h3>Practical Questions</h3><p><?= $practicals ?></p></div>
-    <div class="card"><h3>Shortcut Categories</h3><p><?= $shortcut_cat ?></p></div>
-    <div class="card"><h3>Shortcut Keys</h3><p><?= $shortcuts ?></p></div>
-</div>
+    <div class="dashboard-grid">
+        <div class="dashboard-card">
+            <h3>Total Subjects</h3>
+            <p class="number"><?= $subjects ?></p>
+        </div>
+        <div class="dashboard-card">
+            <h3>Mock Test Sets</h3>
+            <p class="number"><?= $sets ?></p>
+        </div>
+        <div class="dashboard-card">
+            <h3>Total MCQs</h3>
+            <p class="number"><?= $mcqs ?></p>
+        </div>
+        <div class="dashboard-card">
+            <h3>Total Chapters</h3>
+            <p class="number"><?= $chapters ?></p>
+        </div>
+        <div class="dashboard-card">
+            <h3>Chapter Questions</h3>
+            <p class="number"><?= $chapter_q ?></p>
+        </div>
+        <div class="dashboard-card">
+            <h3>Practical Questions</h3>
+            <p class="number"><?= $practicals ?></p>
+        </div>
+        <div class="dashboard-card">
+            <h3>Shortcut Categories</h3>
+            <p class="number"><?= $shortcut_cat ?></p>
+        </div>
+        <div class="dashboard-card">
+            <h3>Shortcut Keys</h3>
+            <p class="number"><?= $shortcuts ?></p>
+        </div>
+    </div>
 
-<div class="section">
-    <h2>⚙️ Management</h2>
-    <a class="btn" href="add_set.php">➕ Add Mock Test Set</a>
-    <a class="btn" href="add_question.php">📝 Add MCQ Question</a>
+    <div class="section-header">
+        <h2>⚙️ Quick Actions</h2>
+    </div>
 
-    <h2>📘 Chapter</h2>
-    <a class="btn" href="add_chapter.php">➕ Add Chapter</a>
-    <a class="btn" href="add_chapter_question.php">➕ Add Chapter Question</a>
+    <div class="action-grid">
+        <a href="add_subject.php" class="action-btn">
+            <div class="action-btn-icon">📚</div>
+            <div class="action-btn-content">
+                <h3>Add Subject</h3>
+                <p>Create a new subject</p>
+            </div>
+        </a>
 
-    <h2>🧪 Practical</h2>
-    <a class="btn" href="add_practical_question.php">➕ Add Practical Question</a>
+        <a href="add_set.php" class="action-btn">
+            <div class="action-btn-icon">📝</div>
+            <div class="action-btn-content">
+                <h3>Add Mock Test Set</h3>
+                <p>Create a new test set</p>
+            </div>
+        </a>
 
-    <h2>⌨️ Shortcut Keys</h2>
-    <a class="btn" href="add_category.php">➕ Shortcut Category</a>
-    <a class="btn" href="add_shortcut.php">➕ Shortcut Key</a>
-    <h2>Add Subject</h2>
-    <a class="btn" href="add_subject.php">➕ Add Subject</a>
+        <a href="add_question.php" class="action-btn">
+            <div class="action-btn-icon">❓</div>
+            <div class="action-btn-content">
+                <h3>Add MCQ Question</h3>
+                <p>Add multiple choice question</p>
+            </div>
+        </a>
+
+        <a href="add_chapter.php" class="action-btn">
+            <div class="action-btn-icon">📖</div>
+            <div class="action-btn-content">
+                <h3>Add Chapter</h3>
+                <p>Create a new chapter</p>
+            </div>
+        </a>
+
+        <a href="add_chapter_question.php" class="action-btn">
+            <div class="action-btn-icon">📘</div>
+            <div class="action-btn-content">
+                <h3>Add Chapter Question</h3>
+                <p>Add question to a chapter</p>
+            </div>
+        </a>
+
+        <a href="add_practical_question.php" class="action-btn">
+            <div class="action-btn-icon">🧪</div>
+            <div class="action-btn-content">
+                <h3>Add Practical Question</h3>
+                <p>Add practical/coding question</p>
+            </div>
+        </a>
+
+        <a href="add_category.php" class="action-btn">
+            <div class="action-btn-icon">🏷️</div>
+            <div class="action-btn-content">
+                <h3>Add Shortcut Category</h3>
+                <p>Create shortcut category</p>
+            </div>
+        </a>
+
+        <a href="add_shortcut.php" class="action-btn">
+            <div class="action-btn-icon">⌨️</div>
+            <div class="action-btn-content">
+                <h3>Add Shortcut Key</h3>
+                <p>Add keyboard shortcut</p>
+            </div>
+        </a>
+    </div>
 </div>
 
 </body>
