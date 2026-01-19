@@ -12,6 +12,35 @@ while($row = $q->fetch_assoc()){
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- SEO TITLE -->
+<title>LibreOffice Impress Practical Questions | M1-R5 Impress Practical | O Level Practical</title>
+
+<!-- META DESCRIPTION -->
+<meta name="description" content="Free LibreOffice Impress practical questions for M1-R5 O Level exam. Practice Impress practical questions, presentations, animations, and practical exam preparation. Best O Level Impress practical portal by Faiz Computer Institute.">
+
+<!-- KEYWORDS -->
+<meta name="keywords" content="LibreOffice Impress, Impress Practical, M1-R5 Impress, O Level Impress Practical, Impress Practical Questions, O Level Practical, NIELIT Impress Practical, Impress Exam Practice, O Level Impress Exam, Presentation Practical">
+
+<meta name="author" content="Faiz Computer Institute">
+<meta name="robots" content="index, follow">
+
+<!-- CANONICAL -->
+<link rel="canonical" href="https://www.faizcomputerinstitute.com/practical/M1-R5(IMPRESS).php">
+
+<!-- OPEN GRAPH -->
+<meta property="og:title" content="LibreOffice Impress Practical Questions | O Level">
+<meta property="og:description" content="Practice LibreOffice Impress practical questions for M1-R5 O Level exam.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.faizcomputerinstitute.com/practical/M1-R5(IMPRESS).php">
+<meta property="og:image" content="https://www.faizcomputerinstitute.com/image/olevel.png">
+
+<!-- TWITTER -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="LibreOffice Impress Practical | O Level">
+<meta name="twitter:description" content="Free LibreOffice Impress practical questions for O Level exam.">
+
 <title>LibreOffice Impress Practical Questions - All</title>
 <link rel="icon" type="image/png" href="../image/olevel.png">
 

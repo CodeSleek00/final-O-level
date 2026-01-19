@@ -17,6 +17,34 @@ $result = $conn->query($sql);
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- SEO TITLE -->
+<title>LibreOffice Writer Shortcut Keys | M1-R5 Writer Shortcuts | O Level Shortcuts</title>
+
+<!-- META DESCRIPTION -->
+<meta name="description" content="Complete list of LibreOffice Writer keyboard shortcuts for M1-R5 O Level exam. Learn Writer shortcuts, keyboard shortcuts for O Level exam preparation. Best Writer shortcuts guide by Faiz Computer Institute.">
+
+<!-- KEYWORDS -->
+<meta name="keywords" content="Writer Shortcuts, LibreOffice Writer Shortcuts, Keyboard Shortcuts, M1-R5 Writer Shortcuts, O Level Shortcuts, Writer Shortcut Keys, O Level Exam Shortcuts, NIELIT Writer Shortcuts, Writer Keyboard Shortcuts">
+
+<meta name="author" content="Faiz Computer Institute">
+<meta name="robots" content="index, follow">
+
+<!-- CANONICAL -->
+<link rel="canonical" href="https://www.faizcomputerinstitute.com/shortcut/writer.php">
+
+<!-- OPEN GRAPH -->
+<meta property="og:title" content="LibreOffice Writer Shortcut Keys | O Level">
+<meta property="og:description" content="Complete list of LibreOffice Writer keyboard shortcuts for O Level exam.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.faizcomputerinstitute.com/shortcut/writer.php">
+<meta property="og:image" content="https://www.faizcomputerinstitute.com/image/olevel.png">
+
+<!-- TWITTER -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Writer Shortcut Keys | O Level">
+<meta name="twitter:description" content="Complete LibreOffice Writer keyboard shortcuts guide.">
+
 <title>LibreOffice Writer Shortcut Keys | Faiz Computer Institute</title>
 <link rel="icon" type="image/png" href="../image/olevel.png">
 

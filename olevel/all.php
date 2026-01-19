@@ -3,11 +3,37 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- SEO TITLE -->
+<title>O Level All Subjects MCQ Practice | O Level Exam Preparation | NIELIT O Level</title>
+
+<!-- META DESCRIPTION -->
+<meta name="description" content="Practice O Level MCQs for all subjects - M1-R5 IT Tools, M2-R5 Web Designing, M3-R5 Python, M4-R5 IOT. Free O Level MCQ practice, chapter-wise questions, and mock tests. Best NIELIT O Level preparation platform by Faiz Computer Institute.">
+
+<!-- KEYWORDS -->
+<meta name="keywords" content="O Level, O Level Exam, O Level Preparation, NIELIT O Level, O Level MCQ, O Level Mock Test, M1-R5, M2-R5, M3-R5, M4-R5, IT Tools, Web Designing, Python, IOT, O Level Practice, O Level Online Test, NIELIT O Level Exam, O Level Examination">
+
+<meta name="author" content="Faiz Computer Institute">
+<meta name="robots" content="index, follow">
+
+<!-- CANONICAL -->
+<link rel="canonical" href="https://www.faizcomputerinstitute.com/olevel/all.php">
+
+<!-- OPEN GRAPH -->
+<meta property="og:title" content="O Level All Subjects MCQ Practice | NIELIT O Level">
+<meta property="og:description" content="Practice O Level MCQs for all subjects. Free online practice questions and mock tests for NIELIT O Level exam.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.faizcomputerinstitute.com/olevel/all.php">
+<meta property="og:image" content="https://www.faizcomputerinstitute.com/image/olevel.png">
+
+<!-- TWITTER -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="O Level All Subjects MCQ Practice | NIELIT">
+<meta name="twitter:description" content="Free O Level MCQ practice for all subjects - M1-R5, M2-R5, M3-R5, M4-R5.">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-<title>O Level || Faiz Computer Institute</title>
 
 <!-- Favicon -->
 <link rel="icon" type="image/png" href="../image/olevel.png">

@@ -18,6 +18,34 @@ $total = count($questions);
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- SEO TITLE -->
+<title>O Level Mock Test Online | O Level Exam Practice | NIELIT O Level Mock Test</title>
+
+<!-- META DESCRIPTION -->
+<meta name="description" content="Take free O Level mock tests online. Practice O Level exam questions with instant results. Best NIELIT O Level mock test platform for M1-R5, M2-R5, M3-R5, M4-R5 by Faiz Computer Institute.">
+
+<!-- KEYWORDS -->
+<meta name="keywords" content="O Level Mock Test, O Level Online Test, O Level Exam Practice, NIELIT Mock Test, O Level Practice Test, Mock Test Online, O Level MCQ Test, O Level Exam Preparation, NIELIT O Level Mock, O Level Test Series">
+
+<meta name="author" content="Faiz Computer Institute">
+<meta name="robots" content="index, follow">
+
+<!-- CANONICAL -->
+<link rel="canonical" href="https://www.faizcomputerinstitute.com/exam.php">
+
+<!-- OPEN GRAPH -->
+<meta property="og:title" content="O Level Mock Test Online | NIELIT O Level">
+<meta property="og:description" content="Take free O Level mock tests online. Practice exam questions with instant results.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.faizcomputerinstitute.com/exam.php">
+<meta property="og:image" content="https://www.faizcomputerinstitute.com/image/olevel.png">
+
+<!-- TWITTER -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="O Level Mock Test Online | NIELIT">
+<meta name="twitter:description" content="Free O Level mock tests for NIELIT O Level exam preparation.">
+
 <title>Mock Test</title>
 <link rel="icon" type="image/png" href="image/olevel.png">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">

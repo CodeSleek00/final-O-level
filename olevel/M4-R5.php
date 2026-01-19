@@ -9,7 +9,33 @@ $subject_id = 4; // M4-R5 IOT - Internet Of Things
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>M4-R5 | IOT - Internet Of Things MCQ Practice</title>
+    
+    <!-- SEO TITLE -->
+    <title>M4-R5 IOT Internet Of Things MCQ Practice | O Level Exam | NIELIT IOT</title>
+    
+    <!-- META DESCRIPTION -->
+    <meta name="description" content="Free M4-R5 IOT (Internet Of Things) MCQ practice for NIELIT O Level exam. Practice IOT MCQs, chapter-wise questions, and mock tests. Best O Level preparation for M4-R5 IOT by Faiz Computer Institute.">
+    
+    <!-- KEYWORDS -->
+    <meta name="keywords" content="M4-R5, M4-R5 MCQ, IOT, Internet Of Things, IOT MCQ, O Level IOT, NIELIT M4-R5, IOT Practice, O Level Exam, O Level Preparation, M4-R5 Practice, IOT Practice Questions, O Level MCQ, NIELIT O Level, IOT Online Test, O Level IOT Exam">
+    
+    <meta name="author" content="Faiz Computer Institute">
+    <meta name="robots" content="index, follow">
+    
+    <!-- CANONICAL -->
+    <link rel="canonical" href="https://www.faizcomputerinstitute.com/olevel/M4-R5.php">
+    
+    <!-- OPEN GRAPH -->
+    <meta property="og:title" content="M4-R5 IOT MCQ Practice | O Level Exam">
+    <meta property="og:description" content="Practice M4-R5 IOT (Internet Of Things) MCQs for NIELIT O Level exam. Free online practice questions.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.faizcomputerinstitute.com/olevel/M4-R5.php">
+    <meta property="og:image" content="https://www.faizcomputerinstitute.com/image/olevel.png">
+    
+    <!-- TWITTER -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="M4-R5 IOT MCQ Practice | O Level">
+    <meta name="twitter:description" content="Free M4-R5 IOT MCQ practice for NIELIT O Level exam preparation.">
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="../image/olevel.png">

@@ -12,6 +12,34 @@ while($row = $q->fetch_assoc()){
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- SEO TITLE -->
+<title>HTML Practical Questions | M2-R5 HTML Practical | O Level Web Designing Practical</title>
+
+<!-- META DESCRIPTION -->
+<meta name="description" content="Free HTML practical questions for M2-R5 O Level exam. Practice HTML coding questions, web designing practical, HTML exercises, and practical exam preparation. Best O Level HTML practical portal by Faiz Computer Institute.">
+
+<!-- KEYWORDS -->
+<meta name="keywords" content="HTML Practical, HTML Questions, M2-R5 HTML, O Level HTML Practical, HTML Coding Practice, Web Designing Practical, O Level Practical, NIELIT HTML Practical, HTML Exam Practice, O Level HTML Exam, HTML Exercises">
+
+<meta name="author" content="Faiz Computer Institute">
+<meta name="robots" content="index, follow">
+
+<!-- CANONICAL -->
+<link rel="canonical" href="https://www.faizcomputerinstitute.com/practical/M2-R5(HTML).php">
+
+<!-- OPEN GRAPH -->
+<meta property="og:title" content="HTML Practical Questions | O Level Web Designing">
+<meta property="og:description" content="Practice HTML practical questions for M2-R5 O Level exam.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.faizcomputerinstitute.com/practical/M2-R5(HTML).php">
+<meta property="og:image" content="https://www.faizcomputerinstitute.com/image/olevel.png">
+
+<!-- TWITTER -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="HTML Practical | O Level">
+<meta name="twitter:description" content="Free HTML practical questions for O Level exam.">
+
 <title>HTML || O level Practice</title>
 <link rel="icon" type="image/png" href="../image/olevel.png">
 

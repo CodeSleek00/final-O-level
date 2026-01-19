@@ -44,8 +44,36 @@ $questions = $conn->query("
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title><?= htmlspecialchars($chapter['chapter_name']); ?> | Practice</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- SEO TITLE -->
+<title><?= htmlspecialchars($chapter['chapter_name']); ?> MCQ Practice | O Level Chapter Practice | NIELIT</title>
+
+<!-- META DESCRIPTION -->
+<meta name="description" content="Practice <?= htmlspecialchars($chapter['chapter_name']); ?> MCQs for O Level exam. Free chapter-wise MCQ practice questions for NIELIT O Level exam preparation by Faiz Computer Institute.">
+
+<!-- KEYWORDS -->
+<meta name="keywords" content="<?= htmlspecialchars($chapter['chapter_name']); ?>, O Level Chapter Practice, Chapter MCQ, O Level MCQ, NIELIT O Level, O Level Exam, O Level Preparation, Chapter-wise Practice, O Level Online Practice">
+
+<meta name="author" content="Faiz Computer Institute">
+<meta name="robots" content="index, follow">
+
+<!-- CANONICAL -->
+<link rel="canonical" href="https://www.faizcomputerinstitute.com/exam/chapter_exam.php?chapter_id=<?= $cid ?>">
+
+<!-- OPEN GRAPH -->
+<meta property="og:title" content="<?= htmlspecialchars($chapter['chapter_name']); ?> MCQ Practice | O Level">
+<meta property="og:description" content="Practice <?= htmlspecialchars($chapter['chapter_name']); ?> MCQs for O Level exam.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.faizcomputerinstitute.com/exam/chapter_exam.php?chapter_id=<?= $cid ?>">
+<meta property="og:image" content="https://www.faizcomputerinstitute.com/image/olevel.png">
+
+<!-- TWITTER -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="<?= htmlspecialchars($chapter['chapter_name']); ?> MCQ Practice">
+<meta name="twitter:description" content="Free chapter-wise MCQ practice for O Level exam.">
+
+<title><?= htmlspecialchars($chapter['chapter_name']); ?> | Practice</title>
 <link rel="icon" type="image/png" href="../image/olevel.png">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">

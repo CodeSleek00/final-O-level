@@ -12,6 +12,35 @@ while($row = $q->fetch_assoc()){
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- SEO TITLE -->
+<title>IOT Practical Questions | M4-R5 IOT Practical | O Level Internet Of Things Practical</title>
+
+<!-- META DESCRIPTION -->
+<meta name="description" content="Free IOT (Internet Of Things) practical questions for M4-R5 O Level exam. Practice IOT practical questions, IoT exercises, and practical exam preparation. Best O Level IOT practical portal by Faiz Computer Institute.">
+
+<!-- KEYWORDS -->
+<meta name="keywords" content="IOT Practical, Internet Of Things Practical, IOT Questions, M4-R5 IOT, O Level IOT Practical, IOT Practice, O Level Practical, NIELIT IOT Practical, IOT Exam Practice, O Level IOT Exam, IoT Exercises">
+
+<meta name="author" content="Faiz Computer Institute">
+<meta name="robots" content="index, follow">
+
+<!-- CANONICAL -->
+<link rel="canonical" href="https://www.faizcomputerinstitute.com/practical/M4-R5(IOT).php">
+
+<!-- OPEN GRAPH -->
+<meta property="og:title" content="IOT Practical Questions | O Level Internet Of Things">
+<meta property="og:description" content="Practice IOT practical questions for M4-R5 O Level exam.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.faizcomputerinstitute.com/practical/M4-R5(IOT).php">
+<meta property="og:image" content="https://www.faizcomputerinstitute.com/image/olevel.png">
+
+<!-- TWITTER -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="IOT Practical | O Level">
+<meta name="twitter:description" content="Free IOT practical questions for O Level exam.">
+
 <title>IOT (M4-R5) Questions - All</title>
 <link rel="icon" type="image/png" href="../image/olevel.png">
 

@@ -9,7 +9,33 @@ $subject_id = 1; // M1-R5 IT Tools
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CCC MCQ Practice</title>
+    
+    <!-- SEO TITLE -->
+    <title>CCC Exam MCQ Practice | CCC Online Test | NIELIT CCC Preparation 2025</title>
+    
+    <!-- META DESCRIPTION -->
+    <meta name="description" content="Free CCC (Course on Computer Concepts) MCQ practice for NIELIT CCC exam. Practice CCC MCQs, mock tests, and online practice questions. Best CCC preparation platform by Faiz Computer Institute.">
+    
+    <!-- KEYWORDS -->
+    <meta name="keywords" content="CCC, CCC Exam, CCC MCQ, CCC Practice, NIELIT CCC, CCC Online Test, CCC Preparation, CCC Exam Preparation, Course on Computer Concepts, CCC Mock Test, CCC Practice Questions, CCC Online, CCC Exam 2025, NIELIT CCC Exam">
+    
+    <meta name="author" content="Faiz Computer Institute">
+    <meta name="robots" content="index, follow">
+    
+    <!-- CANONICAL -->
+    <link rel="canonical" href="https://www.faizcomputerinstitute.com/ccc/all.php">
+    
+    <!-- OPEN GRAPH -->
+    <meta property="og:title" content="CCC Exam MCQ Practice | NIELIT CCC Preparation">
+    <meta property="og:description" content="Practice CCC MCQs for NIELIT CCC exam. Free online practice questions and mock tests.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.faizcomputerinstitute.com/ccc/all.php">
+    <meta property="og:image" content="https://www.faizcomputerinstitute.com/image/olevel.png">
+    
+    <!-- TWITTER -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="CCC Exam MCQ Practice | NIELIT CCC">
+    <meta name="twitter:description" content="Free CCC MCQ practice for NIELIT CCC exam preparation.">
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="../image/olevel.png">

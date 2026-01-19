@@ -48,6 +48,35 @@ $unattempted = $total_q - $total_attempted;
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- SEO TITLE -->
+<title>O Level Exam Result | Mock Test Result | NIELIT O Level Result</title>
+
+<!-- META DESCRIPTION -->
+<meta name="description" content="View your O Level mock test results instantly. Check your O Level exam performance, correct answers, and detailed analysis. Best O Level result portal by Faiz Computer Institute.">
+
+<!-- KEYWORDS -->
+<meta name="keywords" content="O Level Result, O Level Exam Result, Mock Test Result, NIELIT O Level Result, O Level Score, O Level Performance, O Level Test Result, O Level Exam Analysis">
+
+<meta name="author" content="Faiz Computer Institute">
+<meta name="robots" content="index, follow">
+
+<!-- CANONICAL -->
+<link rel="canonical" href="https://www.faizcomputerinstitute.com/result.php">
+
+<!-- OPEN GRAPH -->
+<meta property="og:title" content="O Level Exam Result | Mock Test Result">
+<meta property="og:description" content="View your O Level mock test results with detailed analysis and performance metrics.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.faizcomputerinstitute.com/result.php">
+<meta property="og:image" content="https://www.faizcomputerinstitute.com/image/olevel.png">
+
+<!-- TWITTER -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="O Level Exam Result | NIELIT">
+<meta name="twitter:description" content="View your O Level mock test results instantly.">
+
 <title>Exam Result</title>
 <link rel="icon" type="image/png" href="image/olevel.png">
 <style>

@@ -12,6 +12,35 @@ $questions = $conn->query("SELECT * FROM practical_questions WHERE subject='{$su
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- SEO TITLE -->
+<title><?= htmlspecialchars($subject) ?> Practical Questions | O Level Practical | NIELIT O Level</title>
+
+<!-- META DESCRIPTION -->
+<meta name="description" content="Free <?= htmlspecialchars($subject) ?> practical questions for O Level exam. Practice <?= htmlspecialchars($subject) ?> practical questions, solutions, and practical exam preparation. Best O Level practical portal by Faiz Computer Institute.">
+
+<!-- KEYWORDS -->
+<meta name="keywords" content="<?= htmlspecialchars($subject) ?> Practical, <?= htmlspecialchars($subject) ?> Questions, O Level Practical, NIELIT Practical, <?= htmlspecialchars($subject) ?> Exam Practice, O Level Practical Questions, Practical Exam Preparation">
+
+<meta name="author" content="Faiz Computer Institute">
+<meta name="robots" content="index, follow">
+
+<!-- CANONICAL -->
+<link rel="canonical" href="https://www.faizcomputerinstitute.com/practical/subject_questions.php?subject=<?= urlencode($subject) ?>">
+
+<!-- OPEN GRAPH -->
+<meta property="og:title" content="<?= htmlspecialchars($subject) ?> Practical Questions | O Level">
+<meta property="og:description" content="Practice <?= htmlspecialchars($subject) ?> practical questions for O Level exam.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.faizcomputerinstitute.com/practical/subject_questions.php?subject=<?= urlencode($subject) ?>">
+<meta property="og:image" content="https://www.faizcomputerinstitute.com/image/olevel.png">
+
+<!-- TWITTER -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="<?= htmlspecialchars($subject) ?> Practical Questions">
+<meta name="twitter:description" content="Free <?= htmlspecialchars($subject) ?> practical questions for O Level exam.">
+
 <title><?= htmlspecialchars($subject) ?> - Questions</title>
 <link rel="icon" type="image/png" href="../image/olevel.png">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">

@@ -15,6 +15,34 @@ $subject = $selected_subject_id > 0 ?
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- SEO TITLE -->
+<title>O Level Chapter-wise MCQ Practice | Chapter Wise Questions | NIELIT O Level</title>
+
+<!-- META DESCRIPTION -->
+<meta name="description" content="Practice O Level chapter-wise MCQs for M1-R5, M2-R5, M3-R5, M4-R5. Free chapter-wise practice questions for NIELIT O Level exam. Best O Level chapter-wise preparation by Faiz Computer Institute.">
+
+<!-- KEYWORDS -->
+<meta name="keywords" content="O Level Chapter-wise, Chapter-wise MCQ, O Level Chapter Practice, M1-R5 Chapter, M2-R5 Chapter, M3-R5 Chapter, M4-R5 Chapter, O Level Exam, O Level Preparation, NIELIT O Level, Chapter-wise Questions, O Level Online Practice">
+
+<meta name="author" content="Faiz Computer Institute">
+<meta name="robots" content="index, follow">
+
+<!-- CANONICAL -->
+<link rel="canonical" href="https://www.faizcomputerinstitute.com/olevel/chapterwise.php">
+
+<!-- OPEN GRAPH -->
+<meta property="og:title" content="O Level Chapter-wise MCQ Practice | NIELIT O Level">
+<meta property="og:description" content="Practice O Level chapter-wise MCQs. Free online chapter-wise practice questions.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.faizcomputerinstitute.com/olevel/chapterwise.php">
+<meta property="og:image" content="https://www.faizcomputerinstitute.com/image/olevel.png">
+
+<!-- TWITTER -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="O Level Chapter-wise MCQ Practice">
+<meta name="twitter:description" content="Free O Level chapter-wise MCQ practice for NIELIT O Level exam.">
+
 <title>Chapter-wise Practice</title>
 
 <!-- Favicon -->

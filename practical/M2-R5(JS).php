@@ -12,6 +12,34 @@ while($row = $q->fetch_assoc()){
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- SEO TITLE -->
+<title>JavaScript Practical Questions | M2-R5 JS Practical | O Level Web Designing Practical</title>
+
+<!-- META DESCRIPTION -->
+<meta name="description" content="Free JavaScript practical questions for M2-R5 O Level exam. Practice JavaScript coding questions, JS exercises, web designing practical, and practical exam preparation. Best O Level JavaScript practical portal by Faiz Computer Institute.">
+
+<!-- KEYWORDS -->
+<meta name="keywords" content="JavaScript Practical, JS Practical, JavaScript Questions, M2-R5 JavaScript, O Level JavaScript Practical, JavaScript Coding Practice, Web Designing Practical, O Level Practical, NIELIT JavaScript Practical, JS Exam Practice, O Level JavaScript Exam">
+
+<meta name="author" content="Faiz Computer Institute">
+<meta name="robots" content="index, follow">
+
+<!-- CANONICAL -->
+<link rel="canonical" href="https://www.faizcomputerinstitute.com/practical/M2-R5(JS).php">
+
+<!-- OPEN GRAPH -->
+<meta property="og:title" content="JavaScript Practical Questions | O Level Web Designing">
+<meta property="og:description" content="Practice JavaScript practical questions for M2-R5 O Level exam.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.faizcomputerinstitute.com/practical/M2-R5(JS).php">
+<meta property="og:image" content="https://www.faizcomputerinstitute.com/image/olevel.png">
+
+<!-- TWITTER -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="JavaScript Practical | O Level">
+<meta name="twitter:description" content="Free JavaScript practical questions for O Level exam.">
+
 <title>Javascript || O level Practice</title>
 <link rel="icon" type="image/png" href="../image/olevel.png">
 

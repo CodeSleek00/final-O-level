@@ -9,7 +9,33 @@ $subject_id = 1; // M1-R5 IT Tools
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>M1-R5 | IT Tools MCQ Practice</title>
+    
+    <!-- SEO TITLE -->
+    <title>M1-R5 IT Tools MCQ Practice | O Level Exam Preparation | NIELIT O Level</title>
+    
+    <!-- META DESCRIPTION -->
+    <meta name="description" content="Free M1-R5 IT Tools MCQ practice questions for NIELIT O Level exam. Practice IT Tools MCQs, chapter-wise questions, and mock tests. Best O Level preparation platform for M1-R5 IT Tools by Faiz Computer Institute.">
+    
+    <!-- KEYWORDS -->
+    <meta name="keywords" content="M1-R5, M1-R5 MCQ, IT Tools, IT Tools MCQ, O Level IT Tools, NIELIT M1-R5, O Level Exam, O Level Preparation, M1-R5 Practice, IT Tools Practice, O Level MCQ, NIELIT O Level, O Level Online Test">
+    
+    <meta name="author" content="Faiz Computer Institute">
+    <meta name="robots" content="index, follow">
+    
+    <!-- CANONICAL -->
+    <link rel="canonical" href="https://www.faizcomputerinstitute.com/olevel/M1-R5.php">
+    
+    <!-- OPEN GRAPH -->
+    <meta property="og:title" content="M1-R5 IT Tools MCQ Practice | O Level Exam Preparation">
+    <meta property="og:description" content="Practice M1-R5 IT Tools MCQs for NIELIT O Level exam. Free online practice questions and mock tests.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.faizcomputerinstitute.com/olevel/M1-R5.php">
+    <meta property="og:image" content="https://www.faizcomputerinstitute.com/image/olevel.png">
+    
+    <!-- TWITTER -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="M1-R5 IT Tools MCQ Practice | O Level">
+    <meta name="twitter:description" content="Free M1-R5 IT Tools MCQ practice for NIELIT O Level exam preparation.">
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="../image/olevel.png">

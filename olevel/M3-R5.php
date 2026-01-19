@@ -9,7 +9,33 @@ $subject_id = 3; // M3-R5 Python Programming
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>M3-R5 | Python Programming MCQ Practice</title>
+    
+    <!-- SEO TITLE -->
+    <title>M3-R5 Python Programming MCQ Practice | O Level Exam | NIELIT Python</title>
+    
+    <!-- META DESCRIPTION -->
+    <meta name="description" content="Free M3-R5 Python Programming MCQ practice for NIELIT O Level exam. Practice Python MCQs, chapter-wise questions, and mock tests. Best O Level preparation for M3-R5 Python Programming by Faiz Computer Institute.">
+    
+    <!-- KEYWORDS -->
+    <meta name="keywords" content="M3-R5, M3-R5 MCQ, Python Programming, Python MCQ, O Level Python, NIELIT M3-R5, Python Programming MCQ, O Level Exam, O Level Preparation, M3-R5 Practice, Python Practice, O Level MCQ, NIELIT O Level, Python Online Test, O Level Python Exam">
+    
+    <meta name="author" content="Faiz Computer Institute">
+    <meta name="robots" content="index, follow">
+    
+    <!-- CANONICAL -->
+    <link rel="canonical" href="https://www.faizcomputerinstitute.com/olevel/M3-R5.php">
+    
+    <!-- OPEN GRAPH -->
+    <meta property="og:title" content="M3-R5 Python Programming MCQ Practice | O Level Exam">
+    <meta property="og:description" content="Practice M3-R5 Python Programming MCQs for NIELIT O Level exam. Free online practice questions.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.faizcomputerinstitute.com/olevel/M3-R5.php">
+    <meta property="og:image" content="https://www.faizcomputerinstitute.com/image/olevel.png">
+    
+    <!-- TWITTER -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="M3-R5 Python MCQ Practice | O Level">
+    <meta name="twitter:description" content="Free M3-R5 Python Programming MCQ practice for NIELIT O Level exam preparation.">
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="../image/olevel.png">

@@ -12,6 +12,34 @@ while($row = $q->fetch_assoc()){
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- SEO TITLE -->
+<title>Python Practical Questions | M3-R5 Python Practical | O Level Python Programming Practical</title>
+
+<!-- META DESCRIPTION -->
+<meta name="description" content="Free Python practical questions for M3-R5 O Level exam. Practice Python coding questions, run Python code online, Python exercises, and practical exam preparation. Best O Level Python practical portal with online compiler by Faiz Computer Institute.">
+
+<!-- KEYWORDS -->
+<meta name="keywords" content="Python Practical, Python Questions, M3-R5 Python, O Level Python Practical, Python Coding Practice, Python Programming Practical, O Level Practical, NIELIT Python Practical, Python Exam Practice, O Level Python Exam, Python Online Compiler, Python Exercises">
+
+<meta name="author" content="Faiz Computer Institute">
+<meta name="robots" content="index, follow">
+
+<!-- CANONICAL -->
+<link rel="canonical" href="https://www.faizcomputerinstitute.com/practical/M3-R5(python).php">
+
+<!-- OPEN GRAPH -->
+<meta property="og:title" content="Python Practical Questions | O Level Python Programming">
+<meta property="og:description" content="Practice Python practical questions for M3-R5 O Level exam with online compiler.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.faizcomputerinstitute.com/practical/M3-R5(python).php">
+<meta property="og:image" content="https://www.faizcomputerinstitute.com/image/olevel.png">
+
+<!-- TWITTER -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Python Practical | O Level">
+<meta name="twitter:description" content="Free Python practical questions with online compiler for O Level exam.">
+
 <title>Python Practice Portal</title>
 <link rel="icon" type="image/png" href="../image/olevel.png">
 

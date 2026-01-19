@@ -18,6 +18,34 @@ if(!$data){
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- SEO TITLE -->
+<title>O Level Practical Question | View Practical Question | NIELIT O Level Practical</title>
+
+<!-- META DESCRIPTION -->
+<meta name="description" content="View O Level practical question with detailed instructions, images, and solutions. Practice O Level practical questions for NIELIT O Level exam preparation by Faiz Computer Institute.">
+
+<!-- KEYWORDS -->
+<meta name="keywords" content="O Level Practical Question, Practical Question View, NIELIT Practical, O Level Practical Exam, Practical Question Solution, O Level Practical Practice, NIELIT O Level Practical">
+
+<meta name="author" content="Faiz Computer Institute">
+<meta name="robots" content="index, follow">
+
+<!-- CANONICAL -->
+<link rel="canonical" href="https://www.faizcomputerinstitute.com/practical/view.php">
+
+<!-- OPEN GRAPH -->
+<meta property="og:title" content="O Level Practical Question | NIELIT O Level">
+<meta property="og:description" content="View O Level practical question with detailed instructions and solutions.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.faizcomputerinstitute.com/practical/view.php">
+<meta property="og:image" content="https://www.faizcomputerinstitute.com/image/olevel.png">
+
+<!-- TWITTER -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="O Level Practical Question">
+<meta name="twitter:description" content="View O Level practical question with solutions.">
+
 <title>O Level Practical Question</title>
 <link rel="icon" type="image/png" href="../image/olevel.png">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">

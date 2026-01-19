@@ -6,6 +6,35 @@ $subjects = $conn->query("SELECT DISTINCT subject FROM practical_questions ORDER
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- SEO TITLE -->
+<title>O Level Practical Subjects | Practical Questions Portal | NIELIT O Level Practical</title>
+
+<!-- META DESCRIPTION -->
+<meta name="description" content="Access O Level practical questions for all subjects - Writer, Calc, Impress, HTML, CSS, JavaScript, Python, IOT. Free O Level practical exam preparation portal by Faiz Computer Institute.">
+
+<!-- KEYWORDS -->
+<meta name="keywords" content="O Level Practical, Practical Questions, O Level Practical Portal, NIELIT Practical, Writer Practical, Calc Practical, HTML Practical, CSS Practical, JavaScript Practical, Python Practical, IOT Practical, O Level Exam Practical">
+
+<meta name="author" content="Faiz Computer Institute">
+<meta name="robots" content="index, follow">
+
+<!-- CANONICAL -->
+<link rel="canonical" href="https://www.faizcomputerinstitute.com/practical/overview.php">
+
+<!-- OPEN GRAPH -->
+<meta property="og:title" content="O Level Practical Subjects Portal | NIELIT O Level">
+<meta property="og:description" content="Access O Level practical questions for all subjects. Free practical exam preparation.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.faizcomputerinstitute.com/practical/overview.php">
+<meta property="og:image" content="https://www.faizcomputerinstitute.com/image/olevel.png">
+
+<!-- TWITTER -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="O Level Practical Portal | NIELIT">
+<meta name="twitter:description" content="Free O Level practical questions for all subjects.">
+
 <title>Subjects</title>
 <link rel="icon" type="image/png" href="../image/olevel.png">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">

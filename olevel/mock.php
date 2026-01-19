@@ -10,6 +10,34 @@ $selected_subject_id = isset($_GET['subject']) ? intval($_GET['subject']) : 0;
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- SEO TITLE -->
+<title>O Level Mock Test | O Level Mock Exam | NIELIT O Level Mock Test 2025</title>
+
+<!-- META DESCRIPTION -->
+<meta name="description" content="Free O Level mock tests for M1-R5, M2-R5, M3-R5, M4-R5. Practice O Level mock exams online. Best NIELIT O Level mock test platform with instant results by Faiz Computer Institute.">
+
+<!-- KEYWORDS -->
+<meta name="keywords" content="O Level Mock Test, O Level Mock Exam, NIELIT Mock Test, O Level Practice Test, M1-R5 Mock Test, M2-R5 Mock Test, M3-R5 Mock Test, M4-R5 Mock Test, O Level Online Mock Test, O Level Exam Preparation, NIELIT O Level Mock">
+
+<meta name="author" content="Faiz Computer Institute">
+<meta name="robots" content="index, follow">
+
+<!-- CANONICAL -->
+<link rel="canonical" href="https://www.faizcomputerinstitute.com/olevel/mock.php">
+
+<!-- OPEN GRAPH -->
+<meta property="og:title" content="O Level Mock Test | NIELIT O Level Mock Exam">
+<meta property="og:description" content="Practice O Level mock tests online. Free mock exams for NIELIT O Level preparation.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.faizcomputerinstitute.com/olevel/mock.php">
+<meta property="og:image" content="https://www.faizcomputerinstitute.com/image/olevel.png">
+
+<!-- TWITTER -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="O Level Mock Test | NIELIT">
+<meta name="twitter:description" content="Free O Level mock tests for NIELIT O Level exam preparation.">
+
 <title>All Subjects MCQ Practice</title>
 
 <!-- Favicon -->

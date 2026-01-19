@@ -17,6 +17,34 @@ $result = $conn->query($sql);
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- SEO TITLE -->
+<title>LibreOffice Impress Shortcut Keys | M1-R5 Impress Shortcuts | O Level Shortcuts</title>
+
+<!-- META DESCRIPTION -->
+<meta name="description" content="Complete list of LibreOffice Impress keyboard shortcuts for M1-R5 O Level exam. Learn Impress shortcuts, presentation shortcuts for O Level exam preparation. Best Impress shortcuts guide by Faiz Computer Institute.">
+
+<!-- KEYWORDS -->
+<meta name="keywords" content="Impress Shortcuts, LibreOffice Impress Shortcuts, Keyboard Shortcuts, M1-R5 Impress Shortcuts, O Level Shortcuts, Impress Shortcut Keys, O Level Exam Shortcuts, NIELIT Impress Shortcuts, Presentation Shortcuts">
+
+<meta name="author" content="Faiz Computer Institute">
+<meta name="robots" content="index, follow">
+
+<!-- CANONICAL -->
+<link rel="canonical" href="https://www.faizcomputerinstitute.com/shortcut/impress.php">
+
+<!-- OPEN GRAPH -->
+<meta property="og:title" content="LibreOffice Impress Shortcut Keys | O Level">
+<meta property="og:description" content="Complete list of LibreOffice Impress keyboard shortcuts for O Level exam.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.faizcomputerinstitute.com/shortcut/impress.php">
+<meta property="og:image" content="https://www.faizcomputerinstitute.com/image/olevel.png">
+
+<!-- TWITTER -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Impress Shortcut Keys | O Level">
+<meta name="twitter:description" content="Complete LibreOffice Impress keyboard shortcuts guide.">
+
 <title>LibreOffice Impress Shortcut Keys | Faiz Computer Institute</title>
 <link rel="icon" type="image/png" href="../image/olevel.png">
 
