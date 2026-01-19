@@ -25,7 +25,7 @@ body{
     font-family:'Poppins',sans-serif;
     background:#f4f6f9;
     margin:0;
-    padding:20px;
+   
     color:#1e293b;
 }
 
