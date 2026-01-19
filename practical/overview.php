@@ -18,7 +18,7 @@ $subjects = $conn->query("SELECT DISTINCT subject FROM practical_questions ORDER
 body{
     font-family:'Poppins',sans-serif;
     background:#f8fafc;
-    padding:20px;
+    
     margin:0;
     min-height: 100vh;
     -webkit-tap-highlight-color: transparent;
@@ -225,6 +225,7 @@ h2{
             margin-bottom: 50px;
             background-color: black;
             color: white;
+            margin: 20px;
         }
         
 </style>
