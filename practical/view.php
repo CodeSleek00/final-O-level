@@ -37,13 +37,16 @@ body{
 
 /* CARD */
 .box{
-    background:white;
+    background:lightcyan;
+    border-radius:50% ;
     padding:22px;
     border-radius:14px;
     border:1px solid #e5e7eb;
     display: absolute;
     top: 0px;
-    left: 0px;}
+    left: 0px;
+
+}
 
 /* QUESTION */
 .question{
