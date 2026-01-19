@@ -60,7 +60,9 @@ a:hover{
             margin-bottom: 50px;
             background-color: black;
             color: white;
+            margin: 10px;
         }
+
 </style>
 </head>
 <body>
