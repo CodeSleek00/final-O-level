@@ -255,7 +255,7 @@ body {
 </head>
 <body>
  <section class="it-banner">
-       <h1 class="subject-title"><?= htmlspecialchars($subject) ?></h1>
+       <h1><?= htmlspecialchars($subject) ?></h1>
         <p>
             Practice updated Practical based on the latest NIELIT syllabus.
             Improve accuracy, speed, and confidence with topic-wise Practicals designed for O Level students.
