@@ -117,7 +117,7 @@ body{
         <!-- QUESTION IMAGE -->
         <?php if(!empty($data['image'])): ?>
         <div class="question-img">
-            <img src="../upload/<?= htmlspecialchars($data['image']) ?>" alt="Question Image">
+            <img src="../admin/uploads/<?= htmlspecialchars($data['image']) ?>" alt="Question Image">
         </div>
         <?php endif; ?>
 
