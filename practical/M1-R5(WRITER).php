@@ -70,11 +70,11 @@ a:hover{
 <?php include 'navbar.html'; ?>
  <!-- ================= BANNER ================= -->
     <section class="it-banner">
-        <h1>IT Tools (Writer) Practicals</h1>
+        <h1>LibreOffice Writer Practicals</h1>
         <p>
             Practice updated MCQs based on the latest NIELIT syllabus.
             Improve accuracy, speed, and confidence with topic-wise
-            IT Tools (writer) practcial designed for O Level students.
+            LibreOffice Writer practcial designed for O Level students.
         </p>
     </section>
 
