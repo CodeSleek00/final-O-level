@@ -19,53 +19,121 @@ if(!$data){
 <meta charset="UTF-8">
 <title>Answer</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
 <style>
 body{
     font-family:'Poppins',sans-serif;
     background:#f8fafc;
     margin:0;
-    padding:30px;
+    padding:20px;
     color:#1e293b;
 }
-.box{
-    background:white;
-    padding:25px;
-    border-radius:10px;
-    box-shadow:0 4px 10px rgba(0,0,0,0.08);
+
+/* CONTAINER */
+.container{
     max-width:900px;
     margin:auto;
 }
+
+/* BACK */
+.back{
+    display:inline-block;
+    margin-bottom:15px;
+    color:#2563eb;
+    text-decoration:none;
+    font-size:14px;
+}
+
+/* CARD */
+.box{
+    background:white;
+    padding:22px;
+    border-radius:14px;
+    border:1px solid #e5e7eb;
+}
+
+/* QUESTION */
 .question{
     font-size:18px;
     font-weight:600;
     margin-bottom:15px;
 }
+
+/* QUESTION IMAGE */
+.question-img{
+    margin-bottom:18px;
+}
+
+.question-img img{
+    max-width:100%;
+    border-radius:10px;
+    border:1px solid #e5e7eb;
+}
+
+/* ANSWER */
+.answer-title{
+    font-size:16px;
+    font-weight:600;
+    margin-bottom:8px;
+    color:#2563eb;
+}
+
 .answer{
     background:#f1f5f9;
-    padding:15px;
-    border-left:4px solid #3b82f6;
-    white-space:pre-wrap;
-    font-family:monospace;
+    padding:16px;
+    border-radius:10px;
+    font-size:15px;
+    line-height:1.6;
+    white-space:pre-wrap; /* line breaks preserved */
 }
-.back{
-    margin-bottom:20px;
-    display:inline-block;
-    color:#2563eb;
-    text-decoration:none;
+
+/* MOBILE */
+@media(max-width:640px){
+    body{
+        padding:15px;
+    }
+
+    .question{
+        font-size:16px;
+    }
+
+    .answer{
+        font-size:14px;
+        padding:14px;
+    }
 }
 </style>
 </head>
 <body>
 
-<a class="back" href="questions.php?subject=<?= urlencode($data['subject']) ?>">← Back to Questions</a>
+<div class="container">
 
-<div class="box">
-    <div class="question">
-        <?= htmlspecialchars($data['question']) ?>
+    <a class="back" href="questions.php?subject=<?= urlencode($data['subject']) ?>">
+        ← Back to Questions
+    </a>
+
+    <div class="box">
+
+        <!-- QUESTION TEXT -->
+        <div class="question">
+            <?= htmlspecialchars($data['question']) ?>
+        </div>
+
+        <!-- QUESTION IMAGE (IF EXISTS) -->
+        <?php if(!empty($data['question_image'])): ?>
+        <div class="question-img">
+            <img src="<?= htmlspecialchars($data['question_image']) ?>" alt="Question Image">
+        </div>
+        <?php endif; ?>
+
+        <!-- ANSWER -->
+        <div class="answer-title">Answer</div>
+        <div class="answer">
+            <?= htmlspecialchars($data['answer']) ?>
+        </div>
+
     </div>
-    <div class="answer">
-        <?= htmlspecialchars($data['answer']) ?>
-    </div>
+
 </div>
 
 </body>
