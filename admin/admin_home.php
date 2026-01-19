@@ -3,7 +3,7 @@ include "../db_connect.php";
 
 // ===== COUNTS =====
 $subjects = $conn->query("SELECT COUNT(*) total FROM subjects")->fetch_assoc()['total'];
-$sets = $conn->query("SELECT COUNT(*) total FROM mock_sets")->fetch_assoc()['total'];
+$sets = $conn->query("SELECT COUNT(*) total FROM test_sets")->fetch_assoc()['total'];
 $mcqs = $conn->query("SELECT COUNT(*) total FROM questions")->fetch_assoc()['total'];
 $chapters = $conn->query("SELECT COUNT(*) total FROM chapters")->fetch_assoc()['total'];
 $chapter_q = $conn->query("SELECT COUNT(*) total FROM chapter_questions")->fetch_assoc()['total'];
