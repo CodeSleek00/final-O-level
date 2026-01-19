@@ -216,9 +216,15 @@ h2{
 </style>
 </head>
 <body>
-
-<h2>Practical Subjects</h2>
-
+<?php include 'navbar.html'; ?>
+  <section class="it-banner">
+        <h1>Practicals</h1>
+        <p>
+            Practice updated Practical on the latest NIELIT syllabus.
+            Improve accuracy, speed, and confidence with topic-wise
+            practicals designed for O Level students.
+        </p>
+    </section>
 <div class="subject-grid">
 
 <?php 
