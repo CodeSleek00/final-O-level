@@ -304,16 +304,7 @@ body {
 </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <div class="header-content">
-
-            <a href="python_practicals.php" class="back-button">
-                <i class="fas fa-arrow-left"></i>
-                Back to Questions
-            </a>
-        </div>
-    </header>
+  
 
     <!-- Main Container -->
     <div class="container">
