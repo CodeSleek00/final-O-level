@@ -19,6 +19,9 @@
     <a href="add_chapter_question.php">➕ Add Chapter Question</a>
     <h2>Practical</h2>
     <a href="add_practical_question.php">➕ Add Practical Question</a>
+    <h2>Shortcut</h2>
+    <a href="add_cateogry.php">Add Shortcut Key Category</a>
+    <a href="add_shortcut.php">Add Shortcut Key</a>
 </div>
 
 </body>
