@@ -21,7 +21,7 @@ while($row = $q->fetch_assoc()){
 body{
     font-family:'Poppins', Arial;
     background:#f4f6f9;
-    padding:20px;
+   
 }
 .chapter{
     background:#fff;
