@@ -99,7 +99,7 @@ body{
 </style>
 </head>
 <body>
-  
+  <?php include 'navbar.html'; ?>
 <div class="container">
 
     <div class="box">
