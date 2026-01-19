@@ -120,9 +120,9 @@ body{
         </div>
 
         <!-- QUESTION IMAGE (IF EXISTS) -->
-        <?php if(!empty($data['question_image'])): ?>
+        <?php if(!empty($data['image'])): ?>
         <div class="question-img">
-            <img src="<?= htmlspecialchars($data['question_image']) ?>" alt="Question Image">
+            <img src="<?= htmlspecialchars($data['image']) ?>" alt="Question Image">
         </div>
         <?php endif; ?>
 
