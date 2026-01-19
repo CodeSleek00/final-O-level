@@ -35,7 +35,7 @@ body{
     margin:0 0 10px;
     color:#2c3e50;
 }
-ul{
+ol{
     padding-left:20px;
 }
 li{
