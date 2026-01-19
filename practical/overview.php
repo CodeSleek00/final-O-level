@@ -19,7 +19,7 @@ $subjects = $conn->query("SELECT DISTINCT subject FROM practical_questions ORDER
     --neutral-white: #ffffff;
     --neutral-gray-light: #f8fafc;
     --neutral-gray-medium: #e2e8f0;
-    --neutral-gray-dark: #64748b;
+    --neutral-gray-dark: #fbfdff;
     --neutral-gray-darker: #334155;
     --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
     --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
