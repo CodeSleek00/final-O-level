@@ -326,10 +326,7 @@ body {
                         <i class="fas fa-hashtag"></i>
                         Question ID: <?= $id ?>
                     </span>
-                    <span class="question-type">
-                        <i class="fas fa-code"></i>
-                        Python Programming
-                    </span>
+                    
                 </div>
                 <h1 class="question-title">Practical Question</h1>
             </div>
@@ -379,10 +376,6 @@ body {
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <p>O Level Computer Science Practical Questions &copy; <?= date('Y') ?></p>
-    </footer>
 
     <script>
         // Simple script to enhance code blocks
