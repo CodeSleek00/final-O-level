@@ -28,8 +28,7 @@ body {
     color: #333;
     line-height: 1.6;
     padding: 0;
-    max-width: 800px;
-    margin: 0 auto;
+    
 }
 
 /* Header */
