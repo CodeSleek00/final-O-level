@@ -82,7 +82,7 @@ a:hover{
 <?php foreach($questions as $chapter => $rows){ ?>
 <div class="chapter">
     <h2><?php echo htmlspecialchars($chapter); ?> Practical</h2>
-    <ul>
+    <ol>
         <?php foreach($rows as $q){ ?>
         <li>
             <a href="view.php?id=<?php echo $q['id']; ?>">
@@ -90,7 +90,7 @@ a:hover{
             </a>
         </li>
         <?php } ?>
-    </ul>
+    </ol>
 </div>
 <?php } ?>
 
