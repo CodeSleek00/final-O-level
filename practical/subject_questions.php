@@ -254,6 +254,8 @@ body {
 </style>
 </head>
 <body>
+
+<?php include 'navbar.html'; ?>
  <section class="it-banner">
        <h1><?= htmlspecialchars($subject) ?></h1>
         <p>
@@ -261,10 +263,6 @@ body {
             Improve accuracy, speed, and confidence with topic-wise Practicals designed for O Level students.
         </p>
     </section>
-<header class="header">
-   
-    
-</header>
 
 <main class="content">
     <?php
