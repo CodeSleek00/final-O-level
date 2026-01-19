@@ -307,10 +307,7 @@ body {
     <!-- Header -->
     <header class="header">
         <div class="header-content">
-            <div class="header-title">
-                <i class="fas fa-laptop-code"></i>
-                O Level Computer Science Practical
-            </div>
+
             <a href="python_practicals.php" class="back-button">
                 <i class="fas fa-arrow-left"></i>
                 Back to Questions
@@ -365,7 +362,7 @@ body {
                         </div>
                         <span class="answer-badge">
                             <i class="fas fa-check-circle"></i>
-                            Verified Answer
+                            Verified Answer by Faiz Computer Institute
                         </span>
                     </div>
                     <div class="answer-content">
