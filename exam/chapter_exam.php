@@ -259,7 +259,6 @@ $text = $q['option_'.strtolower($opt)];
    href="?chapter_id=<?= $cid ?>&page=<?= $page+1 ?>">Next →</a>
 </div>
 
-<a class="back" href="chapter_list.php">← Back to Chapters</a>
 
 </div>
 
