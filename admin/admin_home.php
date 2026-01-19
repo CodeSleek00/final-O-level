@@ -12,8 +12,13 @@
 
 <div class="box">
     <h2>Admin Panel</h2>
-    <a href="add_set.php">➕ Add Test Set</a>
+    <a href="add_set.php">➕ Add Mock Test Set</a>
     <a href="add_question.php">📝 Add MCQ Question</a>
+    <h2>Chapter</h2>
+    <a href="add_chapter.php">➕ Add Chapter</a>
+    <a href="add_chapter_question.php">➕ Add Chapter Question</a>
+    <h2>Practical</h2>
+    <a href="add_practical_question.php">➕ Add Practical Question</a>
 </div>
 
 </body>
