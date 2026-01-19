@@ -217,15 +217,6 @@ h2{
 <!-- BACK ICON -->
 <div class="back-icon" onclick="history.back()">←</div>
 
-<!-- LEFT BANNER -->
-<div class="side-banner left-banner">
-    <img src="faiz-left.svg" alt="Left Banner">
-</div>
-
-<!-- RIGHT BANNER -->
-<div class="side-banner right-banner">
-    <img src="banner-right.jpg" alt="Right Banner">
-</div>
 
 <div class="container">
 
