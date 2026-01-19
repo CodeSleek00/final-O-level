@@ -13,6 +13,7 @@ while($row = $q->fetch_assoc()){
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Javascript || O level Practice</title>
+<link rel="icon" type="image/png" href="../image/olevel.png">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 

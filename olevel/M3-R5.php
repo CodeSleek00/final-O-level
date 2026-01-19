@@ -11,6 +11,9 @@ $subject_id = 3; // M3-R5 Python Programming
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>M3-R5 | Python Programming MCQ Practice</title>
 
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../image/olevel.png">
+
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 

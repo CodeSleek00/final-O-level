@@ -9,6 +9,9 @@
 
 <title>O Level || Faiz Computer Institute</title>
 
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="../image/olevel.png">
+
 <style>
     * {
     margin: 0;

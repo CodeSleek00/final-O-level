@@ -27,6 +27,7 @@ if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== tru
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Admin Login</title>
+        <link rel="icon" type="image/png" href="../image/olevel.png">
         <link rel="stylesheet" href="admin_style.css">
         <style>
             * {

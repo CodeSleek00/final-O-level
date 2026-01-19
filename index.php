@@ -29,6 +29,9 @@
     <meta name="twitter:title" content="O Level Preparation 2025 | Faiz Computer Institute">
     <meta name="twitter:description" content="Best platform for O Level MCQ, mock test & practical preparation.">
 
+    <!-- FAVICON -->
+    <link rel="icon" type="image/png" href="image/olevel.png">
+
     <!-- GOOGLE FONTS & ICONS -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">

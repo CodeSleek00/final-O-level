@@ -49,6 +49,7 @@ $unattempted = $total_q - $total_attempted;
 <head>
 <meta charset="UTF-8">
 <title>Exam Result</title>
+<link rel="icon" type="image/png" href="image/olevel.png">
 <style>
 body {
     font-family: Arial, sans-serif;
