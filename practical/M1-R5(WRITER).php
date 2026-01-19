@@ -47,6 +47,8 @@ a{
 }
 a:hover{
     text-decoration:underline;
+    transition: all 0.3s ease-in-out;
+    color: purple;
 }
 
         /* ===== BANNER ===== */
