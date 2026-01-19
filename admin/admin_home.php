@@ -1,4 +1,105 @@
 <?php
+session_start();
+
+// Default password - Change this to your desired password
+$admin_password = "admin123"; // Change this password
+
+$login_error = "";
+
+// Handle login
+if (isset($_POST['login'])) {
+    $entered_password = $_POST['password'];
+    if ($entered_password === $admin_password) {
+        $_SESSION['admin_logged_in'] = true;
+        header('Location: admin_home.php');
+        exit();
+    } else {
+        $login_error = "Incorrect password!";
+    }
+}
+
+// If not logged in, show login form
+if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {
+    ?>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Admin Login</title>
+        <link rel="stylesheet" href="admin_style.css">
+        <style>
+            .login-container {
+                min-height: 100vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                padding: 20px;
+            }
+            .login-box {
+                background: white;
+                padding: 40px;
+                border-radius: 16px;
+                box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+                max-width: 400px;
+                width: 100%;
+            }
+            .login-header {
+                text-align: center;
+                margin-bottom: 30px;
+            }
+            .login-header h1 {
+                font-size: 2rem;
+                color: var(--secondary-blue);
+                margin-bottom: 10px;
+            }
+            .login-header p {
+                color: #6b7280;
+                font-size: 0.95rem;
+            }
+            .login-icon {
+                font-size: 3rem;
+                margin-bottom: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="login-container">
+            <div class="login-box">
+                <div class="login-header">
+                    <div class="login-icon">🔐</div>
+                    <h1>Admin Login</h1>
+                    <p>Enter password to access admin panel</p>
+                </div>
+
+                <?php if ($login_error): ?>
+                    <div class="alert alert-error">
+                        ✗ <?= htmlspecialchars($login_error) ?>
+                    </div>
+                <?php endif; ?>
+
+                <form method="post" action="">
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" 
+                               placeholder="Enter admin password" 
+                               required autofocus>
+                    </div>
+
+                    <button type="submit" name="login" class="btn btn-primary btn-full">
+                        Login
+                    </button>
+                </form>
+            </div>
+        </div>
+    </body>
+    </html>
+    <?php
+    exit();
+}
+
+// User is logged in, show dashboard
 include "../db_connect.php";
 
 // ===== COUNTS =====

@@ -1,4 +1,10 @@
 <?php
+session_start();
+if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {
+    header('Location: admin_home.php');
+    exit();
+}
+
 $page_title = "Add Practical Question";
 include "admin_header.php";
 ?>

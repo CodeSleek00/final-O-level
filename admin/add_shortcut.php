@@ -1,4 +1,10 @@
 <?php
+session_start();
+if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {
+    header('Location: admin_home.php');
+    exit();
+}
+
 include("../db_connect.php");
 $msg = "";
 $msg_type = "";
