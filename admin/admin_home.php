@@ -2,7 +2,7 @@
 session_start();
 
 // Default password - Change this to your desired password
-$admin_password = "admin123"; // Change this password
+$admin_password = "faiz2912"; // Change this password
 
 $login_error = "";
 
