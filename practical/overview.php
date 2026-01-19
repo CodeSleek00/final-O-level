@@ -38,8 +38,7 @@ $subjects = $conn->query("SELECT DISTINCT subject FROM practical_questions ORDER
 
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: var(--neutral-gray-light);
-    color: var(--neutral-gray-darker);
+
     line-height: 1.6;
     padding: 20px;
     min-height: 100vh;
