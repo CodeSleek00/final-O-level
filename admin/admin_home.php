@@ -29,37 +29,98 @@ if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== tru
         <title>Admin Login</title>
         <link rel="stylesheet" href="admin_style.css">
         <style>
-            .login-container {
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            body {
+                font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+                background: #f8f9fa;
                 min-height: 100vh;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
                 padding: 20px;
             }
-            .login-box {
-                background: white;
-                padding: 40px;
-                border-radius: 16px;
-                box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-                max-width: 400px;
+            .login-container {
                 width: 100%;
+                max-width: 420px;
+            }
+            .login-box {
+                background: #ffffff;
+                padding: 48px 40px;
+                border-radius: 8px;
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+                border: 1px solid #e5e7eb;
             }
             .login-header {
                 text-align: center;
-                margin-bottom: 30px;
+                margin-bottom: 32px;
             }
             .login-header h1 {
-                font-size: 2rem;
-                color: var(--secondary-blue);
-                margin-bottom: 10px;
+                font-size: 24px;
+                font-weight: 600;
+                color: #111827;
+                margin-bottom: 8px;
+                letter-spacing: -0.5px;
             }
             .login-header p {
                 color: #6b7280;
-                font-size: 0.95rem;
+                font-size: 14px;
+                font-weight: 400;
             }
-            .login-icon {
-                font-size: 3rem;
+            .form-group {
+                margin-bottom: 20px;
+            }
+            .form-group label {
+                display: block;
+                font-size: 14px;
+                font-weight: 500;
+                color: #374151;
+                margin-bottom: 8px;
+            }
+            .form-group input {
+                width: 100%;
+                padding: 12px 16px;
+                font-size: 14px;
+                border: 1px solid #d1d5db;
+                border-radius: 6px;
+                background: #ffffff;
+                transition: all 0.2s;
+                font-family: inherit;
+            }
+            .form-group input:focus {
+                outline: none;
+                border-color: #2563eb;
+                box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+            }
+            .btn-login {
+                width: 100%;
+                padding: 12px 16px;
+                background: #2563eb;
+                color: #ffffff;
+                border: none;
+                border-radius: 6px;
+                font-size: 14px;
+                font-weight: 500;
+                cursor: pointer;
+                transition: all 0.2s;
+                font-family: inherit;
+            }
+            .btn-login:hover {
+                background: #1d4ed8;
+            }
+            .btn-login:active {
+                transform: scale(0.98);
+            }
+            .alert-error {
+                background: #fef2f2;
+                border: 1px solid #fecaca;
+                color: #991b1b;
+                padding: 12px 16px;
+                border-radius: 6px;
+                font-size: 14px;
                 margin-bottom: 20px;
             }
         </style>
@@ -68,14 +129,13 @@ if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== tru
         <div class="login-container">
             <div class="login-box">
                 <div class="login-header">
-                    <div class="login-icon">🔐</div>
                     <h1>Admin Login</h1>
-                    <p>Enter password to access admin panel</p>
+                    <p>Enter your password to continue</p>
                 </div>
 
                 <?php if ($login_error): ?>
-                    <div class="alert alert-error">
-                        ✗ <?= htmlspecialchars($login_error) ?>
+                    <div class="alert-error">
+                        <?= htmlspecialchars($login_error) ?>
                     </div>
                 <?php endif; ?>
 
@@ -83,12 +143,12 @@ if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== tru
                     <div class="form-group">
                         <label for="password">Password</label>
                         <input type="password" id="password" name="password" 
-                               placeholder="Enter admin password" 
+                               placeholder="Enter password" 
                                required autofocus>
                     </div>
 
-                    <button type="submit" name="login" class="btn btn-primary btn-full">
-                        Login
+                    <button type="submit" name="login" class="btn-login">
+                        Sign In
                     </button>
                 </form>
             </div>
