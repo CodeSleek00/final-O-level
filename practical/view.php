@@ -94,6 +94,7 @@ body{
     display: absolute;
     background:lightcyan;
     border-radius:50% ;
+    height: auto;
 }
 
 /* MOBILE */
