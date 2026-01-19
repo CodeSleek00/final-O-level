@@ -213,6 +213,20 @@ h2{
     border-color: #2563eb;
     box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
 }
+   /* ===== BANNER ===== */
+        .it-banner {
+            background: url('../image/bg.svg');
+            background-size: cover;
+            background-position: center center;
+            padding: 40px 40px;
+            border-radius: 18px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+            text-align: center;
+            margin-bottom: 50px;
+            background-color: black;
+            color: white;
+        }
+        
 </style>
 </head>
 <body>
