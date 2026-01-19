@@ -25,7 +25,7 @@ body{
     font-family:'Poppins',sans-serif;
     background:#f4f6f9;
     margin:0;
-   
+    padding:20px;
     color:#1e293b;
 }
 
@@ -82,6 +82,20 @@ body{
     border-left:4px solid #2563eb;
 }
 
+/* BACK */
+.back{
+    display:inline-block;
+    margin-top:20px;
+    color:#2563eb;
+    text-decoration:none;
+    font-size:14px;
+     top: 0px;
+    left: 0px;
+    display: absolute;
+    background:lightcyan;
+    border-radius:50% ;
+    height: auto;
+}
 
 /* MOBILE */
 @media(max-width:640px){
@@ -99,7 +113,7 @@ body{
 </style>
 </head>
 <body>
-  <?php include 'navbar.html'; ?>
+   <a class="back" href="python_practicals.php">← </a>
 <div class="container">
 
     <div class="box">
