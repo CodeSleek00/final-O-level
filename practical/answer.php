@@ -108,9 +108,7 @@ body{
 
 <div class="container">
 
-    <a class="back" href="questions.php?subject=<?= urlencode($data['subject']) ?>">
-        ← Back to Questions
-    </a>
+   
 
     <div class="box">
 
