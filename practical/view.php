@@ -41,7 +41,9 @@ body{
     padding:22px;
     border-radius:14px;
     border:1px solid #e5e7eb;
-}
+    display: absolute;
+    top: 0px;
+    left: 0px;}
 
 /* QUESTION */
 .question{
@@ -104,7 +106,7 @@ body{
 </style>
 </head>
 <body>
-
+   <a class="back" href="python_practicals.php">← Back to Practicals</a>
 <div class="container">
 
     <div class="box">
@@ -127,7 +129,7 @@ body{
             <?= htmlspecialchars($data['answer']) ?>
         </div>
 
-        <a class="back" href="python_practicals.php">← Back to Practicals</a>
+     
 
     </div>
 
