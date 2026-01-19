@@ -71,6 +71,8 @@ a.btn{
     <h2>⌨️ Shortcut Keys</h2>
     <a class="btn" href="add_category.php">➕ Shortcut Category</a>
     <a class="btn" href="add_shortcut.php">➕ Shortcut Key</a>
+    <h2>Add Subject</h2>
+    <a class="btn" href="add_subject.php">➕ Add Subject</a>
 </div>
 
 </body>
