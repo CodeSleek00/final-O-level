@@ -237,16 +237,33 @@ body {
     outline: 2px solid #2563eb;
     border-radius: 4px;
     padding: 4px 8px;
-}
+}  /* ===== BANNER ===== */
+        .it-banner {
+            background: url('../image/bg.svg');
+            background-size: cover;
+            background-position: center center;
+            padding: 40px 40px;
+            border-radius: 18px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+            text-align: center;
+            margin-bottom: 50px;
+            background-color: black;
+            color: white;
+            margin: 20px;
+        }
 </style>
 </head>
 <body>
-
+ <section class="it-banner">
+       <h1 class="subject-title"><?= htmlspecialchars($subject) ?></h1>
+        <p>
+            Practice updated Practical based on the latest NIELIT syllabus.
+            Improve accuracy, speed, and confidence with topic-wise Practicals designed for O Level students.
+        </p>
+    </section>
 <header class="header">
-    <a href="overview_subjects.php" class="back-btn">
-        ← Back to Subjects
-    </a>
-    <h1 class="subject-title"><?= htmlspecialchars($subject) ?></h1>
+   
+    
 </header>
 
 <main class="content">
