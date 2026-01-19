@@ -37,14 +37,12 @@ body{
 
 /* CARD */
 .box{
-    background:lightcyan;
-    border-radius:50% ;
+    
     padding:22px;
     border-radius:14px;
     border:1px solid #e5e7eb;
     display: absolute;
-    top: 0px;
-    left: 0px;
+   
 
 }
 
@@ -91,6 +89,11 @@ body{
     color:#2563eb;
     text-decoration:none;
     font-size:14px;
+     top: 0px;
+    left: 0px;
+    display: absolute;
+    background:lightcyan;
+    border-radius:50% ;
 }
 
 /* MOBILE */
