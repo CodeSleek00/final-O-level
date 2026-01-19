@@ -112,7 +112,7 @@ body{
 </style>
 </head>
 <body>
-   <a class="back" href="python_practicals.php">← Back to Practicals</a>
+   <a class="back" href="python_practicals.php">← </a>
 <div class="container">
 
     <div class="box">
