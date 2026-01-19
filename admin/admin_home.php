@@ -8,7 +8,7 @@ $mcqs = $conn->query("SELECT COUNT(*) total FROM questions")->fetch_assoc()['tot
 $chapters = $conn->query("SELECT COUNT(*) total FROM chapters")->fetch_assoc()['total'];
 $chapter_q = $conn->query("SELECT COUNT(*) total FROM chapter_questions")->fetch_assoc()['total'];
 $practicals = $conn->query("SELECT COUNT(*) total FROM practical_questions")->fetch_assoc()['total'];
-$shortcut_cat = $conn->query("SELECT COUNT(*) total FROM shortcut_categories")->fetch_assoc()['total'];
+$shortcut_cat = $conn->query("SELECT COUNT(*) total FROM categories")->fetch_assoc()['total'];
 $shortcuts = $conn->query("SELECT COUNT(*) total FROM shortcuts")->fetch_assoc()['total'];
 ?>
 <!DOCTYPE html>
