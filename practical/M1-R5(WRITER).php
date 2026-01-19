@@ -13,9 +13,13 @@ while($row = $q->fetch_assoc()){
 <head>
 <meta charset="UTF-8">
 <title>LibreOffice Writer Practical Questions - All</title>
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600&display=swap" rel="stylesheet">
+
 <style>
 body{
-    font-family:Segoe UI, Arial;
+    font-family:'Poppins', Arial;
     background:#f4f6f9;
     padding:20px;
 }
@@ -43,11 +47,34 @@ a{
 a:hover{
     text-decoration:underline;
 }
+
+        /* ===== BANNER ===== */
+        .it-banner {
+            background: url('../image/bg.svg');
+            background-size: cover;
+            background-position: center center;
+            padding: 40px 40px;
+            border-radius: 18px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+            text-align: center;
+            margin-bottom: 50px;
+            background-color: black;
+            color: white;
+        }
 </style>
 </head>
 <body>
 
-<h1> LibreOffice Writer Practical Questions</h1>
+<?php include 'navbar.html'; ?>
+ <!-- ================= BANNER ================= -->
+    <section class="it-banner">
+        <h1>IT Tools (Writer) Practicals</h1>
+        <p>
+            Practice updated MCQs based on the latest NIELIT syllabus.
+            Improve accuracy, speed, and confidence with topic-wise
+            IT Tools (writer) practcial designed for O Level students.
+        </p>
+    </section>
 
 <?php foreach($questions as $chapter => $rows){ ?>
 <div class="chapter">
