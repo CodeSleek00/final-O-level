@@ -296,6 +296,28 @@ include "admin_header.php";
             </div>
         </a>
     </div>
+
+    <div class="section-header">
+        <h2>📋 Previous Year Questions (PYQ)</h2>
+    </div>
+
+    <div class="action-grid">
+        <a href="pyq_papers.php" class="action-btn">
+            <div class="action-btn-icon">📄</div>
+            <div class="action-btn-content">
+                <h3>Add PYQ Paper</h3>
+                <p>Create a new previous year question paper</p>
+            </div>
+        </a>
+
+        <a href="pyq_papers.php" class="action-btn">
+            <div class="action-btn-icon">📚</div>
+            <div class="action-btn-content">
+                <h3>Manage PYQ Papers</h3>
+                <p>View and manage all PYQ papers</p>
+            </div>
+        </a>
+    </div>
 </div>
 
 </body>
