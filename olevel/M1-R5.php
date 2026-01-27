@@ -168,6 +168,54 @@ $subject_id = 1; // M1-R5 IT Tools
         ?>
     </div>
 </div>
+<!-- ================= PREVIOUS YEAR QUESTIONS ================= -->
+<div class="container">
+    <h1 style="font-weight:normal;">Previous Year Questions (PYQ)</h1>
+
+    <div class="cards-grid">
+        <?php
+        $pyq = $conn->query("
+            SELECT p.id, p.paper_title, p.exam_year, 
+                   COUNT(q.id) AS total_questions
+            FROM pyq_papers p
+            LEFT JOIN pyq_questions q ON p.id = q.paper_id
+            WHERE p.subject_id = $subject_id
+            GROUP BY p.id
+            HAVING total_questions > 0
+            ORDER BY p.exam_year DESC
+        ");
+
+        if ($pyq && $pyq->num_rows > 0) {
+            while ($row = $pyq->fetch_assoc()) {
+        ?>
+            <div class="test-card">
+                <h3 style="font-weight:normal;">
+                    <?= htmlspecialchars($row['paper_title']); ?>
+                </h3>
+
+                <p>
+                    Year:
+                    <b><?= $row['exam_year']; ?></b>
+                </p>
+
+                <p>
+                    Total Questions:
+                    <b><?= $row['total_questions']; ?></b>
+                </p>
+
+                <a class="start-btn"
+                   href="../exam/pyq_practice.php?paper_id=<?= $row['id']; ?>">
+                    Start PYQ Practice
+                </a>
+            </div>
+        <?php
+            }
+        } else {
+            echo "<p style='color:#666'>No previous year questions available.</p>";
+        }
+        ?>
+    </div>
+</div>
 
 </body>
 </html>
