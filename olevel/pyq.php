@@ -16,7 +16,7 @@ body{
 }
 .container{
     max-width:1100px;
-    margin:40px auto;
+    margin:0px auto;
     padding:20px;
 }
 
