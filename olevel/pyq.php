@@ -90,6 +90,19 @@ h1{
     color:#555;
     grid-column:1/-1;
 }
+ /* ===== BANNER ===== */
+        .it-banner {
+            background: url('../image/bg.svg');
+            background-size: cover;
+            background-position: center center;
+            padding: 40px 40px;
+            border-radius: 18px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+            text-align: center;
+            margin-bottom: 50px;
+            background-color: black;
+            color: white;
+        }
 </style>
 </head>
 
@@ -97,9 +110,19 @@ h1{
 
 <?php include 'navbar.html'; ?>
 
-<div class="container">
-
+ <section class="it-banner">
+       
 <h1>Previous Year Questions (PYQ)</h1>
+
+        <p>
+            Practice updated MCQs based on the latest NIELIT syllabus.
+            Improve accuracy, speed, and confidence with Previous Year
+             questions designed for O Level students.
+        </p>
+    </section>
+
+
+<div class="container">
 
 <!-- SUBJECT BUTTONS -->
 <div class="subject-buttons">
