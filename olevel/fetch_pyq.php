@@ -28,7 +28,7 @@ while($p=$papers->fetch_assoc()){
     </p>
 
     <a class="start-btn"
-       href="pyq_practice.php?paper_id=<?= $p['id'] ?>">
+       href="../exam/pyq_practice.php?paper_id=<?= $p['id'] ?>">
        Start PYQ
     </a>
 </div>
