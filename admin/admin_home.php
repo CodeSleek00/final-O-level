@@ -172,6 +172,8 @@ $chapter_q = $conn->query("SELECT COUNT(*) total FROM chapter_questions")->fetch
 $practicals = $conn->query("SELECT COUNT(*) total FROM practical_questions")->fetch_assoc()['total'];
 $shortcut_cat = $conn->query("SELECT COUNT(*) total FROM categories")->fetch_assoc()['total'];
 $shortcuts = $conn->query("SELECT COUNT(*) total FROM shortcuts")->fetch_assoc()['total'];
+$pyq_papers = $conn->query("SELECT COUNT(*) total FROM pyq_papers")->fetch_assoc()['total'];
+$pyq_questions = $conn->query("SELECT COUNT(*) total FROM pyq_questions")->fetch_assoc()['total'];
 
 $page_title = "Admin Dashboard";
 include "admin_header.php";
@@ -214,6 +216,14 @@ include "admin_header.php";
         <div class="dashboard-card">
             <h3>Shortcut Keys</h3>
             <p class="number"><?= $shortcuts ?></p>
+        </div>
+        <div class="dashboard-card">
+            <h3>PYQ Papers</h3>
+            <p class="number"><?= $pyq_papers ?></p>
+        </div>
+        <div class="dashboard-card">
+            <h3>PYQ Questions</h3>
+            <p class="number"><?= $pyq_questions ?></p>
         </div>
     </div>
 

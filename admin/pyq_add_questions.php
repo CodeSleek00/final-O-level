@@ -1,5 +1,22 @@
 <?php
+session_start();
+if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {
+    header('Location: admin_home.php');
+    exit();
+}
+
 include '../db_connect.php';
+$msg = "";
+$msg_type = "";
+
+if(isset($_GET['success'])){
+    $msg = "Question added successfully!";
+    $msg_type = "success";
+}
+if(isset($_GET['error'])){
+    $msg = "Error adding question. Please try again.";
+    $msg_type = "error";
+}
 
 $paper_id = intval($_GET['paper_id']);
 
@@ -13,67 +30,139 @@ $paper = $conn->query("
 if(!$paper){
     die("Invalid Paper");
 }
+
+$page_title = "Add PYQ Questions";
+include "admin_header.php";
 ?>
 
-<!DOCTYPE html>
-<html>
-<head>
-<title>Add PYQ Questions</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-body{font-family:Poppins;background:#f4f6f9;margin:0}
-.container{max-width:900px;margin:40px auto;background:#fff;padding:25px;border-radius:16px}
-input,textarea,select,button{
-    width:100%;padding:10px;margin-bottom:10px
-}
-button{background:#0d6efd;color:#fff;border:none;border-radius:6px}
-</style>
-</head>
+<div class="admin-container">
+    <div class="form-container">
+        <div class="form-header">
+            <h2>📝 Add PYQ Question</h2>
+            <p><?= htmlspecialchars($paper['paper_title']) ?> (<?= $paper['exam_year'] ?>)</p>
+            <p style="font-size: 0.9rem; color: #6b7280; margin-top: 5px;">
+                Subject: <?= htmlspecialchars($paper['subject_name']) ?>
+            </p>
+        </div>
 
-<body>
-<div class="container">
+        <?php if($msg): ?>
+            <div class="alert alert-<?= $msg_type === 'success' ? 'success' : 'error' ?>">
+                <?= $msg_type === 'success' ? '✓' : '✗' ?> <?= htmlspecialchars($msg) ?>
+            </div>
+        <?php endif; ?>
 
-<h2><?= $paper['paper_title'] ?> (<?= $paper['exam_year'] ?>)</h2>
-<h3>Add Question</h3>
+        <form method="post" action="pyq_save_question.php">
+            <input type="hidden" name="paper_id" value="<?= $paper_id ?>">
 
-<form method="post" action="pyq_save_question.php">
-    <input type="hidden" name="paper_id" value="<?= $paper_id ?>">
+            <div class="form-group">
+                <label for="question">Question</label>
+                <textarea id="question" name="question" 
+                          placeholder="Enter the question text here..." 
+                          required></textarea>
+            </div>
 
-    <textarea name="question" placeholder="Question" required></textarea>
+            <div class="options-grid">
+                <div class="form-group">
+                    <label for="option_a">Option A</label>
+                    <input type="text" id="option_a" name="option_a" 
+                           placeholder="Option A" 
+                           required>
+                </div>
 
-    <input type="text" name="option_a" placeholder="Option A" required>
-    <input type="text" name="option_b" placeholder="Option B" required>
-    <input type="text" name="option_c" placeholder="Option C" required>
-    <input type="text" name="option_d" placeholder="Option D" required>
+                <div class="form-group">
+                    <label for="option_b">Option B</label>
+                    <input type="text" id="option_b" name="option_b" 
+                           placeholder="Option B" 
+                           required>
+                </div>
 
-    <select name="correct_option" required>
-        <option value="">Correct Option</option>
-        <option value="A">A</option>
-        <option value="B">B</option>
-        <option value="C">C</option>
-        <option value="D">D</option>
-    </select>
+                <div class="form-group">
+                    <label for="option_c">Option C</label>
+                    <input type="text" id="option_c" name="option_c" 
+                           placeholder="Option C" 
+                           required>
+                </div>
 
-    <textarea name="explanation" placeholder="Explanation (optional)"></textarea>
+                <div class="form-group">
+                    <label for="option_d">Option D</label>
+                    <input type="text" id="option_d" name="option_d" 
+                           placeholder="Option D" 
+                           required>
+                </div>
+            </div>
 
-    <button type="submit">Save Question</button>
-</form>
+            <div class="form-group">
+                <label for="correct_option">Correct Option</label>
+                <select id="correct_option" name="correct_option" required>
+                    <option value="">Select Correct Option</option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                </select>
+            </div>
 
-<hr>
+            <div class="form-group">
+                <label for="explanation">Explanation (Optional)</label>
+                <textarea id="explanation" name="explanation" 
+                          placeholder="Explain why this is the correct answer..."></textarea>
+            </div>
 
-<h3>Existing Questions</h3>
+            <button type="submit" class="btn btn-primary btn-full">Save Question</button>
+        </form>
 
-<?php
-$q = $conn->query("
-    SELECT question FROM pyq_questions WHERE paper_id=$paper_id
-");
-$i=1;
-while($row=$q->fetch_assoc()){
-    echo "<p>$i. ".htmlspecialchars($row['question'])."</p>";
-    $i++;
-}
-?>
+        <a href="pyq_papers.php" class="btn-back">← Back to PYQ Papers</a>
+    </div>
 
+    <div class="section-header" style="margin-top: 50px;">
+        <h2>📋 Existing Questions (<?php
+            $count = $conn->query("SELECT COUNT(*) as total FROM pyq_questions WHERE paper_id=$paper_id")->fetch_assoc()['total'];
+            echo $count;
+        ?>)</h2>
+    </div>
+
+    <div class="form-container">
+        <?php
+        $q = $conn->query("
+            SELECT * FROM pyq_questions WHERE paper_id=$paper_id ORDER BY id ASC
+        ");
+        $i=1;
+        if($q && $q->num_rows > 0){
+            while($row=$q->fetch_assoc()){
+        ?>
+            <div style="background: #f9fafb; padding: 20px; border-radius: 8px; margin-bottom: 15px; border-left: 4px solid #2563eb;">
+                <p style="font-weight: 600; color: #1f2937; margin-bottom: 10px;">
+                    Q<?= $i ?>. <?= htmlspecialchars($row['question']) ?>
+                </p>
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 10px;">
+                    <div style="padding: 8px; background: <?= $row['correct_option'] == 'A' ? '#d1fae5' : '#f3f4f6' ?>; border-radius: 6px;">
+                        <strong>A:</strong> <?= htmlspecialchars($row['option_a']) ?>
+                    </div>
+                    <div style="padding: 8px; background: <?= $row['correct_option'] == 'B' ? '#d1fae5' : '#f3f4f6' ?>; border-radius: 6px;">
+                        <strong>B:</strong> <?= htmlspecialchars($row['option_b']) ?>
+                    </div>
+                    <div style="padding: 8px; background: <?= $row['correct_option'] == 'C' ? '#d1fae5' : '#f3f4f6' ?>; border-radius: 6px;">
+                        <strong>C:</strong> <?= htmlspecialchars($row['option_c']) ?>
+                    </div>
+                    <div style="padding: 8px; background: <?= $row['correct_option'] == 'D' ? '#d1fae5' : '#f3f4f6' ?>; border-radius: 6px;">
+                        <strong>D:</strong> <?= htmlspecialchars($row['option_d']) ?>
+                    </div>
+                </div>
+                <?php if(!empty($row['explanation'])): ?>
+                    <p style="margin-top: 10px; padding: 10px; background: #eff6ff; border-radius: 6px; color: #1e40af;">
+                        <strong>Explanation:</strong> <?= htmlspecialchars($row['explanation']) ?>
+                    </p>
+                <?php endif; ?>
+            </div>
+        <?php 
+                $i++;
+            }
+        } else {
+            echo "<p style='color:#6b7280; text-align:center; padding:20px;'>No questions added yet. Add your first question above.</p>";
+        }
+        ?>
+    </div>
 </div>
+
 </body>
 </html>
