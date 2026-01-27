@@ -19,11 +19,6 @@ body{
     margin:40px auto;
     padding:20px;
 }
-h1{
-    text-align:center;
-    color:#0d47a1;
-    font-weight:500;
-}
 
 /* SUBJECT BUTTONS */
 .subject-buttons{
@@ -102,6 +97,7 @@ h1{
             margin-bottom: 50px;
             background-color: black;
             color: white;
+            padding: 50px;
         }
 </style>
 </head>
