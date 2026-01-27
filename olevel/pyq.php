@@ -24,17 +24,32 @@ h1{
     color:#0d47a1;
     font-weight:500;
 }
-.select-box{
-    max-width:400px;
-    margin:30px auto;
+
+/* SUBJECT BUTTONS */
+.subject-buttons{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:15px;
+    margin:30px 0;
 }
-select{
-    width:100%;
-    padding:12px;
-    font-size:15px;
-    border-radius:8px;
-    border:1px solid #cfd8dc;
+.subject-btn{
+    background:#ffffff;
+    border:2px solid #1976d2;
+    color:#1976d2;
+    padding:12px 22px;
+    border-radius:30px;
+    font-size:14px;
+    cursor:pointer;
+    transition:.3s;
 }
+.subject-btn:hover,
+.subject-btn.active{
+    background:#1976d2;
+    color:#fff;
+}
+
+/* PYQ CARDS */
 .pyq-grid{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
@@ -73,6 +88,7 @@ select{
 .loading{
     text-align:center;
     color:#555;
+    grid-column:1/-1;
 }
 </style>
 </head>
@@ -85,37 +101,41 @@ select{
 
 <h1>Previous Year Questions (PYQ)</h1>
 
-<div class="select-box">
-    <select id="subject">
-        <option value="">Select Subject</option>
-        <?php
-        $subjects = $conn->query("SELECT id, subject_name FROM subjects ORDER BY id ASC");
-        while($s=$subjects->fetch_assoc()){
-            echo "<option value='{$s['id']}'>".htmlspecialchars($s['subject_name'])."</option>";
-        }
-        ?>
-    </select>
+<!-- SUBJECT BUTTONS -->
+<div class="subject-buttons">
+<?php
+$subjects = $conn->query("SELECT id, subject_name FROM subjects ORDER BY id ASC");
+while($s = $subjects->fetch_assoc()){
+    echo "<button class='subject-btn' data-id='{$s['id']}'>"
+         .htmlspecialchars($s['subject_name']).
+         "</button>";
+}
+?>
 </div>
 
+<!-- PYQ RESULT -->
 <div id="pyqResult" class="pyq-grid"></div>
 
 </div>
 
 <script>
-document.getElementById('subject').addEventListener('change', function(){
-    let subjectId = this.value;
-    let box = document.getElementById('pyqResult');
+const buttons = document.querySelectorAll('.subject-btn');
+const box = document.getElementById('pyqResult');
 
-    if(subjectId===""){
-        box.innerHTML = "";
-        return;
-    }
+buttons.forEach(btn=>{
+    btn.addEventListener('click', function(){
 
-    box.innerHTML = "<div class='loading'>Loading PYQs...</div>";
+        // active button highlight
+        buttons.forEach(b=>b.classList.remove('active'));
+        this.classList.add('active');
 
-    fetch("fetch_pyq.php?subject_id="+subjectId)
-        .then(res=>res.text())
-        .then(data=>box.innerHTML=data);
+        let subjectId = this.getAttribute('data-id');
+        box.innerHTML = "<div class='loading'>Loading PYQs...</div>";
+
+        fetch("fetch_pyq.php?subject_id="+subjectId)
+            .then(res=>res.text())
+            .then(data=>box.innerHTML=data);
+    });
 });
 </script>
 
