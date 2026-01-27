@@ -97,7 +97,7 @@ body{
             margin-bottom: 50px;
             background-color: black;
             color: white;
-            padding: 50px;
+            margin: 50px;
         }
 </style>
 </head>
