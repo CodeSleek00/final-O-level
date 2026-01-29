@@ -275,34 +275,35 @@ body {
 </div>
 
 </div>
-
 <script>
 document.querySelectorAll('.question-card').forEach(card => {
     const correctAnswer = card.dataset.correct;
     const resultDiv = card.querySelector('.result');
-    
+
+    // correct option ka TEXT nikalna
+    const correctOptionInput = card.querySelector(
+        `input[value="${correctAnswer}"]`
+    );
+    const correctOptionText = correctOptionInput
+        ? correctOptionInput.parentElement.textContent.trim()
+        : '';
+
     card.querySelectorAll('input[type="radio"]').forEach(radio => {
         radio.addEventListener('change', () => {
             if (radio.value === correctAnswer) {
                 resultDiv.textContent = '✓ Correct Answer';
                 resultDiv.className = 'result correct';
             } else {
-                resultDiv.textContent = `✗ Incorrect. Correct answer is ${correctAnswer}`;
+                resultDiv.innerHTML = `
+                    ✗ Incorrect.<br>
+                    <strong>Correct Answer:</strong> ${correctOptionText}
+                `;
                 resultDiv.className = 'result wrong';
             }
             resultDiv.style.display = 'block';
         });
     });
 });
-
-function toggleExplanation(element) {
-    const explanation = element.nextElementSibling;
-    const isHidden = explanation.style.display !== 'block';
-    
-    explanation.style.display = isHidden ? 'block' : 'none';
-    element.textContent = isHidden ? 'Hide Explanation' : 'Show Explanation';
-}
 </script>
-
 </body>
-</html>
+</html> 
