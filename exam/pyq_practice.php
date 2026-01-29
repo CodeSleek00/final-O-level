@@ -205,6 +205,9 @@ body {
     color: #64748b;
     font-size: 14px;
 }
+.explanation.show {
+    display: block;
+}
 
 @media (max-width: 640px) {
     .container {
@@ -304,6 +307,15 @@ document.querySelectorAll('.question-card').forEach(card => {
         });
     });
 });
+function toggleExplanation(element) {
+    const explanation = element.nextElementSibling;
+
+    explanation.classList.toggle('show');
+    element.textContent = explanation.classList.contains('show')
+        ? 'Hide Explanation'
+        : 'Show Explanation';
+}
+
 </script>
 </body>
 </html> 
